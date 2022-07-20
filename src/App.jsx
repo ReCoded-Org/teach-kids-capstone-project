@@ -1,5 +1,4 @@
-import logo from "./logo.svg";
-import "./App.css";
+import Home from "./containers/Home";
 import { Routes, Route } from "react-router-dom";
 function App() {
     return (
@@ -7,11 +6,11 @@ function App() {
             <Routes>
                 {/* <Route path='/events' element={<Events />} /> */}
                 {/* <Route path='/event:id' element={<Event />} /> */}
-                {/* <Route path='/signIn' element={<SignIn />} /> */}
-                {/* <Route path='/signUp' element={<VolunteerOrNgo />} /> */}
-                {/* <Route path='/volunterPage' element={<VolunterPage />} /> */}
-                {/* <Route path='/nGO' element={<NGO />} /> */}
-                {/* <Route path='/' element={<Home />} /> */}
+                {/* <Route path='/sign-in' element={<SignIn />} /> */}
+                {/* <Route path='/sign-up' element={<VolunteerOrNgo />} /> */}
+                {/* <Route path='/volunteer-profile' element={< VolunteerProfile. />} /> */}
+                {/* <Route path='/ngo' element={<NGO />} /> */}
+                <Route path='/' element={<Home />} />
             </Routes>
         </div>
     );
