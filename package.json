@@ -43,6 +43,7 @@
     "devDependencies": {
         "@tailwindcss/forms": "^0.5.2",
         "autoprefixer": "^10.4.7",
+        "cz-conventional-changelog": "^3.3.0",
         "eslint": "^8.20.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-config-react-app": "^7.0.1",
@@ -66,5 +67,10 @@
         "src/**/*.{json,css,scss,md}": [
             "prettier -w"
         ]
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     }
 }
