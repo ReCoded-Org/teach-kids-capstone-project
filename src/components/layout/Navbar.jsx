@@ -148,10 +148,10 @@ function Navbar() {
                             className=' ml-1 inline-block h-4 w-3'
                             alt=''
                         />
-                        {/* ============= Start (language dropdown menu on big size screen section) ============= */}
+                        {/* ============= Start (language dropdown-menu on big size screen section) ============= */}
                         <ul
                             className={
-                                lang
+                                !lang
                                     ? " w-18 absolute top-8 -left-0.5 -z-10    transform rounded border-2   border-white  bg-red p-0 py-1   font-semibold text-white shadow-lg transition  duration-200 ease-out"
                                     : "hidden "
                             }
@@ -166,7 +166,7 @@ function Navbar() {
                                 English
                             </li>
                         </ul>
-                        {/* ============= End (language dropdown menu on big size screen section) ============= */}
+                        {/* ============= End (language dropdown-menu on big size screen section) ============= */}
                     </div>
                 </div>
                 {/* ============= End (sign-in sign-up Buttons section) ============= */}
