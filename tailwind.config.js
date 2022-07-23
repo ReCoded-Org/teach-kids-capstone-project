@@ -7,6 +7,12 @@ module.exports = {
             fontFamily: {
                 primary: ["Inter", ...fontFamily.sans],
             },
+            colors: {
+                "blue-dark": "#1D3557",
+                "blue-light": "#6C93AB",
+                white: "#FFFFFF",
+                red: "#F05454",
+            },
         },
     },
     plugins: [require("@tailwindcss/forms")],
