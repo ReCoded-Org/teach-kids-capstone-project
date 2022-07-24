@@ -7,7 +7,7 @@ function HeroSection() {
         <>
             <section className='my-3 grid grid-cols-1 bg-white p-4 py-8 sm:grid-cols-2 md:px-36'>
                 <main className='row'>
-                    <h1 className=' my-4 mb-6  text-5xl font-semibold text-blue-dark'>
+                    <h1 className=' my-4 mb-6  font-quicksand text-5xl font-semibold text-blue-dark'>
                         Reach
                     </h1>
                     <p className='text-md my-6 mb-4  font-SourceSansPro  leading-5 text-blue-dark'>
