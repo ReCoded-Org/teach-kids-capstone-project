@@ -1,9 +1,9 @@
 import React from "react";
-
+import HeroSection from "./heroSection/HeroSection";
 function Home() {
     return (
         <>
-            <h3>Home Page</h3>
+            <HeroSection />
         </>
     );
 }
