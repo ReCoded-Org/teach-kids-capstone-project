@@ -1,10 +1,10 @@
 import React from "react";
-
+import ContactUs from "../components/layout/ContactUs";
 function Home() {
     return (
-        <>
-            <h3>Home Page</h3>
-        </>
+      <>
+      <ContactUs /> 
+      </>
     );
 }
 
