@@ -19,6 +19,12 @@ module.exports = {
             padding: {
                 1.75: "0.45rem",
             },
+            colors: {
+                "blue-dark": "#1D3557",
+                "blue-light": "#6C93AB",
+                white: "#FFFFFF",
+                red: "#F05454",
+            },
         },
     },
     plugins: [require("@tailwindcss/forms")],
