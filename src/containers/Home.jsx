@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../components/layout/Navbar/Navbar";
 import "../App.css";
-
-// colors{1D3557,F05454}
-
+import HeroSection from "../components/HeroSection/HeroSection";
 function Home() {
-    return <Navbar />;
+    return (
+        <>
+            <Navbar />
+            <HeroSection />
+        </>
+    );
 }
 
 export default Home;
