@@ -25,7 +25,7 @@ exports[`renders correctly 1`] = `
         onClick={[Function]}
       >
         <button
-          className="mw-40   w-32  border bg-blue-light px-2 py-1.75 text-white	duration-300  ease-linear hover:rounded hover:border-blue-dark hover:bg-white  hover:text-blue-dark hover:shadow"
+          className="mw-40 w-32 border bg-blue-light px-2 py-2 text-white duration-300 ease-linear hover:rounded hover:border-blue-dark hover:bg-white  hover:text-blue-dark hover:shadow"
           href=""
         >
           volunteer with us
@@ -36,7 +36,7 @@ exports[`renders correctly 1`] = `
         onClick={[Function]}
       >
         <button
-          className="w-32  rounded-sm border border-blue-light bg-white py-1.75 px-1 text-blue-dark duration-300 ease-linear hover:bg-blue-light hover:text-white hover:shadow "
+          className="w-32  rounded-sm border border-blue-light bg-white py-1.75 px-1 text-blue-dark duration-300 ease-linear hover:border-2 hover:bg-blue-light hover:text-white hover:shadow "
           href=""
         >
           upcoming Events

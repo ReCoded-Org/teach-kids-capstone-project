@@ -1,6 +1,6 @@
 import React from "react";
-import "../../App.css";
-import logo from "../../assets/landing_page 1.png";
+import "../../../App.css";
+import logo from "../../../assets/landing_page 1.png";
 import { Link } from "react-router-dom";
 function HeroSection() {
     return (
@@ -19,7 +19,7 @@ function HeroSection() {
                         <Link to='/volunteer-profile'>
                             <button
                                 href=''
-                                className='mw-40   w-32  border bg-blue-light px-2 py-1.75 text-white	duration-300  ease-linear hover:rounded hover:border-blue-dark hover:bg-white  hover:text-blue-dark hover:shadow'
+                                className='mw-40 w-32 border bg-blue-light px-2 py-2 text-white duration-300 ease-linear hover:rounded hover:border-blue-dark hover:bg-white  hover:text-blue-dark hover:shadow'
                             >
                                 volunteer with us
                             </button>
@@ -27,7 +27,7 @@ function HeroSection() {
                         <Link to='/events'>
                             <button
                                 href=''
-                                className='w-32  rounded-sm border border-blue-light bg-white py-1.75 px-1 text-blue-dark duration-300 ease-linear hover:bg-blue-light hover:text-white hover:shadow '
+                                className='w-32  rounded-sm border border-blue-light bg-white py-1.75 px-1 text-blue-dark duration-300 ease-linear hover:border-2 hover:bg-blue-light hover:text-white hover:shadow '
                             >
                                 upcoming Events
                             </button>
