@@ -1,7 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .diagonal-box {
 	/* background-image: linear-gradient(45deg, #6303B1, #ff0099); */
   transform: skewY(-2deg);

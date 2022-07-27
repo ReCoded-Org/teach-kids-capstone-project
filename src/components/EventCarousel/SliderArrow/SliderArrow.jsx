@@ -1,6 +1,7 @@
 import React from "react";
-import leftArrowSvg from "../../images/chevron-left.svg";
-import rightArrowSvg from "../../images/chevron-right.svg";
+import leftArrowSvg from "../images/chevron-left.svg";
+import rightArrowSvg from "../images/chevron-right.svg";
+import './SliderArrow.css';
 
 const SliderArrow = ({ leftOrRight, onClick }) => {
   return (
