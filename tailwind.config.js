@@ -15,15 +15,11 @@ module.exports = {
                 white: "#FFFFFF",
                 red: "#F05454",
                 gray: "#DDDDDD",
+                "light-gray": "#5E5E5E",
+                "blue-btn": "#457B9D",
             },
             padding: {
                 1.75: "0.45rem",
-            },
-            colors: {
-                "blue-dark": "#1D3557",
-                "blue-light": "#6C93AB",
-                white: "#FFFFFF",
-                red: "#F05454",
             },
         },
     },
