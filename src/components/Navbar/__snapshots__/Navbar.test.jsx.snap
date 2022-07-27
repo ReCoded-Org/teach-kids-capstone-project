@@ -1,0 +1,145 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<nav
+  className=" z-0  items-center  text-sm text-white md:flex md:h-16 md:justify-around md:bg-blue-dark "
+>
+  <div
+    className="flex items-center justify-between "
+  >
+    <a
+      href="/Home"
+      onClick={[Function]}
+    >
+      <img
+        alt="Reach Logo"
+        className="  mx-3 mb-0 h-16 pt-2 "
+        src="Logo.png"
+      />
+    </a>
+    <div
+      className=" mx-2 flex h-8 w-8 flex-col items-center justify-center gap-1 rounded-full bg-blue-dark   text-white focus:outline-none md:hidden"
+      onClick={[Function]}
+    >
+      <span
+        className="block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out"
+      />
+      <span
+        className="block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out"
+      />
+      <span
+        className="block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out"
+      />
+    </div>
+  </div>
+  <ul
+    className=" hidden gap-6  font-light md:flex xl:gap-16"
+  >
+    <li
+      className=" w-full transform border-b-2  border-gray-700 pb-2 text-3xl duration-200 ease-linear hover:border-gray-200 hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0"
+    >
+      <a
+        className=""
+        href="/events"
+        onClick={[Function]}
+      >
+        Events
+      </a>
+    </li>
+    <li
+      className=" w-full border-b-2 border-gray-700 pb-2 text-3xl duration-200 ease-linear hover:border-gray-200 hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0"
+    >
+      <a
+        className=""
+        href="/contact-us"
+        onClick={[Function]}
+      >
+        Contact Us
+      </a>
+    </li>
+    <li
+      className=" w-full border-b-2 border-gray-700 pb-2 text-3xl duration-200 ease-linear hover:border-gray-200 hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0"
+    >
+      <a
+        className=""
+        href="/about-us"
+        onClick={[Function]}
+      >
+        About Us
+      </a>
+    </li>
+    <li
+      className=" w-full border-b-2 border-gray-700 pb-2 text-3xl duration-200 ease-linear hover:border-gray-200 hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto md:border-none md:pb-0"
+    >
+      <a
+        className=""
+        href="/about-us"
+        onClick={[Function]}
+      >
+        My Profile
+      </a>
+    </li>
+  </ul>
+  <div
+    className="hidden    md:flex md:gap-3"
+  >
+    <a
+      href="/sign-in"
+      onClick={[Function]}
+    >
+      <button
+        className=" w-full  transform rounded  border-2 py-1 px-6 text-xl font-semibold duration-200 ease-in hover:bg-gray-100 hover:font-bold hover:text-red  sm:ml-0  sm:w-44 sm:text-sm md:w-28   md:text-sm"
+      >
+        Sign In
+      </button>
+    </a>
+    <a
+      href="/sign-up"
+      onClick={[Function]}
+    >
+      <button
+        className="  hover:border-1 w-full   transform rounded bg-red  py-1.5 px-6  text-xl font-semibold duration-100 ease-in hover:bg-gray-100  hover:font-bold hover:text-red sm:w-44   sm:text-sm md:w-28"
+      >
+        Sign Up
+      </button>
+    </a>
+    <div
+      className="w-1 "
+    />
+    <div
+      className="  relative  top-1 z-0 hidden  w-12 rounded     shadow-xl  hover:bg-red   hover:text-white  md:block"
+      onClick={[Function]}
+    >
+      <img
+        alt=""
+        className=" ml-1 inline-block h-6 w-6"
+        src="language-svgrepo-com.svg"
+      />
+      <img
+        alt=""
+        className=" ml-1 inline-block h-4 w-3"
+        src="downArrow.svg"
+      />
+      <ul
+        className="hidden "
+      >
+        <li
+          className="py-0.5 px-2 hover:bg-blue-dark"
+        >
+          Arabic
+        </li>
+        <li
+          className="py-0.5 px-2 hover:bg-blue-dark"
+        >
+          Turkish
+        </li>
+        <li
+          className="py-0.5 px-2 hover:bg-blue-dark"
+        >
+          English
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
