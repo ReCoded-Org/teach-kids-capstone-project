@@ -26,6 +26,13 @@ module.exports = {
                 red: "#F05454",
             },
         },
+        colors: {
+            'blue-dark': '#1D3557',
+            'blue-light': '#6C93AB',
+            'white': '#FFFFFF',
+            'red': '#F05454',
+            'gray': '#DDDDDD',
+          },
     },
     plugins: [require("@tailwindcss/forms")],
 };
