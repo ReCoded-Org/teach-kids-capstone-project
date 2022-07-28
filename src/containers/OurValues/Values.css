@@ -1,0 +1,27 @@
+#slider-wrapper {
+    display: flex !important;
+    align-items: center !important;
+}
+
+.slick-dots {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.slick-dots li {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    margin: 0 20px;
+    padding: 12px;
+}
+
+.slider-text {
+    color: rgb(174, 174, 174);
+    text-align: left;
+    width: 30%;
+}
