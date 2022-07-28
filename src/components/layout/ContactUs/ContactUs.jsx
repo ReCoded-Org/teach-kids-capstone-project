@@ -1,7 +1,8 @@
 import React from "react";
-import Phone from "../../assets/Phone.png";
-import Message from "../../assets/Message.png";
-import Location from "../../assets/Location.png";
+import Phone from "../../../assets/Phone.png";
+import Message from "../../../assets/Message.png";
+import Location from "../../../assets/Location.png";
+import "./ContactUs.css";
 function ContactUs() {
     return (
      <div className='ContactUs flex items-center justify-between'>

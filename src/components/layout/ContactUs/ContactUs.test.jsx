@@ -1,5 +1,5 @@
 import renderer from "react-test-renderer";
-import ContactUs from "../layout/ContactUs";
+import ContactUs from "../ContactUs/ContactUs";
 
 it("renders correctly", () => {
     const tree = renderer.create(<ContactUs />).toJSON();
