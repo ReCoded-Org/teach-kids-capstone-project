@@ -1,10 +1,10 @@
 // import react from "react";
-import logo from '../../images/Logo.png'
-import twitter from '../../images/twitter.png'
-import linkedin from '../../images/linkedin.png'
-import instagram from '../../images/instagram.png'
-import facebook from '../../images/facebook.png'
-import youtube from '../../images/youtube.png'
+import logo from '../../../assets/Logo.png'
+import twitter from '../../../assets/twitter.png'
+import linkedin from '../../../assets/linkedin.png'
+import instagram from '../../../assets/instagram.png'
+import facebook from '../../../assets/facebook.png'
+import youtube from '../../../assets/youtube.png'
 
 export default function Footer(){
   return (
