@@ -1,24 +1,32 @@
-import React from "react";
-import NGOImage from "../assets/NGOImage.png";
-import "../App.css";
+import React, { useState } from "react";
+import "../../App.css";
+import NGOImage from "../../assets/NGOImage.png";
+import "../../App.css";
+// import EditInfoForm from "../../components/EditInfoForm/EditInfoForm";
 
-function AdminDashboard() {
+function AdminDashboardHeroSection() {
+    const [isHidden, setIsHidden] = useState(false);
+
     return (
         <>
-            <section className='flex flex-col justify-around gap-6 bg-gray  p-6 pb-12 md:px-20 lg:flex-row-reverse lg:gap-12 lg:px-10 xl:px-40'>
+            {isHidden ? (
+                <EditInfoForm setIsHidden={setIsHidden} isHidden={isHidden} />
+            ) : (
+                ""
+            )}
+            <section
+                className={
+                    "flex  flex-col justify-around gap-6  bg-gray p-6 pb-12 md:px-20 lg:flex-row-reverse lg:gap-12 lg:px-10 xl:px-40 "
+                }
+            >
                 <main className='md:mr-6 lg:w-2/3 xl:w-2/4 '>
-                    <div className='my-6  flex justify-around gap-6 md:justify-end '>
+                    <div className='my-6  flex justify-end gap-6 md:justify-end '>
                         <button
+                            onClick={() => setIsHidden(!isHidden)}
                             href=''
                             className='mw-40 hover:bg-transparent w-36 border border-blue-btn  bg-blue-btn p-1.5 font-semibold  text-white duration-300 ease-linear  hover:rounded hover:border-blue-btn hover:text-blue-btn  hover:shadow md:w-44'
                         >
                             Edit
-                        </button>
-                        <button
-                            href=''
-                            className='w-36 rounded-sm border border-blue-btn font-bold text-blue-btn duration-300 ease-linear hover:bg-blue-btn  hover:text-white hover:shadow md:w-44 '
-                        >
-                            Save
                         </button>
                     </div>
                     <div className='row1 grid md:flex md:flex-row-reverse  '>
@@ -74,4 +82,4 @@ function AdminDashboard() {
     );
 }
 
-export default AdminDashboard;
+export default AdminDashboardHeroSection;
