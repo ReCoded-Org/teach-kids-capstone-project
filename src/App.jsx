@@ -1,11 +1,13 @@
 import Home from "./containers/Home";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import AllEvents from "./containers/AllEvents";
+
 function App() {
     return (
         <div>
             <Routes>
-                {/* <Route path='/events' element={<Events />} /> */}
+                <Route path='/events' element={<AllEvents />} />
                 {/* <Route path='/event:id' element={<Event />} /> */}
                 {/* <Route path='/sign-in' element={<SignIn />} /> */}
                 {/* <Route path='/sign-up' element={<VolunteerOrNgo />} /> */}

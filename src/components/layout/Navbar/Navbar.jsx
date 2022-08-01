@@ -1,7 +1,7 @@
 import React, { Component, useState } from "react";
-import logo from "../../../assets/Logo.png";
-import language from "../../../assets/language-svgrepo-com.svg";
-import downArrow from "../../../assets/downArrow.svg";
+import logo from "../../../Assets/Logo.png";
+import language from "../../../Assets/language-svgrepo-com.svg";
+import downArrow from "../../../Assets/downArrow.svg";
 import { NavLink, Link } from "react-router-dom";
 
 function Navbar() {
@@ -15,7 +15,7 @@ function Navbar() {
         <>
             <nav className=' z-0  items-center  text-sm text-white md:flex md:h-16 md:justify-around md:bg-blue-dark '>
                 <div className='flex items-center justify-between '>
-                    <Link to='/Home'>
+                    <Link to='/'>
                         <img
                             src={logo}
                             className='  mx-3 mb-0 h-16 pt-2 '
