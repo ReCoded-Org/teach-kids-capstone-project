@@ -8,7 +8,7 @@ function Home() {
         <>
              <Navbar />
             <HeroSection /> 
-            <Event />
+            <Events />
         </>
     );
 }
