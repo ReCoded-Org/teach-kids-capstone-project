@@ -1,6 +1,7 @@
 import Home from "./containers/Home";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import Footer from '../src/components/layout/Footer/Footer'
 
 function App() {
     return (
