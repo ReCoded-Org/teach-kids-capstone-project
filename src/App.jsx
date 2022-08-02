@@ -9,7 +9,7 @@ function App() {
             <Routes>
                 <Route path='/events' element={<AllEvents />} />
                 {/* <Route path='/event:id' element={<Event />} /> */}
-                {/* <Route path='/sign-in' element={<SignIn />} /> */}
+                {/*<Route path='/sign-in' element={<SignIn />} />*/}
                 {/* <Route path='/sign-up' element={<VolunteerOrNgo />} /> */}
                 {/* <Route path='/volunteer-profile' element={< VolunteerProfile. />} /> */}
                 {/* <Route path='/ngo' element={<NGO />} /> */}
