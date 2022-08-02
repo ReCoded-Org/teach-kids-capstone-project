@@ -1,7 +1,7 @@
 import renderer from "react-test-renderer";
-import AboutUs from "../AboutUs";
+import ContactUs from "../ContactUs/ContactUs";
 
 it("renders correctly", () => {
-    const tree = renderer.create(<AboutUs />).toJSON();
+    const tree = renderer.create(<ContactUs />).toJSON();
     expect(tree).toMatchSnapshot();
 });
