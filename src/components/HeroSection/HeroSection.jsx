@@ -1,6 +1,6 @@
 import React from "react";
 import "../../App.css";
-import logo from "../../Assets/landing_page 1.png";
+import logo from "../../assets/landing_page 1.png";
 import { Link } from "react-router-dom";
 function HeroSection() {
     return (
