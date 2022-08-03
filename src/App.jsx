@@ -1,6 +1,8 @@
 import Home from "./containers/Home";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import SignUp from "./components/SignUp/SignUp";
+
 function App() {
     return (
         <div>
@@ -8,6 +10,7 @@ function App() {
                 {/* <Route path='/events' element={<Events />} /> */}
                 {/* <Route path='/event:id' element={<Event />} /> */}
                 {/* <Route path='/sign-in' element={<SignIn />} /> */}
+                <Route path='/sign-up' element={<SignUp />} />
                 {/* <Route path='/sign-up' element={<VolunteerOrNgo />} /> */}
                 {/* <Route path='/volunteer-profile' element={< VolunteerProfile. />} /> */}
                 {/* <Route path='/ngo' element={<NGO />} /> */}

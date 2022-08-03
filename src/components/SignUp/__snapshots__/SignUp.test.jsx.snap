@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className=" bg-blue-dark"
+>
+  <div
+    className="flex justify-between pl-12 pr-12 pt-8"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <img
+        alt="Reach"
+        src="Logo.png"
+      />
+    </a>
+    <img
+      alt="close"
+      className="hover:scale-125 hover:cursor-pointer"
+      onClick={[Function]}
+      src="close-menu.svg"
+    />
+  </div>
+  <div
+    className="flex w-full justify-evenly p-20"
+  >
+    <img
+      alt="a drawing of a young woman working on her desk"
+      className="lg:5/12 w-0 md:w-5/12"
+      src="signup.jpg"
+    />
+    <div
+      className="w-full md:w-4/12"
+    >
+      <h1
+        className=" pb-5 font-quicksand text-4xl font-bold text-gray"
+      >
+        Sign Up
+      </h1>
+      <form
+        className="flex flex-col gap-3 font-SourceSansPro text-lg text-gray"
+        onSubmit={[Function]}
+      >
+        <p
+          className="flex flex-row font-SourceSansPro"
+        >
+          If you already have an account register, you can
+          <a
+            href="/log-in"
+            onClick={[Function]}
+          >
+            <p
+              className="ml-1 text-red hover:scale-105"
+            >
+              login here!
+            </p>
+          </a>
+        </p>
+        <div
+          className="float-right flex gap-4"
+        >
+          <img
+            alt="email icon"
+            className="w-5"
+            src="message.svg"
+          />
+          <label
+            className="font-quicksand font-bold"
+          >
+            Email
+          </label>
+        </div>
+        <input
+          className=" border-0 border-b border-gray bg-blue-dark focus:outline-none"
+          name="email"
+          onChange={[Function]}
+          placeholder="Enter your email address"
+          type="text"
+          value=""
+        />
+        <div
+          className="float-right flex gap-4"
+        >
+          <img
+            alt="padlock icon"
+            className="w-5"
+            src="padlock.svg"
+          />
+          <label
+            className="font-quicksand font-bold"
+          >
+            Username
+          </label>
+        </div>
+        <input
+          className="border-0 border-b border-gray bg-blue-dark focus:outline-none"
+          name="username"
+          onChange={[Function]}
+          placeholder="Enter your username address"
+          type="text"
+          value=""
+        />
+        <div
+          className="float-right flex gap-4"
+        >
+          <img
+            alt="padlock icon"
+            className="w-5"
+            src="padlock.svg"
+          />
+          <label
+            className="font-quicksand font-bold"
+          >
+            Password
+          </label>
+        </div>
+        <input
+          className="border-0 border-b border-gray bg-blue-dark focus:outline-none"
+          name="password"
+          onChange={[Function]}
+          placeholder="Enter your password"
+          type="password"
+          value=""
+        />
+        <div
+          className="float-right flex gap-4"
+        >
+          <img
+            alt="padlock icon"
+            className="w-5"
+            src="padlock.svg"
+          />
+          <label
+            className="font-quicksand font-bold"
+          >
+            Confirm Password
+          </label>
+        </div>
+        <input
+          className="border-0 border-b border-gray bg-blue-dark focus:outline-none"
+          name="confirmPassword"
+          onChange={[Function]}
+          placeholder="Confirm your password"
+          type="password"
+          value=""
+        />
+        <button
+          className="mt-4 h-12 w-full rounded bg-red font-quicksand text-2xl font-bold text-gray hover:scale-105"
+        >
+          Sign Up
+        </button>
+        <h4
+          className="flex justify-center"
+        >
+          or continue with
+        </h4>
+        <div
+          className="flex w-full flex-row justify-center gap-3"
+        >
+          <img
+            alt="google icon"
+            className="hover:scale-125"
+            src="google.svg"
+          />
+          <img
+            alt="facebook icon"
+            className="hover:scale-125"
+            src="facebook.svg"
+          />
+          <img
+            alt="apple icon"
+            className="hover:scale-125"
+            src="apple.svg"
+          />
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;
