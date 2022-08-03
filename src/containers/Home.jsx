@@ -12,6 +12,7 @@ function Home() {
         <>
             <Navbar />
             <HeroSection />
+
             <Events />
             <ContactUs /> 
             <Footer />
