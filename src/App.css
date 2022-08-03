@@ -41,3 +41,18 @@
         transform: rotate(360deg);
     }
 }
+.App {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  .contactIcon {
+    width: 5rem;
+    height: 2rem;
+    margin-bottom: 1rem;
+}
+@media only screen and (max-width: 600px) {
+    .container {
+      background-color: lightblue;
+    }
+  }
+
