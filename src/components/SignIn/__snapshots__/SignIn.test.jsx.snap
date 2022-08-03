@@ -5,7 +5,7 @@ exports[`renders correctly 1`] = `
   className=" bg-blue-dark"
 >
   <div
-    className="flex justify-between pl-12 pr-12 pt-8"
+    className="flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2"
   >
     <a
       href="/"
@@ -28,14 +28,14 @@ exports[`renders correctly 1`] = `
   >
     <img
       alt="a drawing of a little boy in a classroom raising his hand"
-      className="w-0 md:w-4/12 lg:4/12"
-      src="SigninPic.jpg"
+      className="w-0 md:w-5/12 lg:5/12"
+      src="SigninPic.png"
     />
     <div
-      className="w-full md:w-4/12"
+      className="w-full md:w-4/12 pt-16"
     >
       <h1
-        className=" text-gray pb-6 font-bold font-heading text-4xl"
+        className=" text-gray pb-6 font-bold font-heading text-5xl"
       >
         Sign In
       </h1>

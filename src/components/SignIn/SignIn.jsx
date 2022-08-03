@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link,useNavigate} from "react-router-dom";
-import SigninPic from "../../assets/SigninPic.jpg";
+import SigninPic from "../../assets/SigninPic.png";
 import google from "../../assets/google.svg";
 import facebook from "../../assets/facebook.svg";
 import apple from "../../assets/apple.svg";
@@ -35,7 +35,7 @@ function SignIn() {
     }
   return(
     <div className=' bg-blue-dark'>
-    <div className='flex justify-between pl-12 pr-12 pt-8'>
+    <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
                 <Link to='/'>
                     <img src={Logo} alt='Reach' />
                 </Link>
@@ -43,18 +43,18 @@ function SignIn() {
                     src={close}
                     alt='close'
                     className='hover:scale-125 hover:cursor-pointer'
-                    onClick={() => navigate("-1")}
+                    onClick={() => navigate(-1)}
                 />
                 </div>
     <div className="w-full p-24 bg-blue-dark flex justify-evenly">
       <img
           src={SigninPic}
           alt={'a drawing of a little boy in a classroom raising his hand'}
-          className="w-0 md:w-4/12 lg:4/12"
+          className="w-0 md:w-5/12 lg:5/12"
           />
 
-      <div className="w-full md:w-4/12">
-        <h1 className=" text-gray pb-6 font-bold font-heading text-4xl" >
+      <div className="w-full md:w-4/12 pt-16">
+        <h1 className=" text-gray pb-6 font-bold font-heading text-5xl" >
           Sign In
         </h1>
         <form className="flex flex-col gap-3 font-body text-lg text-gray" onSubmit={handleSubmit}>
