@@ -2,9 +2,10 @@ import Home from "./containers/Home";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
+
 function App() {
     return (
-        <div>
+        <div className=''>
             <Routes>
                 {/* <Route path='/events' element={<Events />} /> */}
                 {/* <Route path='/event:id' element={<Event />} /> */}
