@@ -18,12 +18,15 @@ module.exports = {
                 "light-gray": "#5E5E5E",
                 "blue-btn": "#457B9D",
                 black: "#0E0E0E",
+                primary: "#1D3557",
+                secondary: "#457B9D",
+                redButton: "#F05454",
             },
             padding: {
                 1.75: "0.45rem",
             },
         },
-        
     },
+
     plugins: [require("@tailwindcss/forms")],
 };

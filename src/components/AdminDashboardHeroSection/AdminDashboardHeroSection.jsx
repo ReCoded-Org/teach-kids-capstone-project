@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../App.css";
 import NGOImage from "../../assets/NGOImage.png";
 import "../../App.css";
-// import EditInfoForm from "../../components/EditInfoForm/EditInfoForm";
+import EditInfoForm from "../../components/EditInfoForm/EditInfoForm";
 
 function AdminDashboardHeroSection() {
     const [isHidden, setIsHidden] = useState(false);
@@ -24,7 +24,7 @@ function AdminDashboardHeroSection() {
                         <button
                             onClick={() => setIsHidden(!isHidden)}
                             href=''
-                            className='mw-40 hover:bg-transparent w-36 border border-blue-btn  bg-blue-btn p-1.5 font-semibold  text-white duration-300 ease-linear  hover:rounded hover:border-blue-btn hover:text-blue-btn  hover:shadow md:w-44'
+                            className='mw-40 w-36 border border-blue-btn bg-blue-btn  p-1.5 font-semibold text-white  duration-300 ease-linear hover:rounded  hover:border-blue-btn hover:bg-transparent hover:text-blue-btn  hover:shadow md:w-44'
                         >
                             Edit
                         </button>
