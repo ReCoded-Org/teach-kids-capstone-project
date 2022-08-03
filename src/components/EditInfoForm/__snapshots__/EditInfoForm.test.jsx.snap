@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className=" a bg-black fixed flex h-screen	w-screen items-center justify-center bg-opacity-30 transition duration-700 ease-in-out	 "
+>
+  <div
+    className=" grid w-11/12  rounded-lg  bg-white p-6 shadow-lg sm:w-3/5 lg:w-2/5"
+  >
+    <div
+      className="flex justify-between "
+    >
+      <h1
+        className="  mb-4 font-quicksand text-2xl"
+      >
+        Edit Intro
+      </h1>
+      <button
+        className="my-2 justify-self-end rounded-lg bg-blue-dark py-2 px-8 font-SourceSansPro  text-white shadow-lg"
+        onClick={[Function]}
+      >
+        Close
+      </button>
+    </div>
+    <div
+      className="my-4"
+    >
+      <label>
+        Website Address :
+      </label>
+      <input
+        className="form-control text-gray-700 border-gray-300 focus:text-gray-700 focus:border-blue-600 mt-1 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal
+ transition ease-in-out focus:bg-white focus:outline-none"
+        id="exampleInput8"
+        name="webAddress"
+        onChange={[Function]}
+        placeholder=" Website Address"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="my-4"
+    >
+      <label>
+        Name :
+      </label>
+      <input
+        className="form-control text-gray-700 border-gray-300 focus:text-gray-700 focus:border-blue-600 mt-1 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal
+ transition ease-in-out focus:bg-white focus:outline-none"
+        id="name"
+        name="name"
+        onChange={[Function]}
+        placeholder=" Name "
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="my-3"
+    >
+      <label
+        className=""
+        htmlFor=""
+      >
+        Location :
+      </label>
+      <input
+        className="form-control text-gray-700 border-gray-300 focus:text-gray-700 focus:border-blue-600 mt-1 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal
+ transition ease-in-out focus:bg-white focus:outline-none"
+        name="location"
+        onChange={[Function]}
+        placeholder="Location"
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="my-3"
+    >
+      <label
+        className=""
+        htmlFor=""
+      >
+        Phone Number :
+      </label>
+      <input
+        className="form-control text-gray-700 border-gray-300 focus:text-gray-700 focus:border-blue-600 mt-1 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal
+ transition ease-in-out focus:bg-white focus:outline-none"
+        name="phoneNumber"
+        onChange={[Function]}
+        placeholder=" Phone Number "
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="my-3"
+    >
+      <label
+        className=""
+        htmlFor=""
+      >
+        Email Address :
+      </label>
+      <input
+        className="form-control text-gray-700 border-gray-300 focus:text-gray-700 focus:border-blue-600 mt-1 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal
+ transition ease-in-out focus:bg-white focus:outline-none"
+        name="emailAddress"
+        onChange={[Function]}
+        placeholder="  Email Address "
+        type="text"
+        value=""
+      />
+    </div>
+    <div
+      className="my-3"
+    >
+      <label
+        className="text-gray-900 dark:text-gray-400  "
+        htmlFor="message"
+      >
+        Organization Bio :
+      </label>
+      <textarea
+        className="text-gray-900 bg-gray-50 border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-1 block w-full rounded-lg border p-2.5 text-sm dark:text-white"
+        name="organizationBio"
+        onChange={[Function]}
+        placeholder="Your message..."
+        rows="4"
+        value=""
+      />
+    </div>
+    <button
+      className="my-2 justify-self-end rounded-lg bg-blue-dark py-2 px-8 font-SourceSansPro  text-white shadow-lg"
+    >
+      Save
+    </button>
+  </div>
+</div>
+`;
