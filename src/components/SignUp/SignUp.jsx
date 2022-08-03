@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import signup from "src/assets/signup.jpg";
 import google from "src/assets/google.svg";
 import facebook from "src/assets/facebook.svg";
 import apple from "src/assets/apple.svg";
@@ -8,6 +7,7 @@ import message from "src/assets/message.svg";
 import padlock from "src/assets/padlock.svg";
 import close from "src/assets/close-menu.svg";
 import Logo from "src/assets/Logo.png";
+import signup from "src/assets/signup.png";
  
 function SignUp() {
  
@@ -33,7 +33,7 @@ function SignUp() {
  
     return (
         <div className=' bg-blue-dark'>
-            <div className='flex justify-between pl-12 pr-12 pt-8'>
+            <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
                 <Link to='/'>
                     <img src={Logo} alt='Reach' />
                 </Link>
@@ -41,7 +41,7 @@ function SignUp() {
                     src={close}
                     alt='close'
                     className='hover:scale-125 hover:cursor-pointer'
-                    onClick={() => navigate("-1")}
+                    onClick={() => navigate(-1)}
                 />
             </div>
             <div className='flex w-full justify-evenly p-20'>

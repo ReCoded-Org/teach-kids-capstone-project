@@ -5,7 +5,7 @@ exports[`renders correctly 1`] = `
   className=" bg-blue-dark"
 >
   <div
-    className="flex justify-between pl-12 pr-12 pt-8"
+    className="flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2"
   >
     <a
       href="/"
@@ -29,7 +29,7 @@ exports[`renders correctly 1`] = `
     <img
       alt="a drawing of a young woman working on her desk"
       className="lg:5/12 w-0 md:w-5/12"
-      src="signup.jpg"
+      src="signup.png"
     />
     <div
       className="w-full md:w-4/12"
