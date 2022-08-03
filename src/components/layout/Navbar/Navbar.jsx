@@ -15,7 +15,7 @@ function Navbar() {
         <>
             <nav className=' z-0  items-center  text-sm text-white md:flex md:h-16 md:justify-around md:bg-blue-dark '>
                 <div className='flex items-center justify-between '>
-                    <Link to='/Home'>
+                    <Link to='/'>
                         <img
                             src={logo}
                             className='  mx-3 mb-0 h-16 pt-2 '
