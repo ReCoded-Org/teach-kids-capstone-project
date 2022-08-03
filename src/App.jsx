@@ -9,12 +9,12 @@ function App() {
         <div className=''>
             <Routes>
                 <Route path='/events' element={<AllEvents />} />
-                {/* <Route path='/event:id' element={<Event />} /> */}
+                <Route path='/event:id' element={<SingleEventPage />} />
                 {/*<Route path='/sign-in' element={<SignIn />} />*/}
                 {/* <Route path='/sign-up' element={<VolunteerOrNgo />} /> */}
                 {/* <Route path='/volunteer-profile' element={< VolunteerProfile. />} /> */}
                 {/* <Route path='/ngo' element={<NGO />} /> */}
-                <Route path='/' element={<SingleEventPage />} />
+                <Route path='/' element={<Home />} />
             </Routes>
         </div>
     );
