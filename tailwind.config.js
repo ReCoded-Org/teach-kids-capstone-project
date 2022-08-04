@@ -25,7 +25,8 @@ module.exports = {
             padding: {
                 1.75: "0.45rem",
             },
-        }
-    },	        
+        },
+    },
+
     plugins: [require("@tailwindcss/forms")],
 };
