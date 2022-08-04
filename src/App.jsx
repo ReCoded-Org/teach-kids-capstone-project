@@ -2,6 +2,7 @@ import Home from "./containers/Home";
 import AdminDashboard from "./containers/AdminDashboard";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import SignUp from "./components/SignUp/SignUp";
 import SingleEventPage from "./containers/SingleEventPage";
 import AllEvents from "./containers/AllEvents";
 
@@ -10,6 +11,9 @@ function App() {
         <div className=''>
             <Routes>
                 <Route path='/events' element={<AllEvents />} />
+                {/* <Route path='/event:id' element={<Event />} /> */}
+                {/* <Route path='/sign-in' element={<SignIn />} /> */}
+                <Route path='/sign-up' element={<SignUp />} />
                 <Route path='/event:id' element={<SingleEventPage />} />
                 {/*<Route path='/sign-in' element={<SignIn />} />*/}
                 {/* <Route path='/sign-up' element={<VolunteerOrNgo />} /> */}

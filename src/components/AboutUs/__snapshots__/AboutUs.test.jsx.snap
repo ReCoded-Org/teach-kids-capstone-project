@@ -11,7 +11,7 @@ exports[`renders correctly 1`] = `
     className=" text-center text-lg text-white md:w-2/4 md:max-w-md md:text-left"
   >
     <h1
-      className="transform pb-3 font-heading text-3xl font-bold transition-all hover:text-blue-dark md:text-4xl"
+      className="transform pb-3 font-heading text-3xl font-bold transition-all md:text-4xl"
     >
       About Us
     </h1>
@@ -26,7 +26,7 @@ exports[`renders correctly 1`] = `
   >
     <img
       alt="a drawing of a studying kid"
-      className="ml-7 w-3/5 rounded-full border-4 border-gray transition-all md:mr-20 md:w-7/12 md:border-8 xl:mr-44"
+      className="ml-7 w-3/5 rounded-full border-4 border-gray md:mr-20 md:w-7/12 md:border-8 xl:mr-44"
       src="AboutUs.jpg"
     />
     <div
