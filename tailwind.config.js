@@ -5,9 +5,22 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                primary: ["Inter", ...fontFamily.sans],
-            },
+              primary: ["Inter", ...fontFamily.sans],
+              quicksand: ["Quicksand", ...fontFamily.sans],
+              SourceSansPro: ["Source Sans Pro", ...fontFamily.sans],
+          },
+          colors: {
+            "blue-dark": "#1D3557",
+            "blue-light": "#6C93AB",
+            white: "#FFFFFF",
+            red: "#F05454",
+            gray: "#DDDDDD",
+            customGreen: '#457B9D'
         },
-    },
+        padding: {
+            1.75: "0.45rem",
+        },
+    },	        
+},
     plugins: [require("@tailwindcss/forms")],
 };

@@ -1,0 +1,34 @@
+.diagonal-box {
+	/* background-image: linear-gradient(45deg, #6303B1, #ff0099); */
+  transform: skewY(-2deg);
+} 
+.content { 	
+	max-width: 80%;
+    margin: 0 auto; 
+    transform: skewY(2deg);
+}
+
+.slick-slider {
+  display: flex;
+  flex-direction: row !important;
+  align-items: center;
+
+  .arrow {
+    margin-bottom: 3rem;
+  }
+
+  .slick-list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .col-md-4 {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+  }
+
+  .slick-track {
+    display: flex;
+  }
+}

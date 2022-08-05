@@ -1,0 +1,253 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="ContactUs flex items-center justify-between"
+>
+  <div
+    className="container mx-auto pt-16"
+  >
+    <div
+      className="lg:flex"
+    >
+      <div
+        className="xl:w-4/5 lg:w-4/5 py-20"
+      >
+        <div
+          className="col-md-6 col-sm-12"
+        >
+          <div
+            className="contactInfo col"
+          >
+            <h1
+              className="text-4xl mb-10"
+              style={
+                Object {
+                  "color": "#1D3557",
+                  "fontSize": 60,
+                  "fontWeight": "bold",
+                }
+              }
+            >
+              Contact Us
+            </h1>
+            <p
+              className="text-1xl mb-10 md:max-w-lg"
+              style={
+                Object {
+                  "color": "#1D3557",
+                }
+              }
+            >
+              Get the understanding you need to channel the books of spells you have always been smitten with, and boost sales which cartoon rabbits love to steal! Get the understanding you need to
+            </p>
+            <div
+              className="flex"
+            >
+              <div
+                className="flex-none w-14 grow h-5"
+              >
+                <img
+                  alt="Location icon"
+                  className="ContactUsImg"
+                  src="Location.png"
+                />
+                <p
+                  style={
+                    Object {
+                      "color": "#1D3557",
+                    }
+                  }
+                >
+                  9094 Bay Meadows Street Conyers, GA 30012
+                </p>
+              </div>
+              <div
+                className="flex-initial w-14 grow h-5"
+              >
+                <img
+                  alt="Phone icon"
+                  className="ContactUsImg"
+                  src="Phone.png"
+                />
+                <p
+                  style={
+                    Object {
+                      "color": "#1D3557",
+                    }
+                  }
+                >
+                  +229-955-5388-336
+                </p>
+                <p
+                  style={
+                    Object {
+                      "color": "#1D3557",
+                    }
+                  }
+                >
+                  +229-955-5373-360
+                </p>
+              </div>
+              <div
+                className="flex-initial w-14 grow h-5"
+              >
+                <img
+                  alt="Contact icon"
+                  className="ContactUsImg"
+                  src="Message.png"
+                />
+                <p
+                  style={
+                    Object {
+                      "color": "#1D3557",
+                    }
+                  }
+                >
+                  support@mail.com
+                </p>
+                <p
+                  style={
+                    Object {
+                      "color": "#1D3557",
+                    }
+                  }
+                >
+                  office@mail.com
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        className="FormContactUs xl:w-3/5 lg:w-3/5 pt-5 pb-5 xl:pr-5 xl:pl-0 rounded-tr"
+      >
+        <form
+          className="bg-white dark:bg-gray-800 py-4 px-8 rounded-tr"
+          id="contact"
+        >
+          <div
+            className="block xl:flex w-full flex-wrap justify-between mb-6"
+          >
+            <div
+              className="w-2/4 max-w-xs mb-6 xl:mb-0"
+            >
+              <div
+                className="flex flex-col"
+              >
+                <label
+                  className="text-sm font-semibold mb-2"
+                  style={
+                    Object {
+                      "color": "#1D3557",
+                    }
+                  }
+                >
+                  Full Name
+                </label>
+                <input
+                  className="FormTextContactUs focus:border focus:border-indigo-700 h-10 rounded border"
+                  id="full_name"
+                  name="full_name"
+                  placeholder="Full Name"
+                  required={true}
+                  style={
+                    Object {
+                      "backgroundColor": "#DDDDDD",
+                      "borderWidth": 0,
+                      "width": "580px",
+                    }
+                  }
+                  type="text"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="flex w-full flex-wrap"
+          >
+            <div
+              className="w-2/4 max-w-xs"
+            >
+              <div
+                className="flex flex-col"
+              >
+                <label
+                  className="text-sm font-semibold mb-2"
+                  style={
+                    Object {
+                      "color": "#1D3557",
+                    }
+                  }
+                >
+                  Email
+                </label>
+                <input
+                  className="FormTextContactUs focus:border focus:border-indigo-700 h-10 rounded border"
+                  id="email"
+                  name="email"
+                  placeholder="example@email.com"
+                  required={true}
+                  style={
+                    Object {
+                      "backgroundColor": "#DDDDDD",
+                      "borderWidth": 0,
+                      "width": "580px",
+                    }
+                  }
+                  type="email"
+                />
+              </div>
+            </div>
+          </div>
+          <div
+            className="w-full mt-6"
+          >
+            <div
+              className="flex flex-col"
+            >
+              <label
+                className="text-sm font-semibold mb-2"
+                style={
+                  Object {
+                    "color": "#1D3557",
+                  }
+                }
+              >
+                Message
+              </label>
+              <textarea
+                className="FormTextContactUs border-gray-300 border mb-4 rounded"
+                id="message"
+                name="message"
+                placeholder="Type Here"
+                rows="9"
+                style={
+                  Object {
+                    "backgroundColor": "#DDDDDD",
+                    "borderWidth": 0,
+                    "width": "580px",
+                  }
+                }
+              />
+            </div>
+            <button
+              className="rounded text-white px-8 py-3 focus:border-4 w-64"
+              style={
+                Object {
+                  "backgroundColor": "#1D3557",
+                  "borderWidth": 0,
+                }
+              }
+              type="submit"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+`;
