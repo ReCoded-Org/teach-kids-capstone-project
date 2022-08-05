@@ -6,6 +6,7 @@ import SignUp from "./components/SignUp/SignUp";
 import SingleEventPage from "./containers/SingleEventPage";
 import AllEvents from "./containers/AllEvents";
 import SignIn from "./components/SignIn/SignIn";
+import Register from "./components/Reagister/Register";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                 {/* <Route path='/volunteer-profile' element={< VolunteerProfile. />} /> */}
                 <Route path='/' element={<AdminDashboard />} />
                 <Route path='/' element={<Home />} />
+                <Route path='/register' element={<Register />} />
             </Routes>
         </div>
     );
