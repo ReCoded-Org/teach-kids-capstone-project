@@ -15,6 +15,7 @@ module.exports = {
             white: "#FFFFFF",
             red: "#F05454",
             gray: "#DDDDDD",
+            customGreen: '#457B9D'
         },
         padding: {
             1.75: "0.45rem",
