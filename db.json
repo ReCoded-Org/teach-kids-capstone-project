@@ -1,0 +1,16 @@
+{
+  "contactus": [
+    {
+      "Fullname": "Aya",
+      "email": "ayamidani98@gmail.com",
+      "Message": "hello the website is awesome ",
+      "id": 1
+    },
+    {
+      "Fullname": "Aya",
+      "email": "Aya@gmail.com",
+      "Message": "esdfd",
+      "id": 2
+    }
+  ]
+}

@@ -15,13 +15,4 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
         monospace;
 }
-@media only screen and (max-width: 600px) {
-    .ContactUs .contactInfo  {
-      font-size: 13px;
-      margin-left: 30px;
-      max-width: 400px;
-    }
-    .FormTextContactUs{
-        max-width: 400px;
-    }
-}
+
