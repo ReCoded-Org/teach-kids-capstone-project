@@ -6,7 +6,7 @@ import SignUp from "./components/SignUp/SignUp";
 import SingleEventPage from "./containers/SingleEventPage";
 import AllEvents from "./containers/AllEvents";
 import SignIn from "./components/SignIn/SignIn";
-import Register from "./components/Reagister/Register";
+import Register from "./components/Register/Register";
 
 function App() {
     return (
