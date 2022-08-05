@@ -7,6 +7,7 @@ import SingleEventPage from "./containers/SingleEventPage";
 import AllEvents from "./containers/AllEvents";
 import SignIn from "./components/SignIn/SignIn";
 
+
 function App() {
     return (
         <div className=''>

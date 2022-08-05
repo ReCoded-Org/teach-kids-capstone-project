@@ -1,5 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import { useMutation } from "react-query";
 import google from "src/assets/google.svg";
 import facebook from "src/assets/facebook.svg";
 import apple from "src/assets/apple.svg";
@@ -12,7 +13,7 @@ import signup from "src/assets/signup.png";
 function SignUp() {
  
     const navigate = useNavigate();
-
+ 
     const [formData, setFormData] = useState({
         username: "",
         email: "",
@@ -30,6 +31,17 @@ function SignUp() {
     function handleSubmit(event) {
         event.preventDefault();
     }
+ 
+    const SignUpFormData=useMutation((SignUpData)=>{
+        return fetch("http://localhost:3001/signup",{
+            method: "POST",
+            headers:{
+                Accept:"application/json",
+                "content-Type":"application/json"
+            },
+            body:JSON.stringify(SignUpData),
+        })
+    });
  
     return (
         <div className=' bg-blue-dark'>
@@ -80,6 +92,7 @@ function SignUp() {
                         <input
                             type='text'
                             name='email'
+                            id='email'
                             onChange={handleChange}
                             value={formData.email}
                             placeholder='Enter your email address'
@@ -98,6 +111,7 @@ function SignUp() {
                         <input
                             type='text'
                             name='username'
+                            id='username'
                             onChange={handleChange}
                             value={formData.username}
                             placeholder='Enter your username address'
@@ -116,6 +130,7 @@ function SignUp() {
                         <input
                             type='password'
                             name='password'
+                            id='password'
                             onChange={handleChange}
                             value={formData.password}
                             placeholder='Enter your password'
@@ -134,12 +149,22 @@ function SignUp() {
                         <input
                             type='password'
                             name='confirmPassword'
+                            id='confirmPassword'
                             onChange={handleChange}
                             value={formData.confirmPassword}
                             placeholder='Confirm your password'
                             className='border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
-                        <button className='mt-4 h-12 w-full rounded bg-red font-quicksand text-2xl font-bold text-gray hover:scale-105'>
+                        <button className='mt-4 h-12 w-full rounded bg-red font-quicksand text-2xl font-bold text-gray hover:scale-105'
+                        onClick={() => {
+                            SignUpFormData.mutate({
+                                username: formData.username,
+                                email: formData.email,
+                                password: formData.password,
+                                confirmPassword: formData.confirmPassword,
+                            });
+                        }
+                        }>
                             Sign Up
                         </button>
                         <h4 className='flex justify-center'>
