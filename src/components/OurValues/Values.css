@@ -3,6 +3,12 @@
     align-items: center !important;
 }
 
+@media only screen and (max-width: 950px) {
+    #slider-wrapper  {
+        flex-direction: column !important;
+        }
+    }
+
 .slick-dots {
     position: absolute;
     bottom: 0;
