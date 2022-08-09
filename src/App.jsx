@@ -1,7 +1,7 @@
 import Home from "./containers/Home";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-
+import VolunteerProfile from "./containers/VolunteerProfile/VolunteerProfile";
 function App() {
     return (
         <div>
@@ -12,7 +12,8 @@ function App() {
                 {/* <Route path='/sign-up' element={<VolunteerOrNgo />} /> */}
                 {/* <Route path='/volunteer-profile' element={< VolunteerProfile. />} /> */}
                 {/* <Route path='/ngo' element={<NGO />} /> */}
-                <Route path='/' element={<Home />} />
+                <Route path='/volunteer-profile' element={<VolunteerProfile />} />
+                <Route exact path='/' element={<Home />} />
             </Routes>
         </div>
     );
