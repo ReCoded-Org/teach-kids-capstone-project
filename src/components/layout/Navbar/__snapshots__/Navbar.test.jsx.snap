@@ -8,7 +8,7 @@ exports[`renders correctly 1`] = `
     className="flex items-center justify-between "
   >
     <a
-      href="/Home"
+      href="/"
       onClick={[Function]}
     >
       <img
