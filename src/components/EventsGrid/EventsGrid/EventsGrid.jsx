@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import EventCardGrid from "../EventCardGrid/EventCardGrid";
-import "./EventsGrid.css";
 
 export default function EventsGrid({ events }) {
     const [organizations, setOrganizations] = useState([]);
