@@ -1,16 +1,31 @@
+/* eslint-disable no-console */
 import React, { Component, useState } from "react";
 import logo from "../../../assets/Logo.png";
 import language from "../../../assets/language-svgrepo-com.svg";
 import downArrow from "../../../assets/downArrow.svg";
 import { NavLink, Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
+const LANG_SPECS = [
+    {
+        code: "ar",
+        name: "العربية",
+    },
+    {
+        code: "en",
+        name: "English",
+    },
+];
 
 function Navbar() {
+    const [t, i18n] = useTranslation();
     const [isHidden, setIsHidden] = useState(true);
     const [lang, setlang] = useState(true);
     const animateMenu =
         " transform  p-0 flex h-8 w-8 flex-col mx-2 items-center justify-center gap-1  bg-red  rounded-full    focus:outline-none md:hidden";
     const animateSpan =
         "transform transition duration-500 ease-in-out block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out ";
+
     return (
         <>
             <nav className=' z-0  items-center  text-sm text-white md:flex md:h-16 md:justify-around md:bg-blue-dark '>
@@ -67,24 +82,24 @@ function Navbar() {
                             : "jus flex flex-col gap-6  bg-blue-dark  px-6   pt-8 pb-1 text-xl font-semibold sm:items-center  md:flex-row   md:bg-inherit md:p-0    md:text-sm md:font-light  xl:gap-16  "
                     }
                 >
-                    <li className=' w-full transform border-b-2  border-gray-700 pb-2 text-3xl duration-200 ease-linear hover:border-gray-200 hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
-                        <NavLink to='/events'>Events</NavLink>
+                    <li className=' border-gray-700 hover:border-gray-200 w-full  transform border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+                        <NavLink to='/events'>Events {t("test")}</NavLink>
                     </li>
-                    <li className=' w-full border-b-2 border-gray-700 pb-2 text-3xl duration-200 ease-linear hover:border-gray-200 hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+                    <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
                         <NavLink
                             to='contact-us' // in the contact us componant its id="contact-us" should be added
                         >
                             Contact Us
                         </NavLink>
                     </li>
-                    <li className=' w-full border-b-2 border-gray-700 pb-2 text-3xl duration-200 ease-linear hover:border-gray-200 hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+                    <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
                         <NavLink
                             to='about-us' // in the contact us componant its id="contact-us" should be added
                         >
                             About Us
                         </NavLink>
                     </li>
-                    <li className=' w-full border-b-2 border-gray-700 pb-2 text-3xl duration-200 ease-linear hover:border-gray-200 hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto md:border-none md:pb-0'>
+                    <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto md:border-none md:pb-0'>
                         <NavLink
                             to='about-us' // in the contact us componant its id="contact-us" should be added
                         >
@@ -94,18 +109,35 @@ function Navbar() {
                     {/* ============= Start (language dropdown-menu on small size screen section) ============= */}
                     {/* ============= Note: language Events Will be added later ================ */}
                     {!isHidden ? (
-                        <select className='  mt-0 border-0 border-b-2 border-gray-700 bg-transparent py-0 pb-3 text-3xl duration-200 ease-linear	hover:border-gray-200 focus:border-0 sm:text-lg  md:hidden'>
-                            <option value='' className='text-xl text-gray-500'>
+                        <select
+                            onChange={(e) =>
+                                i18n.changeLanguage(e.target.value)
+                            }
+                            className='  border-gray-700 hover:border-gray-200 mt-0 border-0 border-b-2 bg-transparent py-0 pb-3 text-3xl duration-200	ease-linear focus:border-0 sm:text-lg  md:hidden'
+                        >
+                            <option
+                                value='en'
+                                className='text-gray-500 text-xl'
+                            >
                                 Language
                             </option>
-                            <option value='' className='text-xl text-gray-500'>
+                            <option
+                                value='ar'
+                                className='text-gray-500 text-xl'
+                            >
                                 Arabic
                             </option>
 
-                            <option value='' className='text-xl text-gray-500'>
+                            <option
+                                value='en'
+                                className='text-gray-500 text-xl'
+                            >
                                 English
                             </option>
-                            <option value='' className='text-xl text-gray-500'>
+                            <option
+                                value='tr'
+                                className='text-gray-500 text-xl'
+                            >
                                 Turkish
                             </option>
                         </select>
@@ -124,12 +156,12 @@ function Navbar() {
                     }
                 >
                     <Link to='/sign-in'>
-                        <button className=' w-full  transform rounded  border-2 py-1 px-6 text-xl font-semibold duration-200 ease-in hover:bg-gray-100 hover:font-bold hover:text-red  sm:ml-0  sm:w-44 sm:text-sm md:w-28   md:text-sm'>
+                        <button className=' hover:bg-gray-100  w-full transform  rounded border-2 py-1 px-6 text-xl font-semibold duration-200 ease-in hover:font-bold hover:text-red  sm:ml-0  sm:w-44 sm:text-sm md:w-28   md:text-sm'>
                             Sign In
                         </button>
                     </Link>
                     <Link to='/sign-up'>
-                        <button className='  hover:border-1 w-full   transform rounded bg-red  py-1.5 px-6  text-xl font-semibold duration-100 ease-in hover:bg-gray-100  hover:font-bold hover:text-red sm:w-44   sm:text-sm md:w-28'>
+                        <button className='  hover:border-1 hover:bg-gray-100   w-full transform rounded  bg-red py-1.5  px-6 text-xl font-semibold duration-100 ease-in  hover:font-bold hover:text-red sm:w-44   sm:text-sm md:w-28'>
                             Sign Up
                         </button>
                     </Link>
@@ -156,13 +188,28 @@ function Navbar() {
                                     : "hidden "
                             }
                         >
-                            <li className='py-0.5 px-2 hover:bg-blue-dark'>
+                            <li
+                                onClick={() => {
+                                    i18n.changeLanguage("ar");
+                                }}
+                                className='py-0.5 px-2 hover:bg-blue-dark'
+                            >
                                 Arabic
                             </li>
-                            <li className='py-0.5 px-2 hover:bg-blue-dark'>
+                            <li
+                                onClick={() => {
+                                    i18n.changeLanguage("tr");
+                                }}
+                                className='py-0.5 px-2 hover:bg-blue-dark'
+                            >
                                 Turkish
                             </li>
-                            <li className='py-0.5 px-2 hover:bg-blue-dark'>
+                            <li
+                                onClick={() => {
+                                    i18n.changeLanguage("en");
+                                }}
+                                className='py-0.5 px-2 hover:bg-blue-dark'
+                            >
                                 English
                             </li>
                         </ul>

@@ -19,7 +19,7 @@ function App() {
                 <Route path='/sign-in' element={<SignIn />} />
                 {/* <Route path='/sign-up' element={<VolunteerOrNgo />} /> */}
                 {/* <Route path='/volunteer-profile' element={< VolunteerProfile. />} /> */}
-                <Route path='/' element={<AdminDashboard />} />
+                <Route path='/ngo' element={<AdminDashboard />} />
                 <Route path='/' element={<Home />} />
             </Routes>
         </div>
