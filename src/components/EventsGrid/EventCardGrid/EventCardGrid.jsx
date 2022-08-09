@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const EventCardGrid = ({ eventPost }) => {
+const EventCardGrid = ({ eventPost, org }) => {
     return (
         <div className='relative mb-6 mt-16 w-full min-w-0 max-w-md break-words rounded-xl px-5 xl:max-w-md'>
             <div className='card-header mx-4 -mt-6'>
@@ -9,24 +9,30 @@ const EventCardGrid = ({ eventPost }) => {
                     <img
                         className='w-auto rounded-lg'
                         src={eventPost.image}
-                        alt={eventPost.name}
+                        alt={org.name}
                     />
                 </Link>
             </div>
             <div className='flex flex-col'>
                 <a href='#'>
-                    <h2 className='font-bold text-center mt-2 text-black text-lg'>{eventPost.name}</h2>
+                    <h2 className='mt-2 text-center text-lg font-bold text-black'>
+                        {org}
+                    </h2>
                 </a>
-                <p className='mb-4 opacity-60 text-center text-black'>{eventPost.location}</p>
+                <p className='mb-4 text-center text-black opacity-60'>
+                    {eventPost.location}
+                </p>
                 <a href='#'>
-                    <h4 className='font-semibold text-center mb-3 text-black'>{eventPost.topic}</h4>
+                    <h4 className='mb-3 text-center font-semibold text-black'>
+                        {eventPost.title}
+                    </h4>
                 </a>
                 <div className='flex rounded-md bg-gray'>
                     <p className='ml-2 grow pt-1.5 opacity-60'>
                         {eventPost.date}
                     </p>
                     <button
-                        className='button flex w-30 grow-0 flex-row justify-center justify-self-end rounded-md bg-blue-light p-2'
+                        className='button w-30 flex grow-0 flex-row justify-center justify-self-end rounded-md bg-blue-light p-2'
                         data-ripple-light='true'
                     >
                         <p className='ml-3 text-white'>Read More</p>

@@ -7,6 +7,11 @@ import SingleEventPage from "./containers/SingleEventPage";
 import AllEvents from "./containers/AllEvents";
 import SignIn from "./components/SignIn/SignIn";
 
+import NgoProfilePage from "./containers/NgoProfilePage";
+
+import Register from "./components/Register/Register";
+
+
 function App() {
     return (
         <div className=''>
@@ -21,6 +26,7 @@ function App() {
                 {/* <Route path='/volunteer-profile' element={< VolunteerProfile. />} /> */}
                 <Route path='/ngo' element={<AdminDashboard />} />
                 <Route path='/' element={<Home />} />
+                <Route path='/register' element={<Register />} />
             </Routes>
         </div>
     );
