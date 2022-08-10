@@ -60,7 +60,7 @@ function VolunteerProfile () {
         </div>
         <div className="sm:basis-2/6"></div>
       </div>
-
+{/* copy starting from here */}
       <div className="sm:grid  grid-cols-4 grid-rows-8 gap-y-3 ">
           <h1 className="pt-7 col-start-2 row-start-3 sm:justify-self-start font-quicksand text-4xl font-semibold text-customGreen">Profile</h1>
           <p className="text-sm font-SourceSansPro sm:col-start-2 sm:col-end-4 sm:row-start-4 sm:justify-self-start "><span className="font-bold">Email: </span>{info.email}</p>
@@ -73,6 +73,19 @@ function VolunteerProfile () {
         <input className='flex-none text-xs py-1 mx-2 my-3 px-10 border-2 border-customGreen bg-customGreen text-white rounded-md shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150' type="submit" />
       </form>
       </div>
+{/* down to here */}
+      {/* <div className="sm:grid border-2 border-red-500  grid-cols-4 grid-rows-8 gap-y-3 ">
+          <h1 className="pt-7 col-start-1 row-start-3 sm:justify-self-start font-quicksand text-4xl font-semibold text-customGreen">Profile</h1>
+          <p className="text-sm font-SourceSansPro sm:col-start-2 sm:col-end-4 sm:row-start-4 sm:justify-self-start "><span className="font-bold">Email: </span>{info.email}</p>
+          <p className="text-sm font-SourceSansPro sm:col-start-2 sm:col-end-4 sm:row-start-5 sm:justify-self-start pb-3"><span className="font-bold">Phone Number: </span>{info.phone}</p>
+      </div>
+
+      <div className="flex justify-center pb-10">
+      <form  className="  ">
+        <input className="flex-none text-sm  bg-gray" type="file" name="upload" accept="application/pdf,application/vnd.ms-excel" />
+        <input className='flex-none text-xs py-1 mx-2 my-3 px-10 border-2 border-customGreen bg-customGreen text-white rounded-md shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150' type="submit" />
+      </form>
+      </div> */}
       
       {/* add the diagonal line at the bottom of the component */}
       <Events />
