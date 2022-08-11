@@ -34,21 +34,33 @@ exports[`renders correctly 1`] = `
     <div
       className="flex justify-evenly items-center"
     >
-      <img
-        alt="volunteer"
-        className="rounded-xl"
-        src="volunteer.jpg"
-      />
+      <div>
+        <button
+          onClick={[Function]}
+        >
+          <img
+            alt="volunteer"
+            className="rounded-xl"
+            src="volunteer.jpg"
+          />
+        </button>
+      </div>
       <h4
         className="text-xl font-bold text-gray font-quicksand pl-6 pr-6"
       >
         or
       </h4>
-      <img
-        alt="organization"
-        className="rounded-xl"
-        src="organization.jpg"
-      />
+      <div>
+        <button
+          onClick={[Function]}
+        >
+          <img
+            alt="organization"
+            className="rounded-xl"
+            src="organization.jpg"
+          />
+        </button>
+      </div>
     </div>
     <p
       className="flex flex-row text-base font-bold text-gray font-quicksand pt-6 md:text-xl"
