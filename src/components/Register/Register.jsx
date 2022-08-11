@@ -1,7 +1,7 @@
 import {React, useState }from "react";
 import { Link, useNavigate} from "react-router-dom";
 import organization from "src/assets/organization.jpg";
-import volunteer from "src/assets/volunteer.jpg";
+import volunteer from "src/assets/volunteerOption.jpg";
 import close from "src/assets/close-menu.svg";
 import Logo from "src/assets/Logo.png";
 import {useMutation } from 'react-query';
