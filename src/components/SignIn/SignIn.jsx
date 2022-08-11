@@ -8,6 +8,7 @@ import message from "../../assets/message.svg";
 import padlock from "../../assets/padlock.svg";
 import Logo from "../../assets/Logo.png";
 import close from "../../assets/close-menu.svg";
+import {useMutation } from 'react-query';
 
 function SignIn() {
   const navigate = useNavigate();
@@ -33,6 +34,16 @@ function SignIn() {
       event.preventDefault();
       console.log(formData);
     }
+    const SendtoSignIn=useMutation((SignInData)=>{
+      return fetch("http://localhost:3004/SignIn",{
+          method: "POST",
+          headers:{
+              Accept:"application/json",
+              "content-Type":"application/json"
+          },
+          body:JSON.stringify(SignInData),
+      })
+  });
   return(
     <div className=' bg-blue-dark'>
     <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
@@ -76,12 +87,18 @@ function SignIn() {
           <div>
           <div className="flex justify-between">
           <div>
-          <input type="checkbox" name="remember" onChange={handleChange} checked={formData.checkedBox}  className="focus:outline-none bg-gray border-0 border-b border-gray" />
+          <input type="checkbox" name="remember" onChange={handleChange}  className="focus:outline-none bg-gray border-0 border-b border-gray" />
           <label className="font-heading font-bold"> Remember Me</label></div>
           <p>Forgot password?</p>
           </div>
           </div>
-          <button className="w-full h-12 mt-4 rounded bg-red text-gray text-2xl font-bold font-heading">
+          <button className="w-full h-12 mt-4 rounded bg-red text-gray text-2xl font-bold font-heading"onClick={() => {
+                    SendtoSignIn.mutate({
+                        Email:formData.Email,
+                        Password:formData.Password,
+                        checkedBox:formData.checkedBox,
+                    });
+                }}>
           Login
           </button>
             <h4 className="flex justify-center">or continue with</h4>
