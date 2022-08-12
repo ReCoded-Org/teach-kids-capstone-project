@@ -3,12 +3,15 @@ import Navbar from "../components/layout/Navbar/Navbar";
 import "../App.css";
 import EventsGrid from "../components/EventsGrid/EventsGrid/EventsGrid";
 import FilterEvents from "../components/EventsGrid/FilterEvents/FilterEvents";
+import Footer from "../components/layout/Footer/Footer";
 
 function AllEvents() {
     const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [num, setnum] = useState(1);
+    const [showMoreBtn, setShowMoreBtn] = useState(true);
 
     const [menuTagItems, setMenuTagItems] = useState([]);
     const [tag, setTag] = useState(null);
@@ -31,13 +34,16 @@ function AllEvents() {
             .map((val) => val.tags)
             .reduce((acc, val) => [...acc, ...val], []);
         setMenuTagItems([...new Set(tagItems.map((item) => item))]);
-
+        setnum(1);
         setFilteredEvents(events);
+        setShowMoreBtn(true);
     }, [events]);
 
     useEffect(() => {
         const result = events.filter((event) => event.tags.includes(tag));
         setFilteredEvents(result);
+        setShowMoreBtn(true);
+        setnum(1);
     }, [tag]);
 
     //
@@ -45,18 +51,19 @@ function AllEvents() {
     useEffect(() => {
         let locationItems = events.map((val) => val.location);
         setMenuLocationItems([...new Set(locationItems.map((item) => item))]);
-
+        setnum(1);
         setFilteredEvents(events);
+        setShowMoreBtn(true);
     }, [events]);
 
     useEffect(() => {
         const result = events.filter((event) =>
             event.location.includes(location)
         );
+        setnum(1);
         setFilteredEvents(result);
+        setShowMoreBtn(true);
     }, [location]);
-
-    //
 
     return (
         <>
@@ -67,7 +74,14 @@ function AllEvents() {
                 menuLocationItems={menuLocationItems}
                 setLocation={setLocation}
             />
-            <EventsGrid events={filteredEvents} />
+            <EventsGrid
+                events={filteredEvents}
+                num={num}
+                setnum={setnum}
+                setShowMoreBtn={setShowMoreBtn}
+                showMoreBtn={showMoreBtn}
+            />
+            <Footer />
         </>
     );
 }
