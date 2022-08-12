@@ -47,7 +47,7 @@ function OurValues() {
     };
 
     return (
-        <div className='grid pl-4  pr-4 md:pl-20 md:pr-20'>
+        <div className='pl-4 pr-4 md:pl-20 md:pr-20'>
             <h2 className='pt-4 text-center font-quicksand text-5xl font-bold text-blue-dark md:text-start'>
                 Our Values
             </h2>
