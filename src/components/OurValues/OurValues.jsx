@@ -4,7 +4,6 @@ import volunteerPic from "src/assets/volunteer.jpg";
 import teachPic from "src/assets/Teach.jpg";
 import trustPic from "src/assets/Trust.jpg";
 
-
 const values = [
     {
         id: 1,
@@ -49,7 +48,7 @@ function OurValues() {
 
     return (
         <div className='pl-4 pr-4 md:pl-20 md:pr-20'>
-            <h2 className='text-center pt-4 md:text-start font-quicksand text-5xl font-bold text-blue-dark'>
+            <h2 className='pt-4 text-center font-quicksand text-5xl font-bold text-blue-dark md:text-start'>
                 Our Values
             </h2>
             <Slider {...settings}>
@@ -61,9 +60,9 @@ function OurValues() {
                                 className='p-12 font-quicksand font-bold text-blue-dark md:items-center'
                                 id='slider-wrapper'
                             >
-                                <div className='flex relative mt-8 md:w-2/4 md:justify-center'>
+                                <div className='relative mt-8 flex md:w-2/4 md:justify-center'>
                                     <img
-                                        className='md:ml-7 w-3/5 rounded-full border-8 border-gray md:mr-20 md:w-7/12 md:border-8'
+                                        className='w-3/5 rounded-full border-8 border-gray md:ml-7 md:mr-20 md:w-7/12 md:border-8'
                                         src={item.image}
                                         alt={item.alt}
                                     />
@@ -71,11 +70,11 @@ function OurValues() {
                                 </div>
 
                                 {/* Text Wrapper */}
-                                <div className='mt-14 md:w-5/12 md:p-4 text-justify md:break-normal'>
+                                <div className='mt-14 text-justify md:w-5/12 md:break-normal md:p-4'>
                                     <h1 className='pb-4 font-quicksand text-4xl font-bold text-blue-dark'>
                                         {item.title}
                                     </h1>
-                                    <p className='text-lg md:text-2lg font-SourceSansPro font-bold text-blue-dark'>
+                                    <p className='md:text-2lg font-SourceSansPro text-lg font-bold text-blue-dark'>
                                         {item.description}
                                     </p>
                                 </div>

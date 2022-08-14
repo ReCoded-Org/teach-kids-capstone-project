@@ -17,3 +17,6 @@
 -   The `layout` folder inside components contains the components that will be used in the layout of pages, so components like the navbar and footer will be placed there.
 
 Good luck and happy coding :D
+
+-   To run the JSON server, use:
+    npx json-server --watch data/db.json --port 8000
