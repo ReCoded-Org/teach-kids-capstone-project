@@ -1,6 +1,6 @@
 import Slider from "react-slick";
 import "./Values.css";
-import volunteerPic from "src/assets/Volunteer.jpg";
+import volunteerPic from "src/assets/volunteer.jpg";
 import teachPic from "src/assets/Teach.jpg";
 import trustPic from "src/assets/Trust.jpg";
 
