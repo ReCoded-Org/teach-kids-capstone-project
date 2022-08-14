@@ -29,7 +29,6 @@ function App() {
                     path='/volunteer-profile'
                     element={<VolunteerProfile />}
                 />
-                <Route exact path='/' element={<Home />} />
                 <Route path='/ngo' element={<AdminDashboard />} />
                 <Route path='/' element={<Home />} />
                 <Route path='/register' element={<Register />} />
