@@ -1,63 +1,4 @@
 {
-  "SignIn": [
-    {
-      "checkedBox": 0,
-      "id": 1
-    },
-    {
-      "Password": "124",
-      "checkedBox": 0,
-      "id": 2
-    },
-    {
-      "Email": "John@gmail.com",
-      "Password": "124",
-      "checkedBox": 0,
-      "id": 3
-    },
-    {
-      "Email": "John@gmail.com",
-      "Password": "124",
-      "checkedBox": 0,
-      "id": 4
-    },
-    {
-      "Email": "John@gmail.com",
-      "Password": "124",
-      "checkedBox": 0,
-      "id": 5
-    },
-    {
-      "Email": "John@gmail.com",
-      "Password": "124",
-      "checkedBox": 0,
-      "id": 6
-    }
-  ],
-  "contactus": [
-    {
-      "Fullname": "Aya",
-      "email": "ayamidani98@gmail.com",
-      "Message": "hello the website is awesome ",
-      "id": 1
-    },
-    {
-      "Fullname": "Aya",
-      "email": "Aya@gmail.com",
-      "Message": "esdfd",
-      "id": 2
-    },
-    {
-      "Fullname": "Aya",
-      "email": "ayamidani98@gmail.com",
-      "Message": "ssdfdsf",
-      "id": 3
-    },
-    {
-      "checkedBox": 0,
-      "id": 4
-    }
-  ],
   "events": [
     {
       "id": 1,
@@ -206,6 +147,100 @@
       ],
       "location": "Ankara, Turkey",
       "date": "2022-08-01"
+    }
+  ],
+  "RegisterOption": [
+    {
+      "Option": "volunteer",
+      "id": 1
+    },
+    {
+      "Option": "Organization",
+      "id": 2
+    },
+    {
+      "Option": "Organization",
+      "id": 3
+    },
+    {
+      "Option": "volunteer",
+      "id": 4
+    },
+    {
+      "Option": "volunteer",
+      "id": 5
+    },
+    {
+      "Option": "Organization",
+      "id": 6
+    },
+    {
+      "Option": "volunteer",
+      "id": 7
+    }
+  ],
+  "signup": [
+    {
+      "username": "ramaaa",
+      "email": "ramaaa@smth.com",
+      "password": "ramiiiii",
+      "confirmPassword": "ramiiiii",
+      "id": 3
+    }
+  ],
+  "contactus": [
+    {
+      "Fullname": "Aya",
+      "email": "ayamidani98@gmail.com",
+      "Message": "hello the website is awesome ",
+      "id": 1
+    },
+    {
+      "Fullname": "Aya",
+      "email": "Aya@gmail.com",
+      "Message": "esdfd",
+      "id": 2
+    },
+    {
+      "Fullname": "Aya",
+      "email": "ayamidani98@gmail.com",
+      "Message": "ssdfdsf",
+      "id": 3
+    }
+  ],
+  "SignIn": [
+    {
+      "checkedBox": 0,
+      "id": 1
+    },
+    {
+      "Password": "124",
+      "checkedBox": 0,
+      "id": 2
+    },
+    {
+      "Email": "John@gmail.com",
+      "Password": "124",
+      "checkedBox": 0,
+      "id": 3
+    },
+    {
+      "Email": "John@gmail.com",
+      "Password": "124",
+      "checkedBox": 0,
+      "id": 4
+    },
+    {
+      "Email": "John@gmail.com",
+      "Password": "124",
+      "checkedBox": 0,
+      "id": 5
+    },
+    {
+      "Email": "John@gmail.com",
+      "Password": "124",
+      "checkedBox": 0,
+      "id": 6
     }
   ],
   "organizations": [
