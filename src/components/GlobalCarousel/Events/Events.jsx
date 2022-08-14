@@ -10,7 +10,7 @@ import { getOrganizations } from "../../../services/events.js";
 
 import { useQuery } from "@tanstack/react-query";
 
-export default function Events({ carouselHeader, events }) {
+export default function Events({ carouselHeader, events }) { 
     const settings = {
         dots: false,
         infinite: true,

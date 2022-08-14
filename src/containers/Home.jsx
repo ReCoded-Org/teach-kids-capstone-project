@@ -8,13 +8,23 @@ import ContactUs from "../components/ContactUs/ContactUs";
 import AboutUs from "../components/AboutUs/AboutUs";
 import OurValues from "../components/OurValues/OurValues";
 
+import { getEvents } from "../services/events.js";
+
+import { useQuery } from "@tanstack/react-query";
+
 function Home() {
+
+    const { isLoading, error, data } = useQuery(["events"], () => getEvents());
+    
+    if (isLoading) return "Loading...";
+    if (error) return "An error has occurred: " + error.message;
+
     return (
         <>
             <HeroSection />
             <AboutUs />
             <OurValues />
-            <Events />
+            <Events carouselHeader='Related Events' events={data}/>
             <ContactUs />
         </>
     );
