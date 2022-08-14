@@ -11,14 +11,14 @@ import NgoProfilePage from "./containers/NgoProfilePage";
 
 import Register from "./components/Register/Register";
 
-import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
-const queryClient = new QueryClient();
+import Navbar from "./components/layout/Navbar/Navbar";
 
+import Footer from "./components/layout/Footer/Footer";
 
 function App() {
     return (
         <div className=''>
-            <QueryClientProvider client={queryClient}>
+            <Navbar />
             <Routes>
                 <Route path='/events' element={<AllEvents />} />
                 {/* <Route path='/event:id' element={<Event />} /> */}
@@ -33,7 +33,7 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/register' element={<Register />} />
             </Routes>
-            </QueryClientProvider>
+            <Footer />
         </div>
     );
 }

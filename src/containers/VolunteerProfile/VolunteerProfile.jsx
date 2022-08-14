@@ -2,9 +2,7 @@ import React, { useState } from "react";
 import VolunteerForm from "./VolunteerForm";
 import Axios from 'axios';
 import SubmitConfirm from "./SubmitConfirm";
-import Navbar from "../../components/layout/Navbar/Navbar";
 import Events from "../../components/EventCarousel/Events/Events";
-import Footer from '../../components/layout/Footer/Footer';
 
 function VolunteerProfile () {
 
@@ -41,7 +39,6 @@ function VolunteerProfile () {
   return (
     
     <div className='bg-gray font-quicksand'>
-      <Navbar />
       <VolunteerForm handleChange={handleChange} dataSender={dataSender}/>
 
       {updated ? 
@@ -88,7 +85,6 @@ function VolunteerProfile () {
       
       
       <Events />
-      <Footer />
       {/* add the diagonal line at the bottom of the component */}
     </div>
   );
