@@ -5,7 +5,12 @@ import { Menu, Transition } from "@headlessui/react";
 import { Fragment, useRef } from "react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 
-export default function FilterEvents({ menuTagItems, setTag, menuLocationItems, setLocation }) {
+export default function FilterEvents({
+    menuTagItems,
+    setTag,
+    menuLocationItems,
+    setLocation,
+}) {
     return (
         <>
             <div className='absolute w-full bg-gray pb-12'>
@@ -99,7 +104,9 @@ export default function FilterEvents({ menuTagItems, setTag, menuLocationItems, 
                                                         {({ active }) => (
                                                             <button
                                                                 onClick={() =>
-                                                                    setLocation(el)
+                                                                    setLocation(
+                                                                        el
+                                                                    )
                                                                 }
                                                                 className={`${
                                                                     active
