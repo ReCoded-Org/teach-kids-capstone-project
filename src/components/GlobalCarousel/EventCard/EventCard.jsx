@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const EventCard = ({ eventPost }) => {
+
+const EventCard = ({ eventPost, org }) => {
     return (
         <div className='relative mb-6 mt-16  w-full min-w-0 max-w-md break-words rounded-xl px-5 xl:max-w-2xl'>
             <div className='card-header mx-4 -mt-6'>
@@ -9,14 +10,14 @@ const EventCard = ({ eventPost }) => {
                     <img
                         className='w-auto  rounded-lg'
                         src={eventPost.image}
-                        alt={eventPost.name}
+                        alt={org.name}
                     />
                 </Link>
             </div>
             <div className='flex flex-col'>
                 <a href='#'>
                     <h2 className='text-SourceSansPro mt-2 text-center text-lg font-semibold text-black'>
-                        {eventPost.name}
+                        {org}
                     </h2>
                 </a>
                 <p className='mb-4 text-center  text-black '>
@@ -24,7 +25,7 @@ const EventCard = ({ eventPost }) => {
                 </p>
                 <a href='#'>
                     <h4 className='mb-3 text-center font-semibold text-blue-light-400 '>
-                        {eventPost.topic}
+                        {eventPost.title}
                     </h4>
                 </a>
                 <div className='flex rounded-md bg-white'>
@@ -32,7 +33,7 @@ const EventCard = ({ eventPost }) => {
                         {eventPost.date}
                     </p>
                     <button
-                        className='button w-30 flex grow-0 flex-row justify-center justify-self-end rounded-md bg-blue-light-400 p-2'
+                        className='button w-30 flex grow-0 flex-row justify-center justify-self-end rounded-md bg-blue-light p-2'
                         data-ripple-light='true'
                     >
                         <p className='ml-3 text-white'>Read More</p>
