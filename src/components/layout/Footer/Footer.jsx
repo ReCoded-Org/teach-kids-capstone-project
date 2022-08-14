@@ -13,7 +13,7 @@ export default function Footer() {
         <div>
             <div
                 data-testid='footer'
-                className='flex flex-wrap items-center justify-around bg-[#1D3557] py-10 text-white'
+                className='flex flex-wrap items-center justify-around bg-primary py-10 text-white'
             >
                 <div>
                     <img className='pb-2' src={logo} alt='Logo' />
@@ -44,7 +44,7 @@ export default function Footer() {
                             value={subscriptionData}
                         />
                         <button
-                            className='rounded-md bg-[#F05454] p-2'
+                            className='rounded-md bg-redButton p-2'
                             onClick={(e) => {
                                 e.preventDefault();
                                 PostRequestFunction(subscriptionData);
@@ -56,7 +56,7 @@ export default function Footer() {
                 </div>
             </div>
 
-            <div className='flex-wrap justify-around bg-[#457B9D] py-1 text-white sm:flex'>
+            <div className='flex-wrap justify-around bg-secondary py-1 text-white sm:flex'>
                 <div className='grid grid-cols-1'>
                     <p className='my-1 justify-self-start pl-5 text-xs'>
                         All right reserved
