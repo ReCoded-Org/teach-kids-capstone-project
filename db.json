@@ -1,4 +1,13 @@
 {
+  "signup": [
+    {
+      "username": "ramaaa",
+      "email": "ramaaa@smth.com",
+      "password": "ramiiiii",
+      "confirmPassword": "ramiiiii",
+      "id": 3
+    }
+  ],
   "contactus": [
     {
       "Fullname": "Aya",
