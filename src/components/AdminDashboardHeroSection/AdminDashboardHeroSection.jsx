@@ -9,7 +9,8 @@ import SubmitConfirm from "./SubmitConfirm";
 function NgoProfilePageHeroSection() {
 
 const [info, setInfo]= useState([]); //changed {} to []
-  const [updated, setUpdated] = useState(false)
+
+const [updated, setUpdated] = useState(false)
 
   function handleChange(e) {
     setInfo({...info, [e.target.name]: e.target.value})
@@ -55,7 +56,7 @@ const [info, setInfo]= useState([]); //changed {} to []
                     null
                 }
                 
-                    <div className=' md:grid-cols-2 md:gap-14 m-auto grid '>
+                    <div className='md:mr-0 mr-10 md:grid-cols-2 md:gap-14 m-auto grid '>
                         <div className='m-0 col-start-1 w-full '>
                             <img
                                 src={NGOImage}
@@ -65,7 +66,7 @@ const [info, setInfo]= useState([]); //changed {} to []
                             
                         </div>
                     
-                        <div className='pl-10  my-5 grid w-full gap-1.5 text-left font-SourceSansPro text-sm font-semibold text-light-gray'>
+                        <div className='ml-5 my-5 grid w-full gap-1.5 text-left font-SourceSansPro text-sm font-semibold text-light-gray'>
                            
                             <div className='text-md my-4 mt-6 sm:text-lg'>
                                 
@@ -75,7 +76,7 @@ const [info, setInfo]= useState([]); //changed {} to []
                                 </h1>
                                 
                                 <li className='my-2'>Location: {info.location}</li>
-                                <li className="my-2'">Date: 28-03-2023</li>
+                                <li className="my-2'">Date: {info.date}</li>
                                 <li className="my-2'">
                                     Email: {info.email}
                                 </li>
