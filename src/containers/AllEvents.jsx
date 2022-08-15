@@ -6,6 +6,9 @@ import { getEvents } from "../services/events.js";
 
 import { useQuery } from "@tanstack/react-query";
 
+import Navbar from "../components/layout/Navbar/Navbar";
+import Footer from "../components/layout/Footer/Footer";
+
 function AllEvents() {
     const [filteredEvents, setFilteredEvents] = useState([]);
 
@@ -61,6 +64,7 @@ function AllEvents() {
 
     return (
         <div>
+            <Navbar />
             <FilterEvents
                 menuTagItems={menuTagItems}
                 setTag={setTag}
@@ -68,6 +72,7 @@ function AllEvents() {
                 setLocation={setLocation}
             />
             <EventsGrid events={filteredEvents} />
+            <Footer />
         </div>
     );
 }
