@@ -23,7 +23,7 @@ const EventCard = ({ eventPost }) => {
                     {eventPost.location}
                 </p>
                 <a href='#'>
-                    <h4 className='mb-3 text-center font-semibold text-blue-light-400 '>
+                    <h4 className='text-blue-light-400 mb-3 text-center font-semibold '>
                         {eventPost.topic}
                     </h4>
                 </a>
@@ -32,7 +32,7 @@ const EventCard = ({ eventPost }) => {
                         {eventPost.date}
                     </p>
                     <button
-                        className='button w-30 flex grow-0 flex-row justify-center justify-self-end rounded-md bg-blue-light-400 p-2'
+                        className='button w-30 bg-blue-light-400 flex grow-0 flex-row justify-center justify-self-end rounded-md p-2'
                         data-ripple-light='true'
                     >
                         <p className='ml-3 text-white'>Read More</p>

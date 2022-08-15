@@ -53,7 +53,7 @@ export default function EventsGrid({
                     {events
                         .slice(0, (window.innerWidth > 770 ? 12 : 6) * num)
                         ?.map((eventPost) => {
-                            const org = organizations.find((element) => {
+                            const org = data.find((element) => {
                                 return (
                                     element.organizationId ===
                                     eventPost.organizationId
