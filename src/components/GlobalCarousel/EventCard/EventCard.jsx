@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const EventCard = ({ eventPost }) => {
+const EventCard = ({ eventPost, org }) => {
     return (
         <div className='relative mb-6 mt-16  w-full min-w-0 max-w-md break-words rounded-xl px-5 xl:max-w-2xl'>
             <div className='card-header mx-4 -mt-6'>
