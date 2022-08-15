@@ -1,6 +1,7 @@
 import Home from "./containers/Home";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import AdminDashboard from "../src/containers/AdminDashboard";
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
                 {/* <Route path='/sign-up' element={<VolunteerOrNgo />} /> */}
                 {/* <Route path='/volunteer-profile' element={< VolunteerProfile. />} /> */}
                 {/* <Route path='/ngo' element={<NGO />} /> */}
+                <Route path='/ngo' element={<AdminDashboard />} />
                 <Route path='/' element={<Home />} />
             </Routes>
         </div>
