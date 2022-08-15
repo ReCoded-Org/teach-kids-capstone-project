@@ -11,7 +11,7 @@ export default function EditInfoForm(props) {
             onClick={() => setShowModal(true)}
             type="button"
             href=''
-            className='mw-40 w-36 border border-blue-btn bg-blue-btn  p-1.5 font-semibold text-white  duration-300 ease-linear hover:rounded  hover:border-blue-btn hover:bg-transparent hover:text-blue-btn  hover:shadow md:w-44'
+            className='mw-40 w-36 border border-[#457B9D] bg-[#457B9D]  p-1.5 font-semibold text-white  duration-300 ease-linear hover:rounded  hover:border-blue-btn hover:bg-transparent hover:text-blue-btn  hover:shadow md:w-44'
         >
             Edit
         </button>
