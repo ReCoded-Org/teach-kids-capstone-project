@@ -6,6 +6,10 @@ import { getEvents } from "../services/events.js";
 
 import { useQuery } from "@tanstack/react-query";
 
+
+import Navbar from "../components/layout/Navbar/Navbar";
+import Footer from "../components/layout/Footer/Footer";
+
 function SingleEventPage() {
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
 
@@ -14,8 +18,10 @@ function SingleEventPage() {
 
     return (
         <>
+            <Navbar />
             <SingleEventPageHeroSection />
             <Carousel carouselHeader='Related Events' events={data} />
+            <Footer />
         </>
     );
 }
