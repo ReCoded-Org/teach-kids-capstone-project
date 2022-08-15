@@ -2,9 +2,6 @@
 import React, { useState, useEffect } from "react";
 import EventCardGrid from "../EventCardGrid/EventCardGrid";
 
-let desktop = true;
-let mobile = false;
-
 export default function EventsGrid({
     events,
     num,
@@ -12,9 +9,12 @@ export default function EventsGrid({
     setShowMoreBtn,
     showMoreBtn,
 }) {
-    if (events.length <= (window.innerWidth > 770 ? 12 : 6)) {
-        setShowMoreBtn(false);
-    }
+    useEffect(() => {
+        if (events.length <= (window.innerWidth > 770 ? 12 : 6)) {
+            setShowMoreBtn(false);
+        }
+    });
+
     const [organizations, setOrganizations] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -32,13 +32,12 @@ export default function EventsGrid({
         if (events % (window.innerWidth > 770 ? 12 : 6) !== 0)
             subArraiesNumber++;
 
-        if ((num + 1) * (window.innerWidth > 770 ? 12 : 6) > events.length) {
+        if ((num + 1) * (window.innerWidth > 770 ? 12 : 6) >= events.length) {
+            console.log();
             setShowMoreBtn(false);
         } else {
             setShowMoreBtn(true);
         }
-
-        console.log(num, events.length);
 
         setnum(++num);
     }
@@ -53,7 +52,7 @@ export default function EventsGrid({
                     {events
                         .slice(0, (window.innerWidth > 770 ? 12 : 6) * num)
                         ?.map((eventPost) => {
-                            const org = data.find((element) => {
+                            const org = organizations.find((element) => {
                                 return (
                                     element.organizationId ===
                                     eventPost.organizationId
