@@ -3,6 +3,8 @@ import "../../App.css";
 import NGOImage from "../../assets/NGOImage.png";
 import EditInfoForm from "../EditInfoForm/EditInfoForm";
 import Axios from 'axios';
+import SubmitConfirm from "./SubmitConfirm";
+
 
 function NgoProfilePageHeroSection() {
 
@@ -46,6 +48,12 @@ const [info, setInfo]= useState([]); //changed {} to []
             >
                 <main className='d-flex md:mr-6'>
                 <EditInfoForm handleChange={handleChange} dataSender={dataSender} />
+
+                {updated ? 
+                    <SubmitConfirm />
+                    :
+                    null
+                }
                 
                     <div className=' md:grid-cols-2 md:gap-14 m-auto grid '>
                         <div className='m-0 col-start-1 w-full '>
