@@ -149,37 +149,17 @@
       "date": "2022-08-01"
     }
   ],
-  "RegisterOption": [
+  "registerOptions": [
     {
       "Option": "volunteer",
       "id": 1
     },
     {
-      "Option": "Organization",
+      "Option": "organization",
       "id": 2
-    },
-    {
-      "Option": "Organization",
-      "id": 3
-    },
-    {
-      "Option": "volunteer",
-      "id": 4
-    },
-    {
-      "Option": "volunteer",
-      "id": 5
-    },
-    {
-      "Option": "Organization",
-      "id": 6
-    },
-    {
-      "Option": "volunteer",
-      "id": 7
     }
   ],
-  "signup": [
+  "signUp": [
     {
       "username": "ramaaa",
       "email": "ramaaa@smth.com",
@@ -188,91 +168,140 @@
       "id": 3
     }
   ],
-  "contactus": [
+  "contactUs": [
     {
-      "Fullname": "Aya",
+      "fullName": "Aya",
       "email": "ayamidani98@gmail.com",
       "Message": "hello the website is awesome ",
       "id": 1
     },
     {
-      "Fullname": "Aya",
+      "fullName": "Aya",
       "email": "Aya@gmail.com",
       "Message": "esdfd",
       "id": 2
     },
     {
-      "Fullname": "Aya",
+      "fullName": "Aya",
       "email": "ayamidani98@gmail.com",
       "Message": "ssdfdsf",
       "id": 3
     }
   ],
-  "SignIn": [
+  "signIn": [
     {
+      "email": "steve@gmail.com",
+      "password": "124",
       "checkedBox": 0,
-      "id": 1
+      "id": 1,
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
-      "Password": "124",
+      "email": "bro@gmail.com",
+      "password": "124",
       "checkedBox": 0,
-      "id": 2
+      "id": 2,
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
-      "Email": "John@gmail.com",
-      "Password": "124",
+      "email": "John@gmail.com",
+      "password": "124",
       "checkedBox": 0,
-      "id": 3
+      "id": 3,
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
-      "Email": "John@gmail.com",
-      "Password": "124",
+      "email": "omg@gmail.com",
+      "password": "124",
       "checkedBox": 0,
-      "id": 4
+      "id": 4,
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
-      "Email": "John@gmail.com",
-      "Password": "124",
+      "email": "ops@gmail.com",
+      "password": "124",
       "checkedBox": 0,
-      "id": 5
+      "id": 5,
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
-      "Email": "John@gmail.com",
-      "Password": "124",
+      "email": "justin@gmail.com",
+      "password": "124",
       "checkedBox": 0,
-      "id": 6
+      "id": 6,
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     }
   ],
   "organizations": [
     {
       "organizationId": 1,
       "name": "Star Nation Organization",
-      "location": "Istanbul"
+      "location": "Istanbul",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
       "organizationId": 2,
       "name": "Wow Organization",
-      "location": "Ankara"
+      "location": "Ankara",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
       "organizationId": 3,
       "name": "Wonderland Organization",
-      "location": "Berlin"
+      "location": "Berlin",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
       "organizationId": 4,
       "name": "Hello There Organization",
-      "location": "Paris"
+      "location": "Paris",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
       "organizationId": 5,
       "name": "Just Do It Organization",
-      "location": "Athens"
+      "location": "Athens",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
       "organizationId": 6,
       "name": "Mama Mia Organization",
-      "location": "Rome"
+      "location": "Rome",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
+    }
+  ],
+  "volunteers": [
+    {
+      "id": 1,
+      "email": "jhhg",
+      "phone": "hgjghjhg",
+      "name": "fghfg",
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman",
+      "appliedEvents": [4,5,12],
+      "cv": "https://fsdfsdfsdfsf"
+    },
+    {
+      "id": 2,
+      "email": "jhhg",
+      "phone": "hgjghjhg",
+      "name": "fghfg",
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman",
+      "appliedEvents": [3,9,10],
+      "cv": "https://fsdfsdfsdfsf"
+    },{
+      "id": 3,
+      "email": "jhhg",
+      "phone": "hgjghjhg",
+      "name": "fghfg",
+      "image": "https://img.freepik.com/free-photo/smiling-asian-woman",
+      "appliedEvents": [2,6,7],
+      "cv": "https://fsdfsdfsdfsf"
     }
   ]
 }
