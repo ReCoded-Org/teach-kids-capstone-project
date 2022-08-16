@@ -237,42 +237,42 @@
       "organizationId": 1,
       "name": "Star Nation Organization",
       "location": "Istanbul",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
       "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
       "organizationId": 2,
       "name": "Wow Organization",
       "location": "Ankara",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
       "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
       "organizationId": 3,
       "name": "Wonderland Organization",
       "location": "Berlin",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
       "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
       "organizationId": 4,
       "name": "Hello There Organization",
       "location": "Paris",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
       "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
       "organizationId": 5,
       "name": "Just Do It Organization",
       "location": "Athens",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
       "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     },
     {
       "organizationId": 6,
       "name": "Mama Mia Organization",
       "location": "Rome",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
       "image": "https://img.freepik.com/free-photo/smiling-asian-woman"
     }
   ],
@@ -283,6 +283,7 @@
       "phone": "hgjghjhg",
       "name": "fghfg",
       "image": "https://img.freepik.com/free-photo/smiling-asian-woman",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
       "appliedEvents": [4,5,12],
       "cv": "https://fsdfsdfsdfsf"
     },
@@ -292,6 +293,7 @@
       "phone": "hgjghjhg",
       "name": "fghfg",
       "image": "https://img.freepik.com/free-photo/smiling-asian-woman",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
       "appliedEvents": [3,9,10],
       "cv": "https://fsdfsdfsdfsf"
     },{
@@ -300,6 +302,7 @@
       "phone": "hgjghjhg",
       "name": "fghfg",
       "image": "https://img.freepik.com/free-photo/smiling-asian-woman",
+      "bio": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
       "appliedEvents": [2,6,7],
       "cv": "https://fsdfsdfsdfsf"
     }
