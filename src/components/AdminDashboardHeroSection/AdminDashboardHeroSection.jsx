@@ -1,106 +1,85 @@
 import React, { useState } from "react";
 import "../../App.css";
 import NGOImage from "../../assets/NGOImage.png";
-import EditInfoForm from "../EditInfoForm/EditInfoForm";
-import Axios from 'axios';
-import SubmitConfirm from "./SubmitConfirm";
+import "../../App.css";
+import EditInfoForm from "../../components/EditInfoForm/EditInfoForm";
 
-
-function NgoProfilePageHeroSection() {
-
-const [info, setInfo]= useState([]); //changed {} to []
-
-const [updated, setUpdated] = useState(false)
-
-  function handleChange(e) {
-    setInfo({...info, [e.target.name]: e.target.value})
-  }
-
-  function dataSender(e){
-    Axios.put("http://localhost:8000/adminDashboard/1", info)
-    .then((response)=> {
-      // console.log(response.data)
-      setInfo(() => response.data)
-      // console.log('info after dataSender',info)
-      setUpdated(true)
-      setTimeout(()=> setUpdated(false), 2000)
-    });
-  }
-
-    React.useEffect(()=> {
-      Axios.get('http://localhost:8000/adminDashboard/1')
-      .then(res => {
-        setInfo(res.data)
-        // console.log('info after useEffect', info)
-      })
-      .catch(err=> {
-        console.log('err', err)
-      })
-    }, [])
-
+function AdminDashboardHeroSection() {
+    const [isHidden, setIsHidden] = useState(false);
 
     return (
-        <>  
-        
+        <>
+            {isHidden ? (
+                <EditInfoForm setIsHidden={setIsHidden} isHidden={isHidden} />
+            ) : (
+                ""
+            )}
             <section
                 className={
-                    "flex justify-around bg-gray p-6 pb-12 md:px-20 lg:px-10 xl:px-40 "
+                    "flex  flex-col justify-around gap-6  bg-gray p-6 pb-12 md:px-20 lg:flex-row-reverse lg:gap-12 lg:px-10 xl:px-40 "
                 }
             >
-                <main className='d-flex md:mr-6'>
-                <EditInfoForm handleChange={handleChange} dataSender={dataSender} />
-
-                {updated ? 
-                    <SubmitConfirm />
-                    :
-                    null
-                }
-                
-                    <div className='md:mr-0 mr-10 md:grid-cols-2 md:gap-14 m-auto grid '>
-                        <div className='m-0 col-start-1 w-full '>
-                            <img
-                                src={NGOImage}
-                                className=' col-start-1 ml-4 w-[20rem] min-w-[10rem] rounded-lg border-8 border-white '
-                                alt=''
-                            />
-                            
-                        </div>
-                    
-                        <div className='ml-5 my-5 grid w-full gap-1.5 text-left font-SourceSansPro text-sm font-semibold text-light-gray'>
-                           
-                            <div className='text-md my-4 mt-6 sm:text-lg'>
-                                
-                                
-                                <h1 className='my-2 mb-4 font-quicksand text-4xl font-semibold  text-blue-dark'>
-                                Name: {info.name}
-                                </h1>
-                                
-                                <li className='my-2'>Location: {info.location}</li>
-                                <li className="my-2'">Date: {info.date}</li>
-                                <li className="my-2'">
-                                    Email: {info.email}
-                                </li>
-                                <li className='my-2'>
-                                    Website: {info.website}
-                                </li>
-                                <li className='my-2'>
-                                    Phone: {info.phone}
-                                </li>
-                            </div>
-                            <h1 className='font-SourceSansnap-proximity text-xl font-semibold text-blue-light'>
-                            About Us :
-                        </h1>
-                        <p className='text-justify text-md my-2 font-semibold  text-blue-dark'>
-                            {info.message}
-                        </p>
-                        </div>
+                <main className='md:mr-6 lg:w-2/3 xl:w-2/4 '>
+                    <div className='my-6  flex justify-end gap-6 md:justify-end '>
+                        <button
+                            onClick={() => setIsHidden(!isHidden)}
+                            href=''
+                            className='mw-40 w-36 border border-blue-btn bg-blue-btn  p-1.5 font-semibold text-white  duration-300 ease-linear hover:rounded  hover:border-blue-btn hover:bg-transparent hover:text-blue-btn  hover:shadow md:w-44'
+                        >
+                            Edit
+                        </button>
                     </div>
-                    
+                    <div className='row1 grid md:flex md:flex-row-reverse  '>
+                        <img
+                            src={NGOImage}
+                            className=' h-40 w-40 justify-self-center rounded-full border-8 border-white '
+                            alt=''
+                        />
+                        <ul className='mt-4 grid w-full gap-1.5 justify-self-auto text-left font-SourceSansPro text-sm font-semibold text-light-gray'>
+                            <h1 className=' my-2 mb-4 justify-self-center  font-quicksand text-4xl font-semibold text-blue-dark md:justify-self-start'>
+                                Starnation
+                            </h1>
+                            <li>Location: Istanbul</li>
+                            <li>Date: 28-03-2023</li>
+                            <li>Email: helloworld@gmail.com</li>
+                            <li>Website: www.helloworld.com</li>
+                            <li>Phone: +90 535 898 54 45</li>
+                        </ul>
+                    </div>
+                    <div className='row2 my-4 grid text-justify'>
+                        <p className='text-md my-2 font-semibold  text-blue-dark'>
+                            It is a long established fact that a reader will be
+                            distracted by the readable content of a page when
+                            looking at its layout. The point of using Lorem
+                            Ipsum is that it has a more-or-less normal
+                            distribution of letters, as opposed to using Content
+                            here, content here, making it look like readable
+                            English. Many desktop publishing packages and web
+                            page editors now use Lorem Ipsum as their default
+                            model text, and a search for will uncover many web
+                            sites still in their infancy. Various versions have
+                            evolved over the years, sometimes by accident,
+                            sometimes on purpose (injected humour and the
+                            like)......
+                        </p>
+                        <a
+                            href='#'
+                            className='font-light-gray mx-4 mt-2 mb-4 justify-self-end font-semibold'
+                        >
+                            Read more ...
+                        </a>
+                    </div>
                 </main>
+                <div className='image grid place-items-center  md:p-4'>
+                    <img
+                        src={NGOImage}
+                        className='md:w-4/4  items-center justify-self-center rounded-lg object-contain  lg:justify-self-start	  '
+                        alt=''
+                    />
+                </div>
             </section>
         </>
     );
 }
 
-export default NgoProfilePageHeroSection;
-
+export default AdminDashboardHeroSection;
