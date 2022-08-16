@@ -12,20 +12,24 @@ import { getEvents } from "../services/events.js";
 
 import { useQuery } from "@tanstack/react-query";
 
-function Home() {
+import Navbar from "../components/layout/Navbar/Navbar";
+import Footer from "../components/layout/Footer/Footer";
 
+function Home() {
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
-    
+
     if (isLoading) return "Loading...";
     if (error) return "An error has occurred: " + error.message;
 
     return (
         <>
+            <Navbar />
             <HeroSection />
             <AboutUs />
             <OurValues />
-            <Events carouselHeader='Related Events' events={data}/>
+            <Events carouselHeader='Related Events' events={data} />
             <ContactUs />
+            <Footer />
         </>
     );
 }

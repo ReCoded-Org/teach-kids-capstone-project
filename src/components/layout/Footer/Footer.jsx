@@ -6,9 +6,11 @@ import instagram from "../../../assets/instagram.png";
 import facebook from "../../../assets/facebook.png";
 import youtube from "../../../assets/youtube.png";
 import PostRequestFunction from "./PostRequestFunction";
+import isValidEmail from "../../../services/ValidationFunctions";
 
 export default function Footer() {
     const [subscriptionData, setSubscriptionData] = useState("");
+    const [validationMsg, setValidationMsg] = useState("");
     return (
         <div>
             <div
@@ -33,13 +35,17 @@ export default function Footer() {
                     <h3 className='mb-5 flex justify-start pt-10 text-lg'>
                         Subscribe to our newsletter
                     </h3>
+                    <div className='flex justify-between'>
+                        <h4 className=' '>E-mail</h4>
+                        <h4 className=' mx-6 text-red'>{validationMsg}</h4>
+                    </div>
                     <form>
-                        <h4 className='flex justify-start '>E-mail</h4>
                         <input
                             className='rounded-md text-black'
                             type='text'
                             onChange={(e) => {
                                 setSubscriptionData(e.target.value);
+                                setValidationMsg("");
                             }}
                             value={subscriptionData}
                         />
@@ -47,7 +53,11 @@ export default function Footer() {
                             className='rounded-md bg-redButton p-2'
                             onClick={(e) => {
                                 e.preventDefault();
-                                PostRequestFunction(subscriptionData);
+                                if (isValidEmail(subscriptionData)) {
+                                    PostRequestFunction(subscriptionData);
+                                } else {
+                                    setValidationMsg("Enter a Valid Email");
+                                }
                             }}
                         >
                             Submit &#8594;
