@@ -2,95 +2,88 @@ import React, { useState } from "react";
 import "../../App.css";
 import NGOImage from "../../assets/NGOImage.png";
 import EditInfoForm from "../EditInfoForm/EditInfoForm";
+import Axios from "axios";
+import SubmitConfirm from "../AdminDashboardHeroSection/SubmitConfirm";
 
 function NgoProfilePageHeroSection() {
-    const [isHidden, setIsHidden] = useState(false);
+    const [info, setInfo] = useState([]); //changed {} to []
+
+    const [updated, setUpdated] = useState(false);
+
+    function handleChange(e) {
+        setInfo({ ...info, [e.target.name]: e.target.value });
+    }
+
+    function dataSender(e) {
+        Axios.put("http://localhost:8000/adminDashboard/1", info).then(
+            (response) => {
+                // console.log(response.data)
+                setInfo(() => response.data);
+                // console.log('info after dataSender',info)
+                setUpdated(true);
+                setTimeout(() => setUpdated(false), 2000);
+            }
+        );
+    }
+
+    React.useEffect(() => {
+        Axios.get("http://localhost:8000/adminDashboard/1")
+            .then((res) => {
+                setInfo(res.data);
+                // console.log('info after useEffect', info)
+            })
+            .catch((err) => {
+                console.log("err", err);
+            });
+    }, []);
 
     return (
         <>
-            {isHidden ? (
-                <EditInfoForm setIsHidden={setIsHidden} isHidden={isHidden} />
-            ) : (
-                ""
-            )}
             <section
                 className={
-                    "flex     justify-around   bg-gray p-6 pb-12 md:px-20  lg:px-10 xl:px-40 "
+                    "flex justify-around bg-gray p-6 pb-12 md:px-20 lg:px-10 xl:px-40 "
                 }
             >
-                <main className='d-flex   md:mr-6'>
-                    <div className=' m-auto grid   md:flex-row-reverse'>
-                        <div className='m-0 grid w-full   flex-row items-center  justify-center md:mt-16 md:mb-4 md:grid-cols-4 md:justify-start '>
+                <main className='d-flex md:mr-6'>
+                    <EditInfoForm
+                        handleChange={handleChange}
+                        dataSender={dataSender}
+                    />
+
+                    {updated ? <SubmitConfirm /> : null}
+
+                    <div className='m-auto mr-10 grid md:mr-0 md:grid-cols-2 md:gap-14 '>
+                        <div className='col-start-1 m-0 w-full '>
                             <img
                                 src={NGOImage}
-                                className=' m-0 w-40 justify-self-center  rounded-full  border-8 border-white p-0 md:w-full '
+                                className=' col-start-1 ml-4 w-[20rem] min-w-[10rem] rounded-lg border-8 border-white '
                                 alt=''
                             />
-                            <h1 className=' my-2 mb-4  justify-self-center font-quicksand text-4xl font-semibold  text-blue-dark sm:ml-6 md:justify-start md:justify-self-start'>
-                                Starnation
-                            </h1>
-                            <button
-                                onClick={() => setIsHidden(!isHidden)}
-                                href=''
-                                className='  absolute  inset-x-3/4 top-16 -ml-0 -mt-8  h-9	w-20 justify-self-center	  rounded   border border-blue-btn bg-blue-btn p-1.5 font-semibold text-white duration-300 ease-linear  hover:rounded hover:border-blue-btn hover:bg-transparent  hover:text-blue-btn hover:shadow sm:mt-4  sm:ml-8 md:w-36    '
-                            >
-                                Edit
-                            </button>{" "}
                         </div>
 
-                        <ul className='mt-4 grid w-full gap-1.5 justify-self-auto text-left font-SourceSansPro text-sm font-semibold text-light-gray'>
+                        <div className='my-5 ml-5 grid w-full gap-1.5 text-left font-SourceSansPro text-sm font-semibold text-light-gray'>
                             <div className='text-md my-4 mt-6 sm:text-lg'>
-                                <h1 className=' font-quicksand text-3xl text-blue-btn'>
-                                    Profile
+                                <h1 className='my-2 mb-4 font-quicksand text-4xl font-semibold  text-blue-dark'>
+                                    Name: {info.name}
                                 </h1>
-                                <li className='my-2'>Location: Istanbul</li>
-                                <li className="my-2'">Date: 28-03-2023</li>
-                                <li className="my-2'">
-                                    Email: helloworld@gmail.com
-                                </li>
+
                                 <li className='my-2'>
-                                    Website: www.helloworld.com
+                                    Location: {info.location}
                                 </li>
+                                <li className="my-2'">Date: {info.date}</li>
+                                <li className="my-2'">Email: {info.email}</li>
                                 <li className='my-2'>
-                                    Phone: +90 535 898 54 45
+                                    Website: {info.website}
                                 </li>
+                                <li className='my-2'>Phone: {info.phone}</li>
                             </div>
-                        </ul>
-                    </div>
-                    <div className='row2 my-4 grid text-justify'>
-                        <h1 className='font-SourceSansnap-proximity text-xl font-semibold text-blue-light'>
-                            About Us :
-                        </h1>
-                        <p className='text-md my-2 font-semibold  text-blue-dark'>
-                            It is a long established fact that a reader will be
-                            distracted by the readable content of a page when
-                            looking at its layout. The point of using Lorem
-                            Ipsum is that it has a more-or-less normal
-                            distribution of letters, as opposed to using Content
-                            here, content here, making it look like readable
-                            English. Many desktop publishing packages and web
-                            page editors now use Lorem Ipsum as their default
-                            model text, and a search for lorem ipsum will
-                            uncover many web sites still in their infancy.
-                            Various versions have evolved over the years,
-                            sometimes by accident, sometimes on purpose
-                            (injected humour and the like) It is a long
-                            established fact that a reader will be distracted by
-                            the readable content of a page when looking at its
-                            layout. The point of using Lorem Ipsum is that it
-                            has a more-or-less normal distribution of letters,
-                            as opposed to using Content here, content here It is
-                            a long established fact that a reader will be
-                            distracted by the readable content of a page when
-                            looking at its layout. The point of using Lorem
-                            Ipsum is that it has a more-or-less normal
-                            distribution of letters, as opposed to using Content
-                            here, content here, making it look like readable
-                            English. Many desktop publishing packages and web
-                            page editors now use Lorem Ipsum as their default
-                            model text, and a search for lorem ipsum will
-                            uncover many web sites still in their infancy.
-                        </p>
+                            <h1 className='font-SourceSansnap-proximity text-xl font-semibold text-blue-light'>
+                                About Us :
+                            </h1>
+                            <p className='text-md my-2 text-justify font-semibold  text-blue-dark'>
+                                {info.message}
+                            </p>
+                        </div>
                     </div>
                 </main>
             </section>

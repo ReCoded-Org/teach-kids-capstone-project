@@ -1,143 +1,200 @@
-import React, { useState } from "react";
+import React from "react";
+import "flowbite";
 
-//Important: */
-//****** when importing this component you should add use state like in the example bellow */
-//****** and on click event the state will change more info reach me (: */
-/*
- {isHidden ? (
-                <EditInfoForm setIsHidden={setIsHidden} isHidden={isHidden} />
-            ) : (
-                ""
-            )}
-
-*/
-
-//************TODO:
-// *********** posting (post request) data will be added later
-function EditInfoForm({ setIsHidden, isHidden }) {
-    const [formData, setFromData] = useState({
-        webAddress: "",
-        location: "",
-        phoneNumber: "",
-        emailAddress: "",
-        organizationBio: "",
-        name: "",
-    });
-
-    function handleFormData(data) {
-        setFromData({
-            ...formData,
-            [data.name]: data.value,
-        });
-    }
+export default function EditInfoForm(props) {
+    const [showModal, setShowModal] = React.useState(false);
 
     return (
         <>
-            <div className=' a bg-black fixed flex h-screen	w-screen items-center justify-center bg-opacity-30 transition duration-700 ease-in-out	 '>
-                <div className=' grid w-11/12  rounded-lg  bg-white p-6 shadow-lg sm:w-3/5 lg:w-2/5'>
-                    <div className='flex justify-between '>
-                        <h1 className='  mb-4 font-quicksand text-2xl'>
-                            Edit Intro
-                        </h1>
-                        <button
-                            onClick={() => setIsHidden(!isHidden)}
-                            className='my-2 justify-self-end rounded-lg bg-blue-dark py-2 px-8 font-SourceSansPro  text-white shadow-lg'
-                        >
-                            Close
-                        </button>
-                    </div>
-                    <div className='my-4'>
-                        <label>Website Address :</label>
-                        <input
-                            value={formData.webAddress}
-                            name='webAddress'
-                            onChange={(e) => handleFormData(e.target)}
-                            type='text'
-                            className='form-control text-gray-700 border-gray-300 focus:text-gray-700 focus:border-blue-600 mt-1 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal
-                                transition ease-in-out focus:bg-white focus:outline-none'
-                            id='exampleInput8'
-                            placeholder=' Website Address'
-                        ></input>
-                    </div>
-                    <div className='my-4'>
-                        <label>Name :</label>
-                        <input
-                            value={formData.name}
-                            name='name'
-                            onChange={(e) => handleFormData(e.target)}
-                            type='text'
-                            className='form-control text-gray-700 border-gray-300 focus:text-gray-700 focus:border-blue-600 mt-1 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal
-                                transition ease-in-out focus:bg-white focus:outline-none'
-                            id='name'
-                            placeholder=' Name '
-                        ></input>
-                    </div>
-                    <div className='my-3'>
-                        <label htmlFor='' className=''>
-                            Location :
-                        </label>
-                        <input
-                            type='text'
-                            className='form-control text-gray-700 border-gray-300 focus:text-gray-700 focus:border-blue-600 mt-1 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal
-                                transition ease-in-out focus:bg-white focus:outline-none'
-                            value={formData.location}
-                            name='location'
-                            onChange={(e) => handleFormData(e.target)}
-                            placeholder='Location'
-                        ></input>
-                    </div>
-                    <div className='my-3'>
-                        <label htmlFor='' className=''>
-                            Phone Number :
-                        </label>
-                        <input
-                            type='text'
-                            className='form-control text-gray-700 border-gray-300 focus:text-gray-700 focus:border-blue-600 mt-1 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal
-                                transition ease-in-out focus:bg-white focus:outline-none'
-                            value={formData.phoneNumber}
-                            name='phoneNumber'
-                            onChange={(e) => handleFormData(e.target)}
-                            placeholder=' Phone Number '
-                        ></input>
-                    </div>
-                    <div className='my-3'>
-                        <label htmlFor='' className=''>
-                            Email Address :
-                        </label>
-                        <input
-                            type='text'
-                            className='form-control text-gray-700 border-gray-300 focus:text-gray-700 focus:border-blue-600 mt-1 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal
-                                transition ease-in-out focus:bg-white focus:outline-none'
-                            value={formData.emailAddress}
-                            name='emailAddress'
-                            onChange={(e) => handleFormData(e.target)}
-                            placeholder='  Email Address '
-                        ></input>
-                    </div>
-                    <div className='my-3'>
-                        <label
-                            htmlFor='message'
-                            className='text-gray-900 dark:text-gray-400  '
-                        >
-                            Organization Bio :
-                        </label>
-                        <textarea
-                            value={formData.organizationBio}
-                            name='organizationBio'
-                            onChange={(e) => handleFormData(e.target)}
-                            rows='4'
-                            className='text-gray-900 bg-gray-50 border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500 mt-1 block w-full rounded-lg border p-2.5 text-sm dark:text-white'
-                            placeholder='Your message...'
-                        ></textarea>
-                    </div>
-
-                    <button className='my-2 justify-self-end rounded-lg bg-blue-dark py-2 px-8 font-SourceSansPro  text-white shadow-lg'>
-                        Save
-                    </button>
-                </div>
+            <div className='my-6  flex justify-end gap-6 md:justify-end '>
+                <button
+                    onClick={() => setShowModal(true)}
+                    type='button'
+                    href=''
+                    className='mw-40 w-36 rounded border border-[#457B9D] bg-[#457B9D]  p-1.5 font-semibold text-white  duration-300 ease-linear hover:rounded  hover:border-blue-btn hover:bg-transparent hover:text-[#457B9D] hover:shadow md:w-44'
+                >
+                    Edit
+                </button>
             </div>
+
+            {showModal ? (
+                <>
+                    <div className=' fixed  inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none'>
+                        <div className='relative my-6 mx-auto w-auto max-w-3xl'>
+                            {/*content*/}
+                            <div className='relative flex w-full flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none'>
+                                {/*header*/}
+                                <div className='flex items-start justify-between rounded-t border-b border-solid border-slate-200 p-5'>
+                                    <h3 className='text-3xl font-semibold'>
+                                        Edit Pofile
+                                    </h3>
+                                    <button
+                                        className='float-right ml-auto border-0 bg-transparent p-1 text-3xl font-semibold leading-none text-black opacity-50 outline-none focus:outline-none'
+                                        onClick={() => setShowModal(false)}
+                                    >
+                                        <span className='block h-6 w-6 bg-transparent text-2xl text-black outline-none focus:outline-none'>
+                                            X
+                                        </span>
+                                    </button>
+                                </div>
+                                {/*body*/}
+                                <div className='relative h-[27rem] w-[19rem] flex-auto overflow-y-auto p-6 sm:h-[33rem] sm:w-[35rem]'>
+                                    {/* START OF FORM */}
+
+                                    <form className='mb-4 rounded bg-white px-8 pt-6 pb-8 shadow-md'>
+                                        <div className='mb-4'>
+                                            <label className='text-gray-700 mb-2 block text-sm font-bold'>
+                                                Select the Event Photo
+                                            </label>
+                                            <input
+                                                className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
+                                                type='file'
+                                                placeholder=''
+                                            />
+                                        </div>
+                                        <div>
+                                            <label className='text-gray-700 mb-2 block text-sm font-bold'>
+                                                Website Address :
+                                            </label>
+                                            <input
+                                                onChange={props.handleChange}
+                                                name='website'
+                                                className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
+                                                type='text'
+                                                placeholder='www.reach.com'
+                                            />
+                                        </div>
+                                        <div className='mb-4'>
+                                            <label className='text-gray-700 mt-3 mb-2 block text-sm font-bold'>
+                                                Name
+                                            </label>
+                                            <input
+                                                onChange={props.handleChange}
+                                                name='name'
+                                                className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
+                                                type='text'
+                                                placeholder='John Doe'
+                                            />
+                                        </div>
+
+                                        <div className='mb-4'>
+                                            <label className='text-gray-700 mb-2 block text-sm font-bold'>
+                                                Location
+                                            </label>
+                                            <input
+                                                onChange={props.handleChange}
+                                                name='location'
+                                                className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
+                                                type='text'
+                                                placeholder='Istanbul'
+                                            />
+                                        </div>
+
+                                        <label className='text-gray-700 mb-2 block text-sm font-bold'>
+                                            Date:
+                                        </label>
+                                        <div className='relative mb-4'>
+                                            <div className='pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3'>
+                                                <svg
+                                                    aria-hidden='true'
+                                                    className='text-gray-500 dark:text-gray-400 h-5 w-5'
+                                                    fill='currentColor'
+                                                    viewBox='0 0 20 20'
+                                                    xmlns='http://www.w3.org/2000/svg'
+                                                >
+                                                    <path
+                                                        fillRule='evenodd'
+                                                        d='M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z'
+                                                        clipRule='evenodd'
+                                                    />
+                                                </svg>
+                                            </div>
+                                            <input
+                                                onChange={props.handleChange}
+                                                name='date'
+                                                datepicker
+                                                datepicker-autohide
+                                                type='text'
+                                                className='bg-gray-50 border-gray-300 text-gray-900 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 block w-full rounded-lg border p-2.5 pl-10  focus:border-blue-500 focus:ring-blue-500 dark:text-white dark:focus:border-blue-500 dark:focus:ring-blue-500 sm:text-sm'
+                                                placeholder='DD-MM-YYYY'
+                                            />
+                                        </div>
+
+                                        <div className='mb-4'>
+                                            <label className='text-gray-700 mb-2 block text-sm font-bold'>
+                                                Email
+                                            </label>
+                                            <input
+                                                onChange={props.handleChange}
+                                                name='email'
+                                                className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
+                                                type='text'
+                                                placeholder='john.doe@gamil.com'
+                                            />
+                                        </div>
+
+                                        <div className='mb-4'>
+                                            <label className='text-gray-700 mb-2 block text-sm font-bold'>
+                                                Phone Number
+                                            </label>
+                                            <input
+                                                onChange={props.handleChange}
+                                                name='phone'
+                                                className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
+                                                type='tel'
+                                                placeholder='+90 (545) 121 3333'
+                                            />
+                                        </div>
+
+                                        <div className=''>
+                                            <label className='text-gray-700 mb-2 block text-sm font-bold'>
+                                                Your Message
+                                            </label>
+                                            <div className='form-group'>
+                                                <input
+                                                    name='message'
+                                                    onChange={
+                                                        props.handleChange
+                                                    }
+                                                    className='
+                            form-control text-gray-700 border-gray-300 focus:text-gray-700 m-0 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal transition
+                            ease-in-out focus:border-blue-600 focus:bg-white focus:outline-none
+                        '
+                                                    id='exampleFormControlTextarea13'
+                                                    rows='3'
+                                                    placeholder='Message'
+                                                ></input>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    {/* END OF FORM */}
+                                </div>
+                                {/*footer of the form*/}
+                                <div className='flex items-center justify-end rounded-b border-t border-solid border-slate-200 py-2 px-6'>
+                                    <button
+                                        className='background-transparent mr-1 mb-1 px-6 py-2 text-sm font-bold uppercase text-black outline-none transition-all duration-150 ease-linear focus:outline-none'
+                                        type='button'
+                                        onClick={() => setShowModal(false)}
+                                    >
+                                        Close
+                                    </button>
+                                    <button
+                                        className='mr-1 mb-1 rounded bg-[#457B9D] px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:border-2 active:border-[#457B9D] active:bg-white active:text-[#457B9D]'
+                                        type='button'
+                                        onClick={() => {
+                                            setShowModal(false);
+                                            props.dataSender();
+                                        }}
+                                    >
+                                        Save Changes
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className='fixed inset-0 z-40 bg-black opacity-25'></div>
+                </>
+            ) : null}
         </>
     );
 }
-
-export default EditInfoForm;
