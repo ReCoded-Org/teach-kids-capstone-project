@@ -24,7 +24,8 @@ const EventCard = ({ eventPost, org }) => {
                 </p>
                 <a href='#'>
                     <h4 className='text-blue-light-400 mb-3 text-center font-semibold '>
-                        {eventPost.topic}
+
+                        {eventPost.title}
                     </h4>
                 </a>
                 <div className='flex rounded-md bg-white'>
