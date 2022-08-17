@@ -9,6 +9,7 @@ export default function EventsGrid({
     setShowMoreBtn,
     showMoreBtn,
 }) {
+    console.log(events);
     useEffect(() => {
         if (events.length <= (window.innerWidth > 770 ? 12 : 6)) {
             setShowMoreBtn(false);
@@ -41,7 +42,6 @@ export default function EventsGrid({
 
         setnum(++num);
     }
-
     return (
         <div className='flex flex-col justify-end bg-white  '>
             <div className='m-auto flex w-11/12 flex-col items-center justify-center'>
