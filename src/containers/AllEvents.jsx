@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 import EventsGrid from "../components/EventsGrid/EventsGrid/EventsGrid";
 import FilterEvents from "../components/EventsGrid/FilterEvents/FilterEvents";
-
+import Navbar from "../components/layout/Navbar/Navbar";
+import Footer from "../components/layout/Footer/Footer";
 function AllEvents() {
     const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
@@ -65,6 +66,8 @@ function AllEvents() {
 
     return (
         <>
+            <Navbar />
+
             <FilterEvents
                 menuTagItems={menuTagItems}
                 setTag={setTag}
@@ -78,6 +81,7 @@ function AllEvents() {
                 setShowMoreBtn={setShowMoreBtn}
                 showMoreBtn={showMoreBtn}
             />
+            <Footer />
         </>
     );
 }
