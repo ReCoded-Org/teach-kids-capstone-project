@@ -11,7 +11,7 @@ exports[`renders correctly 1`] = `
       className="my-6  flex justify-end gap-6 md:justify-end "
     >
       <button
-        className="mw-40 hover:bg-transparent w-36 border border-blue-btn  bg-blue-btn p-1.5 font-semibold  text-white duration-300 ease-linear  hover:rounded hover:border-blue-btn hover:text-blue-btn  hover:shadow md:w-44"
+        className="mw-40 w-36 border border-blue-btn bg-blue-btn  p-1.5 font-semibold text-white  duration-300 ease-linear hover:rounded  hover:border-blue-btn hover:bg-transparent hover:text-blue-btn  hover:shadow md:w-44"
         href=""
         onClick={[Function]}
       >

@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from "react";
 import EventCardGrid from "../EventCardGrid/EventCardGrid";
 
-export default function EventsGrid({ events }) {
-    const [organizations, setOrganizations] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+import { useQuery } from "@tanstack/react-query";
+import { getOrganizations } from "../../../services/events";
 
-    useEffect(() => {
-        fetch(`http://localhost:3000/organizations`)
-            .then((response) => response.json())
-            .then((actualData) => setOrganizations(actualData));
-    }, []);
+export default function EventsGrid({ events }) {
+    const { isLoading, error, data } = useQuery(
+        ["organizations"],
+        getOrganizations
+    );
+
+    if (isLoading) return "Loading...";
+
+    if (error) return "An error has occurred: " + error.message;
 
     return (
         <div className='flex flex-col bg-white '>
@@ -20,7 +22,7 @@ export default function EventsGrid({ events }) {
                 </h1>
                 <div className='flex grid-rows-3 flex-row flex-wrap justify-center'>
                     {events.map((eventPost) => {
-                        const org = organizations.find((element) => {
+                        const org = data.find((element) => {
                             return (
                                 element.organizationId ===
                                 eventPost.organizationId
