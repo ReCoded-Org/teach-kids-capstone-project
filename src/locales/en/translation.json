@@ -1,9 +1,61 @@
 {
     "home": {
         "hero": {
-            "description": "Get the understanding you need to channel the books of spells you have always been smitten with, and boost sales which cartoon rabbits love to steal!",
-            "btn1": "volunteer with us",
-            "btn2": " upcoming Events"
+            "title": "Reach",
+            "description": "Reach out for a better future!",
+            "btn1": "Volunteer with Us",
+            "btn2": "Upcoming Events"
+        },
+        "aboutUs": {
+            "title": "About Us",
+            "texts": [
+                {
+                    "id": 1,
+                    "description": "Reach is a platform that connects between volunteer teachers and NGOs concerned with refugee kids around the world."
+                },
+                {
+                    "id": 2,
+                    "description": "Unfortunately, under harsh conditions many children get deprived from their basic rights including education. From this point of view, it would be quite helpful to connect these affected children with volunteer teachers that can teach them important skills such as learning local languages or basic coding."
+                },
+                {
+                    "id": 3,
+                    "description": "Having this kind of skills could open for them many opportunities in the future that can positively turn their lives around. Thus, the aim of this platform is to provide these kids the opportunity to develop essential skills to thrive and have a better future."
+                }
+            ]
+        },
+        "ourValues": {
+            "title": "Our Values",
+            "texts": [
+                {
+                    "id": 1,
+                    "title": "Social Sustainability",
+                    "description": "We aim in this project to enrich people's quality of life in fragile environments. One of the best ways to achieve that is to invest in children and help them build their future. In return, they will end up lifting up their communities and enhancing their quality of life."
+                },
+                {
+                    "id": 2,
+                    "title": "Education",
+                    "description": "We believe in the importance of education as a key aspect in building a better future. Having a set of talented volunteers around the globe to teach refugee children can create a great impact on their lives. Luckily, with nowadays technologies, we can achieve the optimum education to many kids in harsh environments."
+                },
+                {
+                    "id": 3,
+                    "title": "Empathy",
+                    "description": "A world without empathy is ruthless and not worth living in. With this platform, we aim to empower the bond among different groups of people and enrich humanity around the world. Here, we hope to create a large community of volunteers that share common goals including love, empathy, and hope."
+                }
+            ]
+        },
+        "ourEvents": {
+            "title": "Our Events",
+            "btn": "Check More"
+        },
+        "contactUs": {
+            "title": "Contact Us",
+            "description": "Reach out to us if you have any questions ;) Please use this form to contact us, share your feedback, submit a request for assistance or work together to build a better future together.",
+            "fullNameFormTitle": "Full Name",
+            "fullNameFormPlaceholder": "Your Full Name",
+            "emailFormTitle": "Email",
+            "messageFormTitle": "Message",
+            "messageFormPlaceholder": "Type Here",
+            "btn": "Send"
         }
     }
 }

@@ -1,6 +1,9 @@
 import aboutus from 'src/assets/AboutUs.jpg';
+import { useTranslation } from "react-i18next";
 
 function AboutUs() {
+    const [t] = useTranslation();
+
     return (
         <div className='relative h-screen items-center overflow-hidden p-6 pt-5 md:flex md:h-fit md:items-center md:justify-between md:p-24'>
             <div className='absolute left-0 bottom-16 -z-50 h-full w-full skew-y-3 bg-blue-light'></div>
@@ -8,17 +11,10 @@ function AboutUs() {
             {/* Text div */}
             <div className=' text-center text-lg text-white md:w-2/4 md:max-w-md md:text-left'>
                 <h1 className='transform pb-3 font-heading text-3xl font-bold transition-all md:text-4xl'>
-                    About Us
+                {t("home.aboutUs.title")}
                 </h1>
                 <p className='font-bold-400 break-normal font-body text-sm md:text-xl'>
-                    Get the understanding you need to channel the books of
-                    spells you`ve always been smitten with, and boost sales
-                    which cartoon rabbits love to steal! Get the understanding
-                    you need to channel the books of spells you`ve always been
-                    smitten with, and boost sales which cartoon rabbits love to
-                    steal! Get the understanding you need to channel the books
-                    of spells you`ve always been smitten with, and boost sales
-                    which cartoon rabbits love to steal!
+                {t(`home.aboutUs.texts.${[0]}.description`)}
                 </p>
             </div>
 

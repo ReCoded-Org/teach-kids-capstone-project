@@ -3,6 +3,7 @@ import "./Values.css";
 import volunteerPic from "src/assets/volunteer.jpg";
 import teachPic from "src/assets/Teach.jpg";
 import trustPic from "src/assets/Trust.jpg";
+import { useTranslation } from "react-i18next";
 
 const values = [
     {
@@ -46,10 +47,15 @@ function OurValues() {
         pauseOnHover: true,
     };
 
+    const [t] = useTranslation();
+
+    // console.log(useTranslation())
+    console.log(t("ourValues.texts"))
+
     return (
         <div className='pl-4 pr-4 md:pl-20 md:pr-20'>
             <h2 className='pt-4 text-center font-quicksand text-5xl font-bold text-blue-dark md:text-start'>
-                Our Values
+                {t("home.ourValues.title")}
             </h2>
             <Slider {...settings}>
                 {values.map(function (item) {

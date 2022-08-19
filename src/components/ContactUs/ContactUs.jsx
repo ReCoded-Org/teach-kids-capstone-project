@@ -4,6 +4,7 @@ import Message from "../../assets/Message.png";
 import Location from "../../assets/Location.png";
 import "./ContactUs.css";
 import { useMutation } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 
 function ContactUs() {
     const [formData, setFormData] = useState({
@@ -32,6 +33,9 @@ function ContactUs() {
             body: JSON.stringify(ContactUsData),
         });
     });
+
+    const [t] = useTranslation();
+
     return (
         <div className='ContactUs flex items-center justify-between'>
             <div className='container mx-auto pt-16'>
@@ -46,17 +50,13 @@ function ContactUs() {
                                         fontWeight: "bold",
                                     }}
                                 >
-                                    Contact Us
+                                    {t("home.contactUs.title")}
                                 </h1>
                                 <p
                                     className='text-1xl mb-10 md:max-w-lg'
                                     style={{ color: "#1D3557" }}
                                 >
-                                    Get the understanding you need to channel
-                                    the books of spells you have always been
-                                    smitten with, and boost sales which cartoon
-                                    rabbits love to steal! Get the understanding
-                                    you need to
+                                    {t("home.contactUs.description")}
                                 </p>
                                 <div className='flex'>
                                     <div className='h-5 w-14 flex-initial grow'>
@@ -104,7 +104,7 @@ function ContactUs() {
                                             className='mb-2 text-sm font-semibold'
                                             style={{ color: "#1D3557" }}
                                         >
-                                            Full Name
+                                            {t("home.contactUs.fullNameFormTitle")}
                                         </label>
                                         <input
                                             required
@@ -119,7 +119,7 @@ function ContactUs() {
                                                 borderWidth: 0,
                                                 width: "580px",
                                             }}
-                                            placeholder='Full Name'
+                                            placeholder={t("home.contactUs.fullNameFormPlaceholder")}
                                         />
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@ function ContactUs() {
                                             className='mb-2 text-sm font-semibold'
                                             style={{ color: "#1D3557" }}
                                         >
-                                            Email
+                                            {t("home.contactUs.emailFormTitle")}
                                         </label>
                                         <input
                                             required
@@ -157,10 +157,10 @@ function ContactUs() {
                                         className='mb-2 text-sm font-semibold'
                                         style={{ color: "#1D3557" }}
                                     >
-                                        Message
+                                        {t("home.contactUs.messageFormTitle")}
                                     </label>
                                     <textarea
-                                        placeholder='Type Here'
+                                        placeholder={t("home.contactUs.messageFormPlaceholder")}
                                         name='Message'
                                         className='FormTextContactUs border-gray-300 mb-4 rounded border'
                                         onChange={handleChange}
@@ -189,7 +189,7 @@ function ContactUs() {
                                         });
                                     }}
                                 >
-                                    Send
+                                    {t("home.contactUs.btn")}
                                 </button>
                             </div>
                         </form>
