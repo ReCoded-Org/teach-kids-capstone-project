@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import EditInfoForm from "./EditInfoForm";
+import EditInfoForm from "../AdminDashboardHeroSection/EditInfoForm";
 import { MemoryRouter } from "react-router-dom";
 
 it("renders correctly", () => {

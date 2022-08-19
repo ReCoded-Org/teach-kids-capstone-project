@@ -9,7 +9,7 @@ import SignIn from "./components/SignIn/SignIn";
 import NgoProfilePage from "./containers/NgoProfilePage";
 import Register from "./components/Register/Register";
 
-import VolunteerProfile from "./containers/VolunteerProfile/VolunteerProfile";
+import VolunteerPage from "../src/containers/VolunteerPage";
 
 function App() {
     return (
@@ -21,7 +21,7 @@ function App() {
                 <Route path='/sign-in' element={<SignIn />} />
                 <Route
                     path='/volunteer-profile'
-                    element={<VolunteerProfile />}
+                    element={<VolunteerPage />}
                 />
                 <Route path='/ngo-admin' element={<AdminDashboard />} />
                 <Route path='/ngo-profile' element={<NgoProfilePage />} />

@@ -1,8 +1,7 @@
 import React from "react";
 import "flowbite";
 
-export default function EditInfoForm(props) {
-    const [showModal, setShowModal] = React.useState(false);
+export default function EditInfoForm({showModal, setShowModal, handleChange, dataSender}) {
 
     return (
         <>
@@ -57,7 +56,7 @@ export default function EditInfoForm(props) {
                                                 Website Address :
                                             </label>
                                             <input
-                                                onChange={props.handleChange}
+                                                onChange={handleChange}
                                                 name='website'
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
                                                 type='text'
@@ -69,7 +68,7 @@ export default function EditInfoForm(props) {
                                                 Name
                                             </label>
                                             <input
-                                                onChange={props.handleChange}
+                                                onChange={handleChange}
                                                 name='name'
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
                                                 type='text'
@@ -82,7 +81,7 @@ export default function EditInfoForm(props) {
                                                 Location
                                             </label>
                                             <input
-                                                onChange={props.handleChange}
+                                                onChange={handleChange}
                                                 name='location'
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
                                                 type='text'
@@ -110,7 +109,7 @@ export default function EditInfoForm(props) {
                                                 </svg>
                                             </div>
                                             <input
-                                                onChange={props.handleChange}
+                                                onChange={handleChange}
                                                 name='date'
                                                 datepicker
                                                 datepicker-autohide
@@ -125,7 +124,7 @@ export default function EditInfoForm(props) {
                                                 Email
                                             </label>
                                             <input
-                                                onChange={props.handleChange}
+                                                onChange={handleChange}
                                                 name='email'
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
                                                 type='text'
@@ -138,7 +137,7 @@ export default function EditInfoForm(props) {
                                                 Phone Number
                                             </label>
                                             <input
-                                                onChange={props.handleChange}
+                                                onChange={handleChange}
                                                 name='phone'
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
                                                 type='tel'
@@ -154,7 +153,7 @@ export default function EditInfoForm(props) {
                                                 <input
                                                     name='message'
                                                     onChange={
-                                                        props.handleChange
+                                                        handleChange
                                                     }
                                                     className='
                             form-control text-gray-700 border-gray-300 focus:text-gray-700 m-0 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal transition
@@ -180,10 +179,10 @@ export default function EditInfoForm(props) {
                                     </button>
                                     <button
                                         className='mr-1 mb-1 rounded bg-[#457B9D] px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:border-2 active:border-[#457B9D] active:bg-white active:text-[#457B9D]'
-                                        type='button'
+                                        type='submit'
                                         onClick={() => {
                                             setShowModal(false);
-                                            props.dataSender();
+                                            dataSender();
                                         }}
                                     >
                                         Save Changes

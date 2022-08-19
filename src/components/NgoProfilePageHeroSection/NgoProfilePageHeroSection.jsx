@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../../App.css";
 import NGOImage from "../../assets/NGOImage.png";
-import EditInfoForm from "../EditInfoForm/EditInfoForm";
+import EditInfoForm from "../AdminDashboardHeroSection/EditInfoForm";
 import Axios from "axios";
 import SubmitConfirm from "../AdminDashboardHeroSection/SubmitConfirm";
 

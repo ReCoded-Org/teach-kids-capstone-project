@@ -1,17 +1,15 @@
-import axios from "axios";
 import React, {useState} from "react";
 
-export default function VolunteerForm(props) {
-  const [showModal, setShowModal] = React.useState(false);
+export default function VolunteerForm({showModal, setShowModal, handleChange, dataSender}) {
 
 
   return (
     <>
       
-      <div className=' flex flex-wrap justify-end py-2 mr-5'>
+      <div className=' flex flex-wrap justify-end py-2 mr-2 sm:mr-6 md:mr-16 lg:mr-28'>
         <div className="basis-8/10"></div>
         <button 
-          className="flex justify-end bg-customGreen text-white active:bh-customGreen font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          className="flex justify-end bg-[#457B9D] text-white active:bh-[#457B9D] font-bold uppercase text-sm px-6 py-3  rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
           onClick={() => setShowModal(true)}
       >
@@ -59,28 +57,28 @@ export default function VolunteerForm(props) {
                       <label className="block text-gray-700 text-sm font-bold mb-2">
                         Name
                       </label>
-                      <input onChange={props.handleChange} name="name" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Name" />
+                      <input onChange={handleChange} name="name" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Name" />
                     </div>
 
                     <div className="mb-4">
                       <label className="block text-gray-700 text-sm font-bold mb-2">
                         Description
                       </label>
-                      <input onChange={props.handleChange} name="description" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Description" />
+                      <input onChange={handleChange} name="description" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Description" />
                     </div>
 
                     <div className="mb-4">
                       <label className="block text-gray-700 text-sm font-bold mb-2">
                         Email
                       </label>
-                      <input onChange={props.handleChange} name="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Email" />
+                      <input onChange={handleChange} name="email" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Email" />
                     </div>
 
                     <div className="mb-4">
                       <label className="block text-gray-700 text-sm font-bold mb-2">
                         Phone Number
                       </label>
-                      <input onChange={props.handleChange} name="phone" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="tel" placeholder="Phone Number" />
+                      <input onChange={handleChange} name="phone" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="tel" placeholder="Phone Number" />
                     </div>
 
 
@@ -103,11 +101,11 @@ export default function VolunteerForm(props) {
                     Close
                   </button>
                   <button
-                    className="bg-customGreen text-white active:bg-emerald-600 font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+                    className="bg-[#457B9D] text-white active:bg-[#457B9D] font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
                     type="button"
                     onClick={() => {
                       setShowModal(false)
-                      props.dataSender()
+                      dataSender()
                     }}
                     
                   >
