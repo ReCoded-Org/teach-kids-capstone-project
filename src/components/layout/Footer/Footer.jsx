@@ -35,7 +35,6 @@ export default function Footer() {
                         Subscribe to our newsletter
                     </h3>
                     <div className='flex justify-between'>
-                        <h4 className=' '>E-mail</h4>
                         <h4 className=' mx-6 text-red'>{validationMsg}</h4>
                     </div>
                     <form>
