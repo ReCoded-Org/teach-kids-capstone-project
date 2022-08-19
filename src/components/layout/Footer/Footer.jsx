@@ -1,10 +1,10 @@
 import react, { useState } from "react";
 import logo from "../../../assets/Logo.png";
-import twitter from "../../../assets/twitter.png";
-import linkedin from "../../../assets/linkedin.png";
-import instagram from "../../../assets/instagram.png";
-import facebook from "../../../assets/facebook.png";
-import youtube from "../../../assets/youtube.png";
+import twitter from "../../../assets/twitter.svg";
+import linkedin from "../../../assets/linkedin.svg";
+import instagram from "../../../assets/instagram.svg";
+import facebook from "../../../assets/facebookFooter.svg";
+import youtube from "../../../assets/youtube.svg";
 import PostRequestFunction from "./PostRequestFunction";
 import isValidEmail from "../../../services/ValidationFunctions";
 

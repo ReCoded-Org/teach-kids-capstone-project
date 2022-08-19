@@ -1,7 +1,7 @@
 import { React, useState } from "react";
-import Phone from "../../assets/Phone.png";
-import Message from "../../assets/Message.png";
-import Location from "../../assets/Location.png";
+import Phone from "../../assets/phone.svg";
+import Message from "../../assets/email.svg";
+import Location from "../../assets/location.svg";
 import "./ContactUs.css";
 import { useMutation } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
