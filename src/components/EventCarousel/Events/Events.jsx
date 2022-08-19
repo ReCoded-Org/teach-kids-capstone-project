@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SliderArrow from "../SliderArrow/SliderArrow";
 import "./Events.css";
-import { useTranslation } from "react-i18next";
 
 import { getOrganizations } from "../../../services/events.js";
 
@@ -41,8 +40,6 @@ export default function Events({ carouselHeader, events }) {
         ],
     };
 
-    const [t] = useTranslation();
-
     const { isLoading, error, data } = useQuery(
         ["organizations"],
         getOrganizations
@@ -54,12 +51,12 @@ export default function Events({ carouselHeader, events }) {
 
     return (
         <div className='diagonal-box flex flex-col bg-blue-light'>
-            <div className='content'>
-                <h1 className='mt-14 text-center text-4xl font-bold text-white'>
-                    {t("home.ourEvents.title")}
-                </h1>
-                <Slider {...settings}>
-                    {events.map((eventPost) => {
+          <div className="content">
+            <h1 className='mt-14 text-center text-4xl font-quicksand font-bold text-white'>
+                Our Events
+            </h1>
+            <Slider {...settings}>
+            {events.map((eventPost) => {
                         const org = data.find((element) => {
                             return (
                                 element.organizationId ===
@@ -71,27 +68,28 @@ export default function Events({ carouselHeader, events }) {
                                 eventPost={eventPost}
                                 key={eventPost.id}
                                 org={org.name}
+
                             />
                         );
                     })}
-                </Slider>
-                <button
-                    className='w-50 m-auto mt-5 mb-14 flex justify-center rounded-md bg-red p-3'
-                    data-ripple-light='true'
+            </Slider>
+            <button
+                className='m-auto mt-5 mb-14 flex w-50 justify-center border-2 border-red rounded-md text-white hover:border-blue-dark hover:text-blue-dark hover:font-bold hover:bg-blue-light bg-red p-3 transform duration-300 ease-linear hover:shadow'
+                data-ripple-light='true'
+            >
+                <p className='ml-5 font-SourceSansPro'>Check More</p>
+                <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    className='ml-2 mt-1 h-5 w-5 -translate-x-2 stroke-white transition duration-300 group-hover:translate-x-0'
+                    fill='none'
+                    viewBox='0 0 24 24'
+                    stroke='currentColor'
+                    stroke-2
                 >
-                    <p className='ml-5 text-white'>{t("home.ourEvents.btn")}</p>
-                    <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        className='ml-2 mt-1 h-5 w-5 -translate-x-2 stroke-white transition duration-300 group-hover:translate-x-0'
-                        fill='none'
-                        viewBox='0 0 24 24'
-                        stroke='currentColor'
-                        stroke-2
-                    >
-                        <path d='M9 5l7 7-7 7' />
-                    </svg>
-                </button>
-            </div>
+                    <path d='M9 5l7 7-7 7' />
+                </svg>
+            </button>
+          </div>
         </div>
     );
 }
