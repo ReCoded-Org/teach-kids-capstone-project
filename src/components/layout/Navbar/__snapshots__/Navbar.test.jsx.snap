@@ -13,22 +13,22 @@ exports[`renders correctly 1`] = `
     >
       <img
         alt="Reach Logo"
-        className="  mx-3 mb-0 h-16 pt-2 "
+        className="  mx-3 my-3 mb-0 h-20 pt-1 md:py-2 "
         src="Logo.png"
       />
     </a>
     <div
-      className=" mx-2 flex h-8 w-8 flex-col items-center justify-center gap-1 rounded-full bg-blue-dark   text-white focus:outline-none md:hidden"
+      className=" mx-4 my-5  flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full bg-blue-btn   text-white focus:outline-none md:hidden"
       onClick={[Function]}
     >
       <span
-        className="block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out"
+        className="block h-0.5 w-6 transform bg-current transition duration-500 ease-in-out"
       />
       <span
-        className="block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out"
+        className="block h-0.5 w-6 transform bg-current transition duration-500 ease-in-out"
       />
       <span
-        className="block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out"
+        className="block h-0.5 w-6 transform bg-current transition duration-500 ease-in-out"
       />
     </div>
   </div>

@@ -13,7 +13,7 @@ const EventCard = ({ eventPost, org }) => {
                     />
                 </Link>
             </div>
-            <div className='flex flex-col'>
+            <div className='flex flex-col font-SourceSansPro'>
                 <a href='#'>
                     <h2 className='font-bold text-center mt-2 text-white text-lg'>{org}</h2>
                 </a>
@@ -26,10 +26,10 @@ const EventCard = ({ eventPost, org }) => {
                         {eventPost.date}
                     </p>
                     <button
-                        className='button flex w-30 grow-0 flex-row justify-center justify-self-end rounded-md bg-blue-dark p-2'
+                        className='button flex w-30 grow-0 flex-row justify-center justify-self-end rounded-md border-2 text-white border-blue-dark hover:text-blue-dark hover:font-bold bg-blue-dark p-2 hover:bg-blue-light transform duration-300 ease-linear hover:shadow'
                         data-ripple-light='true'
                     >
-                        <p className='ml-3 text-white'>Read More</p>
+                        <p className='ml-3'>Read More</p>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             className='ml-2 mt-1 h-5 w-5 -translate-x-2 stroke-white transition duration-300 group-hover:translate-x-0'
