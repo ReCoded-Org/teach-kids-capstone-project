@@ -6,7 +6,7 @@ import instagram from "../../../assets/instagram.png";
 import facebook from "../../../assets/facebook.png";
 import youtube from "../../../assets/youtube.png";
 import PostRequestFunction from "./PostRequestFunction";
-import isValidEmail from "../../../services/ValidationFunctions";
+import { isValidEmail } from "../../../services/ValidationFunctions";
 
 export default function Footer() {
     const [subscriptionData, setSubscriptionData] = useState("");
