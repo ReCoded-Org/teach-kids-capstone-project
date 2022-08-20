@@ -23,42 +23,45 @@ function EditInfoForm() {
     /************************* Posting Data Start******************* */
     const queryClient = useQueryClient();
 
-    const handleSubmtion = useMutation(
-        (updateData) => {
+    const addComment = useMutation(
+        (newComment) => {
             try {
                 if (
-                    wordsNumber(updateData.message) &&
-                    isValidEmail(updateData.email)
+                    wordsNumber(newComment.message) &&
+                    isValidEmail(newComment.email)
                 ) {
                     setFormValidation(true);
 
                     return axios.patch(
                         `http://localhost:8000/adminDashboard/1`,
-                        updateData
+                        newComment
                     );
                 } else {
-                    console.log(updateData.message);
+                    console.log(newComment.message);
                     setFormValidation(false);
                 }
             } catch {
                 setFormValidation(true);
                 return axios.patch(
                     `http://localhost:8000/adminDashboard/1`,
-                    updateData
+                    newComment
                 );
             }
         },
         {
             onSuccess: () => {
                 // ✅ refetch the comments list for our blog post
-                queryClient.invalidateQueries(["repoData"]);
+                setTimeout(() => {
+                    setNotification(false);
+                }, 2000);
+                setTimeout(() => {
+                    queryClient.invalidateQueries(["repoData"]);
+                }, 2000);
             },
         }
     );
     // show notfiction after submitting
-    if (notfication) {
-        setTimeout(() => setNotification(false), 2000);
-    }
+
     /************************* Posting Data Start******************* */
 
     return (
@@ -76,7 +79,7 @@ function EditInfoForm() {
                     <h1
                         className={` absloute top-1/2 left-1/2 rounded border border-red bg-slate-100 p-4 px-8 text-center font-SourceSansPro	 text-xl font-bold text-red  `}
                     >
-                        Enter a valid bio and email
+                        Enter a valid bio or email
                     </h1>
                 )
             ) : (
@@ -273,7 +276,7 @@ function EditInfoForm() {
                                         type='button'
                                         onClick={(e) => {
                                             setShowModal(false);
-                                            handleSubmtion.mutate(info);
+                                            addComment.mutate(info);
                                             setNotification(true);
                                         }}
                                     >

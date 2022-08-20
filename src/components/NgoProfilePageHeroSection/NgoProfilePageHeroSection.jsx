@@ -3,17 +3,15 @@ import "../../App.css";
 import NGOImage from "../../assets/NGOImage.png";
 import EditInfoForm from "./EditInfoForm";
 import { useQuery } from "@tanstack/react-query";
-import SubmitConfirm from "../AdminDashboardHeroSection/SubmitConfirm";
 
 function NgoProfilePageHeroSection() {
     const [info, setInfo] = useState([]); //changed {} to []
-
     const { isLoading, error, data } = useQuery(["repoData"], () =>
         fetch("http://localhost:8000/adminDashboard/1").then((res) =>
             res.json().then((data) => setInfo(data))
         )
     );
-    // if (isLoading) return "Loading...";
+    if (isLoading) return "Loading...";
 
     // if (error) return error.messag;
 
