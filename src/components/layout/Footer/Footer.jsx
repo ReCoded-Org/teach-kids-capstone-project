@@ -6,7 +6,7 @@ import instagram from "../../../assets/instagram.svg";
 import facebook from "../../../assets/facebookFooter.svg";
 import youtube from "../../../assets/youtube.svg";
 import PostRequestFunction from "./PostRequestFunction";
-import isValidEmail from "../../../services/ValidationFunctions";
+import { isValidEmail } from "../../../services/ValidationFunctions";
 
 export default function Footer() {
     const [subscriptionData, setSubscriptionData] = useState("");
@@ -50,7 +50,7 @@ export default function Footer() {
                             value={subscriptionData}
                         />
                         <button
-                            className='rounded-md border-2 border-red hover:border-white bg-red p-1.5 hover:bg-blue-light transform duration-300 ease-linear hover:shadow'
+                            className='transform rounded-md border-2 border-red bg-red p-1.5 duration-300 ease-linear hover:border-white hover:bg-blue-light hover:shadow'
                             onClick={(e) => {
                                 e.preventDefault();
                                 if (isValidEmail(subscriptionData)) {
