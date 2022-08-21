@@ -15,7 +15,6 @@ function AdminDashboardHeroSection() {
     if (isLoading) return "Loading...";
 
     // if (error) return error.messag;
-    console.log(info);
 
     return (
         <>
