@@ -34,7 +34,6 @@ function AllEvents() {
 
     const { isLoading, error, data } = useQuery(["even"], fetchData, {
         onSuccess: (data) => {
-            console.log("Get data!");
             setEvents(data.data);
         },
     });

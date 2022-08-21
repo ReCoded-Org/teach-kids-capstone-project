@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import EventCardGrid from "../EventCardGrid/EventCardGrid";
 import { useQuery } from "@tanstack/react-query";
-
+import axios from "axios";
 export default function EventsGrid({
     events,
     num,
@@ -27,11 +27,22 @@ export default function EventsGrid({
     //         .then((actualData) => setOrganizations(actualData));
     // }, []);
 
-    const { isLoading, error, data } = useQuery(["events"], () =>
-        fetch("https://reach-capstone.herokuapp.com/api/ngos").then((res) =>
-            res.json().then((data) => setOrganizations(data.data))
-        )
-    );
+    // const { isLoading, error, data } = useQuery(["events"], () =>
+    //     fetch("https://reach-capstone.herokuapp.com/api/ngos").then((res) =>
+    //         res.json().then((data) => setOrganizations(data.data))
+    //     )
+    // );
+
+    const fetchData = async () => {
+        const { data } = await axios.get(
+            "https://reach-capstone.herokuapp.com/api/ngos"
+        );
+        return data;
+    };
+
+    const { isLoading, error, data } = useQuery(["events"], fetchData);
+    if (isLoading) return "Loading...";
+    if (error) return "An error has occurred: " + error.message;
 
     function showMoreEvents(num) {
         let subArraiesNumber = Math.floor(
@@ -49,8 +60,6 @@ export default function EventsGrid({
 
         setnum(++num);
     }
-    if (isLoading) return "Loading...";
-    console.log(organizations);
     return (
         <div className='flex flex-col justify-end bg-white  '>
             <div className='m-auto flex w-11/12 flex-col items-center justify-center'>
@@ -61,7 +70,7 @@ export default function EventsGrid({
                     {events
                         .slice(0, (window.innerWidth > 770 ? 12 : 6) * num)
                         ?.map((eventPost) => {
-                            const org = organizations.find((element) => {
+                            const org = data.data.find((element) => {
                                 return (
                                     element.organizationId ===
                                     eventPost.organizationId
