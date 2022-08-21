@@ -16,34 +16,6 @@ export default function EventsGrid({
         }
     });
 
-    const [organizations, setOrganizations] = useState();
-
-    const [loading, setLoading] = useState(true);
-    // const [error, setError] = useState(null);
-
-    // useEffect(() => {
-    //     fetch(`http://localhost:3000/organizations`)
-    //         .then((response) => response.json())
-    //         .then((actualData) => setOrganizations(actualData));
-    // }, []);
-
-    // const { isLoading, error, data } = useQuery(["events"], () =>
-    //     fetch("https://reach-capstone.herokuapp.com/api/ngos").then((res) =>
-    //         res.json().then((data) => setOrganizations(data.data))
-    //     )
-    // );
-
-    const fetchData = async () => {
-        const { data } = await axios.get(
-            "https://reach-capstone.herokuapp.com/api/ngos"
-        );
-        return data;
-    };
-
-    const { isLoading, error, data } = useQuery(["events"], fetchData);
-    if (isLoading) return "Loading...";
-    if (error) return "An error has occurred: " + error.message;
-
     function showMoreEvents(num) {
         let subArraiesNumber = Math.floor(
             events.length / (window.innerWidth > 770 ? 12 : 6)
@@ -60,6 +32,7 @@ export default function EventsGrid({
 
         setnum(++num);
     }
+
     return (
         <div className='flex flex-col justify-end bg-white  '>
             <div className='m-auto flex w-11/12 flex-col items-center justify-center'>
@@ -70,17 +43,10 @@ export default function EventsGrid({
                     {events
                         .slice(0, (window.innerWidth > 770 ? 12 : 6) * num)
                         ?.map((eventPost) => {
-                            const org = data.data.find((element) => {
-                                return (
-                                    element.organizationId ===
-                                    eventPost.organizationId
-                                );
-                            });
                             return (
                                 <EventCardGrid
                                     eventPost={eventPost}
                                     key={eventPost.id}
-                                    org={org.name}
                                 />
                             );
                         })}
