@@ -7,8 +7,8 @@ import { useQuery } from "@tanstack/react-query";
 function NgoProfilePageHeroSection() {
     const [info, setInfo] = useState([]); //changed {} to []
     const { isLoading, error, data } = useQuery(["repoData"], () =>
-        fetch("http://localhost:8000/adminDashboard/1").then((res) =>
-            res.json().then((data) => setInfo(data))
+        fetch("https://reach-capstone.herokuapp.com/api/ngos/").then((res) =>
+            res.json().then((data) => setInfo(data.data[0]))
         )
     );
     if (isLoading) return "Loading...";
@@ -52,7 +52,9 @@ function NgoProfilePageHeroSection() {
                                 <li className='my-2'>
                                     Location: {info.location}
                                 </li>
-                                <li className='my-2'>Date: {info.date}</li>
+                                <li className='my-2'>
+                                    Date: {info.createdAt.slice(0, 10)}
+                                </li>
                                 <li className='my-2'>Email: {info.email}</li>
                                 <li className='my-2'>
                                     Website: {info.website}
