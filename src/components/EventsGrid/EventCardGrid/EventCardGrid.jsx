@@ -2,21 +2,28 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const EventCardGrid = ({ eventPost, org }) => {
+    let name = "";
+    try {
+        name = eventPost.ngo.name;
+    } catch {
+        name = "Null";
+    }
+
     return (
         <div className='relative mb-6 mt-16 w-full min-w-0 max-w-md break-words rounded-xl px-5 xl:max-w-md'>
             <div className='card-header mx-4 -mt-6'>
                 <Link to={`/event/${eventPost.id}`}>
                     <img
                         className='w-auto rounded-lg'
-                        src={eventPost.image}
-                        alt={org.name}
+                        src={eventPost.avatar}
+                        alt={org}
                     />
                 </Link>
             </div>
             <div className='flex flex-col'>
                 <a href='#'>
-                    <h2 className='mt-2 text-center text-lg font-bold text-black'>
-                        {org}
+                    <h2 className='mt-2 text-center text-lg font-bold uppercase text-black'>
+                        {name}
                     </h2>
                 </a>
                 <p className='mb-4 text-center text-black opacity-60'>
@@ -24,7 +31,7 @@ const EventCardGrid = ({ eventPost, org }) => {
                 </p>
                 <a href='#'>
                     <h4 className='mb-3 text-center font-semibold text-black'>
-                        {eventPost.title}
+                        {eventPost.topic}
                     </h4>
                 </a>
                 <div className='flex rounded-md bg-gray'>

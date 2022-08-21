@@ -5,7 +5,7 @@ import language from "../../../assets/language-svgrepo-com.svg";
 import downArrow from "../../../assets/downArrow.svg";
 import { NavLink, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
- 
+
 const LANG_SPECS = [
     {
         code: "ar",
@@ -16,7 +16,7 @@ const LANG_SPECS = [
         name: "English",
     },
 ];
- 
+
 function Navbar() {
     const [t, i18n] = useTranslation();
     const [isHidden, setIsHidden] = useState(true);
@@ -71,7 +71,7 @@ function Navbar() {
                             }
                         ></span>
                     </div>
-                {/* ============= End (burger-menu section (animation +styling)) ============= */}
+                    {/* ============= End (burger-menu section (animation +styling)) ============= */}
                 </div>
                 {/* ============= Start (navbar links dropdown-menu on small size screen) ============= */}
                 <ul
@@ -81,24 +81,24 @@ function Navbar() {
                             : "jus flex flex-col gap-6  bg-blue-dark  px-6   pt-8 pb-1 text-xl font-semibold sm:items-center  md:flex-row   md:bg-inherit md:p-0    md:text-sm md:font-light  xl:gap-16  "
                     }
                 >
-                    <li className='font-SourceSansPro border-gray-700 hover:border-gray-200 w-full  transform border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+                    <li className='border-gray-700 hover:border-gray-200 w-full transform  border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
                         <NavLink to='/events'>Events {t("test")}</NavLink>
                     </li>
-                    <li className=' font-SourceSansPro border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+                    <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
                         <NavLink
                             to='contact-us' // in the contact us componant its id="contact-us" should be added
                         >
                             Contact Us
                         </NavLink>
                     </li>
-                    <li className='font-SourceSansPro border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+                    <li className='border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
                         <NavLink
                             to='about-us' // in the contact us componant its id="contact-us" should be added
                         >
                             About Us
                         </NavLink>
                     </li>
-                    <li className='font-SourceSansPro border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto md:border-none md:pb-0'>
+                    <li className='border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto md:border-none md:pb-0'>
                         <NavLink
                             to='about-us' // in the contact us componant its id="contact-us" should be added
                         >
@@ -145,8 +145,8 @@ function Navbar() {
                     {/* ============= End (language dropdown-menu on small size screen section) ============= */}
                 </ul>
                 {/* ============= End (navbar links dropdown-menu on small size screen) ============= */}
-                    {/* ============= Start (sign-in sign-up Buttons) ============= */}
-                    <div
+                {/* ============= Start (sign-in sign-up Buttons) ============= */}
+                <div
                     className={
                         isHidden
                             ? "hidden    md:flex md:gap-3"
@@ -159,7 +159,7 @@ function Navbar() {
                         </button>
                     </Link>
                     <Link to='/sign-up'>
-                        <button className='w-full border-2 border-red transform rounded  bg-red py-1.5  px-6 text-xl font-semibold duration-100 ease-in hover:font-bold hover:border-red hover:bg-blue-dark hover:text-red sm:w-44 sm:text-sm md:w-28'>
+                        <button className='w-full transform rounded border-2 border-red  bg-red py-1.5  px-6 text-xl font-semibold duration-100 ease-in hover:border-red hover:bg-blue-dark hover:font-bold hover:text-red sm:w-44 sm:text-sm md:w-28'>
                             Sign Up
                         </button>
                     </Link>

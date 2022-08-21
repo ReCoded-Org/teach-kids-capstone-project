@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 import React, { useState, useEffect } from "react";
 import EventCardGrid from "../EventCardGrid/EventCardGrid";
+import { useQuery } from "@tanstack/react-query";
 
 export default function EventsGrid({
     events,
@@ -9,22 +10,28 @@ export default function EventsGrid({
     setShowMoreBtn,
     showMoreBtn,
 }) {
-    console.log(events);
     useEffect(() => {
         if (events.length <= (window.innerWidth > 770 ? 12 : 6)) {
             setShowMoreBtn(false);
         }
     });
 
-    const [organizations, setOrganizations] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    const [organizations, setOrganizations] = useState();
 
-    useEffect(() => {
-        fetch(`http://localhost:3000/organizations`)
-            .then((response) => response.json())
-            .then((actualData) => setOrganizations(actualData));
-    }, []);
+    const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
+
+    // useEffect(() => {
+    //     fetch(`http://localhost:3000/organizations`)
+    //         .then((response) => response.json())
+    //         .then((actualData) => setOrganizations(actualData));
+    // }, []);
+
+    const { isLoading, error, data } = useQuery(["events"], () =>
+        fetch("https://reach-capstone.herokuapp.com/api/ngos").then((res) =>
+            res.json().then((data) => setOrganizations(data.data))
+        )
+    );
 
     function showMoreEvents(num) {
         let subArraiesNumber = Math.floor(
@@ -42,6 +49,8 @@ export default function EventsGrid({
 
         setnum(++num);
     }
+    if (isLoading) return "Loading...";
+    console.log(organizations);
     return (
         <div className='flex flex-col justify-end bg-white  '>
             <div className='m-auto flex w-11/12 flex-col items-center justify-center'>
@@ -58,7 +67,6 @@ export default function EventsGrid({
                                     eventPost.organizationId
                                 );
                             });
-
                             return (
                                 <EventCardGrid
                                     eventPost={eventPost}
