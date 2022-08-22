@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import AddNewEventForm from "./AddNewEventForm";
-import EditInfoForm from "../EditInfoForm/EditInfoForm";
 function NewEvent() {
   const [isHidden, setIsHidden] = useState(false);
-  console.log(isHidden)
     return (
       <>
       {isHidden ? (<AddNewEventForm setIsHidden={setIsHidden} isHidden={isHidden} />) : ("")}
@@ -17,7 +15,7 @@ function NewEvent() {
                 <button
                     className='mt-9 h-12 w-full rounded bg-red font-quicksand text-2xl font-bold text-gray hover:scale-105'
                     data-ripple-light='true'
-                    onClick={() => setIsHidden(!isHidden)}
+                    onClick={() => setIsHidden(true)}
                     href='' 
                 > <p className='ml-5 text-white'>
                         Click here!</p>
