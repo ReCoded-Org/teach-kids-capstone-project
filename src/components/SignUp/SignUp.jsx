@@ -9,22 +9,24 @@ import padlock from "src/assets/padlock.svg";
 import close from "src/assets/close-menu.svg";
 import Logo from "src/assets/Logo.png";
 import signup from "src/assets/signup.png";
+import { useLocation } from 'react-router-dom'
 
-function SignUp() {
+function SignUp(props) {
     const navigate = useNavigate();
-
     const [formData, setFormData] = useState({
-        username: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
+        "email": "",
+        "password": "",
+        "confirmPassword": "",
+        "username": ""
     });
-
+    const location = useLocation()
+    const Option = location.state
+    console.log(Option)
     function handleChange(event) {
         const name = event.target.name;
         let value = event.target.value;
-
         setFormData({ ...formData, [name]: value });
+        console.log(formData)
     }
 
     function handleSubmit(event) {
@@ -32,7 +34,7 @@ function SignUp() {
     }
 
     const SignUpFormData = useMutation((SignUpData) => {
-        return fetch("http://localhost:3001/signup", {
+        return fetch(`https://reach-capstone.herokuapp.com/api/auth/signup/${Option}`, {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -158,10 +160,10 @@ function SignUp() {
                             className='mt-4 h-12 w-full rounded bg-red font-quicksand text-2xl font-bold text-gray hover:scale-105'
                             onClick={() => {
                                 SignUpFormData.mutate({
-                                    username: formData.username,
                                     email: formData.email,
                                     password: formData.password,
                                     confirmPassword: formData.confirmPassword,
+                                    username:formData.username
                                 });
                             }}
                         >

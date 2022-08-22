@@ -32,10 +32,9 @@ function SignIn() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(formData);
     }
     const SendtoSignIn = useMutation((SignInData) => {
-        return fetch("http://localhost:3004/SignIn", {
+        return fetch("https://reach-capstone.herokuapp.com/api/auth/login", {
             method: "POST",
             headers: {
                 Accept: "application/json",
@@ -93,9 +92,10 @@ function SignIn() {
                         </div>
                         <input
                             type='text'
-                            name='Email'
+                            name='email'
+                            id='email'
                             onChange={handleChange}
-                            value={formData.Email}
+                            value={formData.email}
                             placeholder='Enter your email address'
                             className=' border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
@@ -112,8 +112,9 @@ function SignIn() {
                         <input
                             type='password'
                             name='password'
+                            id='password'
                             onChange={handleChange}
-                            value={formData.Password}
+                            value={formData.password}
                             placeholder='Enter your password'
                             className='border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />

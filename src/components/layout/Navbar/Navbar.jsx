@@ -160,7 +160,7 @@ function Navbar() {
                             Sign In
                         </button>
                     </Link>
-                    <Link to='/sign-up'>
+                    <Link to='/register'>
                         <button className='  hover:border-1 hover:bg-gray-100   w-full transform rounded  bg-red py-1.5  px-6 text-xl font-semibold duration-100 ease-in  hover:font-bold hover:text-red sm:w-44   sm:text-sm md:w-28'>
                             Sign Up
                         </button>
