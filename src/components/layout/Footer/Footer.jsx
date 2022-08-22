@@ -50,7 +50,7 @@ export default function Footer() {
                             value={subscriptionData}
                         />
                         <button
-                            className='rounded-md border-2 border-red hover:border-white bg-red p-1.5 hover:bg-blue-light transform duration-300 ease-linear hover:shadow'
+                            className='transform rounded-md border-2 border-red bg-red p-1.5 duration-300 ease-linear hover:border-white hover:bg-blue-light hover:shadow'
                             onClick={(e) => {
                                 e.preventDefault();
                                 if (isValidEmail(subscriptionData)) {
