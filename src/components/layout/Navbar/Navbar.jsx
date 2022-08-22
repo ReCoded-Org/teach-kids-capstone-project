@@ -86,6 +86,7 @@ function Navbar() {
                         <NavLink to='/events'>Events {t("test")}</NavLink>
                     </li>
                     <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+
                         <HashLink
                             smooth
                             to='#contact-us' // in the contact us componant its id="contact-us" should be added
@@ -94,6 +95,7 @@ function Navbar() {
                         </HashLink>
                     </li>
                     <li className='border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+
                         <HashLink
                             smooth
                             to='#about' // in the contact us componant its id="contact-us" should be added
