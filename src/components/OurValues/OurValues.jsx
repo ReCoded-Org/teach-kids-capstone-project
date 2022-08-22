@@ -5,7 +5,6 @@ import teachPic from "src/assets/Teach.jpg";
 import trustPic from "src/assets/Trust.jpg";
 import { useTranslation } from "react-i18next";
 
-
 function OurValues() {
     const settings = {
         arrows: true,
@@ -18,15 +17,12 @@ function OurValues() {
         autoplaySpeed: 2000,
         pauseOnHover: true,
     };
-
     const [t] = useTranslation();
-
     const ImgMap = {
         volunteerPic: volunteerPic,
         teachPic: teachPic,
         trustPic: trustPic,
-      };
-
+    };
     return (
         <div className='px-4 md:px-20'>
             <h2 className='text-center font-quicksand text-5xl font-bold text-blue-dark md:text-center lg:pl-16 lg:text-left'>

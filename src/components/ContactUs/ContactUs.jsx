@@ -37,7 +37,10 @@ function ContactUs() {
     const [t] = useTranslation();
 
     return (
-        <div className='ContactUs flex items-center justify-between'>
+        <div
+            id='contact-us'
+            className='ContactUs  flex items-center justify-between'
+        >
             <div className='container mx-auto pt-16'>
                 <div className='lg:flex '>
                     <div className='py-20 lg:w-4/5 xl:w-4/5'>
