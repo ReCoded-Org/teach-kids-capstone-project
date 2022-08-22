@@ -36,8 +36,10 @@ function ContactUs() {
     const [t] = useTranslation();
 
     return (
-        <div className='px-12 sm:px-12 lg:px-28 flex flex-col md:flex-col lg:flex-row md:justify-around'>
-            <div className='pt-32 md:mr-48'>
+        <div id='contact-us' className='ContactUs flex items-center justify-between'>
+            <div className='container mx-auto pt-16'>
+                <div className='lg:flex '>
+                    <div className='py-20 lg:w-4/5 xl:w-4/5'>
                         <div className='col-md-6 col-sm-12'>
                             <div className='contactInfo col'>
                                 <h1
@@ -159,6 +161,8 @@ function ContactUs() {
                         </form>
                     </div>
                 </div>
+            </div>
+        </div>
     );
 }
  

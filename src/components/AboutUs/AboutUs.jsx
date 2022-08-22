@@ -5,7 +5,10 @@ function AboutUs() {
     const [t] = useTranslation();
 
     return (
-        <div className='about-us relative h-screen items-center overflow-hidden px-8 sm:h-screen sm:px-12 lg:flex lg:h-fit lg:justify-between lg:px-36 lg:pt-10 lg:pb-32'>
+        <div
+            id='about'
+            className='about-us relative h-screen items-center overflow-hidden px-8 sm:h-screen sm:px-12 lg:flex lg:h-fit lg:justify-between lg:px-36 lg:pt-10 lg:pb-32'
+        >
             <div className='absolute left-0 bottom-16 -z-50 h-full w-full skew-y-3 bg-blue-light'></div>
 
             {/* Text div */}
