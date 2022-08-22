@@ -5,6 +5,7 @@ import language from "../../../assets/language-svgrepo-com.svg";
 import downArrow from "../../../assets/downArrow.svg";
 import { NavLink, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { HashLink } from "react-router-hash-link";
 
 const LANG_SPECS = [
     {
@@ -85,18 +86,22 @@ function Navbar() {
                         <NavLink to='/events'>Events {t("test")}</NavLink>
                     </li>
                     <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
-                        <NavLink
-                            to='contact-us' // in the contact us componant its id="contact-us" should be added
+
+                        <HashLink
+                            smooth
+                            to='#contact-us' // in the contact us componant its id="contact-us" should be added
                         >
                             Contact Us
-                        </NavLink>
+                        </HashLink>
                     </li>
                     <li className='border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
-                        <NavLink
-                            to='about-us' // in the contact us componant its id="contact-us" should be added
+
+                        <HashLink
+                            smooth
+                            to='#about' // in the contact us componant its id="contact-us" should be added
                         >
                             About Us
-                        </NavLink>
+                        </HashLink>
                     </li>
                     <li className='border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto md:border-none md:pb-0'>
                         <NavLink
