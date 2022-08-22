@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation} from "@tanstack/react-query";
 import google from "src/assets/google.svg";
 import facebook from "src/assets/facebook.svg";
 import apple from "src/assets/apple.svg";
@@ -11,7 +11,7 @@ import Logo from "src/assets/Logo.png";
 import signup from "src/assets/signup.png";
 import { useLocation } from 'react-router-dom'
 
-function SignUp(props) {
+function SignUp() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
         "email": "",
@@ -21,14 +21,12 @@ function SignUp(props) {
     });
     const location = useLocation()
     const Option = location.state
-    console.log(Option)
     function handleChange(event) {
         const name = event.target.name;
         let value = event.target.value;
         setFormData({ ...formData, [name]: value });
-        console.log(formData)
     }
-
+    console.log(formData)
     function handleSubmit(event) {
         event.preventDefault();
     }
@@ -43,7 +41,7 @@ function SignUp(props) {
             body: JSON.stringify(SignUpData),
         });
     });
-
+console.log("sss",SignUpFormData)
     return (
         <div className=' bg-blue-dark'>
             <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
@@ -160,10 +158,10 @@ function SignUp(props) {
                             className='mt-4 h-12 w-full rounded bg-red font-quicksand text-2xl font-bold text-gray hover:scale-105'
                             onClick={() => {
                                 SignUpFormData.mutate({
-                                    email: formData.email,
-                                    password: formData.password,
-                                    confirmPassword: formData.confirmPassword,
-                                    username:formData.username
+                                    "email": formData.email,
+                                    "password": formData.password,
+                                    "confirmPassword": formData.confirmPassword,
+                                    "username":formData.username
                                 });
                             }}
                         >

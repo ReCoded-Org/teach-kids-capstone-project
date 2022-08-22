@@ -6,6 +6,7 @@ import close from "src/assets/close-menu.svg";
 import Logo from "src/assets/Logo.png";
 import SignUp from "../SignUp/SignUp";
 
+
 function Register() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -61,7 +62,7 @@ function Register() {
                     </h4>
                     <div>
                         <button
-                            id='Organization'
+                            id='ngo'
                             name='Option'
                             onClick={handleChange}
                         >
