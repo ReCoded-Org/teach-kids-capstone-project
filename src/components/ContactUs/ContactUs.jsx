@@ -3,6 +3,7 @@ import Phone from "../../assets/phone.svg";
 import Message from "../../assets/email.svg";
 import Location from "../../assets/location.svg";
 import { useMutation } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 
 function ContactUs() {
     const [formData, setFormData] = useState({
@@ -31,6 +32,9 @@ function ContactUs() {
             body: JSON.stringify(ContactUsData),
         });
     });
+
+    const [t] = useTranslation();
+
     return (
         <div className='px-12 sm:px-12 lg:px-28 flex flex-col md:flex-col lg:flex-row md:justify-around'>
             <div className='pt-32 md:mr-48'>
@@ -39,16 +43,12 @@ function ContactUs() {
                                 <h1
                                     className='text-5xl font-bold font-quicksand text-blue-dark mb-10'
                                 >
-                                    Contact Us
+                                    {t("home.contactUs.title")}
                                 </h1>
                                 <p
                                     className='text-lg text-justify font-SourceSansPro text-blue-dark mb-10 md:max-w-lg'
                                 >
-                                    Get the understanding you need to channel
-                                    the books of spells you have always been
-                                    smitten with, and boost sales which cartoon
-                                    rabbits love to steal! Get the understanding
-                                    you need to
+                                    {t("home.contactUs.description")}
                                 </p>
                                 <div className='flex pb-20'>
                                     <div className='w-10 mr-5 grow text-blue-dark h-5 font-SourceSansPro'>
@@ -94,7 +94,7 @@ function ContactUs() {
                                         <label
                                             className='text-lg text-blue-dark pt-8 font-semibold mb-2'
                                         >
-                                            Full Name
+                                            {t("home.contactUs.fullNameFormTitle")}
                                         </label>
                                         <input
                                             required
@@ -104,7 +104,7 @@ function ContactUs() {
                                             onChange={handleChange}
                                             value={formData.Fullname}
                                             className="focus:border focus:border-blue-dark rounded border-none bg-gray mb-6"
-                                            placeholder='Full Name'
+                                            placeholder={t("home.contactUs.fullNameFormPlaceholder")}
                                         />
                                     </div>
                                 </div>
@@ -112,7 +112,7 @@ function ContactUs() {
                                         <label
                                             className='text-lg text-blue-dark font-semibold mb-2'
                                         >
-                                            Email
+                                            {t("home.contactUs.emailFormTitle")}
                                         </label>
                                         <input
                                             required
@@ -130,10 +130,10 @@ function ContactUs() {
                                     <label
                                         className='text-lg text-blue-dark font-semibold mb-2'
                                     >
-                                        Message
+                                        {t("home.contactUs.messageFormTitle")}
                                     </label>
                                     <textarea
-                                        placeholder='Type Here'
+                                        placeholder={t("home.contactUs.messageFormPlaceholder")}
                                         name='Message'
                                         className="border-none bg-gray mb-6 rounded"
                                         onChange={handleChange}
@@ -153,7 +153,7 @@ function ContactUs() {
                                         });
                                     }}
                                 >
-                                    Send
+                                    {t("home.contactUs.btn")}
                                 </button>
                             </div>
                         </form>
