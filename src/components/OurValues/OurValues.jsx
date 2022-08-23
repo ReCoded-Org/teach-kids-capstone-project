@@ -3,7 +3,7 @@ import "./Values.css";
 import volunteerPic from "src/assets/volunteer.jpg";
 import teachPic from "src/assets/Teach.jpg";
 import trustPic from "src/assets/Trust.jpg";
-
+import SliderArrow from "./SliderArrow/SliderArrow";
 
 import { useTranslation } from "react-i18next";
 
@@ -18,8 +18,9 @@ function OurValues() {
         autoplay: true,
         autoplaySpeed: 2000,
         pauseOnHover: true,
+        nextArrow: <SliderArrow leftOrRight={"left"} />,
+        prevArrow: <SliderArrow leftOrRight={"right"} />,
     };
-
 
     const [t] = useTranslation();
     const ImgMap = {
