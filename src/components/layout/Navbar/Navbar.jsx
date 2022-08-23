@@ -88,7 +88,7 @@ function Navbar() {
                     <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
                         <HashLink
                             smooth
-                            to='#contact-us' // in the contact us componant its id="contact-us" should be added
+                            to='/#contact-us' // in the contact us componant its id="contact-us" should be added
                         >
                             Contact Us
                         </HashLink>
@@ -96,7 +96,7 @@ function Navbar() {
                     <li className='border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
                         <HashLink
                             smooth
-                            to='#about' // in the contact us componant its id="contact-us" should be added
+                            to='/#about' // in the contact us componant its id="contact-us" should be added
                         >
                             About Us
                         </HashLink>
@@ -115,29 +115,29 @@ function Navbar() {
                             onChange={(e) =>
                                 i18n.changeLanguage(e.target.value)
                             }
-                            className='  border-gray-700 hover:border-gray-200 mt-0 border-0 border-b-2 bg-transparent py-0 pb-3 text-3xl duration-200  ease-linear focus:border-0 sm:text-lg  md:hidden'
+                            className='border-gray-700 hover:border-gray-200 mt-0 border-0 border-b-2 bg-transparent py-0 pb-3 text-3xl duration-200  ease-linear focus:border-0 sm:text-lg  md:hidden'
                         >
                             <option
                                 value='en'
-                                className='text-gray-500 text-xl'
+                                className='bg-blue-dark text-white text-xl'
                             >
                                 Language
                             </option>
                             <option
                                 value='ar'
-                                className='text-gray-500 text-xl'
+                                className='bg-blue-dark text-white text-xl'
                             >
                                 Arabic
                             </option>
                             <option
                                 value='en'
-                                className='text-gray-500 text-xl'
+                                className='bg-blue-dark text-white text-xl'
                             >
                                 English
                             </option>
                             <option
                                 value='tr'
-                                className='text-gray-500 text-xl'
+                                className='bg-blue-dark text-white text-xl'
                             >
                                 Turkish
                             </option>
