@@ -4,11 +4,14 @@ import EventsGrid from "../components/EventsGrid/EventsGrid/EventsGrid";
 import FilterEvents from "../components/EventsGrid/FilterEvents/FilterEvents";
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
+
 function AllEvents() {
     const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
+    // const [error, setError] = useState(null);
     const [num, setnum] = useState(1);
     const [showMoreBtn, setShowMoreBtn] = useState(true);
 
@@ -22,24 +25,35 @@ function AllEvents() {
 
     //
 
-    useEffect(() => {
-        fetch(`http://localhost:3000/events`)
-            .then((response) => response.json())
-            .then((actualData) => setEvents(actualData));
-    }, []);
+    const fetchData = async () => {
+        const { data } = await axios.get(
+            "https://reach-capstone.herokuapp.com/api/events"
+        );
+        return data;
+    };
 
+    const { isLoading, error, data } = useQuery(["even"], fetchData, {
+        onSuccess: (data) => {
+            setEvents(data.data);
+        },
+    });
     useEffect(() => {
         let tagItems = events
-            .map((val) => val.tags)
-            .reduce((acc, val) => [...acc, ...val], []);
+            .map((val) => {
+                return val.topic;
+            })
+            .reduce((acc, val) => [...acc, val], []);
         setMenuTagItems([...new Set(tagItems.map((item) => item))]);
+
         setnum(1);
         setFilteredEvents(events);
         setShowMoreBtn(true);
     }, [events]);
 
     useEffect(() => {
-        const result = events.filter((event) => event.tags.includes(tag));
+        const result = events.filter((event) => {
+            return event.topic.includes(tag);
+        });
         setFilteredEvents(result);
         setShowMoreBtn(true);
         setnum(1);
@@ -63,6 +77,9 @@ function AllEvents() {
         setFilteredEvents(result);
         setShowMoreBtn(true);
     }, [location]);
+    if (isLoading) return "Loading...";
+
+    if (error) return "An error has occurred: " + error.message;
 
     return (
         <>

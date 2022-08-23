@@ -1,34 +1,78 @@
-import aboutus from "src/assets/AboutUs.jpg";
+import Slider from "react-slick";
+import "./AboutUs.css";
+import aboutUsOne from "src/assets/AboutUs-1.jpg";
+import aboutUsTwo from "src/assets/AboutUs-2.jpg";
+import aboutUsThree from "src/assets/AboutUs-3.jpg";
+import SliderArrow from "./SliderArrow/SliderArrow";
 import { useTranslation } from "react-i18next";
 
 function AboutUs() {
+    const settings = {
+        arrows: true,
+        dots: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        pauseOnHover: true,
+        nextArrow: <SliderArrow leftOrRight={"left"} />,
+        prevArrow: <SliderArrow leftOrRight={"right"} />,
+    };
+
     const [t] = useTranslation();
+    const ImgMap = {
+        aboutUsOne: aboutUsOne,
+        aboutUsTwo: aboutUsTwo,
+        aboutUsThree: aboutUsThree,
+    };
 
     return (
-        <div
-            id='about'
-            className='about-us relative h-screen items-center overflow-hidden px-8 sm:h-screen sm:px-12 lg:flex lg:h-fit lg:justify-between lg:px-36 lg:pt-10 lg:pb-32'
-        >
-            <div className='absolute left-0 bottom-16 -z-50 h-full w-full skew-y-3 bg-blue-light'></div>
-
-            {/* Text div */}
-            <div className='flex flex-col text-white sm:text-center lg:w-2/4 lg:max-w-md '>
-                <h1 className='transform self-center py-10 font-quicksand text-5xl font-bold lg:self-start lg:py-0'>
-                    {t("home.aboutUs.title")}
-                </h1>
-                <p className='break-normal pb-10 text-justify font-SourceSansPro text-lg md:pb-0 md:pt-6 md:text-xl'>
-                    {t(`home.aboutUs.texts.${[0]}.description`)}
-                </p>
+        <div flex flex-col>
+            <div className=' w-full bg-blue-light p-3'>
+                <p className='text-lg text-blue-light'>1</p>
             </div>
+            <div className=' absolute w-full bg-blue-light p-3'>
+                <p className='text-lg text-blue-light'>1</p>
+            </div>
+            <div className='diagonal-box-about flex flex-col bg-blue-light '>
+                <div className='content-about'>
+                    <h2 className='mt-14 text-center font-quicksand text-5xl font-bold text-white md:text-center lg:pl-16 lg:text-left'>
+                        {t("home.aboutUs.title")}
+                    </h2>
+                    <Slider {...settings}>
+                        {t("home.aboutUs.texts", { returnObjects: true }).map(
+                            function (item) {
+                                return (
+                                    <div key={item}>
+                                        {/* Slider wrapper */}
+                                        <div
+                                            className='mx-8 font-quicksand text-white'
+                                            id='slider-wrapper'
+                                        >
+                                            {/* Text Wrapper */}
+                                            <div className='mt-8 text-justify sm:mx-0 sm:w-10/12 md:w-10/12 md:break-normal lg:mr-8 lg:w-2/4 lg:px-6 lg:pl-14'>
+                                                <p className='pb-12 font-SourceSansPro text-lg text-white md:text-xl'>
+                                                    {item.description}
+                                                </p>
+                                            </div>
 
-            {/* Image div */}
-            <div className='relative mt-8 ml-12 flex w-10/12 sm:mt-8 md:mt-20 md:ml-16 md:w-3/4 lg:w-2/4 lg:flex-row-reverse'>
-                <img
-                    className='sm:2/4 ml-7 w-3/5 rounded-full border-4 border-gray md:mr-20 md:w-7/12 md:border-8 xl:mr-44'
-                    src={aboutus}
-                    alt={"a drawing of a studying kid"}
-                />
-                <div className='absolute right-6 -z-10 h-full w-3/5 rounded-full bg-blue-dark p-1 md:w-7/12'></div>
+                                            <div className='relative my-10 flex w-10/12 md:ml-32 md:mt-8 md:w-3/5 md:justify-center lg:my-12 lg:ml-10 lg:w-2/4'>
+                                                <img
+                                                    className='w-3/5 rounded-full border-4 border-gray sm:mr-16 md:ml-7 md:mr-72 md:w-11/12 md:border-8 lg:mr-20 lg:w-7/12'
+                                                    src={ImgMap[item.image]}
+                                                    alt={item.alt}
+                                                />
+                                                <div className='absolute right-6 -z-10 h-full w-3/5 rounded-full bg-blue-dark md:right-6 md:w-11/12 lg:w-7/12'></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            }
+                        )}
+                    </Slider>
+                </div>
             </div>
         </div>
     );

@@ -1,7 +1,8 @@
 /* eslint-disable no-console */
 import React, { useState, useEffect } from "react";
 import EventCardGrid from "../EventCardGrid/EventCardGrid";
-
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 export default function EventsGrid({
     events,
     num,
@@ -9,22 +10,11 @@ export default function EventsGrid({
     setShowMoreBtn,
     showMoreBtn,
 }) {
-    console.log(events);
     useEffect(() => {
         if (events.length <= (window.innerWidth > 770 ? 12 : 6)) {
             setShowMoreBtn(false);
         }
     });
-
-    const [organizations, setOrganizations] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-
-    useEffect(() => {
-        fetch(`http://localhost:3000/organizations`)
-            .then((response) => response.json())
-            .then((actualData) => setOrganizations(actualData));
-    }, []);
 
     function showMoreEvents(num) {
         let subArraiesNumber = Math.floor(
@@ -42,6 +32,7 @@ export default function EventsGrid({
 
         setnum(++num);
     }
+
     return (
         <div className='flex flex-col justify-end bg-white  '>
             <div className='m-auto flex w-11/12 flex-col items-center justify-center'>
@@ -52,18 +43,10 @@ export default function EventsGrid({
                     {events
                         .slice(0, (window.innerWidth > 770 ? 12 : 6) * num)
                         ?.map((eventPost) => {
-                            const org = organizations.find((element) => {
-                                return (
-                                    element.organizationId ===
-                                    eventPost.organizationId
-                                );
-                            });
-
                             return (
                                 <EventCardGrid
                                     eventPost={eventPost}
                                     key={eventPost.id}
-                                    org={org.name}
                                 />
                             );
                         })}
