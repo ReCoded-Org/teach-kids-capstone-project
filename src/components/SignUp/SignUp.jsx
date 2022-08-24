@@ -41,7 +41,6 @@ function SignUp() {
             body: JSON.stringify(SignUpData),
         });
     });
-console.log("sss",SignUpFormData)
     return (
         <div className=' bg-blue-dark'>
             <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
