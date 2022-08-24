@@ -29,7 +29,7 @@ function OurValues() {
         trustPic: trustPic,
     };
     return (
-        <div className='px-4 md:px-20'>
+        <div className='mx-auto  w-11/12 py-24 md:w-9/12'>
             <h2 className='text-center font-quicksand text-5xl font-bold text-blue-dark md:text-center lg:pl-16 lg:text-left'>
                 {t("home.ourValues.title")}
             </h2>
@@ -37,10 +37,10 @@ function OurValues() {
                 {t("home.ourValues.texts", { returnObjects: true }).map(
                     function (item) {
                         return (
-                            <div key={item}>
+                            <div key={item} className='px-2'>
                                 {/* Slider wrapper */}
                                 <div
-                                    className='mx-8 font-quicksand text-blue-dark'
+                                    className=' justify-between font-quicksand text-blue-dark  xl:gap-24'
                                     id='slider-wrapper'
                                 >
                                     <div className='relative my-10 flex w-10/12 md:ml-32 md:mt-8 md:w-3/5 md:justify-center lg:my-12 lg:ml-10 lg:w-2/4'>
@@ -53,8 +53,8 @@ function OurValues() {
                                     </div>
 
                                     {/* Text Wrapper */}
-                                    <div className='mt-8 text-justify sm:mx-0 sm:w-10/12 md:w-10/12 md:break-normal lg:mr-8 lg:w-2/4 lg:px-6 lg:pl-14'>
-                                        <h1 className='pb-4 font-quicksand text-5xl font-bold text-blue-dark'>
+                                    <div className='mt-8  text-justify  md:break-normal  lg:w-3/4  '>
+                                        <h1 className='pb-4 font-quicksand text-3xl font-bold text-blue-dark md:text-5xl'>
                                             {item.title}
                                         </h1>
                                         <p className='pb-12 font-SourceSansPro text-lg text-blue-dark md:text-xl'>

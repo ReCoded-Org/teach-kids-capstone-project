@@ -9,7 +9,7 @@ function HeroSection() {
 
     return (
         <>
-            <section className='my-3 grid grid-cols-1 bg-white p-4 py-8 sm:grid-cols-2 md:my-4 md:px-12 md:pt-0 lg:px-36 lg:py-28'>
+            <section className='my-3 mx-auto grid w-11/12 grid-cols-1 bg-white py-8 sm:grid-cols-2 md:my-4 md:w-9/12  md:pt-0 lg:py-28'>
                 <main className='row md:mt-20 lg:mt-20'>
                     <h1 className='my-4 mb-6 text-center  font-quicksand text-5xl font-semibold text-blue-dark md:text-start'>
                         {t("home.hero.title")}
@@ -36,7 +36,7 @@ function HeroSection() {
                         </Link>
                     </div>
                 </main>
-                <div className='flex h-96 justify-center p-2 md:mt-5 md:h-96  md:place-items-end'>
+                <div className='flex h-96  justify-center p-2 md:mt-5 md:h-96 md:place-items-end  md:justify-end'>
                     <img src={logo} className='py-2 lg:h-full' alt='' />
                 </div>
             </section>
