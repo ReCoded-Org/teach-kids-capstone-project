@@ -8,9 +8,6 @@ function AddNewEventForm({ setIsHidden, isHidden }) {
         topic: "",
         launchDate:"",
         location:"",
-        Email:"",
-        Website: "",
-        PhoneNumber: "",
         description:"",
     });
 
@@ -45,25 +42,6 @@ function AddNewEventForm({ setIsHidden, isHidden }) {
                             <h3 className='mx-6 text-2xl font-semibold'>
                                 New Event
                             </h3>
-                            <button
-                                className='mr-1 mb-1 rounded bg-[#457B9D] px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:border-2 active:border-[#457B9D] active:bg-white active:text-[#457B9D]'
-                                type='button'
-                                onClick={() => {
-                                    NewEventFormData.mutate({
-                                        avatar: formData.avatar,
-                                        topic: formData.topic,
-                                        launchDate:formData.launchDate,
-                                        location:formData.location,
-                                        Email:formData.Email,
-                                        Website: formData.Website,
-                                        PhoneNumber: formData.PhoneNumber,
-                                        description:formData.description,
-                                    });
-                                    
-                                }}
-                            >
-                                Add Event
-                            </button>
                             <button
                                 className='float-right mx-6 ml-auto    border-0 bg-transparent  text-2xl font-semibold leading-none text-black opacity-50 outline-none focus:outline-none'
                                 onClick={() => setIsHidden(!isHidden)}
@@ -145,46 +123,6 @@ function AddNewEventForm({ setIsHidden, isHidden }) {
                                         placeholder='Zoom'
                                     />
                                 </div>
-                                <div className='mb-4'>
-                                    <label className='text-gray-700 mb-2 block text-sm font-bold'>
-                                        Email
-                                    </label>
-                                    <input
-                                        onChange={handleChange}
-                                        name='Email'
-                                        id='Email'
-                                        className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
-                                        type='text'
-                                        placeholder='helloworld@gmail.com'
-                                    />
-                                </div>
-                                <div className='mb-4'>
-                                <label className='text-gray-700 mb-2 block text-sm font-bold'>
-                                    Website
-                                    </label>
-                                    <input
-                                    onChange={handleChange}
-                                    name='Website'
-                                    id='Website'
-                                    className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
-                                    type='text'
-                                    placeholder='www.helloworld.com'
-                                    />            
-                                </div>
-                                <div className='mb-4'>
-                                    <label className='text-gray-700 mb-2 block text-sm font-bold'>
-                                        Phone Number
-                                    </label>
-                                    <input
-                                        onChange={handleChange}
-                                        name='PhoneNumber'
-                                        id='PhoneNumber'
-                                        className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
-                                        type='tel'
-                                        placeholder='+90 (545) 121 3333'
-                                    />
-                                </div>
-
                                 <div className=''>
                                     <label className='text-gray-700 mb-2 block text-sm font-bold'>
                                         About the Event
@@ -214,7 +152,22 @@ function AddNewEventForm({ setIsHidden, isHidden }) {
                             >
                                 Close
                             </button>
-                            
+                            <button
+                                className='mr-1 mb-1 rounded bg-[#457B9D] px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:border-2 active:border-[#457B9D] active:bg-white active:text-[#457B9D]'
+                                type='button'
+                                onClick={() => {
+                                    NewEventFormData.mutate({
+                                        avatar: formData.avatar,
+                                        topic: formData.topic,
+                                        launchDate:formData.launchDate,
+                                        location:formData.location,
+                                        description:formData.description,
+                                    });
+                                    
+                                }}
+                            >
+                                Add Event
+                            </button>
                         </div>
                     </div>
                 </div>
