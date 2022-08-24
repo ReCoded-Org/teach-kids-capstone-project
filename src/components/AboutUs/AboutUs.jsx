@@ -29,7 +29,7 @@ function AboutUs() {
     };
 
     return (
-        <div flex flex-col>
+        <div className='flex flex-col' id='about'>
             <div className=' w-full bg-blue-light p-3'>
                 <p className='text-lg text-blue-light'>1</p>
             </div>
