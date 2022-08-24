@@ -29,7 +29,7 @@ function AboutUs() {
     };
 
     return (
-        <div flex flex-col>
+        <div>
             <div className=' w-full bg-blue-light p-3'>
                 <p className='text-lg text-blue-light'>1</p>
             </div>
@@ -38,27 +38,27 @@ function AboutUs() {
             </div>
             <div className='diagonal-box-about flex flex-col bg-blue-light '>
                 <div className='content-about'>
-                    <h2 className='mt-14 text-center font-quicksand text-5xl font-bold text-white md:text-center lg:pl-16 lg:text-left'>
+                    <h2 className='mt-14 flex self-start text-center font-quicksand text-5xl font-bold text-white md:text-center lg:pl-16 lg:text-left'>
                         {t("home.aboutUs.title")}
                     </h2>
                     <Slider {...settings}>
                         {t("home.aboutUs.texts", { returnObjects: true }).map(
                             function (item) {
                                 return (
-                                    <div key={item}>
+                                    <div key={item} className="flex justify-between justify-items-start">
                                         {/* Slider wrapper */}
                                         <div
-                                            className='mx-8 font-quicksand text-white'
-                                            id='slider-wrapper'
+                                            className='flex flex-row justify-between mx-8 font-quicksand text-white'
+                                            // id='slider-wrapper'
                                         >
                                             {/* Text Wrapper */}
-                                            <div className='mt-8 text-justify sm:mx-0 sm:w-10/12 md:w-10/12 md:break-normal lg:mr-8 lg:w-2/4 lg:px-6 lg:pl-14'>
+                                            <div className='mt-8 flex self-center text-justify sm:mx-0 sm:w-10/12 md:w-10/12 md:break-normal lg:mr-8 lg:w-2/4 lg:px-6 lg:pl-14'>
                                                 <p className='pb-12 font-SourceSansPro text-lg text-white md:text-xl'>
                                                     {item.description}
                                                 </p>
                                             </div>
 
-                                            <div className='relative my-10 flex w-10/12 md:ml-32 md:mt-8 md:w-3/5 md:justify-center lg:my-12 lg:ml-10 lg:w-2/4'>
+                                            <div className='relative my-10 flex self-center w-10/12 md:ml-32 md:mt-8 md:w-3/5 md:justify-center lg:my-12 lg:ml-10 lg:w-2/4'>
                                                 <img
                                                     className='w-3/5 rounded-full border-4 border-gray sm:mr-16 md:ml-7 md:mr-72 md:w-11/12 md:border-8 lg:mr-20 lg:w-7/12'
                                                     src={ImgMap[item.image]}
