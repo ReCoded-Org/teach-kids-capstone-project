@@ -5,6 +5,7 @@ import aboutUsTwo from "src/assets/AboutUs-2.jpg";
 import aboutUsThree from "src/assets/AboutUs-3.jpg";
 import SliderArrow from "./SliderArrow/SliderArrow";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
 
 function AboutUs() {
     const settings = {
@@ -27,7 +28,12 @@ function AboutUs() {
         aboutUsTwo: aboutUsTwo,
         aboutUsThree: aboutUsThree,
     };
-
+    let reverse = "flex-row";
+    let reverse1 = "lg:text-left";
+    if (t("home.aboutUs.title") !== "About Us") {
+        reverse = "flex-row-reverse";
+        reverse1 = "lg:text-right";
+    }
     return (
         <div className=''>
             <div className=' w-full bg-blue-light p-8'>
@@ -36,9 +42,11 @@ function AboutUs() {
             <div className=' absolute w-full bg-blue-light p-8'>
                 <p className='text-lg text-blue-light'>1</p>
             </div>
-            <div className='diagonal-box-about flex  flex-col bg-blue-light  '>
+            <div className='diagonal-box-about     bg-blue-light  '>
                 <div className='content-about pb-24'>
-                    <h2 className=' text-center font-quicksand text-5xl font-bold text-white md:text-center lg:pl-16 lg:text-left'>
+                    <h2
+                        className={`text-center font-quicksand text-5xl font-bold text-white md:text-center ${reverse1} lg:pl-16 `}
+                    >
                         {t("home.aboutUs.title")}
                     </h2>
                     <Slider {...settings}>
@@ -51,11 +59,11 @@ function AboutUs() {
                                     >
                                         {/* Slider wrapper */}
                                         <div
-                                            className=' font-quicksand text-white'
+                                            className={` flex ${reverse} font-quicksand text-white`}
                                             id='slider-wrapper'
                                         >
                                             {/* Text Wrapper */}
-                                            <div className='mt-8 text-justify   md:break-normal   lg:px-6 lg:pl-14'>
+                                            <div className='text-jus tify mt-8   md:break-normal   lg:px-6 lg:pl-14'>
                                                 <p className='pb-12 font-SourceSansPro text-xl text-white md:my-12 md:text-2xl'>
                                                     {item.description}
                                                 </p>
