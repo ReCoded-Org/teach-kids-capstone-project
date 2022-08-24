@@ -12,13 +12,17 @@ export default function Footer() {
     const [subscriptionData, setSubscriptionData] = useState("");
     const [validationMsg, setValidationMsg] = useState("");
     return (
-        <div>
+        <div className='bg-primary'>
             <div
                 data-testid='footer'
-                className='jus flex flex-wrap items-center bg-primary px-12 py-10 font-SourceSansPro text-xl text-white md:justify-around lg:justify-between lg:px-36'
+                className='jus md-11/12 mx-auto flex w-9/12 flex-wrap items-center justify-between  bg-primary py-10 font-SourceSansPro text-xl text-white '
             >
                 <div className='my-2'>
-                    <img className='pb-2' src={logo} alt='Logo' />
+                    <img
+                        className='hidden pb-2 md:block'
+                        src={logo}
+                        alt='Logo'
+                    />
                     <h6 className='flex justify-start pt-2'>Events</h6>
                     <h6 className='flex justify-start pt-2'>About Us</h6>
                     <h6 className='flex justify-start pt-2'>Contact Us</h6>
@@ -40,7 +44,7 @@ export default function Footer() {
                     <form>
                         <h4 className='flex justify-start'>E-mail</h4>
                         <input
-                            className='rounded-md text-black'
+                            className='h-10 w-40 rounded-md text-black sm:w-56'
                             type='text'
                             onChange={(e) => {
                                 setSubscriptionData(e.target.value);
@@ -49,7 +53,7 @@ export default function Footer() {
                             value={subscriptionData}
                         />
                         <button
-                            className='transform rounded-md border-2 border-red bg-red p-1.5 duration-300 ease-linear hover:border-white hover:bg-blue-light hover:shadow'
+                            className=' h-10  transform items-center rounded-md   border-red bg-red p-1.5 text-center duration-300 ease-linear hover:border-white hover:bg-blue-light hover:shadow'
                             onClick={(e) => {
                                 e.preventDefault();
                                 if (isValidEmail(subscriptionData)) {
@@ -64,20 +68,20 @@ export default function Footer() {
                     </form>
                 </div>
             </div>
-            <div className='flex-wrap justify-around bg-secondary pb-2 pt-1 text-white sm:flex'>
-                <div className='grid grid-cols-1'>
+            <div className='flex flex-wrap justify-around bg-secondary pb-2 pt-1 text-white'>
+                <div className='mx-auto grid grid-cols-1 '>
                     <p className='my-1 justify-self-start pl-5 text-xs'>
                         All right reserved
                     </p>
                 </div>
-                <div className='grid grid-cols-1 sm:flex sm:justify-between sm:justify-items-stretch'>
-                    <div className='my-1 justify-self-start pl-5 text-xs'>
+                <div className='mx-auto grid grid-cols-3 gap-2 sm:flex sm:justify-between sm:justify-items-stretch'>
+                    <div className='my-1 justify-self-start  text-xs'>
                         Terms and Conditions
                     </div>
-                    <div className='my-1 justify-self-start pl-5 text-xs'>
+                    <div className='my-1 justify-self-start  text-xs'>
                         Privacy and Cookies
                     </div>
-                    <div className='my-1 justify-self-start pl-5 pr-2 text-xs'>
+                    <div className='my-1 justify-self-start   text-xs'>
                         Accessability
                     </div>
                 </div>

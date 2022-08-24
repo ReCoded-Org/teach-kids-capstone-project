@@ -115,29 +115,29 @@ function Navbar() {
                             onChange={(e) =>
                                 i18n.changeLanguage(e.target.value)
                             }
-                            className='border-gray-700 hover:border-gray-200 mt-0 border-0 border-b-2 bg-transparent py-0 pb-3 text-3xl duration-200  ease-linear focus:border-0 sm:text-lg  md:hidden'
+                            className='border-gray-700 hover:border-gray-200  mt-0 w-60 border-0 border-b-2 bg-transparent py-0 pb-3 text-xl duration-200 ease-linear  focus:border-0 sm:w-auto sm:text-lg  md:hidden'
                         >
                             <option
                                 value='en'
-                                className='bg-blue-dark text-white text-xl'
+                                className=' text-md bg-blue-dark text-white'
                             >
                                 Language
                             </option>
                             <option
                                 value='ar'
-                                className='bg-blue-dark text-white text-xl'
+                                className='bg-blue-dark text-lg text-white'
                             >
                                 Arabic
                             </option>
                             <option
                                 value='en'
-                                className='bg-blue-dark text-white text-xl'
+                                className='bg-blue-dark text-lg text-white'
                             >
                                 English
                             </option>
                             <option
                                 value='tr'
-                                className='bg-blue-dark text-white text-xl'
+                                className='text-md bg-blue-dark text-white'
                             >
                                 Turkish
                             </option>

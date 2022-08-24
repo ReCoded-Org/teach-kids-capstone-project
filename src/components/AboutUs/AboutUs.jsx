@@ -29,31 +29,34 @@ function AboutUs() {
     };
 
     return (
-        <div flex flex-col>
-            <div className=' w-full bg-blue-light p-3'>
+        <div className=''>
+            <div className=' w-full bg-blue-light p-8'>
                 <p className='text-lg text-blue-light'>1</p>
             </div>
-            <div className=' absolute w-full bg-blue-light p-3'>
+            <div className=' absolute w-full bg-blue-light p-8'>
                 <p className='text-lg text-blue-light'>1</p>
             </div>
-            <div className='diagonal-box-about flex flex-col bg-blue-light '>
-                <div className='content-about'>
-                    <h2 className='mt-14 text-center font-quicksand text-5xl font-bold text-white md:text-center lg:pl-16 lg:text-left'>
+            <div className='diagonal-box-about flex  flex-col bg-blue-light  '>
+                <div className='content-about pb-24'>
+                    <h2 className=' text-center font-quicksand text-5xl font-bold text-white md:text-center lg:pl-16 lg:text-left'>
                         {t("home.aboutUs.title")}
                     </h2>
                     <Slider {...settings}>
                         {t("home.aboutUs.texts", { returnObjects: true }).map(
                             function (item) {
                                 return (
-                                    <div key={item}>
+                                    <div
+                                        key={item}
+                                        className='w-11/12 md:w-10/12'
+                                    >
                                         {/* Slider wrapper */}
                                         <div
-                                            className='mx-8 font-quicksand text-white'
+                                            className=' font-quicksand text-white'
                                             id='slider-wrapper'
                                         >
                                             {/* Text Wrapper */}
-                                            <div className='mt-8 text-justify sm:mx-0 sm:w-10/12 md:w-10/12 md:break-normal lg:mr-8 lg:w-2/4 lg:px-6 lg:pl-14'>
-                                                <p className='pb-12 font-SourceSansPro text-lg text-white md:text-xl'>
+                                            <div className='mt-8 text-justify   md:break-normal   lg:px-6 lg:pl-14'>
+                                                <p className='pb-12 font-SourceSansPro text-xl text-white md:my-12 md:text-2xl'>
                                                     {item.description}
                                                 </p>
                                             </div>
