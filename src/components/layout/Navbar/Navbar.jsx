@@ -83,14 +83,14 @@ function Navbar() {
                     }
                 >
                     <li className='border-gray-700 hover:border-gray-200 w-full transform  border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
-                        <NavLink to='/events'>Events {t("test")}</NavLink>
+                        <NavLink to='/events'>{t(`navbar.pages.${[0]}`)}</NavLink>
                     </li>
                     <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
                         <HashLink
                             smooth
                             to='/#contact-us' // in the contact us componant its id="contact-us" should be added
                         >
-                            Contact Us
+                            {t(`navbar.pages.${[1]}`)}
                         </HashLink>
                     </li>
                     <li className='border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
@@ -98,7 +98,7 @@ function Navbar() {
                             smooth
                             to='/#about' // in the contact us componant its id="contact-us" should be added
                         >
-                            About Us
+                            {t(`navbar.pages.${[2]}`)}
                         </HashLink>
                     </li>
                     <li className='border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto md:border-none md:pb-0'>
@@ -115,23 +115,23 @@ function Navbar() {
                             onChange={(e) =>
                                 i18n.changeLanguage(e.target.value)
                             }
-                            className='border-gray-700 hover:border-gray-200  mt-0 w-60 border-0 border-b-2 bg-transparent py-0 pb-3 text-xl duration-200 ease-linear  focus:border-0 sm:w-auto sm:text-lg  md:hidden'
+                            className='border-gray-700 hover:border-gray-200 mt-0 border-0 border-b-2 bg-transparent py-0 pb-3 text-3xl duration-200  ease-linear focus:border-0 sm:text-lg  md:hidden'
                         >
                             <option
                                 value='en'
-                                className=' text-md bg-blue-dark text-white'
+                                className='bg-blue-dark text-white text-xl'
                             >
                                 Language
                             </option>
                             <option
                                 value='ar'
-                                className='bg-blue-dark text-lg text-white'
+                                className='bg-blue-dark text-white text-xl'
                             >
                                 Arabic
                             </option>
                             <option
                                 value='en'
-                                className='bg-blue-dark text-lg text-white'
+                                className='bg-blue-dark text-white text-xl'
                             >
                                 English
                             </option>
@@ -141,6 +141,7 @@ function Navbar() {
                             >
                                 Turkish
                             </option> */}
+
                         </select>
                     ) : (
                         ""
@@ -153,17 +154,17 @@ function Navbar() {
                     className={
                         isHidden
                             ? "hidden    md:flex md:gap-3"
-                            : " flex flex-col  justify-start gap-3   bg-blue-dark p-6 pt-4 pb-10   sm:flex sm:flex-row sm:justify-center sm:pt-4   md:flex md:flex-row md:gap-2 md:bg-inherit md:p-0 md:font-light "
+                            : " flex flex-col  justify-start  gap-3   bg-blue-dark p-6 pt-4 pb-10   sm:flex sm:flex-row sm:justify-center sm:pt-4   md:flex md:flex-row md:gap-2 md:bg-inherit md:p-0 md:font-light "
                     }
                 >
                     <Link to='/sign-in'>
                         <button className='w-full transform  rounded border-2 py-1.5 px-6 text-xl font-semibold duration-200 ease-in hover:font-bold hover:text-red  sm:ml-0  sm:w-44 sm:text-sm md:w-28 md:text-sm'>
-                            Sign In
+                        {t(`navbar.buttons.${[0]}`)}
                         </button>
                     </Link>
                     <Link to='/sign-up'>
                         <button className='w-full transform rounded border-2 border-red  bg-red py-1.5  px-6 text-xl font-semibold duration-100 ease-in hover:border-red hover:bg-blue-dark hover:font-bold hover:text-red sm:w-44 sm:text-sm md:w-28'>
-                            Sign Up
+                        {t(`navbar.buttons.${[1]}`)}
                         </button>
                     </Link>
 
@@ -196,7 +197,7 @@ function Navbar() {
                                 }}
                                 className='py-0.5 px-2 hover:bg-blue-dark'
                             >
-                                Arabic
+                                العربية
                             </li>
                             {/* <li
                                 onClick={() => {
@@ -206,6 +207,9 @@ function Navbar() {
                             >
                                 Turkish
                             </li> */}
+
+                                
+                            </li>
                             <li
                                 onClick={() => {
                                     i18n.changeLanguage("en");

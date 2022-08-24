@@ -1,4 +1,17 @@
 {
+    "navbar": {
+        "pages": ["Events", "Contact Us", "About Us"],
+        "buttons": ["Sign In", "Sign Up"]
+    },
+    "footer": {
+        "pages": ["Events", "Contact Us", "About Us"],
+        "newsletter": {
+            "title": "Subscribe to our newsletter",
+            "email": "Email",
+            "btn": "Submit"
+        },
+        "lowerFooter": ["All rights reserved", "Terms and Conditions", "Privacy and Cookies", "Accessibility"]
+    },
     "home": {
         "hero": {
             "title": "Reach",

@@ -7,25 +7,29 @@ import facebook from "../../../assets/facebookFooter.svg";
 import youtube from "../../../assets/youtube.svg";
 import PostRequestFunction from "./PostRequestFunction";
 import { isValidEmail } from "../../../services/ValidationFunctions";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
     const [subscriptionData, setSubscriptionData] = useState("");
     const [validationMsg, setValidationMsg] = useState("");
+    const [t] = useTranslation();
     return (
-        <div className='bg-primary'>
+        <div>
             <div
                 data-testid='footer'
-                className='jus md-11/12 mx-auto flex w-9/12 flex-wrap items-center justify-between  bg-primary py-10 font-SourceSansPro text-xl text-white '
+                className='jus flex flex-wrap items-center bg-primary px-12 py-10 font-SourceSansPro text-xl text-white md:justify-around lg:justify-between lg:px-36'
             >
                 <div className='my-2'>
-                    <img
-                        className='hidden pb-2 md:block'
-                        src={logo}
-                        alt='Logo'
-                    />
-                    <h6 className='flex justify-start pt-2'>Events</h6>
-                    <h6 className='flex justify-start pt-2'>About Us</h6>
-                    <h6 className='flex justify-start pt-2'>Contact Us</h6>
+                    <img className='pb-2' src={logo} alt='Logo' />
+                    <h6 className='flex justify-start pt-2'>
+                        {t(`footer.pages.${[0]}`)}
+                    </h6>
+                    <h6 className='flex justify-start pt-2'>
+                        {t(`footer.pages.${[1]}`)}
+                    </h6>
+                    <h6 className='flex justify-start pt-2'>
+                        {t(`footer.pages.${[2]}`)}
+                    </h6>
                     <div className='flex pt-8'>
                         <img className='pr-8' src={twitter} alt='twitter' />
                         <img className='pr-8' src={linkedin} alt='linkedin' />
@@ -36,15 +40,17 @@ export default function Footer() {
                 </div>
                 <div className='t-10 flex flex-col lg:mr-6'>
                     <h3 className='mb-5 flex justify-start pt-10 text-lg'>
-                        Subscribe to our newsletter
+                        {t(`footer.newsletter.title`)}
                     </h3>
                     <div className='flex justify-between'>
                         <h4 className=' mx-6 text-red'>{validationMsg}</h4>
                     </div>
                     <form>
-                        <h4 className='flex justify-start'>E-mail</h4>
+                        <h4 className='flex justify-start'>
+                            {t(`footer.newsletter.email`)}
+                        </h4>
                         <input
-                            className='h-10 w-40 rounded-md text-black sm:w-56'
+                            className='rounded-md text-black'
                             type='text'
                             onChange={(e) => {
                                 setSubscriptionData(e.target.value);
@@ -53,7 +59,7 @@ export default function Footer() {
                             value={subscriptionData}
                         />
                         <button
-                            className=' h-10  transform items-center rounded-md   border-red bg-red p-1.5 text-center duration-300 ease-linear hover:border-white hover:bg-blue-light hover:shadow'
+                            className='transform rounded-md border-2 border-red bg-red p-1.5 duration-300 ease-linear hover:border-white hover:bg-blue-light hover:shadow'
                             onClick={(e) => {
                                 e.preventDefault();
                                 if (isValidEmail(subscriptionData)) {
@@ -63,26 +69,26 @@ export default function Footer() {
                                 }
                             }}
                         >
-                            Submit &#8594;
+                            {t(`footer.newsletter.btn`)} &#8594;
                         </button>
                     </form>
                 </div>
             </div>
-            <div className='flex flex-wrap justify-around bg-secondary pb-2 pt-1 text-white'>
-                <div className='mx-auto grid grid-cols-1 '>
+            <div className='flex-wrap justify-around bg-secondary pb-2 pt-1 text-white sm:flex'>
+                <div className='grid grid-cols-1'>
                     <p className='my-1 justify-self-start pl-5 text-xs'>
-                        All right reserved
+                        {t(`footer.lowerFooter.${[0]}`)}
                     </p>
                 </div>
-                <div className='mx-auto grid grid-cols-3 gap-2 sm:flex sm:justify-between sm:justify-items-stretch'>
-                    <div className='my-1 justify-self-start  text-xs'>
-                        Terms and Conditions
+                <div className='grid grid-cols-1 sm:flex sm:justify-between sm:justify-items-stretch'>
+                    <div className='my-1 justify-self-start pl-5 text-xs'>
+                        {t(`footer.lowerFooter.${[1]}`)}
                     </div>
-                    <div className='my-1 justify-self-start  text-xs'>
-                        Privacy and Cookies
+                    <div className='my-1 justify-self-start pl-5 text-xs'>
+                        {t(`footer.lowerFooter.${[2]}`)}
                     </div>
-                    <div className='my-1 justify-self-start   text-xs'>
-                        Accessability
+                    <div className='my-1 justify-self-start pl-5 pr-2 text-xs'>
+                        {t(`footer.lowerFooter.${[3]}`)}
                     </div>
                 </div>
             </div>
