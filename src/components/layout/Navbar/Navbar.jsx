@@ -135,6 +135,13 @@ function Navbar() {
                             >
                                 English
                             </option>
+                            {/* <option
+                                value='tr'
+                                className='text-md bg-blue-dark text-white'
+                            >
+                                Turkish
+                            </option> */}
+
                         </select>
                     ) : (
                         ""
@@ -192,6 +199,16 @@ function Navbar() {
                             >
                                 العربية
                             </li>
+                            {/* <li
+                                onClick={() => {
+                                    i18n.changeLanguage("tr");
+                                }}
+                                className='py-0.5 px-2 hover:bg-blue-dark'
+                            >
+                                Turkish
+                            </li> */}
+
+                                
                             <li
                                 onClick={() => {
                                     i18n.changeLanguage("en");

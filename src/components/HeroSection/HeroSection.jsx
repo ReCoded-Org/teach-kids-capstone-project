@@ -15,7 +15,12 @@ function HeroSection() {
                         {t("home.hero.title")}
                     </h1>
                     <p className='my-6 mb-4 text-center font-SourceSansPro text-xl leading-5 text-blue-dark md:text-start'>
-                        {t("home.hero.description")}
+                        <span>{t("home.hero.description")}</span>
+                        <br />
+
+                        <span className='pt-6 text-sm'>
+                            {t("home.hero.description2")}
+                        </span>
                     </p>
                     <div className='h-18 my-3 flex items-center justify-center gap-2 py-2 text-center font-SourceSansPro  text-sm  sm:justify-start'>
                         <Link to='/volunteer-profile'>
