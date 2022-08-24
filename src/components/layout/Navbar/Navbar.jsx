@@ -209,7 +209,6 @@ function Navbar() {
                             </li> */}
 
                                 
-                            </li>
                             <li
                                 onClick={() => {
                                     i18n.changeLanguage("en");
