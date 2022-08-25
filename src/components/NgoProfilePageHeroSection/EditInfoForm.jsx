@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import "flowbite";
 import axios from "axios";
+import postData from "../../services/postData";
 import { wordsNumber, isValidEmail } from "../../services/ValidationFunctions";
 import {
     useMutation,
@@ -69,14 +70,14 @@ function EditInfoForm() {
                 formValidation ? (
                     <h1
                         className={
-                            "		 w-full  rounded border border-green-500 bg-slate-200 p-4 px-8 text-center	 font-SourceSansPro text-xl font-bold text-green-500	 "
+                            "absloute	top-1/2 left-1/2 rounded border border-green-500 bg-slate-200 p-4 px-8 text-center	 font-SourceSansPro text-xl font-bold text-green-500	 "
                         }
                     >
                         Profile Information Updated Successfuly
                     </h1>
                 ) : (
                     <h1
-                        className={` justify-self-center rounded border border-red bg-slate-100 p-4 px-8 text-center font-SourceSansPro	 text-xl font-bold text-red  `}
+                        className={` absloute top-1/2 left-1/2 rounded border border-red bg-slate-100 p-4 px-8 text-center font-SourceSansPro	 text-xl font-bold text-red  `}
                     >
                         Enter a valid bio or email
                     </h1>
@@ -124,16 +125,6 @@ function EditInfoForm() {
                                         <div className='mb-4'>
                                             <label className='text-gray-700 mb-2 block text-sm font-bold'>
                                                 Select the Event Photo
-                                            </label>
-                                            <input
-                                                className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
-                                                type='file'
-                                                placeholder=''
-                                            />
-                                        </div>
-                                        <div className='mb-4'>
-                                            <label className='text-gray-700 mb-2 block text-sm font-bold'>
-                                                Select Profile Photo
                                             </label>
                                             <input
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'

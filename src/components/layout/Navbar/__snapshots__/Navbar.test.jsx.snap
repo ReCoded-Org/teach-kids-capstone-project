@@ -13,22 +13,22 @@ exports[`renders correctly 1`] = `
     >
       <img
         alt="Reach Logo"
-        className="  mx-3 mb-0 h-16 pt-2 "
+        className="  mx-3 my-3 mb-0 h-20 pt-1 md:py-2 "
         src="Logo.png"
       />
     </a>
     <div
-      className=" mx-2 flex h-8 w-8 flex-col items-center justify-center gap-1 rounded-full bg-blue-dark   text-white focus:outline-none md:hidden"
+      className=" mx-4 my-5  flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full bg-blue-btn   text-white focus:outline-none md:hidden"
       onClick={[Function]}
     >
       <span
-        className="block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out"
+        className="block h-0.5 w-6 transform bg-current transition duration-500 ease-in-out"
       />
       <span
-        className="block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out"
+        className="block h-0.5 w-6 transform bg-current transition duration-500 ease-in-out"
       />
       <span
-        className="block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out"
+        className="block h-0.5 w-6 transform bg-current transition duration-500 ease-in-out"
       />
     </div>
   </div>
@@ -36,7 +36,7 @@ exports[`renders correctly 1`] = `
     className=" hidden gap-6  font-light md:flex xl:gap-16"
   >
     <li
-      className=" border-gray-700 hover:border-gray-200 w-full  transform border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0"
+      className="font-SourceSansPro border-gray-700 hover:border-gray-200 w-full  transform border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0"
     >
       <a
         className=""
@@ -48,7 +48,7 @@ exports[`renders correctly 1`] = `
       </a>
     </li>
     <li
-      className=" border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0"
+      className=" font-SourceSansPro border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0"
     >
       <a
         className=""
@@ -59,7 +59,7 @@ exports[`renders correctly 1`] = `
       </a>
     </li>
     <li
-      className=" border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0"
+      className="font-SourceSansPro border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0"
     >
       <a
         className=""
@@ -70,7 +70,7 @@ exports[`renders correctly 1`] = `
       </a>
     </li>
     <li
-      className=" border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto md:border-none md:pb-0"
+      className="font-SourceSansPro border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto md:border-none md:pb-0"
     >
       <a
         className=""
@@ -89,7 +89,7 @@ exports[`renders correctly 1`] = `
       onClick={[Function]}
     >
       <button
-        className=" hover:bg-gray-100  w-full transform  rounded border-2 py-1 px-6 text-xl font-semibold duration-200 ease-in hover:font-bold hover:text-red  sm:ml-0  sm:w-44 sm:text-sm md:w-28   md:text-sm"
+        className="w-full transform  rounded border-2 py-1.5 px-6 text-xl font-semibold duration-200 ease-in hover:font-bold hover:text-red  sm:ml-0  sm:w-44 sm:text-sm md:w-28 md:text-sm"
       >
         Sign In
       </button>
@@ -99,7 +99,7 @@ exports[`renders correctly 1`] = `
       onClick={[Function]}
     >
       <button
-        className="  hover:border-1 hover:bg-gray-100   w-full transform rounded  bg-red py-1.5  px-6 text-xl font-semibold duration-100 ease-in  hover:font-bold hover:text-red sm:w-44   sm:text-sm md:w-28"
+        className="w-full border-2 border-red transform rounded  bg-red py-1.5  px-6 text-xl font-semibold duration-100 ease-in hover:font-bold hover:border-red hover:bg-blue-dark hover:text-red sm:w-44 sm:text-sm md:w-28"
       >
         Sign Up
       </button>

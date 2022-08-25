@@ -17,7 +17,7 @@ function App() {
             <Routes>
                 <Route path='/events' element={<AllEvents />} />
                 <Route path='/sign-up' element={<SignUp />} />
-                <Route path='/event:id' element={<SingleEventPage />} />
+                <Route path='/event/:id' element={<SingleEventPage />} />
                 <Route path='/sign-in' element={<SignIn />} />
                 <Route
                     path='/volunteer-profile'

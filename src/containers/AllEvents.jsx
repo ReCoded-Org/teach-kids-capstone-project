@@ -2,78 +2,104 @@ import React, { useState, useEffect } from "react";
 import "../App.css";
 import EventsGrid from "../components/EventsGrid/EventsGrid/EventsGrid";
 import FilterEvents from "../components/EventsGrid/FilterEvents/FilterEvents";
-import { getEvents } from "../services/events.js";
-
-import { useQuery } from "@tanstack/react-query";
-
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
+import { useQuery } from "@tanstack/react-query";
+import axios from "axios";
 
 function AllEvents() {
+    const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
+    const [loading, setLoading] = useState(true);
+    // const [error, setError] = useState(null);
+    const [num, setnum] = useState(1);
+    const [showMoreBtn, setShowMoreBtn] = useState(true);
 
     const [menuTagItems, setMenuTagItems] = useState([]);
     const [tag, setTag] = useState(null);
 
+    //
+
     const [menuLocationItems, setMenuLocationItems] = useState([]);
     const [location, setLocation] = useState(null);
 
-    const { isLoading, error, data } = useQuery(["events"], () => getEvents());
-    useEffect(() => setFilteredEvents(data), [data]);
+    //
+
+    const fetchData = async () => {
+        const { data } = await axios.get(
+            "https://reach-capstone.herokuapp.com/api/events"
+        );
+        return data;
+    };
+
+    const { isLoading, error, data } = useQuery(["even"], fetchData, {
+        onSuccess: (data) => {
+            setEvents(data.data);
+        },
+    });
+    useEffect(() => {
+        let tagItems = events
+            .map((val) => {
+                return val.topic;
+            })
+            .reduce((acc, val) => [...acc, val], []);
+        setMenuTagItems([...new Set(tagItems.map((item) => item))]);
+
+        setnum(1);
+        setFilteredEvents(events);
+        setShowMoreBtn(true);
+    }, [events]);
 
     useEffect(() => {
-        if (data) {
-            let tagItems = data
-                .map((val) => val.tags)
-                .reduce((acc, val) => [...acc, ...val], []);
-            setMenuTagItems([...new Set(tagItems.map((item) => item))]);
-            setFilteredEvents(data);
-        }
-    }, [data]);
-
-    useEffect(() => {
-        if (data) {
-            const result = data.filter((event) => event.tags.includes(tag));
-            setFilteredEvents(result);
-        }
+        const result = events.filter((event) => {
+            return event.topic.includes(tag);
+        });
+        setFilteredEvents(result);
+        setShowMoreBtn(true);
+        setnum(1);
     }, [tag]);
 
-    useEffect(() => {
-        if (data) {
-            let locationItems = data.map((val) => val.location);
-            setMenuLocationItems([
-                ...new Set(locationItems.map((item) => item)),
-            ]);
-
-            setFilteredEvents(data);
-        }
-    }, [data]);
+    //
 
     useEffect(() => {
-        if (data) {
-            const result = data.filter((event) =>
-                event.location.includes(location)
-            );
-            setFilteredEvents(result);
-        }
+        let locationItems = events.map((val) => val.location);
+        setMenuLocationItems([...new Set(locationItems.map((item) => item))]);
+        setnum(1);
+        setFilteredEvents(events);
+        setShowMoreBtn(true);
+    }, [events]);
+
+    useEffect(() => {
+        const result = events.filter((event) =>
+            event.location.includes(location)
+        );
+        setnum(1);
+        setFilteredEvents(result);
+        setShowMoreBtn(true);
     }, [location]);
-
     if (isLoading) return "Loading...";
 
     if (error) return "An error has occurred: " + error.message;
 
     return (
-        <div>
+        <>
             <Navbar />
+
             <FilterEvents
                 menuTagItems={menuTagItems}
                 setTag={setTag}
                 menuLocationItems={menuLocationItems}
                 setLocation={setLocation}
             />
-            <EventsGrid events={filteredEvents} />
+            <EventsGrid
+                events={filteredEvents}
+                num={num}
+                setnum={setnum}
+                setShowMoreBtn={setShowMoreBtn}
+                showMoreBtn={showMoreBtn}
+            />
             <Footer />
-        </div>
+        </>
     );
 }
 
