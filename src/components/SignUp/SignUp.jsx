@@ -1,4 +1,4 @@
-import { Link, Navigate} from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 import { useState } from "react";
 import { useMutation} from "@tanstack/react-query";
 import google from "src/assets/google.svg";
@@ -10,8 +10,11 @@ import signup from "src/assets/signup.png";
 import { useLocation } from 'react-router-dom'
 import axios from "axios";
 import Navbar from "../../components/layout/Navbar/Navbar";
-import Home from "../../containers/Home";
 function SignUp() {
+    const navigate = useNavigate();
+    const navigateHome = () => {
+        navigate('/');
+      };
     const [formData, setFormData] = useState({
         "email": "",
         "password": "",
@@ -25,7 +28,6 @@ function SignUp() {
         let value = event.target.value;
         setFormData({ ...formData, [name]: value });
     }
-    console.log(formData)
     function handleSubmit(event) {
         event.preventDefault();
     }
@@ -34,7 +36,7 @@ function SignUp() {
         axios.post(`https://reach-capstone.herokuapp.com/api/auth/signup/${Option}`, SignUpData).then(
             function () {
                 alert("You have Successfuly Signed Up");
-                <Navigate to="/" />
+                navigateHome();
               }
         ).catch(function (error) {
             let isArray = Array.isArray(error.response.data.errors);
