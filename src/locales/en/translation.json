@@ -1,8 +1,22 @@
 {
+    "navbar": {
+        "pages": ["Events", "Contact Us", "About Us"],
+        "buttons": ["Sign In", "Sign Up"]
+    },
+    "footer": {
+        "pages": ["Events", "Contact Us", "About Us"],
+        "newsletter": {
+            "title": "Subscribe to our newsletter",
+            "email": "Email",
+            "btn": "Submit"
+        },
+        "lowerFooter": ["All rights reserved", "Terms and Conditions", "Privacy and Cookies", "Accessibility"]
+    },
     "home": {
         "hero": {
             "title": "Reach",
             "description": "Reach out for a better future!",
+            "description2": "With your help we hope and believe we can pave a better future for all children around the world .",
             "btn1": "Volunteer with Us",
             "btn2": "Upcoming Events"
         },
