@@ -57,13 +57,13 @@ function SignIn() {
                     onClick={() => navigate(-1)}
                 />
             </div>
-            <div className='flex w-full justify-evenly bg-blue-dark p-24'>
+            <div className='flex content-center w-full justify-evenly bg-blue-dark p-24'>
                 <img
                     src={SigninPic}
                     alt={
                         "a drawing of a little boy in a classroom raising his hand"
                     }
-                    className='lg:5/12 w-0 md:w-5/12'
+                    className='lg:6/12 w-0 md:w-6/12 object-contain'
                 />
 
                 <div className='w-full pt-16 md:w-4/12'>
@@ -74,10 +74,10 @@ function SignIn() {
                         className='font-body flex flex-col gap-3 text-lg text-gray'
                         onSubmit={handleSubmit}
                     >
-                        <p className='flex flex-row font-SourceSansPro'>
-                            If you don`t have an account register, you can{" "}
-                            <Link to='/sign-up'>
-                                <p className='ml-1 text-red'> register here!</p>
+                        <p className=' flex-row font-SourceSansPro inline'>
+                            If you don`t have an account register, you can {" "}
+                            <Link to='/sign-up' className="" >
+                                <p className='ml-1 text-red '> register here!</p>
                             </Link>
                         </p>
 

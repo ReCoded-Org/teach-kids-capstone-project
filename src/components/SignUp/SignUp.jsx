@@ -59,7 +59,7 @@ function SignUp() {
                 <img
                     src={signup}
                     alt={"a drawing of a young woman working on her desk"}
-                    className='lg:5/12 w-0 md:w-5/12'
+                    className='lg:6/12 w-0 md:w-6/12 object-contain'
                 />
 
                 <div className='w-full md:w-4/12'>
@@ -70,7 +70,7 @@ function SignUp() {
                         className='flex flex-col gap-3 font-SourceSansPro text-lg text-gray'
                         onSubmit={handleSubmit}
                     >
-                        <p className='flex flex-row font-SourceSansPro'>
+                        <p className='inline flex-row font-SourceSansPro'>
                             If you already have an account register, you can
                             <Link to='/log-in'>
                                 <p className='ml-1 text-red hover:scale-105'>
