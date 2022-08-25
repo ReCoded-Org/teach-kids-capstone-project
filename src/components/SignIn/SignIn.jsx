@@ -9,6 +9,7 @@ import padlock from "../../assets/padlock.svg";
 import Logo from "../../assets/Logo.png";
 import close from "../../assets/close-menu.svg";
 import { useMutation } from "@tanstack/react-query";
+import { useTranslation } from "react-i18next";
 
 function SignIn() {
     const navigate = useNavigate();
@@ -44,6 +45,9 @@ function SignIn() {
             body: JSON.stringify(SignInData),
         });
     });
+
+    const [t] = useTranslation();
+    
     return (
         <div className=' bg-blue-dark'>
             <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
@@ -68,16 +72,16 @@ function SignIn() {
 
                 <div className='w-full pt-16 md:w-4/12'>
                     <h1 className=' font-heading pb-6 text-5xl font-bold text-gray'>
-                        Sign In
+                    {t("signIn.title")}
                     </h1>
                     <form
                         className='font-body flex flex-col gap-3 text-lg text-gray'
                         onSubmit={handleSubmit}
                     >
                         <p className='flex flex-row font-SourceSansPro'>
-                            If you don`t have an account register, you can{" "}
+                        {t("signIn.description1")}
                             <Link to='/sign-up'>
-                                <p className='ml-1 text-red'> register here!</p>
+                                <p className='ml-1 text-red'> {t("signIn.description2")}</p>
                             </Link>
                         </p>
 
@@ -88,7 +92,7 @@ function SignIn() {
                                 className='w-5'
                             />
                             <label className='font-heading font-bold'>
-                                Email
+                            {t("signIn.emailFormTitle")}
                             </label>
                         </div>
                         <input
@@ -96,7 +100,7 @@ function SignIn() {
                             name='Email'
                             onChange={handleChange}
                             value={formData.Email}
-                            placeholder='Enter your email address'
+                            placeholder='example@gmail.com'
                             className=' border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
                         <div className='float-right flex gap-4'>
@@ -106,7 +110,7 @@ function SignIn() {
                                 className='w-5'
                             />
                             <label className='font-heading font-bold'>
-                                Password
+                            {t("signIn.passwordFormTitle")}
                             </label>
                         </div>
                         <input
@@ -114,7 +118,7 @@ function SignIn() {
                             name='password'
                             onChange={handleChange}
                             value={formData.Password}
-                            placeholder='Enter your password'
+                            placeholder={t("signIn.passwordFormPlaceholder")}
                             className='border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
                         <div>
@@ -128,10 +132,10 @@ function SignIn() {
                                     />
                                     <label className='font-heading font-bold'>
                                         {" "}
-                                        Remember Me
+                                        {t("signIn.remember")}
                                     </label>
                                 </div>
-                                <p>Forgot password?</p>
+                                <p>{t("signIn.forget")}</p>
                             </div>
                         </div>
                         <button
@@ -144,10 +148,10 @@ function SignIn() {
                                 });
                             }}
                         >
-                            Login
+                            {t("signIn.loginBut")}
                         </button>
                         <h4 className='flex justify-center'>
-                            or continue with
+                        {t("signIn.continue")}
                         </h4>
                         <div className='flex w-full flex-row justify-center gap-3'>
                             <img

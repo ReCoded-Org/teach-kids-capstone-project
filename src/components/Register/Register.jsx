@@ -6,6 +6,8 @@ import close from "src/assets/close-menu.svg";
 import Logo from "src/assets/Logo.png";
 import { useMutation } from "@tanstack/react-query";
 import { FocusTrap } from "@headlessui/react";
+import { useTranslation } from "react-i18next";
+
 function Register() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -33,6 +35,8 @@ function Register() {
         });
     });
 
+    const [t] = useTranslation();
+
     return (
         <div className='h-screen w-full bg-blue-dark'>
             <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
@@ -51,7 +55,7 @@ function Register() {
                 onSubmit={handleSubmit}
             >
                 <h1 className='pb-6 font-quicksand text-base font-bold text-gray md:text-xl'>
-                    Would you like to sign up as a:
+                    {t("register.title")}
                 </h1>
                 <div className='flex items-center justify-evenly'>
                     <div>
@@ -68,7 +72,7 @@ function Register() {
                         </button>
                     </div>
                     <h4 className='pl-6 pr-6 font-quicksand text-xl font-bold text-gray'>
-                        or
+                        {t("register.or")}
                     </h4>
                     <div>
                         <button
@@ -85,10 +89,10 @@ function Register() {
                     </div>
                 </div>
                 <p className='flex flex-row pt-6 font-quicksand text-base font-bold text-gray md:text-xl'>
-                    Already have an account?
+                    {t("register.description1")}
                     <Link to='/log-in'>
                         <p className='pl-2 text-red md:hover:scale-110'>
-                            Login here
+                            {t("register.description2")}
                         </p>
                     </Link>
                 </p>
@@ -100,7 +104,7 @@ function Register() {
                         });
                     }}
                 >
-                    Continue signing up
+                    {t("register.registerBut")}
                 </button>
             </div>
         </div>
