@@ -9,7 +9,7 @@ import padlock from "../../assets/padlock.svg";
 import Logo from "../../assets/Logo.png";
 import close from "../../assets/close-menu.svg";
 import { useMutation } from "@tanstack/react-query";
-
+import Navbar from "../../components/layout/Navbar/Navbar";
 function SignIn() {
     const navigate = useNavigate();
     const [formData, setFormData] = useState({
@@ -45,17 +45,7 @@ function SignIn() {
     });
     return (
         <div className=' bg-blue-dark'>
-            <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
-                <Link to='/'>
-                    <img src={Logo} alt='Reach' />
-                </Link>
-                <img
-                    src={close}
-                    alt='close'
-                    className='hover:scale-125 hover:cursor-pointer'
-                    onClick={() => navigate(-1)}
-                />
-            </div>
+            <Navbar />
             <div className='flex w-full justify-evenly bg-blue-dark p-24'>
                 <img
                     src={SigninPic}
