@@ -16,20 +16,17 @@ function App() {
         <div className=''>
             <Routes>
                 <Route path='/events' element={<AllEvents />} />
-                {/* <Route path='/event:id' element={<Event />} /> */}
-                {/* <Route path='/sign-in' element={<SignIn />} /> */}
                 <Route path='/sign-up' element={<SignUp />} />
-                <Route path='/event:id' element={<SingleEventPage />} />
+                <Route path='/event/:id' element={<SingleEventPage />} />
                 <Route path='/sign-in' element={<SignIn />} />
-                {/* <Route path='/sign-up' element={<VolunteerOrNgo />} /> */}
                 <Route
                     path='/volunteer-profile'
                     element={<VolunteerProfile />}
                 />
                 <Route path='/ngo-admin' element={<AdminDashboard />} />
                 <Route path='/ngo-profile' element={<NgoProfilePage />} />
-                <Route path='/' element={<Home />} />
                 <Route path='/register' element={<Register />} />
+                <Route path='/' element={<Home />} />
             </Routes>
         </div>
     );

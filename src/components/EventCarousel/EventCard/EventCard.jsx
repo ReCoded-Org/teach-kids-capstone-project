@@ -1,35 +1,41 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const EventCard = ({ eventPost, org }) => { 
+const EventCard = ({ eventPost, org }) => {
     return (
-        <div className='relative mb-6 mt-16 w-full min-w-0 max-w-md break-words rounded-xl px-5 xl:max-w-2xl'>
-            <div className='card-header mx-4 -mt-6'>
+        <div className='relative mx-auto mb-6 mt-16 flex w-full  min-w-0 max-w-md flex-col justify-center break-words rounded-xl px-5 xl:max-w-2xl'>
+            <div className='card-header mx-4 -mt-6 	'>
                 <Link to={`/event/${eventPost.id}`}>
                     <img
-                        className='w-auto rounded-lg'
+                        className='	 mx-auto w-full rounded-lg sm:h-56 	md:h-56 xl:h-72 '
                         src={eventPost.image}
                         alt={org.name}
                     />
                 </Link>
             </div>
-            <div className='flex flex-col'>
+            <div className='flex  flex-col font-SourceSansPro'>
                 <a href='#'>
-                    <h2 className='font-bold text-center mt-2 text-white text-lg'>{org}</h2>
+                    <h2 className=' mt-2 h-8 truncate text-center text-lg font-bold text-white'>
+                        {org}
+                    </h2>
                 </a>
-                <p className='mb-4 opacity-60 text-center text-white'>{eventPost.location}</p>
+                <p className='mb-4 text-center text-white opacity-60'>
+                    {eventPost.location}
+                </p>
                 <a href='#'>
-                    <h4 className='font-semibold text-center mb-3 text-white'>{eventPost.title}</h4>
+                    <h4 className='mb-3 h-8 truncate text-center font-semibold text-white'>
+                        {eventPost.title}
+                    </h4>
                 </a>
                 <div className='flex rounded-md bg-white'>
-                    <p className='ml-2 grow pt-1.5 opacity-60'>
+                    <p className='ml-2 h-fit grow truncate pt-1.5 opacity-60'>
                         {eventPost.date}
                     </p>
                     <button
-                        className='button flex w-30 grow-0 flex-row justify-center justify-self-end rounded-md bg-blue-dark p-2'
+                        className='button w-30 flex h-fit grow-0 transform flex-row justify-center justify-self-end truncate rounded-md border-2 border-blue-dark bg-blue-dark p-2 text-white duration-300 ease-linear hover:bg-blue-light hover:font-bold hover:text-blue-dark hover:shadow'
                         data-ripple-light='true'
                     >
-                        <p className='ml-3 text-white'>Read More</p>
+                        <p className='ml-3'>Read More</p>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             className='ml-2 mt-1 h-5 w-5 -translate-x-2 stroke-white transition duration-300 group-hover:translate-x-0'

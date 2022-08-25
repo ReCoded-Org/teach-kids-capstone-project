@@ -10,7 +10,7 @@ import { getOrganizations } from "../../../services/events.js";
 
 import { useQuery } from "@tanstack/react-query";
 
-export default function Events({ carouselHeader, events }) { 
+export default function Events({ carouselHeader, events }) {
     const settings = {
         dots: false,
         infinite: true,
@@ -52,7 +52,7 @@ export default function Events({ carouselHeader, events }) {
     return (
         <div className='diagonal-box -mt-6 flex flex-col bg-white pb-20 text-blue-light'>
             <div className='content'>
-                <h1 className='mt-14 py-6 text-center font-quicksand text-5xl font-bold text-blue-light-400 '>
+                <h1 className='text-blue-light-400 mt-14 py-6 text-center font-quicksand text-5xl font-bold '>
                     {carouselHeader}
                 </h1>
                 <Slider {...settings}>
@@ -68,7 +68,6 @@ export default function Events({ carouselHeader, events }) {
                                 eventPost={eventPost}
                                 key={eventPost.id}
                                 org={org.name}
-
                             />
                         );
                     })}

@@ -1,11 +1,90 @@
-import React from "react";
+/* eslint-disable no-console */
+import React, { useState } from "react";
 import "flowbite";
+import axios from "axios";
+import { wordsNumber, isValidEmail } from "../../services/ValidationFunctions";
+import {
+    useMutation,
+    QueryClient,
+    useQueryClient,
+} from "@tanstack/react-query";
 
-export default function EditInfoForm(props) {
-    const [showModal, setShowModal] = React.useState(false);
+function EditInfoForm() {
+    const [showModal, setShowModal] = useState(false);
+    const [info, setInfo] = useState([]);
+    const [formValidation, setFormValidation] = useState(false);
+    const [notfication, setNotification] = useState(false);
+
+    function handleChange(e) {
+        setInfo({ ...info, [e.target.name]: e.target.value });
+    }
+
+    /************************* Posting Data Start******************* */
+    const queryClient = useQueryClient();
+
+    const addComment = useMutation(
+        (newComment) => {
+            try {
+                if (
+                    wordsNumber(newComment.message) &&
+                    isValidEmail(newComment.email)
+                ) {
+                    setFormValidation(true);
+
+                    return axios.patch(
+                        `http://localhost:8000/adminDashboard/1`,
+                        newComment
+                    );
+                } else {
+                    console.log(newComment.message);
+                    setFormValidation(false);
+                }
+            } catch {
+                setFormValidation(true);
+                return axios.patch(
+                    `http://localhost:8000/adminDashboard/1`,
+                    newComment
+                );
+            }
+        },
+        {
+            onSuccess: () => {
+                // ✅ refetch the comments list for our blog post
+                setTimeout(() => {
+                    setNotification(false);
+                }, 2000);
+                setTimeout(() => {
+                    queryClient.invalidateQueries(["repoData"]);
+                }, 2000);
+            },
+        }
+    );
+    // show notfiction after submitting
+
+    /************************* Posting Data Start******************* */
 
     return (
         <>
+            {notfication ? (
+                formValidation ? (
+                    <h1
+                        className={
+                            "		 w-full  rounded border border-green-500 bg-slate-200 p-4 px-8 text-center	 font-SourceSansPro text-xl font-bold text-green-500	 "
+                        }
+                    >
+                        Profile Information Updated Successfuly
+                    </h1>
+                ) : (
+                    <h1
+                        className={` justify-self-center rounded border border-red bg-slate-100 p-4 px-8 text-center font-SourceSansPro	 text-xl font-bold text-red  `}
+                    >
+                        Enter a valid bio or email
+                    </h1>
+                )
+            ) : (
+                ""
+            )}
+
             <div className='my-6  flex justify-end gap-6 md:justify-end '>
                 <button
                     onClick={() => setShowModal(true)}
@@ -19,32 +98,42 @@ export default function EditInfoForm(props) {
 
             {showModal ? (
                 <>
-                    <div className=' fixed  inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none'>
-                        <div className='relative my-6 mx-auto w-auto max-w-3xl'>
+                    <div className='  fixed  inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden outline-none focus:outline-none'>
+                        <div className='relative  my-6   w-full md:w-2/4 '>
                             {/*content*/}
                             <div className='relative flex w-full flex-col rounded-lg border-0 bg-white shadow-lg outline-none focus:outline-none'>
                                 {/*header*/}
-                                <div className='flex items-start justify-between rounded-t border-b border-solid border-slate-200 p-5'>
-                                    <h3 className='text-3xl font-semibold'>
+                                <div className='flex h-12 items-center justify-between rounded-t border-b border-solid border-slate-200 '>
+                                    <h3 className='mx-6 text-2xl font-semibold'>
                                         Edit Pofile
                                     </h3>
                                     <button
-                                        className='float-right ml-auto border-0 bg-transparent p-1 text-3xl font-semibold leading-none text-black opacity-50 outline-none focus:outline-none'
+                                        className='float-right mx-6 ml-auto    border-0 bg-transparent  text-2xl font-semibold leading-none text-black opacity-50 outline-none focus:outline-none'
                                         onClick={() => setShowModal(false)}
                                     >
-                                        <span className='block h-6 w-6 bg-transparent text-2xl text-black outline-none focus:outline-none'>
+                                        <span className='    bg-transparent  text-black outline-none focus:outline-none'>
                                             X
                                         </span>
                                     </button>
                                 </div>
                                 {/*body*/}
-                                <div className='relative h-[27rem] w-[19rem] flex-auto overflow-y-auto p-6 sm:h-[33rem] sm:w-[35rem]'>
+                                <div className='relative h-[27rem] flex-auto  overflow-y-auto p-6 md:h-[40rem] '>
                                     {/* START OF FORM */}
 
-                                    <form className='mb-4 rounded bg-white px-8 pt-6 pb-8 shadow-md'>
+                                    <form className='mb-4 rounded bg-white  pt-0 pb-8 '>
                                         <div className='mb-4'>
                                             <label className='text-gray-700 mb-2 block text-sm font-bold'>
                                                 Select the Event Photo
+                                            </label>
+                                            <input
+                                                className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
+                                                type='file'
+                                                placeholder=''
+                                            />
+                                        </div>
+                                        <div className='mb-4'>
+                                            <label className='text-gray-700 mb-2 block text-sm font-bold'>
+                                                Select Profile Photo
                                             </label>
                                             <input
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
@@ -57,7 +146,9 @@ export default function EditInfoForm(props) {
                                                 Website Address :
                                             </label>
                                             <input
-                                                onChange={props.handleChange}
+                                                onChange={(e) =>
+                                                    handleChange(e)
+                                                }
                                                 name='website'
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
                                                 type='text'
@@ -69,7 +160,9 @@ export default function EditInfoForm(props) {
                                                 Name
                                             </label>
                                             <input
-                                                onChange={props.handleChange}
+                                                onChange={(e) =>
+                                                    handleChange(e)
+                                                }
                                                 name='name'
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
                                                 type='text'
@@ -82,7 +175,9 @@ export default function EditInfoForm(props) {
                                                 Location
                                             </label>
                                             <input
-                                                onChange={props.handleChange}
+                                                onChange={(e) =>
+                                                    handleChange(e)
+                                                }
                                                 name='location'
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
                                                 type='text'
@@ -110,7 +205,9 @@ export default function EditInfoForm(props) {
                                                 </svg>
                                             </div>
                                             <input
-                                                onChange={props.handleChange}
+                                                onChange={(e) =>
+                                                    handleChange(e)
+                                                }
                                                 name='date'
                                                 datepicker
                                                 datepicker-autohide
@@ -125,7 +222,9 @@ export default function EditInfoForm(props) {
                                                 Email
                                             </label>
                                             <input
-                                                onChange={props.handleChange}
+                                                onChange={(e) =>
+                                                    handleChange(e)
+                                                }
                                                 name='email'
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
                                                 type='text'
@@ -138,7 +237,9 @@ export default function EditInfoForm(props) {
                                                 Phone Number
                                             </label>
                                             <input
-                                                onChange={props.handleChange}
+                                                onChange={(e) =>
+                                                    handleChange(e)
+                                                }
                                                 name='phone'
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
                                                 type='tel'
@@ -148,22 +249,23 @@ export default function EditInfoForm(props) {
 
                                         <div className=''>
                                             <label className='text-gray-700 mb-2 block text-sm font-bold'>
-                                                Your Message
+                                                About Us{" "}
                                             </label>
                                             <div className='form-group'>
-                                                <input
+                                                <textarea
+                                                    minLength='50'
                                                     name='message'
-                                                    onChange={
-                                                        props.handleChange
+                                                    onChange={(e) =>
+                                                        handleChange(e)
                                                     }
                                                     className='
                             form-control text-gray-700 border-gray-300 focus:text-gray-700 m-0 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal transition
                             ease-in-out focus:border-blue-600 focus:bg-white focus:outline-none
                         '
                                                     id='exampleFormControlTextarea13'
-                                                    rows='3'
+                                                    rows='7'
                                                     placeholder='Message'
-                                                ></input>
+                                                ></textarea>
                                             </div>
                                         </div>
                                     </form>
@@ -181,9 +283,10 @@ export default function EditInfoForm(props) {
                                     <button
                                         className='mr-1 mb-1 rounded bg-[#457B9D] px-6 py-3 text-sm font-bold uppercase text-white shadow outline-none transition-all duration-150 ease-linear hover:shadow-lg focus:outline-none active:border-2 active:border-[#457B9D] active:bg-white active:text-[#457B9D]'
                                         type='button'
-                                        onClick={() => {
+                                        onClick={(e) => {
                                             setShowModal(false);
-                                            props.dataSender();
+                                            addComment.mutate(info);
+                                            setNotification(true);
                                         }}
                                     >
                                         Save Changes
@@ -198,3 +301,4 @@ export default function EditInfoForm(props) {
         </>
     );
 }
+export default EditInfoForm;

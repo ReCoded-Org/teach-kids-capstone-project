@@ -1,25 +1,35 @@
 import react, { useState } from "react";
 import logo from "../../../assets/Logo.png";
-import twitter from "../../../assets/twitter.png";
-import linkedin from "../../../assets/linkedin.png";
-import instagram from "../../../assets/instagram.png";
-import facebook from "../../../assets/facebook.png";
-import youtube from "../../../assets/youtube.png";
+import twitter from "../../../assets/twitter.svg";
+import linkedin from "../../../assets/linkedin.svg";
+import instagram from "../../../assets/instagram.svg";
+import facebook from "../../../assets/facebookFooter.svg";
+import youtube from "../../../assets/youtube.svg";
 import PostRequestFunction from "./PostRequestFunction";
+import { isValidEmail } from "../../../services/ValidationFunctions";
+import { useTranslation } from "react-i18next";
 
 export default function Footer() {
     const [subscriptionData, setSubscriptionData] = useState("");
+    const [validationMsg, setValidationMsg] = useState("");
+    const [t] = useTranslation();
     return (
         <div>
             <div
                 data-testid='footer'
-                className='flex flex-wrap items-center justify-around bg-primary py-10 text-white'
+                className='jus flex flex-wrap items-center bg-primary px-12 py-10 font-SourceSansPro text-xl text-white md:justify-around lg:justify-between lg:px-36'
             >
-                <div>
+                <div className='my-2'>
                     <img className='pb-2' src={logo} alt='Logo' />
-                    <h6 className='flex justify-start pt-1'>Events</h6>
-                    <h6 className='flex justify-start pt-1'>About Us</h6>
-                    <h6 className='flex justify-start pt-1'>Contact Us</h6>
+                    <h6 className='flex justify-start pt-2'>
+                        {t(`footer.pages.${[0]}`)}
+                    </h6>
+                    <h6 className='flex justify-start pt-2'>
+                        {t(`footer.pages.${[1]}`)}
+                    </h6>
+                    <h6 className='flex justify-start pt-2'>
+                        {t(`footer.pages.${[2]}`)}
+                    </h6>
                     <div className='flex pt-8'>
                         <img className='pr-8' src={twitter} alt='twitter' />
                         <img className='pr-8' src={linkedin} alt='linkedin' />
@@ -28,50 +38,57 @@ export default function Footer() {
                         <img className='pr-8' src={youtube} alt='youtube' />
                     </div>
                 </div>
-
-                <div className='t-10 flex flex-col'>
+                <div className='t-10 flex flex-col lg:mr-6'>
                     <h3 className='mb-5 flex justify-start pt-10 text-lg'>
-                        Subscribe to our newsletter
+                        {t(`footer.newsletter.title`)}
                     </h3>
+                    <div className='flex justify-between'>
+                        <h4 className=' mx-6 text-red'>{validationMsg}</h4>
+                    </div>
                     <form>
-                        <h4 className='flex justify-start '>E-mail</h4>
+                        <h4 className='flex justify-start'>
+                            {t(`footer.newsletter.email`)}
+                        </h4>
                         <input
                             className='rounded-md text-black'
                             type='text'
                             onChange={(e) => {
                                 setSubscriptionData(e.target.value);
+                                setValidationMsg("");
                             }}
                             value={subscriptionData}
                         />
                         <button
-                            className='rounded-md bg-redButton p-2'
+                            className='transform rounded-md border-2 border-red bg-red p-1.5 duration-300 ease-linear hover:border-white hover:bg-blue-light hover:shadow'
                             onClick={(e) => {
                                 e.preventDefault();
-                                PostRequestFunction(subscriptionData);
+                                if (isValidEmail(subscriptionData)) {
+                                    PostRequestFunction(subscriptionData);
+                                } else {
+                                    setValidationMsg("Enter a Valid Email");
+                                }
                             }}
                         >
-                            Submit &#8594;
+                            {t(`footer.newsletter.btn`)} &#8594;
                         </button>
                     </form>
                 </div>
             </div>
-
-            <div className='flex-wrap justify-around bg-secondary py-1 text-white sm:flex'>
+            <div className='flex-wrap justify-around bg-secondary pb-2 pt-1 text-white sm:flex'>
                 <div className='grid grid-cols-1'>
                     <p className='my-1 justify-self-start pl-5 text-xs'>
-                        All right reserved
+                        {t(`footer.lowerFooter.${[0]}`)}
                     </p>
                 </div>
-
                 <div className='grid grid-cols-1 sm:flex sm:justify-between sm:justify-items-stretch'>
                     <div className='my-1 justify-self-start pl-5 text-xs'>
-                        Terms and Conditions
+                        {t(`footer.lowerFooter.${[1]}`)}
                     </div>
                     <div className='my-1 justify-self-start pl-5 text-xs'>
-                        Privacy and Cookies
+                        {t(`footer.lowerFooter.${[2]}`)}
                     </div>
                     <div className='my-1 justify-self-start pl-5 pr-2 text-xs'>
-                        Accessability
+                        {t(`footer.lowerFooter.${[3]}`)}
                     </div>
                 </div>
             </div>
