@@ -9,7 +9,6 @@ import padlock from "src/assets/padlock.svg";
 import close from "src/assets/close-menu.svg";
 import Logo from "src/assets/Logo.png";
 import signup from "src/assets/signup.png";
-import { useTranslation } from "react-i18next";
 
 function SignUp() {
     const navigate = useNavigate();
@@ -43,8 +42,6 @@ function SignUp() {
         });
     });
 
-    const [t] = useTranslation();
-
     return (
         <div className=' bg-blue-dark'>
             <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
@@ -62,22 +59,22 @@ function SignUp() {
                 <img
                     src={signup}
                     alt={"a drawing of a young woman working on her desk"}
-                    className='lg:5/12 w-0 md:w-5/12'
+                    className='lg:6/12 w-0 md:w-6/12 object-contain'
                 />
 
                 <div className='w-full md:w-4/12'>
                     <h1 className=' pb-5 font-quicksand text-4xl font-bold text-gray'>
-                        {t("signUp.title")}
+                        Sign Up
                     </h1>
                     <form
                         className='flex flex-col gap-3 font-SourceSansPro text-lg text-gray'
                         onSubmit={handleSubmit}
                     >
-                        <p className='flex flex-row font-SourceSansPro'>
-                            {t("signUp.description1")}
+                        <p className='inline flex-row font-SourceSansPro'>
+                            If you already have an account register, you can
                             <Link to='/log-in'>
                                 <p className='ml-1 text-red hover:scale-105'>
-                                    {t("signUp.description2")}
+                                    login here!
                                 </p>
                             </Link>
                         </p>
@@ -88,7 +85,7 @@ function SignUp() {
                                 className='w-5'
                             />
                             <label className='font-quicksand font-bold'>
-                                {t("signUp.emailFormTitle")}
+                                Email
                             </label>
                         </div>
                         <input
@@ -97,7 +94,7 @@ function SignUp() {
                             id='email'
                             onChange={handleChange}
                             value={formData.email}
-                            placeholder='example@gmail.com'
+                            placeholder='Enter your email address'
                             className=' border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
                         <div className='float-right flex gap-4'>
@@ -107,7 +104,7 @@ function SignUp() {
                                 className='w-5'
                             />
                             <label className='font-quicksand font-bold'>
-                                {t("signUp.usernameFormTitle")}
+                                Username
                             </label>
                         </div>
                         <input
@@ -116,7 +113,7 @@ function SignUp() {
                             id='username'
                             onChange={handleChange}
                             value={formData.username}
-                            placeholder={t("signUp.usernameFormPlaceholder")}
+                            placeholder='Enter your username address'
                             className='border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
                         <div className='float-right flex gap-4'>
@@ -126,7 +123,7 @@ function SignUp() {
                                 className='w-5'
                             />
                             <label className='font-quicksand font-bold'>
-                                {t("signUp.passwordFormTitle")}
+                                Password
                             </label>
                         </div>
                         <input
@@ -135,7 +132,7 @@ function SignUp() {
                             id='password'
                             onChange={handleChange}
                             value={formData.password}
-                            placeholder={t("signUp.passwordFormPlaceholder")}
+                            placeholder='Enter your password'
                             className='border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
                         <div className='float-right flex gap-4'>
@@ -145,7 +142,7 @@ function SignUp() {
                                 className='w-5'
                             />
                             <label className='font-quicksand font-bold'>
-                                {t("signUp.ConfirmPasswordFormTitle")}
+                                Confirm Password
                             </label>
                         </div>
                         <input
@@ -154,9 +151,7 @@ function SignUp() {
                             id='confirmPassword'
                             onChange={handleChange}
                             value={formData.confirmPassword}
-                            placeholder={t(
-                                "signUp.ConfirmPasswordFormPlaceholder"
-                            )}
+                            placeholder='Confirm your password'
                             className='border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
                         <button
@@ -170,10 +165,10 @@ function SignUp() {
                                 });
                             }}
                         >
-                            {t("signUp.signUpBut")}
+                            Sign Up
                         </button>
                         <h4 className='flex justify-center'>
-                            {t("signUp.continue")}
+                            or continue with
                         </h4>
                         <div className='flex w-full flex-row justify-center gap-3'>
                             <img

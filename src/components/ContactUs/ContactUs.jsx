@@ -4,18 +4,18 @@ import Message from "../../assets/email.svg";
 import Location from "../../assets/location.svg";
 import { useMutation } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 
 function ContactUs() {
     const [formData, setFormData] = useState({
-        Fullname: "",
+        fullName: "",
         email: "",
-        Message: "",
+        message: "",
     });
 
     function handleChange(event) {
         const name = event.target.name;
         let value = event.target.value;
-
         setFormData({ ...formData, [name]: value });
     }
 
@@ -23,18 +23,11 @@ function ContactUs() {
         event.preventDefault();
     }
     const SendtoContactUs = useMutation((ContactUsData) => {
-        return fetch("http://localhost:3004/contactus", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "content-Type": "application/json",
-            },
-            body: JSON.stringify(ContactUsData),
-        });
-    });
+        axios.post(`https://reach-capstone.herokuapp.com/api/feedbacks`, ContactUsData);
+          })
 
     const [t] = useTranslation();
-
+console.log(formData)
     return (
         <div
             id='contact-us'
@@ -89,11 +82,10 @@ function ContactUs() {
                                     </label>
                                     <input
                                         required
-                                        id='Fullname'
-                                        name='Fullname'
+                                        id='fullName'
+                                        name='fullName'
                                         type='text'
                                         onChange={handleChange}
-                                        value={formData.Fullname}
                                         className='mb-6 rounded border-none bg-gray focus:border focus:border-blue-dark'
                                         placeholder={t(
                                             "home.contactUs.fullNameFormPlaceholder"
@@ -111,7 +103,6 @@ function ContactUs() {
                                     name='email'
                                     type='email'
                                     onChange={handleChange}
-                                    value={formData.email}
                                     className='mb-6 rounded border-none bg-gray focus:border focus:border-blue-dark'
                                     placeholder='example@email.com'
                                 />
@@ -125,12 +116,11 @@ function ContactUs() {
                                         placeholder={t(
                                             "home.contactUs.messageFormPlaceholder"
                                         )}
-                                        name='Message'
+                                        name='message'
                                         className='mb-6 rounded border-none bg-gray'
                                         onChange={handleChange}
-                                        value={formData.Message}
                                         rows='9'
-                                        id='Message'
+                                        id='message'
                                     />
                                 </div>
                                 <button
@@ -138,9 +128,9 @@ function ContactUs() {
                                     className='w-56 rounded-md border-2 border-blue-dark bg-blue-dark p-2 font-SourceSansPro font-semibold text-white  duration-300 ease-linear hover:border-blue-dark hover:bg-white hover:text-blue-dark hover:shadow'
                                     onClick={() => {
                                         SendtoContactUs.mutate({
-                                            Fullname: formData.Fullname,
+                                            fullName: formData.fullName,
                                             email: formData.email,
-                                            Message: formData.Message,
+                                            message: formData.message,
                                         });
                                     }}
                                 >
