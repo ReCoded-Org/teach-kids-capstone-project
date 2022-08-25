@@ -92,9 +92,8 @@ function VolunteerProfile() {
                         {info.description}
                     </p>
                 </div>
-                {/* <div className='sm:basis-2/6'></div> */}
             </div>
-            {/* copy from here */}
+            
             <div className='mx-5 pb-5'>
                 <div className='grid-rows-10 grid-cols-6 gap-y-3 pl-4 lg:grid '>
                     <h1 className='text-[#457B9D] col-start-2 row-start-3 pt-7 font-quicksand text-4xl font-semibold sm:justify-self-start'>
