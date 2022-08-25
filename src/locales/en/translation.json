@@ -83,5 +83,38 @@
             "messageFormPlaceholder": "Type Here",
             "btn": "Send"
         }
+    },
+    "signIn": {
+        "title": "Sign In",
+        "description1": "If you don't have an account, you can",
+        "description2": "register here!",
+        "emailFormTitle": "Email",
+        "passwordFormTitle": "Password",
+        "passwordFormPlaceholder": "Enter your password",
+        "remember": "Remember Me",
+        "forget": "Forgot password?",
+        "loginBut": "Login",
+        "continue": "or continue with"
+    },
+    "signUp": {
+        "title": "Sign Up",
+        "description1": "If you already have an account, you can",
+        "description2": "login here!",
+        "emailFormTitle": "Email",
+        "usernameFormTitle": "Username",
+        "usernameFormPlaceholder": "Enter your username",
+        "passwordFormTitle": "Password",
+        "passwordFormPlaceholder": "Enter your password",
+        "ConfirmPasswordFormTitle": "Confirm Password",
+        "ConfirmPasswordFormPlaceholder": "Re-enter your password",
+        "signUpBut": "Login",
+        "continue": "or continue with"
+    },
+    "register": {
+        "title": "Would you like to sign up as a:",
+        "or": "or",
+        "description1": "Already have an account?",
+        "description2": "login here!",
+        "registerBut": "Continue signing up"
     }
 }

@@ -1,4 +1,4 @@
-import { Link} from "react-router-dom";
+import { Link, Navigate} from "react-router-dom";
 import { useState } from "react";
 import { useMutation} from "@tanstack/react-query";
 import google from "src/assets/google.svg";
@@ -10,7 +10,7 @@ import signup from "src/assets/signup.png";
 import { useLocation } from 'react-router-dom'
 import axios from "axios";
 import Navbar from "../../components/layout/Navbar/Navbar";
-
+import Home from "../../containers/Home";
 function SignUp() {
     const [formData, setFormData] = useState({
         "email": "",
@@ -33,7 +33,8 @@ function SignUp() {
     const SignUpFormData = useMutation((SignUpData) => {
         axios.post(`https://reach-capstone.herokuapp.com/api/auth/signup/${Option}`, SignUpData).then(
             function () {
-                alert("You have Successfuly Signed Up")
+                alert("You have Successfuly Signed Up");
+                <Navigate to="/" />
               }
         ).catch(function (error) {
             let isArray = Array.isArray(error.response.data.errors);
@@ -52,7 +53,7 @@ function SignUp() {
                 <img
                     src={signup}
                     alt={"a drawing of a young woman working on her desk"}
-                    className='lg:5/12 w-0 md:w-5/12'
+                    className='lg:6/12 w-0 md:w-6/12 object-contain'
                 />
 
                 <div className='w-full md:w-4/12'>
@@ -63,7 +64,7 @@ function SignUp() {
                         className='flex flex-col gap-3 font-SourceSansPro text-lg text-gray'
                         onSubmit={handleSubmit}
                     >
-                        <p className='flex flex-row font-SourceSansPro'>
+                        <p className='inline flex-row font-SourceSansPro'>
                             If you already have an account register, you can
                             <Link to='/sign-in'>
                                 <p className='ml-1 text-red hover:scale-105'>
