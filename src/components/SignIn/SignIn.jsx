@@ -9,13 +9,17 @@ import padlock from "../../assets/padlock.svg";
 import Logo from "../../assets/Logo.png";
 import close from "../../assets/close-menu.svg";
 import { useMutation } from "@tanstack/react-query";
-
+import axios from "axios";
+import Home from "../../containers/Home";
 function SignIn() {
     const navigate = useNavigate();
+    const navigateHome = () => {
+        // 👇️ navigate to /
+        navigate('/');
+      };
     const [formData, setFormData] = useState({
-        Email: "John@gmail.com",
-        Password: "124",
-        checkedBox: 0,
+        email: "",
+        password: "",
     });
     function handleChange(event) {
         const name = event.target.name;
@@ -35,15 +39,22 @@ function SignIn() {
         console.log(formData);
     }
     const SendtoSignIn = useMutation((SignInData) => {
-        return fetch("http://localhost:3004/SignIn", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "content-Type": "application/json",
-            },
-            body: JSON.stringify(SignInData),
+            axios.post(`https://reach-capstone.herokuapp.com/api/auth/login`, SignInData).then(
+                function () {
+                    alert("You have Successfuly Signed In");
+                    navigateHome()
+                  }
+            ).catch(function (error) {
+                console.log(error)
+                let isArray = Array.isArray(error.response.data.errors);
+                if (isArray) {
+                  alert(error.response.data.errors[0].msg)
+                }
+                else{
+                  alert(error.response.data.error);
+                };
+            });
         });
-    });
     return (
         <div className=' bg-blue-dark'>
             <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
@@ -92,10 +103,9 @@ function SignIn() {
                             </label>
                         </div>
                         <input
-                            type='text'
-                            name='Email'
+                            type='email'
+                            name='email'
                             onChange={handleChange}
-                            value={formData.Email}
                             placeholder='Enter your email address'
                             className=' border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
@@ -113,7 +123,6 @@ function SignIn() {
                             type='password'
                             name='password'
                             onChange={handleChange}
-                            value={formData.Password}
                             placeholder='Enter your password'
                             className='border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
@@ -138,9 +147,8 @@ function SignIn() {
                             className='font-heading mt-4 h-12 w-full rounded bg-red text-2xl font-bold text-gray'
                             onClick={() => {
                                 SendtoSignIn.mutate({
-                                    Email: formData.Email,
-                                    Password: formData.Password,
-                                    checkedBox: formData.checkedBox,
+                                    email: formData.email,
+                                    password: formData.password,
                                 });
                             }}
                         >
