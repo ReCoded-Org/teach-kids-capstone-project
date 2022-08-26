@@ -11,7 +11,6 @@ import Footer from "../components/layout/Footer/Footer";
 
 function SingleEventPage() {
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
-
     if (isLoading) return "Loading...";
     if (error) return "An error has occurred: " + error.message;
 
@@ -19,7 +18,7 @@ function SingleEventPage() {
         <>
             <Navbar />
             <SingleEventPageHeroSection />
-            <Carousel carouselHeader='Related Events' events={data} />
+            <Carousel carouselHeader='Related Events' events={data.data} />
             <Footer />
         </>
     );

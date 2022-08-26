@@ -13,7 +13,6 @@ import { useQuery } from "@tanstack/react-query";
 
 export default function Events({ carouselHeader, events }) {
     events = events.slice(1, events.length);
-    console.log(events);
     const settings = {
         dots: false,
         infinite: true,

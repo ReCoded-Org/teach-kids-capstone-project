@@ -9,8 +9,10 @@ import "./Events.css";
 import { getOrganizations } from "../../../services/events.js";
 
 import { useQuery } from "@tanstack/react-query";
+// import PostData from "@/services/postData";
 
 export default function Events({ carouselHeader, events }) {
+    events = events.slice(1, events.length);
     const settings = {
         dots: false,
         infinite: true,
@@ -67,7 +69,7 @@ export default function Events({ carouselHeader, events }) {
                             <EventCard
                                 eventPost={eventPost}
                                 key={eventPost.id}
-                                org={org.name}
+                                org={eventPost.ngo.name}
                             />
                         );
                     })}
