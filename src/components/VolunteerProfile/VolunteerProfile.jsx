@@ -7,9 +7,13 @@ import Carousel from "../../components/GlobalCarousel/Events/Events";
 import { getEvents } from "../../services/events.js";
 import { useQuery } from "@tanstack/react-query";
 
+import {Preview} from './Preview';
+// import { ToastContainer } from 'react-toastify';44
+
 function VolunteerProfile() {
     const [info, setInfo] = useState([]); //changed {} to []
     const [file, setFile] = useState(null) // for uploadig the CV
+    const [files, setFiles] = useState([]); // for uploaded file preview
     const [updated, setUpdated] = useState(false);
     const [showModal, setShowModal] = React.useState(false);
 
@@ -18,7 +22,7 @@ function VolunteerProfile() {
     }
 
     function dataSender(e) {
-        Axios.put("https://reach-capstone.herokuapp.com/api/volunteers/1", info).then(
+        Axios.put("http://localhost:8000/volunteer/1", info).then(
             (response) => {
                 // console.log(response.data)
                 setInfo(() => response.data);
@@ -29,34 +33,51 @@ function VolunteerProfile() {
         );
     }
 
-    function handleFileChange(e) {
-        console.log(e.target.files);
+
+    // Upload Functions START:
+
+    function onInputChange(e) {
+        // console.log(e.target.value);
+        // console.log(e.target.files);
         setFile(e.target.files[0])
     }
 
-    function handleFileSubmit(e) {
+    function handleSubmit(e) {
         e.preventDefault();
-        const cv = new FormData()
-        cv.append('file', file)
 
-        Axios.patch('https://reach-capstone.herokuapp.com/api/volunteers/1', cv)
-            .then((e)=> {
-                console.log('Success')
+        const data = new FormData()
+
+        data.append('file', file)
+
+        // For Uploaded File Preview (should be called before any loops or if conditions)
+        // function onSuccess(savedFiles) {
+        //     setFiles(savedFiles)
+        // }
+        // end
+
+        Axios.post('//localhost:5000/upload', data)
+            .then((response)=> {
+                alert('Success') // he adds the toast here and below 
+                setFiles(response.data) // For Uploaded File Preview
             })
             .catch((e) => {
-                console.error('Error', e)
+                alert('Error', e)
             })
 
     }
 
+    // END
+
+   
+
     React.useEffect(() => {
-        Axios.get("https://reach-capstone.herokuapp.com/api/volunteers/1")
+        Axios.get("http://localhost:8000/volunteer/1")
             .then((res) => {
                 setInfo(res.data);
                 // console.log('info after useEffect', info)
             })
             .catch((err) => {
-                console.log("err", err);
+                alert("err", err);
             });
     }, [showModal]);
 
@@ -106,7 +127,7 @@ function VolunteerProfile() {
                         Phone: {info.phone}
                     </p>
 
-                    <form onSubmit={() => handleFileSubmit()} className='sm:col-start-2 sm:col-end-6 sm:row-start-6 sm:justify-self-start '>
+                    <form onSubmit={handleSubmit} className='sm:col-start-2 sm:col-end-6 sm:row-start-6 sm:justify-self-start '>
                         <label
                             className='text-gray-900 dark:text-gray-300 mb-2 block text-md font-medium sm:relative sm:col-start-2 sm:col-end-3 sm:row-start-6 sm:justify-self-start'
                             htmlFor='default_size'
@@ -114,7 +135,7 @@ function VolunteerProfile() {
                             Upload Your CV
                         </label>
                         <input
-                            onChange={()=> handleFileChange()}
+                            onChange={(e)=> onInputChange(e)}
                             className='w-auto rounded text-gray-900 border-gray-300 dark:text-gray-400 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 mb-10  cursor-pointer border bg-[#F5F6F6] text-sm focus:outline-none sm:col-start-2 sm:col-end-3 sm:justify-self-start'
                             id='default_size'
                             type='file'
@@ -133,6 +154,9 @@ function VolunteerProfile() {
                 </div>
             </div>
             {/* down to here */}
+
+            {/* PREVIEW SECTION */}
+            <Preview files={files} />
 
             <Carousel carouselHeader='Related Events' events={data} />
         </div>
