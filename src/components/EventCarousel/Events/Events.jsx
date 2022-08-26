@@ -44,15 +44,6 @@ export default function Events({ carouselHeader, events }) {
 
     const [t] = useTranslation();
 
-    const { isLoading, error, data } = useQuery(
-        ["organizations"],
-        getOrganizations
-    );
-
-    if (isLoading) return "Loading...";
-
-    if (error) return "An error has occurred: " + error.message;
-
     return (
         <div className='diagonal-box flex flex-col  bg-blue-light'>
             <div className='content mx-auto  md:w-9/12  '>
@@ -61,12 +52,6 @@ export default function Events({ carouselHeader, events }) {
                 </h1>
                 <Slider {...settings}>
                     {events.map((eventPost) => {
-                        const org = data.find((element) => {
-                            return (
-                                element.organizationId ===
-                                eventPost.organizationId
-                            );
-                        });
                         return (
                             <EventCard
                                 eventPost={eventPost}
