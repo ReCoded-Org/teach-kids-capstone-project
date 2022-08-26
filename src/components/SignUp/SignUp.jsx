@@ -1,60 +1,56 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
+import { useMutation} from "@tanstack/react-query";
 import google from "src/assets/google.svg";
 import facebook from "src/assets/facebook.svg";
 import apple from "src/assets/apple.svg";
 import message from "src/assets/message.svg";
 import padlock from "src/assets/padlock.svg";
-import close from "src/assets/close-menu.svg";
-import Logo from "src/assets/Logo.png";
 import signup from "src/assets/signup.png";
-
+import { useLocation } from 'react-router-dom'
+import axios from "axios";
+import Navbar from "../../components/layout/Navbar/Navbar";
 function SignUp() {
     const navigate = useNavigate();
-
+    const navigateHome = () => {
+        navigate('/');
+      };
     const [formData, setFormData] = useState({
-        username: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
+        "email": "",
+        "password": "",
+        "confirmPassword": "",
+        "username": ""
     });
-
+    const location = useLocation()
+    const Option = location.state
     function handleChange(event) {
         const name = event.target.name;
         let value = event.target.value;
-
         setFormData({ ...formData, [name]: value });
     }
-
     function handleSubmit(event) {
         event.preventDefault();
     }
 
     const SignUpFormData = useMutation((SignUpData) => {
-        return fetch("http://localhost:3001/signup", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "content-Type": "application/json",
-            },
-            body: JSON.stringify(SignUpData),
+        axios.post(`https://reach-capstone.herokuapp.com/api/auth/signup/${Option}`, SignUpData).then(
+            function () {
+                alert("You have Successfuly Signed Up");
+                navigateHome();
+              }
+        ).catch(function (error) {
+            let isArray = Array.isArray(error.response.data.errors);
+            if (isArray) {
+              alert(error.response.data.errors[0].msg)
+            }
+            else{
+              alert(error.response.data.error);
+            };
         });
     });
-
     return (
         <div className=' bg-blue-dark'>
-            <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
-                <Link to='/'>
-                    <img src={Logo} alt='Reach' />
-                </Link>
-                <img
-                    src={close}
-                    alt='close'
-                    className='hover:scale-125 hover:cursor-pointer'
-                    onClick={() => navigate(-1)}
-                />
-            </div>
+            <Navbar />
             <div className='flex w-full justify-evenly p-20'>
                 <img
                     src={signup}
@@ -72,7 +68,7 @@ function SignUp() {
                     >
                         <p className='inline flex-row font-SourceSansPro'>
                             If you already have an account register, you can
-                            <Link to='/log-in'>
+                            <Link to='/sign-in'>
                                 <p className='ml-1 text-red hover:scale-105'>
                                     login here!
                                 </p>
@@ -158,10 +154,10 @@ function SignUp() {
                             className='mt-4 h-12 w-full rounded bg-red font-quicksand text-2xl font-bold text-gray hover:scale-105'
                             onClick={() => {
                                 SignUpFormData.mutate({
-                                    username: formData.username,
-                                    email: formData.email,
-                                    password: formData.password,
-                                    confirmPassword: formData.confirmPassword,
+                                    "email": formData.email,
+                                    "password": formData.password,
+                                    "confirmPassword": formData.confirmPassword,
+                                    "username":formData.username
                                 });
                             }}
                         >
