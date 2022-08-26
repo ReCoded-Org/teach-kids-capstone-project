@@ -8,11 +8,11 @@ const EventCardGrid = ({ eventPost, org }) => {
     } catch {
         name = "Null";
     }
-
+    // console.log(eventPost._id);
     return (
         <div className='relative mb-6 mt-16 w-full min-w-0 max-w-md break-words rounded-xl px-5 xl:max-w-md'>
             <div className='card-header mx-4 -mt-6'>
-                <Link to={`/event/${eventPost.id}`}>
+                <Link to={`/event/${eventPost._id}`}>
                     <img
                         className='w-auto rounded-lg'
                         src={eventPost.avatar}
@@ -21,7 +21,7 @@ const EventCardGrid = ({ eventPost, org }) => {
                 </Link>
             </div>
             <div className='flex flex-col'>
-                <a href='#'>
+                <a href=''>
                     <h2 className='mt-2 text-center text-lg font-bold uppercase text-black'>
                         {name}
                     </h2>
@@ -29,7 +29,7 @@ const EventCardGrid = ({ eventPost, org }) => {
                 <p className='mb-4 text-center text-black opacity-60'>
                     {eventPost.location}
                 </p>
-                <a href='#'>
+                <a href=''>
                     <h4 className='mb-3 text-center font-semibold text-black'>
                         {eventPost.topic}
                     </h4>
