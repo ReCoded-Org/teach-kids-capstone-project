@@ -9,14 +9,17 @@ import padlock from "../../assets/padlock.svg";
 import Logo from "../../assets/Logo.png";
 import close from "../../assets/close-menu.svg";
 import { useMutation } from "@tanstack/react-query";
-import { useTranslation } from "react-i18next";
-
+import axios from "axios";
+import Home from "../../containers/Home";
 function SignIn() {
     const navigate = useNavigate();
+    const navigateHome = () => {
+        // 👇️ navigate to /
+        navigate('/');
+      };
     const [formData, setFormData] = useState({
-        Email: "John@gmail.com",
-        Password: "124",
-        checkedBox: 0,
+        email: "",
+        password: "",
     });
     function handleChange(event) {
         const name = event.target.name;
@@ -36,18 +39,22 @@ function SignIn() {
         console.log(formData);
     }
     const SendtoSignIn = useMutation((SignInData) => {
-        return fetch("http://localhost:3004/SignIn", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "content-Type": "application/json",
-            },
-            body: JSON.stringify(SignInData),
+            axios.post(`https://reach-capstone.herokuapp.com/api/auth/login`, SignInData).then(
+                function () {
+                    alert("You have Successfuly Signed In");
+                    navigateHome()
+                  }
+            ).catch(function (error) {
+                console.log(error)
+                let isArray = Array.isArray(error.response.data.errors);
+                if (isArray) {
+                  alert(error.response.data.errors[0].msg)
+                }
+                else{
+                  alert(error.response.data.error);
+                };
+            });
         });
-    });
-
-    const [t] = useTranslation();
-
     return (
         <div className=' bg-blue-dark'>
             <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
@@ -61,30 +68,27 @@ function SignIn() {
                     onClick={() => navigate(-1)}
                 />
             </div>
-            <div className='flex w-full content-center justify-evenly bg-blue-dark p-24'>
+            <div className='flex content-center w-full justify-evenly bg-blue-dark p-24'>
                 <img
                     src={SigninPic}
                     alt={
                         "a drawing of a little boy in a classroom raising his hand"
                     }
-                    className='lg:6/12 w-0 object-contain md:w-6/12'
+                    className='lg:6/12 w-0 md:w-6/12 object-contain'
                 />
 
                 <div className='w-full pt-16 md:w-4/12'>
                     <h1 className=' font-heading pb-6 text-5xl font-bold text-gray'>
-                        {t("signIn.title")}
+                        Sign In
                     </h1>
                     <form
                         className='font-body flex flex-col gap-3 text-lg text-gray'
                         onSubmit={handleSubmit}
                     >
-                        <p className=' inline flex-row font-SourceSansPro'>
-                            {t("signIn.description1")}
-                            <Link to='/sign-up' className=''>
-                                <p className='ml-1 text-red '>
-                                    {" "}
-                                    {t("signIn.description2")}
-                                </p>
+                        <p className=' flex-row font-SourceSansPro inline'>
+                            If you don`t have an account register, you can {" "}
+                            <Link to='/sign-up' className="" >
+                                <p className='ml-1 text-red '> register here!</p>
                             </Link>
                         </p>
 
@@ -95,15 +99,14 @@ function SignIn() {
                                 className='w-5'
                             />
                             <label className='font-heading font-bold'>
-                                {t("signIn.emailFormTitle")}
+                                Email
                             </label>
                         </div>
                         <input
-                            type='text'
-                            name='Email'
+                            type='email'
+                            name='email'
                             onChange={handleChange}
-                            value={formData.Email}
-                            placeholder='example@gmail.com'
+                            placeholder='Enter your email address'
                             className=' border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
                         <div className='float-right flex gap-4'>
@@ -113,15 +116,14 @@ function SignIn() {
                                 className='w-5'
                             />
                             <label className='font-heading font-bold'>
-                                {t("signIn.passwordFormTitle")}
+                                Password
                             </label>
                         </div>
                         <input
                             type='password'
                             name='password'
                             onChange={handleChange}
-                            value={formData.Password}
-                            placeholder={t("signIn.passwordFormPlaceholder")}
+                            placeholder='Enter your password'
                             className='border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
                         <div>
@@ -135,26 +137,25 @@ function SignIn() {
                                     />
                                     <label className='font-heading font-bold'>
                                         {" "}
-                                        {t("signIn.remember")}
+                                        Remember Me
                                     </label>
                                 </div>
-                                <p>{t("signIn.forget")}</p>
+                                <p>Forgot password?</p>
                             </div>
                         </div>
                         <button
                             className='font-heading mt-4 h-12 w-full rounded bg-red text-2xl font-bold text-gray'
                             onClick={() => {
                                 SendtoSignIn.mutate({
-                                    Email: formData.Email,
-                                    Password: formData.Password,
-                                    checkedBox: formData.checkedBox,
+                                    email: formData.email,
+                                    password: formData.password,
                                 });
                             }}
                         >
-                            {t("signIn.loginBut")}
+                            Login
                         </button>
                         <h4 className='flex justify-center'>
-                            {t("signIn.continue")}
+                            or continue with
                         </h4>
                         <div className='flex w-full flex-row justify-center gap-3'>
                             <img
