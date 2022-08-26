@@ -20,6 +20,7 @@ function Home() {
 
     if (isLoading) return "Loading...";
     if (error) return "An error has occurred: " + error.message;
+    console.log(data.data);
 
     return (
         <>
@@ -27,7 +28,7 @@ function Home() {
             <HeroSection />
             <AboutUs />
             <OurValues />
-            <Events carouselHeader='Related Events' events={data} />
+            <Events carouselHeader='Related Events' events={data.data} />
             <ContactUs />
             <Footer />
         </>
