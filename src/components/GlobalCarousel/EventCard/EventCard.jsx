@@ -7,9 +7,9 @@ const EventCard = ({ eventPost, org }) => {
             <div className='card-header mx-4 -mt-6'>
                 <Link to={`/event/${eventPost.id}`}>
                     <img
-                        className='mx-auto w-auto w-full  rounded-lg 	sm:h-56 md:h-56  xl:h-72'
+                        className='mx-auto w-auto   rounded-lg 	sm:h-56 md:h-56  xl:h-72'
                         src={eventPost.image}
-                        alt={org.name}
+                        alt={org}
                     />
                 </Link>
             </div>
