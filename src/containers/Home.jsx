@@ -29,9 +29,9 @@ function Home() {
             <HeroSection />
             <AboutUs />
             <OurValues />
+            <Events carouselHeader='Related Events' events={data.data} />
             <OurFrontendTeam />
             <OurBackendTeam />
-            <Events carouselHeader='Related Events' events={data.data} />
             <ContactUs />
             <Footer />
         </>
