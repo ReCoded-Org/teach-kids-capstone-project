@@ -21,7 +21,7 @@ const EventCardGrid = ({ eventPost, org }) => {
                 </Link>
             </div>
             <div className='flex flex-col'>
-                <a href=''>
+                <a href='#'>
                     <h2 className='mt-2 text-center text-lg font-bold uppercase text-black'>
                         {name}
                     </h2>
@@ -29,7 +29,7 @@ const EventCardGrid = ({ eventPost, org }) => {
                 <p className='mb-4 text-center text-black opacity-60'>
                     {eventPost.location}
                 </p>
-                <a href=''>
+                <a href='#'>
                     <h4 className='mb-3 text-center font-semibold text-black'>
                         {eventPost.topic}
                     </h4>
