@@ -9,6 +9,7 @@ import padlock from "src/assets/padlock.svg";
 import close from "src/assets/close-menu.svg";
 import Logo from "src/assets/Logo.png";
 import signup from "src/assets/signup.png";
+import { useTranslation } from "react-i18next";
 
 function SignUp() {
     const navigate = useNavigate();
@@ -42,6 +43,8 @@ function SignUp() {
         });
     });
 
+    const [t] = useTranslation();
+
     return (
         <div className=' bg-blue-dark'>
             <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
@@ -59,22 +62,22 @@ function SignUp() {
                 <img
                     src={signup}
                     alt={"a drawing of a young woman working on her desk"}
-                    className='lg:6/12 w-0 md:w-6/12 object-contain'
+                    className='lg:6/12 w-0 object-contain md:w-6/12'
                 />
 
                 <div className='w-full md:w-4/12'>
                     <h1 className=' pb-5 font-quicksand text-4xl font-bold text-gray'>
-                        Sign Up
+                        {t("signUp.title")}
                     </h1>
                     <form
                         className='flex flex-col gap-3 font-SourceSansPro text-lg text-gray'
                         onSubmit={handleSubmit}
                     >
                         <p className='inline flex-row font-SourceSansPro'>
-                            If you already have an account register, you can
+                            {t("signUp.description1")}
                             <Link to='/log-in'>
                                 <p className='ml-1 text-red hover:scale-105'>
-                                    login here!
+                                    {t("signUp.description2")}
                                 </p>
                             </Link>
                         </p>
@@ -85,7 +88,7 @@ function SignUp() {
                                 className='w-5'
                             />
                             <label className='font-quicksand font-bold'>
-                                Email
+                                {t("signUp.emailFormTitle")}
                             </label>
                         </div>
                         <input
@@ -104,7 +107,7 @@ function SignUp() {
                                 className='w-5'
                             />
                             <label className='font-quicksand font-bold'>
-                                Username
+                                {t("signUp.usernameFormTitle")}
                             </label>
                         </div>
                         <input
@@ -113,7 +116,7 @@ function SignUp() {
                             id='username'
                             onChange={handleChange}
                             value={formData.username}
-                            placeholder='Enter your username address'
+                            placeholder={t("signUp.usernameFormPlaceholder")}
                             className='border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
                         <div className='float-right flex gap-4'>
@@ -123,7 +126,7 @@ function SignUp() {
                                 className='w-5'
                             />
                             <label className='font-quicksand font-bold'>
-                                Password
+                                {t("signUp.passwordFormTitle")}
                             </label>
                         </div>
                         <input
@@ -132,7 +135,7 @@ function SignUp() {
                             id='password'
                             onChange={handleChange}
                             value={formData.password}
-                            placeholder='Enter your password'
+                            placeholder={t("signUp.passwordFormPlaceholder")}
                             className='border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
                         <div className='float-right flex gap-4'>
@@ -142,7 +145,7 @@ function SignUp() {
                                 className='w-5'
                             />
                             <label className='font-quicksand font-bold'>
-                                Confirm Password
+                                {t("signUp.ConfirmPasswordFormTitle")}
                             </label>
                         </div>
                         <input
@@ -151,7 +154,9 @@ function SignUp() {
                             id='confirmPassword'
                             onChange={handleChange}
                             value={formData.confirmPassword}
-                            placeholder='Confirm your password'
+                            placeholder={t(
+                                "signUp.ConfirmPasswordFormPlaceholder"
+                            )}
                             className='border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
                         <button
@@ -165,10 +170,10 @@ function SignUp() {
                                 });
                             }}
                         >
-                            Sign Up
+                            {t("signUp.signUpBut")}
                         </button>
                         <h4 className='flex justify-center'>
-                            or continue with
+                            {t("signUp.continue")}
                         </h4>
                         <div className='flex w-full flex-row justify-center gap-3'>
                             <img
