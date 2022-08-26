@@ -23,11 +23,13 @@ function ContactUs() {
         event.preventDefault();
     }
     const SendtoContactUs = useMutation((ContactUsData) => {
-        axios.post(`https://reach-capstone.herokuapp.com/api/feedbacks`, ContactUsData);
-          })
+        axios.post(
+            `https://reach-capstone.herokuapp.com/api/feedbacks`,
+            ContactUsData
+        );
+    });
 
     const [t] = useTranslation();
-console.log(formData)
     return (
         <div
             id='contact-us'

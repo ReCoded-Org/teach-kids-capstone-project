@@ -12,6 +12,7 @@ import { getOrganizations } from "../../../services/events.js";
 import { useQuery } from "@tanstack/react-query";
 
 export default function Events({ carouselHeader, events }) {
+    events = events.slice(1, events.length);
     const settings = {
         dots: false,
         infinite: true,
@@ -70,7 +71,6 @@ export default function Events({ carouselHeader, events }) {
                             <EventCard
                                 eventPost={eventPost}
                                 key={eventPost.id}
-                                org={org.name}
                             />
                         );
                     })}
