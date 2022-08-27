@@ -30,6 +30,9 @@ export default function Footer() {
                     <h6 className='flex justify-start pt-2'>
                         {t(`footer.pages.${[2]}`)}
                     </h6>
+                    <h6 className='flex justify-start pt-2'>
+                        {t(`footer.pages.${[3]}`)}
+                    </h6>
                     <div className='flex pt-8'>
                         <img className='pr-8' src={twitter} alt='twitter' />
                         <img className='pr-8' src={linkedin} alt='linkedin' />

@@ -4,17 +4,21 @@ import ayaImg from "../../assets/ayaImg.jpg";
 import ramaImg from "../../assets/ramaImg.jpg";
 import mustafaImg from "../../assets/mustafaImg.jpg";
 import mohammadImg from "../../assets/mohammadImg.jpg";
+import "./OurFrontendTeam.css";
 
 function OurFrontendTeam() {
     return (
         <>
-            <section className='dark:bg-gray-900 bg-white'>
-                <div className='container mx-auto px-6 py-10'>
-                    <h1 className='text-blue-dark text-center text-5xl font-quicksand capitalize dark:text-white lg:text-5xl'>
+            <div className='absolute w-full bg-gray pb-12'>
+                <p className='text-lg text-gray'>1</p>
+            </div>
+            <section className='diagonal-box relative z-50 my-10 flex justify-center dark:bg-gray-900 bg-gray'>
+                <div className='content container mx-auto px-6 py-10'>
+                    <h1 className='text-center font-quicksand text-5xl capitalize text-blue-dark dark:text-white lg:text-5xl'>
                         Our Frontend Team
                     </h1>
 
-                    <p className='text-blue-dark dark:text-gray-300 mx-auto my-6 max-w-2xl text-center font-SourceSansPro'>
+                    <p className='dark:text-gray-300 mx-auto my-6 max-w-2xl text-center font-SourceSansPro text-blue-dark'>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Illo incidunt ex placeat modi magni quia error alias,
                         adipisci rem similique, at omnis eligendi optio eos
@@ -29,11 +33,11 @@ function OurFrontendTeam() {
                                 alt='Hiba Machfej Profile'
                             />
 
-                            <h1 className='text-gray-700 mt-4 text-2xl font-quicksand capitalize group-hover:text-white dark:text-white'>
+                            <h1 className='text-gray-700 mt-4 font-quicksand text-2xl capitalize group-hover:text-white dark:text-white'>
                                 Hiba Machfej
                             </h1>
 
-                            <p className='text-gray-500 dark:text-gray-300 group-hover:text-gray-300 mt-2 capitalize font-SourceSansPro'>
+                            <p className='text-gray-500 dark:text-gray-300 group-hover:text-gray-300 mt-2 font-SourceSansPro capitalize'>
                                 Lead Engineer
                             </p>
 
@@ -95,11 +99,11 @@ function OurFrontendTeam() {
                                 alt='Aya Midani Profile'
                             />
 
-                            <h1 className='text-gray-700 mt-4 text-2xl font-quicksand capitalize group-hover:text-white dark:text-white'>
+                            <h1 className='text-gray-700 mt-4 font-quicksand text-2xl capitalize group-hover:text-white dark:text-white'>
                                 Aya Midani
                             </h1>
 
-                            <p className='text-gray-500 dark:text-gray-300 group-hover:text-gray-300 mt-2 capitalize font-SourceSansPro'>
+                            <p className='text-gray-500 dark:text-gray-300 group-hover:text-gray-300 mt-2 font-SourceSansPro capitalize'>
                                 Junior Engineer
                             </p>
 
@@ -162,11 +166,11 @@ function OurFrontendTeam() {
                                 alt='Rama Al Dakkak Profile'
                             />
 
-                            <h1 className='text-gray-700 mt-4 text-2xl font-quicksand capitalize group-hover:text-white dark:text-white'>
+                            <h1 className='text-gray-700 mt-4 font-quicksand text-2xl capitalize group-hover:text-white dark:text-white'>
                                 Rama Al Dakkak
                             </h1>
 
-                            <p className='text-gray-500 dark:text-gray-300 group-hover:text-gray-300 mt-2 capitalize font-SourceSansPro'>
+                            <p className='text-gray-500 dark:text-gray-300 group-hover:text-gray-300 mt-2 font-SourceSansPro capitalize'>
                                 Junior Engineer
                             </p>
 
@@ -229,11 +233,11 @@ function OurFrontendTeam() {
                                 alt='Kinan Hatahet Profile'
                             />
 
-                            <h1 className='text-gray-700 mt-4 text-2xl font-quicksand capitalize group-hover:text-white dark:text-white'>
+                            <h1 className='text-gray-700 mt-4 font-quicksand text-2xl capitalize group-hover:text-white dark:text-white'>
                                 Kinan Hatahet
                             </h1>
 
-                            <p className='text-gray-500 dark:text-gray-300 group-hover:text-gray-300 mt-2 capitalize font-SourceSansPro'>
+                            <p className='text-gray-500 dark:text-gray-300 group-hover:text-gray-300 mt-2 font-SourceSansPro capitalize'>
                                 Junior Engineer
                             </p>
 
@@ -296,11 +300,11 @@ function OurFrontendTeam() {
                                 alt='Mustafa Arslan Profile'
                             />
 
-                            <h1 className='text-gray-700 mt-4 text-2xl font-quicksand capitalize group-hover:text-white dark:text-white'>
+                            <h1 className='text-gray-700 mt-4 font-quicksand text-2xl capitalize group-hover:text-white dark:text-white'>
                                 Mustafa Arslan
                             </h1>
 
-                            <p className='text-gray-500 dark:text-gray-300 group-hover:text-gray-300 mt-2 capitalize font-SourceSansPro'>
+                            <p className='text-gray-500 dark:text-gray-300 group-hover:text-gray-300 mt-2 font-SourceSansPro capitalize'>
                                 Junior Engineer
                             </p>
 
@@ -363,11 +367,11 @@ function OurFrontendTeam() {
                                 alt='Mohammad Al Saleh Profile'
                             />
 
-                            <h1 className='text-gray-700 mt-4 text-2xl font-quicksand capitalize group-hover:text-white dark:text-white'>
+                            <h1 className='text-gray-700 mt-4 font-quicksand text-2xl capitalize group-hover:text-white dark:text-white'>
                                 Mohammad Al Saleh
                             </h1>
 
-                            <p className='text-gray-500 dark:text-gray-300 group-hover:text-gray-300 mt-2 capitalize font-SourceSansPro'>
+                            <p className='text-gray-500 dark:text-gray-300 group-hover:text-gray-300 mt-2 font-SourceSansPro capitalize'>
                                 Junior Engineer
                             </p>
 

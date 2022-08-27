@@ -110,6 +110,11 @@ function Navbar() {
                             My Profile
                         </NavLink>
                     </li>
+                    <li className='border-gray-700 hover:border-gray-200 w-full transform  border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+                        <NavLink to='/our-team'>
+                            {t(`navbar.pages.${[3]}`)}
+                        </NavLink>
+                    </li>
                     {/* ============= Start (language dropdown-menu on small size screen section) ============= */}
                     {/* ============= Note: language Events Will be added later ================ */}
                     {!isHidden ? (
