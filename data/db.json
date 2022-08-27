@@ -2,10 +2,9 @@
   "adminDashboard": [
     {
       "id": 1,
-      "website": "www. Reach.com",
+      "website": "ddddd",
       "name": "John Doe",
-     
-      "location": "Istanbul",
+      "location": "dddddd",
       "date": "10/12/1979",
       "email": "mu@mail.com",
       "phone": "53216121303",
@@ -17,7 +16,7 @@
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque quisquam odit neque enim consectetur dolore dolores impedit, incidunt quas non",
       "email": "yaser@something.com",
       "phone": "hgjghjhg",
-      "name": "Yasser Sal",
+      "name": "Yasser Salkho",
       "id": 1
     }
   ]
