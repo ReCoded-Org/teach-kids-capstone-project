@@ -17,8 +17,6 @@ import Footer from "../components/layout/Footer/Footer";
 
 function Home() {
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
-    localStorage.getItem('myData');
-    console.log(localStorage.getItem('Name'))
     if (isLoading) return "Loading...";
     if (error) return "An error has occurred: " + error.message;
 

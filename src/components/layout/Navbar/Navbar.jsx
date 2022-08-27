@@ -24,7 +24,7 @@ function Navbar() {
     const [isHidden, setIsHidden] = useState(true);
     const [lang, setlang] = useState(true);
     const [Profile, setProfile] = useState(true);
-    const [showModal, setShowModal] = React.useState(true);
+    const [showModal, setShowModal] = React.useState(false);
     const ProfileModel = () => (
 
     <div className="focus:border-0 sm:text-lg hidden relative right-6  top-2.5 z-0  rounded  items-center md:block">
