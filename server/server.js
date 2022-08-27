@@ -21,7 +21,7 @@ const storage = multer.diskStorage({
 // const upload = multer({storage}).array('file');
 
 // for a single file:
-const upload = multer({storage}).single('file');
+const upload = multer({storage}).array('file');
 
 
 // create the end point :

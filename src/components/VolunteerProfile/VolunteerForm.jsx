@@ -1,6 +1,36 @@
 import React, {useState} from "react";
+import Axios from 'axios';
 
 export default function VolunteerForm({showModal, setShowModal, handleChange, dataSender}) {
+  const [file, setFile] = useState(null) // for uploadig the photo
+
+  // Upload Functions START:
+
+  function onInputChange(e) {
+    // console.log(e.target.value);
+    // console.log(e.target.files);
+    setFile(e.target.files[0])
+}
+
+function handleSubmit(e) {
+    e.preventDefault();
+
+    const data = new FormData()
+
+    data.append('file', file)
+
+    Axios.post('//localhost:5000/upload', data)
+        .then((response)=> {
+            alert('Success') // he adds the toast here and below 
+
+        })
+        .catch((e) => {
+            alert('Error', e)
+        })
+
+}
+
+// END
 
 
   return (
@@ -44,13 +74,18 @@ export default function VolunteerForm({showModal, setShowModal, handleChange, da
 
 
 
-                  <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                  <form
+                  id='my-form'
+                  className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
 
                   <div className="mb-4">
                       <label className="block text-gray-700 text-sm font-bold mb-2">
                         Select a Profile Photo
                       </label>
-                      <input className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="file" placeholder="" />
+                      <input
+                        onChange={(e)=> onInputChange(e)}
+                        accept="image/jpeg"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="file" placeholder="" />
                     </div>
 
                   <div className="mb-4">
@@ -80,10 +115,7 @@ export default function VolunteerForm({showModal, setShowModal, handleChange, da
                       </label>
                       <input onChange={handleChange} name="phone" className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="tel" placeholder="Phone Number" />
                     </div>
-
-
                     
-                    {/* <input onChange={(event)=> setImageSelected(event.target.files[0])} className="w-100" type='file' /> <br></br> */}
                   </form>
                   {/* END OF FORM */}
 
@@ -101,11 +133,13 @@ export default function VolunteerForm({showModal, setShowModal, handleChange, da
                     Close
                   </button>
                   <button
+                    form='my-form' 
+                    type="submit"
                     className="bg-[#457B9D] text-white active:bg-[#457B9D] font-bold uppercase text-sm px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-                    type="button"
-                    onClick={() => {
+                    onClick={(e) => {
                       setShowModal(false)
                       dataSender()
+                      handleSubmit(e)
                     }}
                     
                   >

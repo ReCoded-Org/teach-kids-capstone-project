@@ -2,18 +2,17 @@ import React, { useState } from "react";
 import VolunteerForm from "./VolunteerForm";
 import Axios from "axios";
 import SubmitConfirm from "./SubmitConfirm";
-import Carousel from "../../components/GlobalCarousel/Events/Events";
+import Events from "../../components/GlobalCarousel/Events/Events";
 
 import { getEvents } from "../../services/events.js";
 import { useQuery } from "@tanstack/react-query";
 
-import {Preview} from './Preview';
 // import { ToastContainer } from 'react-toastify';44
 
 function VolunteerProfile() {
     const [info, setInfo] = useState([]); //changed {} to []
     const [file, setFile] = useState(null) // for uploadig the CV
-    const [files, setFiles] = useState([]); // for uploaded file preview
+    const [events, setEvents]= useState([]) // for events related to volunteer
     const [updated, setUpdated] = useState(false);
     const [showModal, setShowModal] = React.useState(false);
 
@@ -57,7 +56,6 @@ function VolunteerProfile() {
 
         Axios.post('//localhost:5000/upload', data)
             .then((response)=> {
-                setFiles(response.data) // For Uploaded File Preview
                 alert('Success') // he adds the toast here and below 
 
             })
@@ -78,9 +76,19 @@ function VolunteerProfile() {
                 // console.log('info after useEffect', info)
             })
             .catch((err) => {
-                console.error("err", err);
+                console.error("error in getting volunteer info", err);
             });
     }, [showModal]);
+
+    React.useEffect(()=> {
+        Axios.get("https://reach-capstone.herokuapp.com/api/volunteers/1/applied-events")
+        .then((res)=> {
+            setEvents(res.data)
+        })
+        .catch((err) => {
+            console.error("error for applied events", err);
+        });
+    }, [])
 
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
 
@@ -157,10 +165,7 @@ function VolunteerProfile() {
             </div>
             {/* down to here */}
 
-            {/* PREVIEW SECTION */}
-            {/* <Preview files={files} /> */}
-
-            <Carousel carouselHeader='Related Events' events={data} />
+            <Events carouselHeader='Applied Events' events={events} />
         </div>
     );
 }
