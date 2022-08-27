@@ -3,6 +3,7 @@ import NGOImage from "../../assets/NGOImage.png";
 import React, { useState } from "react";
 import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
 import {
     useMutation,
     QueryClient,
@@ -88,7 +89,9 @@ function SingleEventPageHeroSection() {
                         />
                         <ul className='mt-4 grid w-full gap-1.5 justify-self-auto text-left font-SourceSansPro text-sm font-semibold text-light-gray'>
                             <h1 className=' my-2 mb-4 justify-self-center font-quicksand text-4xl font-semibold uppercase text-blue-dark md:justify-self-start'>
-                                {info.ngo.name}
+                                <Link to={`/ngo-profile/${info.ngo._id}`}>
+                                    {info.ngo.name}
+                                </Link>
                             </h1>
                             <li className='uppercase'>
                                 Location: {info.location}

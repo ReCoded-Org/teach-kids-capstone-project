@@ -24,7 +24,7 @@ function App() {
                     element={<VolunteerProfile />}
                 />
                 <Route path='/ngo-admin' element={<AdminDashboard />} />
-                <Route path='/ngo-profile' element={<NgoProfilePage />} />
+                <Route path='/ngo-profile/:id' element={<NgoProfilePage />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/' element={<Home />} />
             </Routes>
