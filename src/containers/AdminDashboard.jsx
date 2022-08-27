@@ -8,7 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
 
-function AdminDashboard() {
+function AdminDashboard({ userId }) {
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
 
     if (isLoading) return "Loading...";
@@ -17,7 +17,7 @@ function AdminDashboard() {
     return (
         <>
             <Navbar />
-            <AdminDashboardHeroSection />
+            <AdminDashboardHeroSection userId={userId} />
             <Carousel carouselHeader='Previous Events' events={data.data} />
             <Footer />
         </>

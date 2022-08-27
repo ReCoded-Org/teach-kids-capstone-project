@@ -1,31 +1,31 @@
 import React, { useState } from "react";
 import "../../App.css";
-import NGOImage from "../../assets/NGOImage.png";
+import NGOImage from "../../assets/theBluesProfile.png";
+import NGOEvent from "../../assets/theBluesEvents.jpg";
 import "../../App.css";
 import EditInfoForm from "./EditInfoForm";
 import { useQuery } from "@tanstack/react-query";
 
-function AdminDashboardHeroSection() {
+function AdminDashboardHeroSection({ userId }) {
     const [info, setInfo] = useState([]); //changed {} to []
     const { isLoading, error, data } = useQuery(["repoData"], () =>
-        fetch("https://reach-capstone.herokuapp.com/api/ngos").then((res) =>
-            res.json().then((data) => setInfo(data.data[0]))
+        fetch(`https://reach-capstone.herokuapp.com/api/ngos/${userId}`).then(
+            (res) => res.json().then((data) => setInfo(data.data))
         )
     );
     if (isLoading) return "Loading...";
 
     // if (error) return error.messag;
-
     return (
         <>
             <section
                 className={
-                    "flex   flex-col justify-around gap-6  bg-gray p-6 pb-24 md:px-20 lg:flex-row-reverse lg:gap-12 lg:px-10 xl:px-40 "
+                    "-mb-12   flex h-[60rem] flex-col   justify-around  gap-6 bg-gray p-6 pb-12 md:px-20 lg:flex-row-reverse  lg:px-10 xl:px-40 "
                 }
             >
-                <main className='relative md:mr-6 lg:w-2/3 xl:w-2/4 '>
+                <main className='relative mt-56 md:mr-6 lg:mt-6 lg:w-10/12 xl:w-2/4  '>
                     <span>
-                        <EditInfoForm />
+                        <EditInfoForm userId={userId} />
                     </span>
                     <div className='my-6  flex justify-end gap-6 md:justify-end '></div>
                     <div className='row1 grid md:flex md:flex-row-reverse  '>
@@ -35,7 +35,7 @@ function AdminDashboardHeroSection() {
                             alt=''
                         />
                         <ul className='mt-4 grid w-full gap-1.5 justify-self-auto text-left font-SourceSansPro text-sm font-semibold text-light-gray'>
-                            <h1 className=' my-2 mb-4 justify-self-center  font-quicksand text-4xl font-semibold text-blue-dark md:justify-self-start'>
+                            <h1 className=' my-2 mb-4 justify-self-center font-quicksand  text-4xl font-semibold uppercase text-blue-dark md:justify-self-start'>
                                 {info.name}
                             </h1>
                             <li>Location: {info.location}</li>
@@ -47,7 +47,20 @@ function AdminDashboardHeroSection() {
                     </div>
                     <div className='row2 my-4 grid text-justify'>
                         <p className='text-md my-2 font-semibold  text-blue-dark'>
-                            {info.message}
+                            {info.message}The goal of Save the Children is to
+                            promote global education and the rights of children
+                            around the world. To increase the quality of
+                            instruction and help ensure lasting education, Save
+                            the Children teaches effective teaching strategies
+                            to instructors and trains them to engage students.
+                            They coach parents and caregivers to help foster
+                            learning early on, and offer ways for parents to
+                            encourage schoolwork and continued learning outside
+                            of the classroom. They also hope to introduce
+                            children to artistic expression, encourage learning
+                            during and after crisis and invest in the health of
+                            children to ensure they don’t fall behind. In 2012,
+                            Save the Children reached 9 million children
                         </p>
                         <a
                             href={"https://" + info.website}
@@ -57,10 +70,10 @@ function AdminDashboardHeroSection() {
                         </a>
                     </div>
                 </main>
-                <div className='image grid place-items-center  md:p-4'>
+                <div className='image  grid place-items-center  md:p-4'>
                     <img
-                        src={NGOImage}
-                        className='md:w-4/4  items-center justify-self-center rounded-lg object-contain  lg:justify-self-start	  '
+                        src={NGOEvent}
+                        className=' w-3/4 items-center justify-self-center rounded-lg border-black object-contain shadow-lg  md:w-10/12  lg:justify-self-start	  '
                         alt=''
                     />
                 </div>

@@ -9,7 +9,7 @@ import {
     useQueryClient,
 } from "@tanstack/react-query";
 
-function EditInfoForm() {
+function EditInfoForm({ userId }) {
     const [showModal, setShowModal] = useState(false);
     const [info, setInfo] = useState([]);
     const [formValidation, setFormValidation] = useState(false);
@@ -32,7 +32,7 @@ function EditInfoForm() {
                     setFormValidation(true);
 
                     return axios.patch(
-                        `http://localhost:8000/adminDashboard/1`,
+                        `https://reach-capstone.herokuapp.com/api/profile/${userId}`,
                         newComment
                     );
                 } else {
@@ -42,7 +42,7 @@ function EditInfoForm() {
             } catch {
                 setFormValidation(true);
                 return axios.patch(
-                    `http://localhost:8000/adminDashboard/1`,
+                    `https://reach-capstone.herokuapp.com/api/profile/${userId}`,
                     newComment
                 );
             }
