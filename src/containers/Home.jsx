@@ -16,16 +16,15 @@ import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
 
 function Home() {
-    const location = useLocation();
-    console.log(location.state.name)
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
-
+    localStorage.getItem('myData');
+    console.log(localStorage.getItem('Name'))
     if (isLoading) return "Loading...";
     if (error) return "An error has occurred: " + error.message;
 
     return (
         <>
-            <Navbar Profile={location.state.name}/>
+            <Navbar />
             <HeroSection />
             <AboutUs />
             <OurValues />

@@ -19,18 +19,26 @@ const LANG_SPECS = [
     },
 ];
 
-function Navbar(ProfileData) {
+function Navbar() {
     const [t, i18n] = useTranslation();
     const [isHidden, setIsHidden] = useState(true);
     const [lang, setlang] = useState(true);
     const [Profile, setProfile] = useState(true);
-    console.log({ProfileData}.ProfileData.Profile)
-    const [showModal, setShowModal] = React.useState({ProfileData}.ProfileData.Profile);
+    const [showModal, setShowModal] = React.useState(true);
     const ProfileModel = () => (
-        
-    <div className="focus:border-0 sm:text-lg hidden relative  top-2 z-0  rounded  items-center md:block">
-            <button onClick={() => setProfile(!Profile)}  type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
-                <img className="w-8 h-8 rounded-full" src={ProfilePic} alt="user photo" />
+
+    <div className="focus:border-0 sm:text-lg hidden relative right-6  top-2.5 z-0  rounded  items-center md:block">
+            <button onClick={() => setProfile(!Profile)}  type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+            <img
+                            src={ProfilePic}
+                            className=' ml-1 rounded-full h-6 w-6'
+                            alt=''
+                        />
+                        <img
+                            src={downArrow}
+                            className='ml-1 mt-2 inline-block h-4 w-3'
+                            alt=''
+                        />
                 </button>
                 <div className="z-50 my-4 text-base list-none bg-red rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 block" id="user-dropdown" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" >
                     <ul className={!Profile ?"my-4 absolute top-6 -right-1 -z-10  transform rounded border-2  border-white  bg-red p-0 py-1   font-semibold text-white shadow-lg transition  duration-200 ease-out": "hidden"}>
@@ -55,7 +63,7 @@ function Navbar(ProfileData) {
             </button>
             </Link>
             <Link to='/register'>
-                <button className='  hover:border-1 hover:bg-gray-100   w-full transform rounded  bg-red py-1.5  px-6 text-xl font-semibold duration-100 ease-in  hover:font-bold hover:text-red sm:w-44   sm:text-sm md:w-28'>
+                <button className='  hover:border-1 hover:bg-gray-100    w-full transform rounded  bg-red py-1.5  px-6 text-xl font-semibold duration-100 ease-in  hover:font-bold hover:text-red sm:w-44    sm:text-sm md:w-28'>
                     Sign Up
                     </button>
                     </Link>
@@ -179,19 +187,18 @@ function Navbar(ProfileData) {
                     )}
                     {!isHidden ? (
                         <select
-                            onChange={(e) =>
-                                <Link to="/"></Link>
+                           onChange={(e) =>
+                                i18n.changeLanguage(e.target.value)
                             }
                             className='border-gray-700 hover:border-gray-200 mt-0 border-0 border-b-2 bg-transparent py-0 pb-3 text-3xl duration-200  ease-linear focus:border-0 sm:text-lg  md:hidden'
                         >
                             <option
-                                value='ar'
+                                
                                 className='bg-blue-dark text-white text-xl'
                             >
-                                Account
+                                Profile
                             </option>
                             <option
-                                value='en'
                                 className='bg-blue-dark text-white text-xl'
                             >
                                 Sign Out
@@ -208,15 +215,15 @@ function Navbar(ProfileData) {
                 <div
                     className={
                         isHidden
-                            ? "hidden    md:flex md:gap-3"
+                            ? "hidden md:flex md:gap-3"
                             : " flex flex-col  justify-start  gap-3   bg-blue-dark p-6 pt-4 pb-10   sm:flex sm:flex-row sm:justify-center sm:pt-4   md:flex md:flex-row md:gap-2 md:bg-inherit md:p-0 md:font-light "
                     }
                 >
                    
                    { !showModal ? <SignUpAndUp /> : null }
-                    <div className='w-1 '></div>
+                    <div className='w-1'></div>
                     <div
-                        className='  relative  top-1 z-0 hidden  w-12 rounded  shadow-xl  hover:bg-red   hover:text-white  md:block'
+                        className='relative left-72  top-1 z-0 hidden w-12 rounded  shadow-xl  hover:bg-red   hover:text-white  md:block'
                         onClick={() => setlang(!lang)}
                     >
                         <img
@@ -245,16 +252,6 @@ function Navbar(ProfileData) {
                             >
                                 العربية
                             </li>
-                            {/* <li
-                                onClick={() => {
-                                    i18n.changeLanguage("tr");
-                                }}
-                                className='py-0.5 px-2 hover:bg-blue-dark'
-                            >
-                                Turkish
-                            </li> */}
-
-                                
                             <li
                                 onClick={() => {
                                     i18n.changeLanguage("en");
