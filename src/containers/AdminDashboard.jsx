@@ -18,7 +18,7 @@ function AdminDashboard() {
         <>
             <Navbar />
             <AdminDashboardHeroSection />
-            <Carousel carouselHeader='Previous Events' events={data} />
+            <Carousel carouselHeader='Previous Events' events={data.data} />
             <Footer />
         </>
     );

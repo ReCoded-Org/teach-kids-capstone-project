@@ -83,7 +83,9 @@ function Navbar() {
                     }
                 >
                     <li className='border-gray-700 hover:border-gray-200 w-full transform  border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
-                        <NavLink to='/events'>{t(`navbar.pages.${[0]}`)}</NavLink>
+                        <NavLink to='/events'>
+                            {t(`navbar.pages.${[0]}`)}
+                        </NavLink>
                     </li>
                     <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
                         <HashLink
@@ -119,19 +121,19 @@ function Navbar() {
                         >
                             <option
                                 value='en'
-                                className='bg-blue-dark text-white text-xl'
+                                className='bg-blue-dark text-xl text-white'
                             >
                                 Language
                             </option>
                             <option
                                 value='ar'
-                                className='bg-blue-dark text-white text-xl'
+                                className='bg-blue-dark text-xl text-white'
                             >
                                 Arabic
                             </option>
                             <option
                                 value='en'
-                                className='bg-blue-dark text-white text-xl'
+                                className='bg-blue-dark text-xl text-white'
                             >
                                 English
                             </option>
@@ -141,7 +143,6 @@ function Navbar() {
                             >
                                 Turkish
                             </option> */}
-
                         </select>
                     ) : (
                         ""
@@ -159,12 +160,12 @@ function Navbar() {
                 >
                     <Link to='/sign-in'>
                         <button className='w-full transform  rounded border-2 py-1.5 px-6 text-xl font-semibold duration-200 ease-in hover:font-bold hover:text-red  sm:ml-0  sm:w-44 sm:text-sm md:w-28 md:text-sm'>
-                        {t(`navbar.buttons.${[0]}`)}
+                            {t(`navbar.buttons.${[0]}`)}
                         </button>
                     </Link>
-                    <Link to='/sign-up'>
-                        <button className='w-full transform rounded border-2 border-red  bg-red py-1.5  px-6 text-xl font-semibold duration-100 ease-in hover:border-red hover:bg-blue-dark hover:font-bold hover:text-red sm:w-44 sm:text-sm md:w-28'>
-                        {t(`navbar.buttons.${[1]}`)}
+                    <Link to='/register'>
+                        <button className='  hover:border-1 hover:bg-gray-100   w-full transform rounded  bg-red py-1.5  px-6 text-xl font-semibold duration-100 ease-in  hover:font-bold hover:text-red sm:w-44   sm:text-sm md:w-28'>
+                            Sign Up
                         </button>
                     </Link>
 
@@ -208,7 +209,6 @@ function Navbar() {
                                 Turkish
                             </li> */}
 
-                                
                             <li
                                 onClick={() => {
                                     i18n.changeLanguage("en");

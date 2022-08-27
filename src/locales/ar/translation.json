@@ -14,7 +14,7 @@
     },
     "home": {
         "hero": {
-            "title": "Reach",
+            "title": "ريتش",
             "description": "مد يد العون من أجل مستقبل أفضل",
             "description2": "بمساعدتك نأمل ونؤمن بأننا نستطيع تمهيد مستقبل أفضل لجميع الأطفال في جميع أنحاء العالم.",
 
@@ -84,5 +84,38 @@
             "messageFormPlaceholder": "اكتب هنا",
             "btn": "ارسل"
         }
+    },
+    "signIn": {
+        "title": "تسجيل الدخول",
+        "description1": "إن لم يكن لديك حساب، يمكنك ",
+        "description2": "التسجيل هنا",
+        "emailFormTitle": "البريد الإلكتروني",
+        "passwordFormTitle": "كلمة سر الحساب",
+        "passwordFormPlaceholder": "ادخل كلمة المرور",
+        "remember": "تذكرني في المرة القادمة",
+        "forget": "نسيت كلمة المرور",
+        "loginBut": "سجل الدخول",
+        "otherOpts": "أو استمر بالتسجيل مع"
+    },
+    "signUp": {
+        "title": "الاشتراك",
+        "description1": "إن كان لديك حساب، يمكنك ",
+        "description2": "تسجيل الدخول هنا",
+        "emailFormTitle": "البريد الإلكتروني",
+        "usernameFormTitle": "اسم المستخدم",
+        "usernameFormPlaceholder": "ادخل اسمك",
+        "passwordFormTitle": "كلمة سر الحساب",
+        "passwordFormPlaceholder": "ادخل كلمة المرور",
+        "ConfirmPasswordFormTitle": "تأكيد كلمة المرور",
+        "ConfirmPasswordFormPlaceholder": "أعد إدخال كلمة المرور",
+        "signUpBut": "اشترك",
+        "continue": "أو استمر بالتسجيل مع"
+    },
+    "register": {
+        "title": "هل تود الاشتراك ك",
+        "or": "أو",
+        "description1": "إن كان لديك حساب، يمكنك ",
+        "description2": "تسجيل الدخول هنا",
+        "registerBut": "استمر بالتسجيل"
     }
 }
