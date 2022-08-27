@@ -35,7 +35,7 @@ function AboutUs() {
         reverse1 = "lg:text-right";
     }
     return (
-        <div className=''>
+        <div id='about' className=''>
             <div className=' w-full bg-blue-light p-8'>
                 <p className='text-lg text-blue-light'>1</p>
             </div>
