@@ -1,6 +1,3 @@
-import { toast } from 'react-toastify';
-
-
 // started
 const express = require('express')
 const app= express();
@@ -21,7 +18,7 @@ app.use((req, res, next) => {
 app.use('/user', userUpload)
 
 
-app.listen(3002, ()=> {
+app.listen(5000, ()=> {
     console.log('Server is Running..')
 })
 // ended

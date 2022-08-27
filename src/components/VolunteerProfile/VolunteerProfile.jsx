@@ -57,8 +57,9 @@ function VolunteerProfile() {
 
         Axios.post('//localhost:5000/upload', data)
             .then((response)=> {
-                alert('Success') // he adds the toast here and below 
                 setFiles(response.data) // For Uploaded File Preview
+                alert('Success') // he adds the toast here and below 
+
             })
             .catch((e) => {
                 alert('Error', e)
@@ -77,7 +78,7 @@ function VolunteerProfile() {
                 // console.log('info after useEffect', info)
             })
             .catch((err) => {
-                alert("err", err);
+                console.error("err", err);
             });
     }, [showModal]);
 
@@ -140,6 +141,7 @@ function VolunteerProfile() {
                             id='default_size'
                             type='file'
                             name='file'
+                            accept="application/pdf"
                         />
                         <button
                             type='submit'
@@ -156,7 +158,7 @@ function VolunteerProfile() {
             {/* down to here */}
 
             {/* PREVIEW SECTION */}
-            <Preview files={files} />
+            {/* <Preview files={files} /> */}
 
             <Carousel carouselHeader='Related Events' events={data} />
         </div>

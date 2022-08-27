@@ -21,3 +21,5 @@ Good luck and happy coding :D
 -   To run the JSON server, use:
     npx json-server --watch data/db.json --port 8000
     npx json-server --watch db.json --port 3000
+    cd server
+    nodemon server.js

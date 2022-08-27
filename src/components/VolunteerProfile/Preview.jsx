@@ -1,11 +1,22 @@
-export function Preview ({files}) {
-  if (!files.length){
-    return null;
-  }
+// import React from 'react'
 
-  return files.map(file=> {
-    return (
-      file => <img src={`//localhost:5000/${file.filename}`} alt={file.originalname} />
-    )
-  })
-};
+// export const Preview = ({files}) => {
+
+//   if(files.length){
+//     return files.map(file => 
+//       {
+//         return (<img src={`//localhost:5000/${file.filename}`} alt={file.originalname} />)
+//       })
+//   }
+
+//   if (!files.length){
+//     return null;
+//   }
+
+  
+// }
+
+
+//             {/* {files.map(file => <img src={`//localhost:5000/${file.filename}`} alt={file.originalname} />)} */}
+
+
