@@ -2,6 +2,7 @@
 import React, { Component, useState } from "react";
 import logo from "../../../assets/Logo.png";
 import language from "../../../assets/language-svgrepo-com.svg";
+import ProfilePic from "../../../assets/Profile.png";
 import downArrow from "../../../assets/downArrow.svg";
 import { NavLink, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -18,10 +19,47 @@ const LANG_SPECS = [
     },
 ];
 
-function Navbar() {
+function Navbar(ProfileData) {
     const [t, i18n] = useTranslation();
     const [isHidden, setIsHidden] = useState(true);
     const [lang, setlang] = useState(true);
+    const [Profile, setProfile] = useState(true);
+    console.log({ProfileData}.ProfileData.Profile)
+    const [showModal, setShowModal] = React.useState({ProfileData}.ProfileData.Profile);
+    const ProfileModel = () => (
+        
+    <div className="focus:border-0 sm:text-lg hidden relative  top-2 z-0  rounded  items-center md:block">
+            <button onClick={() => setProfile(!Profile)}  type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+                <img className="w-8 h-8 rounded-full" src={ProfilePic} alt="user photo" />
+                </button>
+                <div className="z-50 my-4 text-base list-none bg-red rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 block" id="user-dropdown" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" >
+                    <ul className={!Profile ?"my-4 absolute top-6 -right-1 -z-10  transform rounded border-2  border-white  bg-red p-0 py-1   font-semibold text-white shadow-lg transition  duration-200 ease-out": "hidden"}>
+                    <div className="text-base  list-none bg-red  rounded divide-y- divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 block">
+                        <span className="block py-0.5 px-2 hover:bg-blue-dark">Bonnie Green</span>
+                            <span className="block py-0.5 px-2 hover:bg-blue-dark">name@flowbite.com</span>
+                            </div>
+                            <li>
+                            <a href="#s" className="block py-0.5 px-2 hover:bg-blue-dark">Profile</a>
+                            </li>
+                            <li>
+                                <a href="#s" className="block py-0.5 px-2 hover:bg-blue-dark">SignOut</a>
+                                </li>
+                                </ul>
+                                </div>
+                                </div>)
+    const SignUpAndUp=()=>(
+    <>
+       <Link to='/sign-in'>
+        <button className='w-full transform  rounded border-2 py-1.5 px-6 text-xl font-semibold duration-200 ease-in hover:font-bold hover:text-red  sm:ml-0  sm:w-44 sm:text-sm md:w-28 md:text-sm'>
+            {t(`navbar.buttons.${[0]}`)}
+            </button>
+            </Link>
+            <Link to='/register'>
+                <button className='  hover:border-1 hover:bg-gray-100   w-full transform rounded  bg-red py-1.5  px-6 text-xl font-semibold duration-100 ease-in  hover:font-bold hover:text-red sm:w-44   sm:text-sm md:w-28'>
+                    Sign Up
+                    </button>
+                    </Link>
+                    </> )
     const animateMenu =
         " transform  p-0 flex  h-12 w-12 flex-col mx-4 my-5 items-center justify-center gap-1.5  bg-red  rounded-full    focus:outline-none md:hidden";
     const animateSpan =
@@ -101,13 +139,6 @@ function Navbar() {
                             {t(`navbar.pages.${[2]}`)}
                         </HashLink>
                     </li>
-                    <li className='border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto md:border-none md:pb-0'>
-                        <NavLink
-                            to='about-us' // in the contact us componant its id="contact-us" should be added
-                        >
-                            My Profile
-                        </NavLink>
-                    </li>
                     {/* ============= Start (language dropdown-menu on small size screen section) ============= */}
                     {/* ============= Note: language Events Will be added later ================ */}
                     {!isHidden ? (
@@ -146,6 +177,30 @@ function Navbar() {
                     ) : (
                         ""
                     )}
+                    {!isHidden ? (
+                        <select
+                            onChange={(e) =>
+                                <Link to="/"></Link>
+                            }
+                            className='border-gray-700 hover:border-gray-200 mt-0 border-0 border-b-2 bg-transparent py-0 pb-3 text-3xl duration-200  ease-linear focus:border-0 sm:text-lg  md:hidden'
+                        >
+                            <option
+                                value='ar'
+                                className='bg-blue-dark text-white text-xl'
+                            >
+                                Account
+                            </option>
+                            <option
+                                value='en'
+                                className='bg-blue-dark text-white text-xl'
+                            >
+                                Sign Out
+                            </option>
+
+                        </select>
+                    ) : (
+                        ""
+                    )}
                     {/* ============= End (language dropdown-menu on small size screen section) ============= */}
                 </ul>
                 {/* ============= End (navbar links dropdown-menu on small size screen) ============= */}
@@ -157,20 +212,11 @@ function Navbar() {
                             : " flex flex-col  justify-start  gap-3   bg-blue-dark p-6 pt-4 pb-10   sm:flex sm:flex-row sm:justify-center sm:pt-4   md:flex md:flex-row md:gap-2 md:bg-inherit md:p-0 md:font-light "
                     }
                 >
-                    <Link to='/sign-in'>
-                        <button className='w-full transform  rounded border-2 py-1.5 px-6 text-xl font-semibold duration-200 ease-in hover:font-bold hover:text-red  sm:ml-0  sm:w-44 sm:text-sm md:w-28 md:text-sm'>
-                        {t(`navbar.buttons.${[0]}`)}
-                        </button>
-                    </Link>
-                    <Link to='/register'>
-                        <button className='  hover:border-1 hover:bg-gray-100   w-full transform rounded  bg-red py-1.5  px-6 text-xl font-semibold duration-100 ease-in  hover:font-bold hover:text-red sm:w-44   sm:text-sm md:w-28'>
-                            Sign Up
-                        </button>
-                    </Link>
-
+                   
+                   { !showModal ? <SignUpAndUp /> : null }
                     <div className='w-1 '></div>
                     <div
-                        className='  relative  top-1 z-0 hidden  w-12 rounded     shadow-xl  hover:bg-red   hover:text-white  md:block'
+                        className='  relative  top-1 z-0 hidden  w-12 rounded  shadow-xl  hover:bg-red   hover:text-white  md:block'
                         onClick={() => setlang(!lang)}
                     >
                         <img
@@ -187,7 +233,7 @@ function Navbar() {
                         <ul
                             className={
                                 !lang
-                                    ? " w-18 absolute top-8 -left-0.5 -z-10    transform rounded border-2   border-white  bg-red p-0 py-1   font-semibold text-white shadow-lg transition  duration-200 ease-out"
+                                    ? "w-18 absolute top-8 -left-0.5 -z-10  transform rounded border-2   border-white  bg-red p-0 py-1   font-semibold text-white shadow-lg transition  duration-200 ease-out"
                                     : "hidden "
                             }
                         >
@@ -222,6 +268,7 @@ function Navbar() {
                     </div>
                 </div>
                 {/* ============= End (sign-in sign-up Buttons section) ============= */}
+                { showModal ? <ProfileModel /> : null }
             </nav>
         </>
     );

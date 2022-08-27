@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,Route, } from "react-router-dom";
 import SigninPic from "../../assets/SigninPic.png";
 import google from "../../assets/google.svg";
 import facebook from "../../assets/facebook.svg";
@@ -9,13 +9,13 @@ import padlock from "../../assets/padlock.svg";
 import Logo from "../../assets/Logo.png";
 import close from "../../assets/close-menu.svg";
 import { useMutation } from "@tanstack/react-query";
-import axios from "axios";
 import Home from "../../containers/Home";
+import axios from "axios";
 function SignIn() {
     const navigate = useNavigate();
+    const [Profile, setProfile] = useState(true);
     const navigateHome = () => {
-        // 👇️ navigate to /
-        navigate('/');
+        navigate('/',{state:{id:1,name:Profile}});
       };
     const [formData, setFormData] = useState({
         email: "",
@@ -48,7 +48,8 @@ function SignIn() {
                 console.log(error)
                 let isArray = Array.isArray(error.response.data.errors);
                 if (isArray) {
-                  alert(error.response.data.errors[0].msg)
+                    <Link to='/'>
+                  alert(error.response.data.errors[0].msg)</Link>
                 }
                 else{
                   alert(error.response.data.error);
