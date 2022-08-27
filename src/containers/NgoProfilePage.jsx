@@ -17,7 +17,10 @@ function NgoProfilePage() {
         <>
             <Navbar />
             <NgoProfilePageHeroSection />
-            <GlobalCarousel carouselHeader='Previous Events' events={data} />
+            <GlobalCarousel
+                carouselHeader='Previous Events'
+                events={data.data}
+            />
             <Footer />
         </>
     );
