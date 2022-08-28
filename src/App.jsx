@@ -18,8 +18,7 @@ import { Navigate } from "react-router-dom";
 function App() {
     let isLoggedAsVolunteer = false;
     let isLoggedAsNgo = false;
-    
-
+    console.log(isLoggedAsNgo);
     if (
         localStorage.getItem("userId") !== undefined &&
         localStorage.getItem("userType") === "Volunteer"
@@ -30,9 +29,11 @@ function App() {
         localStorage.getItem("userType") === "Ngo"
     ) {
         isLoggedAsNgo = true;
+        console.log(isLoggedAsNgo);
     } else {
         isLoggedAsVolunteer = true;
         isLoggedAsNgo = true;
+        console.log(isLoggedAsNgo);
     }
 
     return (
@@ -60,6 +61,15 @@ function App() {
                                 userId={localStorage.getItem("userId")}
                             />
                         </Protected>
+                    }
+                />
+
+                <Route
+                    path='/ngo-admin1'
+                    element={
+                        <AdminDashboard
+                            userId={localStorage.getItem("userId")}
+                        />
                     }
                 />
                 <Route path='/ngo-profile/:id' element={<NgoProfilePage />} />
