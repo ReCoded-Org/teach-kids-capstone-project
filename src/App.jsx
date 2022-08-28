@@ -10,7 +10,7 @@ import NgoProfilePage from "./containers/NgoProfilePage";
 import Register from "./components/Register/Register";
 import Protected from "./services/Protected";
 import OurTeam from "./containers/OurTeam";
-import VolunteerProfile from "./containers/VolunteerProfile/VolunteerProfile";
+import VolunteerPage from "../src/containers/VolunteerPage";
 import React, { useState, useEffect } from "react";
 import ProtectedRoute from "react-protected-route-component";
 import { Navigate } from "react-router-dom";
@@ -46,7 +46,7 @@ function App() {
                     path='/volunteer-profile'
                     element={
                         <Protected isLoggedIn={isLoggedAsVolunteer}>
-                            <VolunteerProfile
+                            <VolunteerPage
                                 userId={localStorage.getItem("userId")}
                             />
                         </Protected>
