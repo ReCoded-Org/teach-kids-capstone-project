@@ -25,26 +25,44 @@ function EditInfoForm({ userId }) {
     const addComment = useMutation(
         (newComment) => {
             try {
+                console.log("hello");
                 if (
                     wordsNumber(newComment.message) &&
                     isValidEmail(newComment.email)
                 ) {
                     setFormValidation(true);
 
-                    return axios.patch(
-                        `https://reach-capstone.herokuapp.com/api/profile/${userId}`,
-                        newComment
-                    );
+                    return axios
+                        .patch(
+                            `https://reach-capstone.herokuapp.com/api/profile`,
+                            newComment
+                        )
+                        .then(function (res) {
+                            console.log(res);
+                        })
+                        .catch(function (error) {
+                            console.log(error);
+                        });
                 } else {
                     console.log(newComment.message);
                     setFormValidation(false);
                 }
             } catch {
                 setFormValidation(true);
-                return axios.patch(
-                    `https://reach-capstone.herokuapp.com/api/profile/${userId}`,
-                    newComment
-                );
+                return axios
+                    .patch(
+                        `https://reach-capstone.herokuapp.com/api/profile`,
+                        newComment,
+                        {
+                            withCredentials: true,
+                        }
+                    )
+                    .then(function (res) {
+                        console.log(res);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
             }
         },
         {
