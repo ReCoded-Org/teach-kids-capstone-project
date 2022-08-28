@@ -1,11 +1,10 @@
 /* eslint-disable no-console */
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 import logo from "../../../assets/Logo.png";
 import language from "../../../assets/language-svgrepo-com.svg";
 import ProfilePic from "../../../assets/Profile.png";
 import downArrow from "../../../assets/downArrow.svg";
 import { NavLink, Link} from "react-router-dom";
-import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { HashLink } from "react-router-hash-link";
 import { func } from "prop-types";
@@ -37,15 +36,11 @@ function Navbar() {
         }
     }
     function setSignOut(){
-        if(localStorage.getItem("NavType") === "true"){
+        console.log(localStorage.getItem("NavType"))
+        if(localStorage.getItem("NavType")==="true"){
             localStorage.clear()
-            localStorage.setItem("NavType",false);
-            localStorage.removeItem("userId");
-            localStorage.removeItem("userType");
         }
-        else{
-            return "/"
-        }
+        return "/";
     }
     const ProfileModel = () => (
     <div className="focus:border-0 sm:text-lg hidden relative right-6  top-2.5 z-0  rounded  items-center md:block">
@@ -71,12 +66,12 @@ function Navbar() {
                             <a href={setProfileType()} className="block py-0.5 px-2 hover:bg-blue-dark">Profile</a>
                             </li>
                             <li >
-                                <a onClick={setSignOut()} href={setSignOut()}  className="block py-0.5 px-2 hover:bg-blue-dark">SignOut</a>
+                                <a onClick={() => setSignOut()} href={"/"} className="block py-0.5 px-2 hover:bg-blue-dark">SignOut</a>
                                 </li>
                                 </ul>
                                 </div>
                                 </div>)
-    const SignUpAndUp=()=>(
+    const SignUpAndIn=()=>(
     <>
        <Link to='/sign-in'>
         <button className='w-full transform  rounded border-2 py-1.5 px-6 text-xl font-semibold duration-200 ease-in hover:font-bold hover:text-red  sm:ml-0  sm:w-44 sm:text-sm md:w-28 md:text-sm'>
@@ -241,7 +236,7 @@ function Navbar() {
                             : " flex flex-col  justify-start  gap-3   bg-blue-dark p-6 pt-4 pb-10   sm:flex sm:flex-row sm:justify-center sm:pt-4   md:flex md:flex-row md:gap-2 md:bg-inherit md:p-0 md:font-light "
                     }
                 >
-                    { !showModal ? <SignUpAndUp /> : null }
+                    { !showModal ? <SignUpAndIn /> : null }
                     <div className='w-1 '></div>
                     <div
                         className='relative left-72  top-1 z-0 hidden w-12 rounded  shadow-xl  hover:bg-red   hover:text-white  md:block'
