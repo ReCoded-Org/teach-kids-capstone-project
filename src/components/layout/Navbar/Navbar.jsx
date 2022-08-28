@@ -4,9 +4,11 @@ import logo from "../../../assets/Logo.png";
 import language from "../../../assets/language-svgrepo-com.svg";
 import ProfilePic from "../../../assets/Profile.png";
 import downArrow from "../../../assets/downArrow.svg";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link} from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
 import { HashLink } from "react-router-hash-link";
+import { func } from "prop-types";
 
 const LANG_SPECS = [
     {
@@ -18,17 +20,36 @@ const LANG_SPECS = [
         name: "English",
     },
 ];
-
 function Navbar() {
+    let NavType=localStorage.getItem("NavType");
     const [t, i18n] = useTranslation();
     const [isHidden, setIsHidden] = useState(true);
     const [lang, setlang] = useState(true);
     const [Profile, setProfile] = useState(true);
-    const [showModal, setShowModal] = React.useState(false);
+    const [showModal, setShowModal] = useState(NavType);
+    function setProfileType(){
+        if(localStorage.getItem("userType") === "Ngo")
+        {
+            return "/ngo-admin"
+        }
+        else{
+            return "/volunteer-profile";
+        }
+    }
+    function setSignOut(){
+        if(localStorage.getItem("NavType") === "true"){
+            localStorage.clear()
+            localStorage.setItem("NavType",false);
+            localStorage.removeItem("userId");
+            localStorage.removeItem("userType");
+        }
+        else{
+            return "/"
+        }
+    }
     const ProfileModel = () => (
-
     <div className="focus:border-0 sm:text-lg hidden relative right-6  top-2.5 z-0  rounded  items-center md:block">
-            <button onClick={() => setProfile(!Profile)}  type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
+            <button onClick={() => setProfile(!Profile)} type="button" className="flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0" id="user-menu-button" aria-expanded="false" data-dropdown-toggle="user-dropdown" data-dropdown-placement="bottom">
             <img
                             src={ProfilePic}
                             className=' ml-1 rounded-full h-6 w-6'
@@ -43,14 +64,14 @@ function Navbar() {
                 <div className="z-50 my-4 text-base list-none bg-red rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 block" id="user-dropdown" data-popper-reference-hidden="" data-popper-escaped="" data-popper-placement="bottom" >
                     <ul className={!Profile ?"my-4 absolute top-6 -right-1 -z-10  transform rounded border-2  border-white  bg-red p-0 py-1   font-semibold text-white shadow-lg transition  duration-200 ease-out": "hidden"}>
                     <div className="text-base  list-none bg-red  rounded divide-y- divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 block">
-                        <span className="block py-0.5 px-2 hover:bg-blue-dark">Bonnie Green</span>
-                            <span className="block py-0.5 px-2 hover:bg-blue-dark">name@flowbite.com</span>
+                        <span className="block py-0.5 px-2 hover:bg-blue-dark">{localStorage.getItem("userName")}</span>
+                            <span className="block py-0.5 px-2 hover:bg-blue-dark">{localStorage.getItem("userEmail")}</span>
                             </div>
                             <li>
-                            <a href="#s" className="block py-0.5 px-2 hover:bg-blue-dark">Profile</a>
+                            <a href={setProfileType()} className="block py-0.5 px-2 hover:bg-blue-dark">Profile</a>
                             </li>
-                            <li>
-                                <a href="#s" className="block py-0.5 px-2 hover:bg-blue-dark">SignOut</a>
+                            <li >
+                                <a onClick={setSignOut()} href={setSignOut()}  className="block py-0.5 px-2 hover:bg-blue-dark">SignOut</a>
                                 </li>
                                 </ul>
                                 </div>
@@ -129,7 +150,9 @@ function Navbar() {
                     }
                 >
                     <li className='border-gray-700 hover:border-gray-200 w-full transform  border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
-                        <NavLink to='/events'>{t(`navbar.pages.${[0]}`)}</NavLink>
+                        <NavLink to='/events'>
+                            {t(`navbar.pages.${[0]}`)}
+                        </NavLink>
                     </li>
                     <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
                         <HashLink
@@ -147,6 +170,13 @@ function Navbar() {
                             {t(`navbar.pages.${[2]}`)}
                         </HashLink>
                     </li>
+                    <li className='border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto md:border-none md:pb-0'>
+                        <NavLink
+                            to='about-us' // in the contact us componant its id="contact-us" should be added
+                        >
+                            My Profile
+                        </NavLink>
+                    </li>
                     {/* ============= Start (language dropdown-menu on small size screen section) ============= */}
                     {/* ============= Note: language Events Will be added later ================ */}
                     {!isHidden ? (
@@ -158,29 +188,22 @@ function Navbar() {
                         >
                             <option
                                 value='en'
-                                className='bg-blue-dark text-white text-xl'
+                                className='bg-blue-dark text-xl text-white'
                             >
                                 Language
                             </option>
                             <option
                                 value='ar'
-                                className='bg-blue-dark text-white text-xl'
+                                className='bg-blue-dark text-xl text-white'
                             >
                                 Arabic
                             </option>
                             <option
                                 value='en'
-                                className='bg-blue-dark text-white text-xl'
+                                className='bg-blue-dark text-xl text-white'
                             >
                                 English
                             </option>
-                            {/* <option
-                                value='tr'
-                                className='text-md bg-blue-dark text-white'
-                            >
-                                Turkish
-                            </option> */}
-
                         </select>
                     ) : (
                         ""
@@ -193,7 +216,6 @@ function Navbar() {
                             className='border-gray-700 hover:border-gray-200 mt-0 border-0 border-b-2 bg-transparent py-0 pb-3 text-3xl duration-200  ease-linear focus:border-0 sm:text-lg  md:hidden'
                         >
                             <option
-                                
                                 className='bg-blue-dark text-white text-xl'
                             >
                                 Profile
@@ -219,9 +241,8 @@ function Navbar() {
                             : " flex flex-col  justify-start  gap-3   bg-blue-dark p-6 pt-4 pb-10   sm:flex sm:flex-row sm:justify-center sm:pt-4   md:flex md:flex-row md:gap-2 md:bg-inherit md:p-0 md:font-light "
                     }
                 >
-                   
-                   { !showModal ? <SignUpAndUp /> : null }
-                    <div className='w-1'></div>
+                    { !showModal ? <SignUpAndUp /> : null }
+                    <div className='w-1 '></div>
                     <div
                         className='relative left-72  top-1 z-0 hidden w-12 rounded  shadow-xl  hover:bg-red   hover:text-white  md:block'
                         onClick={() => setlang(!lang)}

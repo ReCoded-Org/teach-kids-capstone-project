@@ -46,7 +46,7 @@ export default function EventsGrid({
                             return (
                                 <EventCardGrid
                                     eventPost={eventPost}
-                                    key={eventPost.id}
+                                    key={eventPost._id}
                                 />
                             );
                         })}

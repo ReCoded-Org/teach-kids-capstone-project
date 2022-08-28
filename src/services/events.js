@@ -1,5 +1,5 @@
 export function getEvents() {
-    return fetch("http://localhost:3000/events").then((res) => res.json());
+    return fetch("https://reach-capstone.herokuapp.com/api/events").then((res) => res.json());
 }
 
 export function getOrganizations() {
