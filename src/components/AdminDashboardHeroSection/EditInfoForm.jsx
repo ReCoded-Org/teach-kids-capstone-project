@@ -52,10 +52,7 @@ function EditInfoForm({ userId }) {
                 return axios
                     .patch(
                         `https://reach-capstone.herokuapp.com/api/profile`,
-                        newComment,
-                        {
-                            withCredentials: true,
-                        }
+                        newComment
                     )
                     .then(function (res) {
                         console.log(res);
