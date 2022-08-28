@@ -1,10 +1,10 @@
 {
     "navbar": {
-        "pages": ["Events", "Contact Us", "About Us"],
+        "pages": ["Events", "Contact Us", "About Us", "Our Team"],
         "buttons": ["Sign In", "Sign Up"]
     },
     "footer": {
-        "pages": ["Events", "Contact Us", "About Us"],
+        "pages": ["Events", "Contact Us", "About Us", "Our Team"],
         "newsletter": {
             "title": "Subscribe to our newsletter",
             "email": "Email",

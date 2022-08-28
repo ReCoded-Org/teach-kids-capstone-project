@@ -14,7 +14,6 @@ function NgoProfilePageHeroSection() {
     if (isLoading) return "Loading...";
 
     // if (error) return error.messag;
-
     return (
         <>
             <section
@@ -23,8 +22,11 @@ function NgoProfilePageHeroSection() {
                 }
             >
                 <main className='d-flex   md:mr-6'>
-                    <EditInfoForm />
-
+                    {localStorage.getItem("userType") === "Ngo" ? (
+                        <EditInfoForm />
+                    ) : (
+                        ""
+                    )}
                     <div className=' m-auto grid   md:flex-row-reverse'>
                         <div className='m-0 grid w-full   flex-row items-center  justify-center md:mt-16 md:mb-4 md:grid-cols-3 md:justify-start '>
                             <img

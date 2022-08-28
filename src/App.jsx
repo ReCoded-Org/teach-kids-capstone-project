@@ -9,6 +9,7 @@ import SignIn from "./components/SignIn/SignIn";
 import NgoProfilePage from "./containers/NgoProfilePage";
 import Register from "./components/Register/Register";
 import Protected from "./services/Protected";
+import OurTeam from "./containers/OurTeam";
 import VolunteerProfile from "./containers/VolunteerProfile/VolunteerProfile";
 import React, { useState, useEffect } from "react";
 import ProtectedRoute from "react-protected-route-component";
@@ -17,8 +18,7 @@ import { Navigate } from "react-router-dom";
 function App() {
     let isLoggedAsVolunteer = false;
     let isLoggedAsNgo = false;
-    // console.log(localStorage.getItem("userId"));
-    // console.log(localStorage.getItem("userType"));
+    
 
     if (
         localStorage.getItem("userId") !== undefined &&
@@ -62,9 +62,10 @@ function App() {
                         </Protected>
                     }
                 />
-                <Route path='/ngo-profile' element={<NgoProfilePage />} />
+                <Route path='/ngo-profile/:id' element={<NgoProfilePage />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/' element={<Home />} />
+                <Route path='/our-team' element={<OurTeam />} />
             </Routes>
         </div>
     );

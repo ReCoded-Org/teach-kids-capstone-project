@@ -1,0 +1,8 @@
+.diagonal-box {
+  transform: skewY(-2deg);
+}
+.content {
+  margin: 0 0;
+  transform: skewY(2deg);
+}
+
