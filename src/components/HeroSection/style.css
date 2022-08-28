@@ -1,7 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Exo:400,700");
 
 .area {
-    background: -webkit-linear-gradient(to left, #0814f6, #4e54c8);
     width: 100%;
     position: relative;
 }
