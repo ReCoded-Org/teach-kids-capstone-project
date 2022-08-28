@@ -8,10 +8,33 @@ import AllEvents from "./containers/AllEvents";
 import SignIn from "./components/SignIn/SignIn";
 import NgoProfilePage from "./containers/NgoProfilePage";
 import Register from "./components/Register/Register";
+import Protected from "./services/Protected";
 import OurTeam from "./containers/OurTeam";
 import VolunteerProfile from "./containers/VolunteerProfile/VolunteerProfile";
+import React, { useState, useEffect } from "react";
+import ProtectedRoute from "react-protected-route-component";
+import { Navigate } from "react-router-dom";
 
 function App() {
+    let isLoggedAsVolunteer = false;
+    let isLoggedAsNgo = false;
+    
+
+    if (
+        localStorage.getItem("userId") !== undefined &&
+        localStorage.getItem("userType") === "Volunteer"
+    ) {
+        isLoggedAsVolunteer = true;
+    } else if (
+        localStorage.getItem("userId") !== undefined &&
+        localStorage.getItem("userType") === "Ngo"
+    ) {
+        isLoggedAsNgo = true;
+    } else {
+        isLoggedAsVolunteer = true;
+        isLoggedAsNgo = true;
+    }
+
     return (
         <div className=''>
             <Routes>
@@ -21,9 +44,24 @@ function App() {
                 <Route path='/sign-in' element={<SignIn />} />
                 <Route
                     path='/volunteer-profile'
-                    element={<VolunteerProfile />}
+                    element={
+                        <Protected isLoggedIn={isLoggedAsVolunteer}>
+                            <VolunteerProfile
+                                userId={localStorage.getItem("userId")}
+                            />
+                        </Protected>
+                    }
                 />
-                <Route path='/ngo-admin' element={<AdminDashboard />} />
+                <Route
+                    path='/ngo-admin'
+                    element={
+                        <Protected isLoggedIn={isLoggedAsNgo}>
+                            <AdminDashboard
+                                userId={localStorage.getItem("userId")}
+                            />
+                        </Protected>
+                    }
+                />
                 <Route path='/ngo-profile/:id' element={<NgoProfilePage />} />
                 <Route path='/register' element={<Register />} />
                 <Route path='/' element={<Home />} />

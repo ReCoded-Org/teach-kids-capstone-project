@@ -15,8 +15,8 @@ function SignIn() {
     const navigate = useNavigate();
     const navigateHome = () => {
         // 👇️ navigate to /
-        navigate('/');
-      };
+        navigate("/");
+    };
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -36,25 +36,29 @@ function SignIn() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(formData);
     }
     const SendtoSignIn = useMutation((SignInData) => {
-            axios.post(`https://reach-capstone.herokuapp.com/api/auth/login`, SignInData).then(
-                function () {
-                    alert("You have Successfuly Signed In");
-                    navigateHome()
-                  }
-            ).catch(function (error) {
-                console.log(error)
+        axios
+            .post(
+                `https://reach-capstone.herokuapp.com/api/auth/login`,
+                SignInData
+            )
+            .then(function (res) {
+                if (res.data.success) {
+                    localStorage.setItem("userId", res.data.data._id);
+                    localStorage.setItem("userType", res.data.data.type);
+                }
+                navigateHome();
+            })
+            .catch(function (error) {
                 let isArray = Array.isArray(error.response.data.errors);
                 if (isArray) {
-                  alert(error.response.data.errors[0].msg)
+                    alert(error.response.data.errors[0].msg);
+                } else {
+                    alert(error.response.data.error);
                 }
-                else{
-                  alert(error.response.data.error);
-                };
             });
-        });
+    });
     return (
         <div className=' bg-blue-dark'>
             <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
@@ -68,13 +72,13 @@ function SignIn() {
                     onClick={() => navigate(-1)}
                 />
             </div>
-            <div className='flex content-center w-full justify-evenly bg-blue-dark p-24'>
+            <div className='flex w-full content-center justify-evenly bg-blue-dark p-24'>
                 <img
                     src={SigninPic}
                     alt={
                         "a drawing of a little boy in a classroom raising his hand"
                     }
-                    className='lg:6/12 w-0 md:w-6/12 object-contain'
+                    className='lg:6/12 w-0 object-contain md:w-6/12'
                 />
 
                 <div className='w-full pt-16 md:w-4/12'>
@@ -85,10 +89,13 @@ function SignIn() {
                         className='font-body flex flex-col gap-3 text-lg text-gray'
                         onSubmit={handleSubmit}
                     >
-                        <p className=' flex-row font-SourceSansPro inline'>
-                            If you don`t have an account register, you can {" "}
-                            <Link to='/sign-up' className="" >
-                                <p className='ml-1 text-red '> register here!</p>
+                        <p className=' inline flex-row font-SourceSansPro'>
+                            If you don`t have an account register, you can{" "}
+                            <Link to='/sign-up' className=''>
+                                <p className='ml-1 text-red '>
+                                    {" "}
+                                    register here!
+                                </p>
                             </Link>
                         </p>
 
