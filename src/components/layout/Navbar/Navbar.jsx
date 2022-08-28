@@ -28,7 +28,7 @@ function Navbar() {
         "transform transition duration-500 ease-in-out block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out ";
     return (
         <>
-            <nav className=' z-0  items-center  text-sm text-white md:flex md:h-16 md:justify-around md:bg-blue-dark '>
+            <nav className='sticky top-0 z-50 items-center  text-sm text-white md:flex md:h-16 md:justify-around md:bg-blue-dark '>
                 <div className='flex items-center justify-between '>
                     <Link to='/'>
                         <img
