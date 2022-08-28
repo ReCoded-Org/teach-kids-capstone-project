@@ -41,10 +41,19 @@ function SignIn() {
         event.preventDefault();
     }
     const GetNameEmail = useMutation(() => {
-        axios.get(`https://reach-capstone.herokuapp.com/api/ngos/${localStorage.getItem("userId")}`).then(function (data) {
-         localStorage.setItem("userName", data.data.data.name)
-         localStorage.setItem("userEmail", data.data.data.email)
-        })
+        if(localStorage.getItem("userType") === "Ngo"){
+            axios.get(`https://reach-capstone.herokuapp.com/api/ngos/${localStorage.getItem("userId")}`).then(function (data) {
+                localStorage.setItem("userName", data.data.data.name)
+                localStorage.setItem("userEmail", data.data.data.email)
+               })
+        }
+        else if(localStorage.getItem("userType") === "Volunteer"){
+            axios.get(`https://reach-capstone.herokuapp.com/api/volunteers/${localStorage.getItem("userId")}`).then(function (data) {
+                localStorage.setItem("userName", data.data.data.name)
+                localStorage.setItem("userEmail", data.data.data.email)
+               })
+        }
+        
     });
     const SendtoSignIn = useMutation((SignInData) => {
         axios.post(

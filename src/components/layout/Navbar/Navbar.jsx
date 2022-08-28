@@ -36,7 +36,6 @@ function Navbar() {
         }
     }
     function setSignOut(){
-        console.log(localStorage.getItem("NavType"))
         if(localStorage.getItem("NavType")==="true"){
             localStorage.clear()
         }
@@ -90,7 +89,7 @@ function Navbar() {
         "transform transition duration-500 ease-in-out block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out ";
     return (
         <>
-            <nav className=' z-0  items-center  text-sm text-white md:flex md:h-16 md:justify-around md:bg-blue-dark '>
+            <nav className=' z-0 items-center  text-sm text-white md:flex md:h-16 md:justify-around md:bg-blue-dark '>
                 <div className='flex items-center justify-between '>
                     <Link to='/'>
                         <img
@@ -165,13 +164,19 @@ function Navbar() {
                             {t(`navbar.pages.${[2]}`)}
                         </HashLink>
                     </li>
-                    <li className='border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto md:border-none md:pb-0'>
-                        <NavLink
-                            to='about-us' // in the contact us componant its id="contact-us" should be added
-                        >
-                            My Profile
-                        </NavLink>
-                    </li>
+                    {!isHidden ? (
+                        <>
+                        <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+                             <a href={setProfileType()}>Profile</a>
+                        </li>
+                        <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+                             <a href={setSignOut()}>Sign Out</a>
+                        </li>
+                        </>
+                    
+                    ) : (
+                        ""
+                    )}
                     {/* ============= Start (language dropdown-menu on small size screen section) ============= */}
                     {/* ============= Note: language Events Will be added later ================ */}
                     {!isHidden ? (
@@ -203,28 +208,7 @@ function Navbar() {
                     ) : (
                         ""
                     )}
-                    {!isHidden ? (
-                        <select
-                           onChange={(e) =>
-                                i18n.changeLanguage(e.target.value)
-                            }
-                            className='border-gray-700 hover:border-gray-200 mt-0 border-0 border-b-2 bg-transparent py-0 pb-3 text-3xl duration-200  ease-linear focus:border-0 sm:text-lg  md:hidden'
-                        >
-                            <option
-                                className='bg-blue-dark text-white text-xl'
-                            >
-                                Profile
-                            </option>
-                            <option
-                                className='bg-blue-dark text-white text-xl'
-                            >
-                                Sign Out
-                            </option>
-
-                        </select>
-                    ) : (
-                        ""
-                    )}
+                    
                     {/* ============= End (language dropdown-menu on small size screen section) ============= */}
                 </ul>
                 {/* ============= End (navbar links dropdown-menu on small size screen) ============= */}
@@ -239,12 +223,12 @@ function Navbar() {
                     { !showModal ? <SignUpAndIn /> : null }
                     <div className='w-1 '></div>
                     <div
-                        className='relative left-72  top-1 z-0 hidden w-12 rounded  shadow-xl  hover:bg-red   hover:text-white  md:block'
+                        className='focus:border-0 md:inline-block md:left-10 sm:text-lg hidden relative lg:left-72 top-0.5 z-0  rounded  items-center  hover:bg-red   hover:text-white'
                         onClick={() => setlang(!lang)}
                     >
                         <img
                             src={language}
-                            className=' ml-1 inline-block h-6 w-6'
+                            className=' ml-1 inline-block h-6 w-8'
                             alt=''
                         />
                         <img
@@ -256,13 +240,13 @@ function Navbar() {
                         <ul
                             className={
                                 !lang
-                                    ? "w-18 absolute top-8 -left-0.5 -z-10  transform rounded border-2   border-white  bg-red p-0 py-1   font-semibold text-white shadow-lg transition  duration-200 ease-out"
+                                    ? "w-18 absolute top-8 -left-0.5 -z-10  transform rounded border-2 border-white  bg-red p-0 py-1   font-semibold text-white shadow-lg transition  duration-200 ease-out"
                                     : "hidden "
                             }
                         >
                             <li
                                 onClick={() => {
-                                    i18n.changeLanguage("ar");
+                                    i18n.hangeLanguage("ar");
                                 }}
                                 className='py-0.5 px-2 hover:bg-blue-dark'
                             >
