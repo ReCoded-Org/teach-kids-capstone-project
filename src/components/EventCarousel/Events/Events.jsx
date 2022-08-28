@@ -45,7 +45,7 @@ export default function Events({ carouselHeader, events }) {
     const [t] = useTranslation();
 
     return (
-        <div className='diagonal-box flex flex-col  bg-blue-light'>
+        <div className='diagonal-box flex flex-col items-center bg-blue-light'>
             <div className='content mx-auto  md:w-9/12  '>
                 <h1 className='mt-14 text-center font-quicksand text-4xl font-bold text-white'>
                     {t("home.ourEvents.title")}
