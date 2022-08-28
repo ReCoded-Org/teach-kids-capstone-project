@@ -174,6 +174,17 @@ function Navbar() {
                         </button>
                     </Link>
 
+                    <Link to='/ngo-admin'>
+                        <button className='w-full transform  rounded border-2 py-1.5 px-6 text-xl font-semibold duration-200 ease-in hover:font-bold hover:text-red  sm:ml-0  sm:w-44 sm:text-sm md:w-28 md:text-sm'>
+                            ngo admin
+                        </button>
+                    </Link>
+
+                    <Link to='/ngo-admin1'>
+                        <button className='w-full transform  rounded border-2 py-1.5 px-6 text-xl font-semibold duration-200 ease-in hover:font-bold hover:text-red  sm:ml-0  sm:w-44 sm:text-sm md:w-28 md:text-sm'>
+                            ngo admin1
+                        </button>
+                    </Link>
                     <div className='w-1 '></div>
                     <div
                         className='  relative  top-1 z-0 hidden  w-12 rounded     shadow-xl  hover:bg-red   hover:text-white  md:block'
