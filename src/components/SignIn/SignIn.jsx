@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useNavigate} from "react-router-dom";
 import SigninPic from "../../assets/SigninPic.png";
 import google from "../../assets/google.svg";
 import facebook from "../../assets/facebook.svg";
@@ -10,16 +10,16 @@ import Logo from "../../assets/Logo.png";
 import close from "../../assets/close-menu.svg";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import Navbar from "../layout/Navbar/Navbar";
-import { useEffect } from "react";
+import Navbar from '../layout/Navbar/Navbar';
+import { useEffect } from 'react';
 function SignIn() {
     const navigate = useNavigate();
-    const [name, setnamengo] = useState("");
-    const [volunteer, setnamevolunteer] = useState("");
+    const [name,setnamengo]=useState("");
+    const [volunteer,setnamevolunteer]=useState("");
     const navigateHome = () => {
-        navigate("/");
-    };
-
+        navigate('/');
+      };
+      
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -41,33 +41,22 @@ function SignIn() {
         event.preventDefault();
     }
     const GetNameEmail = useMutation(() => {
-        if (localStorage.getItem("userType") === "Ngo") {
-            axios
-                .get(
-                    `https://reach-capstone.herokuapp.com/api/ngos/${localStorage.getItem(
-                        "userId"
-                    )}`
-                )
-                .then(function (data) {
-                    localStorage.setItem("userName", data.data.data.name);
-                    localStorage.setItem("userEmail", data.data.data.email);
-                });
-        } else if (localStorage.getItem("userType") === "Volunteer") {
-            axios
-                .get(
-                    `https://reach-capstone.herokuapp.com/api/volunteers/${localStorage.getItem(
-                        "userId"
-                    )}`
-                )
-                .then(function (data) {
-                    localStorage.setItem("userName", data.data.data.name);
-                    localStorage.setItem("userEmail", data.data.data.email);
-                });
+        if(localStorage.getItem("userType") === "Ngo"){
+            axios.get(`https://reach-capstone.herokuapp.com/api/ngos/${localStorage.getItem("userId")}`).then(function (data) {
+                localStorage.setItem("userName", data.data.data.name)
+                localStorage.setItem("userEmail", data.data.data.email)
+               })
         }
+        else if(localStorage.getItem("userType") === "Volunteer"){
+            axios.get(`https://reach-capstone.herokuapp.com/api/volunteers/${localStorage.getItem("userId")}`).then(function (data) {
+                localStorage.setItem("userName", data.data.data.name)
+                localStorage.setItem("userEmail", data.data.data.email)
+               })
+        }
+        
     });
     const SendtoSignIn = useMutation((SignInData) => {
-        axios
-            .post(
+        axios.post(
                 `https://reach-capstone.herokuapp.com/api/auth/login`,
                 SignInData
             )
@@ -75,7 +64,7 @@ function SignIn() {
                 if (res.data.success) {
                     localStorage.setItem("userId", res.data.data._id);
                     localStorage.setItem("userType", res.data.data.type);
-                    localStorage.setItem("NavType", true);
+                    localStorage.setItem("NavType",true);
                 }
                 GetNameEmail.mutate();
                 navigateHome();
@@ -83,15 +72,16 @@ function SignIn() {
             .catch(function (error) {
                 let isArray = Array.isArray(error.response.data.errors);
                 if (isArray) {
-                    alert(error.response.data.errors[0].msg);
-                } else {
-                    alert(error.response.data.error);
+                  alert(error.response.data.errors[0].msg)
                 }
+                else{
+                  alert(error.response.data.error);
+                };
             });
     });
     return (
         <div className=' bg-blue-dark'>
-            <Navbar />
+            <Navbar /> 
             <div className='flex w-full content-center justify-evenly bg-blue-dark p-24'>
                 <img
                     src={SigninPic}

@@ -17,7 +17,7 @@ export default function Footer() {
         <div className='bg-primary'>
             <div
                 data-testid='footer'
-                className='jus mx-auto flex w-9/12 flex-wrap items-center justify-center bg-primary py-10  font-SourceSansPro text-xl text-white md:px-8  lg:justify-between '
+                className='jus mx-auto flex w-9/12 flex-wrap  items-center justify-center bg-primary  py-10 font-SourceSansPro text-xl text-white  lg:justify-between '
             >
                 <div className='my-2'>
                     <img className='pb-2' src={logo} alt='Logo' />
