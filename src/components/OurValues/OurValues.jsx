@@ -31,7 +31,6 @@ function OurValues() {
     let reverse = "flex-row";
     let reverse1 = "lg:text-left";
     if (t("home.ourValues.title") !== "Our Values") {
-        console.log("hello");
         reverse = "flex-row-reverse";
         reverse1 = "lg:text-right text-start";
     }
@@ -40,7 +39,7 @@ function OurValues() {
             <ul className='circles  mb-48 flex '>
                 <div className='mx-auto  w-11/12 py-24 md:w-9/12'>
                     <h2
-                        className={`mb-6 text-center font-quicksand text-4xl font-bold  text-blue-dark md:text-center md:text-5xl lg:pl-16 ${reverse1}`}
+                        className={`mb-6 text-center font-quicksand text-4xl font-bold  text-blue-dark md:text-center md:text-5xl lg:pl-12 ${reverse1}`}
                     >
                         {t("home.ourValues.title")}
                     </h2>
