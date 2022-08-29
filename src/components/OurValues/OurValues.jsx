@@ -36,11 +36,11 @@ function OurValues() {
         reverse1 = "lg:text-right text-start";
     }
     return (
-        <div className='area h-[62rem] sm:h-[54rem] md:h-[64rem] lg:h-[44rem]'>
-            <ul className='circles mt-16 mb-48 flex md:mt-24  lg:mt-16'>
+        <div className='area  h-[55rem] sm:h-[54rem] md:h-[64rem] lg:h-[36rem] xl:h-[40rem]'>
+            <ul className='circles  mb-48 flex '>
                 <div className='mx-auto  w-11/12 py-24 md:w-9/12'>
                     <h2
-                        className={`text-center font-quicksand text-4xl font-bold  text-blue-dark md:text-center md:text-5xl lg:pl-16 ${reverse1}`}
+                        className={`mb-6 text-center font-quicksand text-4xl font-bold  text-blue-dark md:text-center md:text-5xl lg:pl-16 ${reverse1}`}
                     >
                         {t("home.ourValues.title")}
                     </h2>

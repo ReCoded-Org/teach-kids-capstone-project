@@ -44,8 +44,12 @@ function HeroSection() {
                                 </Link>
                             </div>
                         </main>
-                        <div className='flex h-96 justify-center p-2  md:my-auto md:mt-5 md:h-96 lg:place-items-end  lg:justify-end'>
-                            <img src={logo} className='py-2 lg:h-full' alt='' />
+                        <div className='flex h-96 justify-center p-2  md:my-auto md:mt-5 md:h-[35rem]  lg:place-items-end  lg:justify-end'>
+                            <img
+                                src={logo}
+                                className='py-2 md:mb-16 lg:h-full'
+                                alt=''
+                            />
                         </div>
                     </section>
 
