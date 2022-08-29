@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useNavigate} from "react-router-dom";
 import SigninPic from "../../assets/SigninPic.png";
 import google from "../../assets/google.svg";
 import facebook from "../../assets/facebook.svg";
@@ -9,13 +9,20 @@ import padlock from "../../assets/padlock.svg";
 import Logo from "../../assets/Logo.png";
 import close from "../../assets/close-menu.svg";
 import { useMutation } from "@tanstack/react-query";
-
+import axios from "axios";
+import Navbar from '../layout/Navbar/Navbar';
+import { useEffect } from 'react';
 function SignIn() {
     const navigate = useNavigate();
+    const [name,setnamengo]=useState("");
+    const [volunteer,setnamevolunteer]=useState("");
+    const navigateHome = () => {
+        navigate('/');
+      };
+      
     const [formData, setFormData] = useState({
-        Email: "John@gmail.com",
-        Password: "124",
-        checkedBox: 0,
+        email: "",
+        password: "",
     });
     function handleChange(event) {
         const name = event.target.name;
@@ -32,38 +39,56 @@ function SignIn() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(formData);
     }
+    const GetNameEmail = useMutation(() => {
+        if(localStorage.getItem("userType") === "Ngo"){
+            axios.get(`https://reach-capstone.herokuapp.com/api/ngos/${localStorage.getItem("userId")}`).then(function (data) {
+                localStorage.setItem("userName", data.data.data.name)
+                localStorage.setItem("userEmail", data.data.data.email)
+               })
+        }
+        else if(localStorage.getItem("userType") === "Volunteer"){
+            axios.get(`https://reach-capstone.herokuapp.com/api/volunteers/${localStorage.getItem("userId")}`).then(function (data) {
+                localStorage.setItem("userName", data.data.data.name)
+                localStorage.setItem("userEmail", data.data.data.email)
+               })
+        }
+        
+    });
     const SendtoSignIn = useMutation((SignInData) => {
-        return fetch("http://localhost:3004/SignIn", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "content-Type": "application/json",
-            },
-            body: JSON.stringify(SignInData),
-        });
+        axios.post(
+                `https://reach-capstone.herokuapp.com/api/auth/login`,
+                SignInData
+            )
+            .then(function (res) {
+                if (res.data.success) {
+                    localStorage.setItem("userId", res.data.data._id);
+                    localStorage.setItem("userType", res.data.data.type);
+                    localStorage.setItem("NavType",true);
+                }
+                GetNameEmail.mutate();
+                navigateHome();
+            })
+            .catch(function (error) {
+                let isArray = Array.isArray(error.response.data.errors);
+                if (isArray) {
+                  alert(error.response.data.errors[0].msg)
+                }
+                else{
+                  alert(error.response.data.error);
+                };
+            });
     });
     return (
         <div className=' bg-blue-dark'>
-            <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
-                <Link to='/'>
-                    <img src={Logo} alt='Reach' />
-                </Link>
-                <img
-                    src={close}
-                    alt='close'
-                    className='hover:scale-125 hover:cursor-pointer'
-                    onClick={() => navigate(-1)}
-                />
-            </div>
-            <div className='flex w-full justify-evenly bg-blue-dark p-24'>
+            <Navbar /> 
+            <div className='flex w-full content-center justify-evenly bg-blue-dark p-24'>
                 <img
                     src={SigninPic}
                     alt={
                         "a drawing of a little boy in a classroom raising his hand"
                     }
-                    className='lg:5/12 w-0 md:w-5/12'
+                    className='lg:6/12 w-0 object-contain md:w-6/12'
                 />
 
                 <div className='w-full pt-16 md:w-4/12'>
@@ -74,10 +99,13 @@ function SignIn() {
                         className='font-body flex flex-col gap-3 text-lg text-gray'
                         onSubmit={handleSubmit}
                     >
-                        <p className='flex flex-row font-SourceSansPro'>
+                        <p className=' inline flex-row font-SourceSansPro'>
                             If you don`t have an account register, you can{" "}
-                            <Link to='/sign-up'>
-                                <p className='ml-1 text-red'> register here!</p>
+                            <Link to='/sign-up' className=''>
+                                <p className='ml-1 text-red '>
+                                    {" "}
+                                    register here!
+                                </p>
                             </Link>
                         </p>
 
@@ -92,10 +120,9 @@ function SignIn() {
                             </label>
                         </div>
                         <input
-                            type='text'
-                            name='Email'
+                            type='email'
+                            name='email'
                             onChange={handleChange}
-                            value={formData.Email}
                             placeholder='Enter your email address'
                             className=' border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
@@ -113,7 +140,6 @@ function SignIn() {
                             type='password'
                             name='password'
                             onChange={handleChange}
-                            value={formData.Password}
                             placeholder='Enter your password'
                             className='border-0 border-b border-gray bg-blue-dark focus:outline-none'
                         />
@@ -138,9 +164,8 @@ function SignIn() {
                             className='font-heading mt-4 h-12 w-full rounded bg-red text-2xl font-bold text-gray'
                             onClick={() => {
                                 SendtoSignIn.mutate({
-                                    Email: formData.Email,
-                                    Password: formData.Password,
-                                    checkedBox: formData.checkedBox,
+                                    email: formData.email,
+                                    password: formData.password,
                                 });
                             }}
                         >

@@ -4,116 +4,109 @@ import Message from "../../assets/email.svg";
 import Location from "../../assets/location.svg";
 import { useMutation } from "@tanstack/react-query";
 import { useTranslation } from "react-i18next";
+import axios from "axios";
 
 function ContactUs() {
     const [formData, setFormData] = useState({
-        Fullname: "",
+        fullName: "",
         email: "",
-        Message: "",
+        message: "",
     });
- 
+
     function handleChange(event) {
         const name = event.target.name;
         let value = event.target.value;
- 
         setFormData({ ...formData, [name]: value });
     }
- 
+
     function handleSubmit(event) {
         event.preventDefault();
     }
     const SendtoContactUs = useMutation((ContactUsData) => {
-        return fetch("http://localhost:3004/contactus", {
-            method: "POST",
-            headers: {
-                Accept: "application/json",
-                "content-Type": "application/json",
-            },
-            body: JSON.stringify(ContactUsData),
-        });
+        axios.post(
+            `https://reach-capstone.herokuapp.com/api/feedbacks`,
+            ContactUsData
+        );
     });
 
     const [t] = useTranslation();
-
     return (
-        <div id='contact-us' className='ContactUs flex items-center justify-between'>
-            <div className='container mx-auto pt-16'>
-                <div className='lg:flex '>
-                    <div className='py-20 lg:w-4/5 xl:w-4/5'>
-                        <div className='col-md-6 col-sm-12'>
-                            <div className='contactInfo col'>
-                                <h1
-                                    className='text-5xl font-bold font-quicksand text-blue-dark mb-10'
-                                >
-                                    {t("home.contactUs.title")}
-                                </h1>
-                                <p
-                                    className='text-lg text-justify font-SourceSansPro text-blue-dark mb-10 md:max-w-lg'
-                                >
-                                    {t("home.contactUs.description")}
-                                </p>
-                                <div className='flex pb-20'>
-                                    <div className='w-10 mr-5 grow text-blue-dark h-5 font-SourceSansPro'>
-                                        <img
-                                            src={Location}
-                                            alt='Location icon'
-                                        />
-                                        <p>
-                                            9094 Bay Meadows Street Conyers, GA
-                                            30012
+        <div className='area md: h-[72rem] sm:h-[66rem] lg:h-[44rem]'>
+            <ul className='circles  mb-48 flex'>
+                <div
+                    id='contact-us'
+                    className='Contact Us before mx-auto flex  w-10/12 items-center justify-between md:w-9/12 md:px-8'
+                >
+                    <div className='container  mx-auto '>
+                        <div className='grid gap-6 lg:flex lg:justify-between'>
+                            <div className='  py-10'>
+                                <div className='col-md-6 col-sm-12'>
+                                    <div className='conta ctInfo col'>
+                                        <h1 className='mb-10 font-quicksand text-5xl font-bold text-blue-dark'>
+                                            {t("home.contactUs.title")}
+                                        </h1>
+                                        <p className='mb-10 text-justify font-SourceSansPro text-lg text-blue-dark md:max-w-lg'>
+                                            {t("home.contactUs.description")}
                                         </p>
-                                    </div>
-                                    <div className='w-10 mr-5 grow text-blue-dark h-5 font-SourceSansPro'>
-                                        <img src={Phone} alt='Phone icon' />
-                                        <p>
-                                            +229-955-5388-336
-                                        </p>
-                                        <p>
-                                            +229-955-5373-360
-                                        </p>
-                                    </div>
-                                    <div className='w-10 mr-5 grow text-blue-dark h-5 font-SourceSansPro'>
-                                        <img src={Message} alt='Contact icon' />
-                                        <p>
-                                            support@mail.com
-                                        </p>
-                                        <p>
-                                            office@mail.com
-                                        </p>
+                                        <div className='flex pb-20'>
+                                            <div className='mr-5 h-5 w-10 grow font-SourceSansPro text-blue-dark'>
+                                                <img
+                                                    src={Location}
+                                                    alt='Location icon'
+                                                />
+                                                <p>
+                                                    9094 Bay Meadows Street
+                                                    Conyers, GA 30012
+                                                </p>
+                                            </div>
+                                            <div className='mr-5 h-5 w-10 grow font-SourceSansPro text-blue-dark'>
+                                                <img
+                                                    src={Phone}
+                                                    alt='Phone icon'
+                                                />
+                                                <p>+229-955-5388-336</p>
+                                                <p>+229-955-5373-360</p>
+                                            </div>
+                                            <div className='mr-5 h-5 w-10 grow font-SourceSansPro text-blue-dark'>
+                                                <img
+                                                    src={Message}
+                                                    alt='Contact icon'
+                                                />
+                                                <p>support@mail.com</p>
+                                                <p>office@mail.com</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div className='lg:w-5/12 my-8 rounded-tr'>
-                        <form
-                            id='contact'
-                            className='bg-gray-800 rounded-tr font-SourceSansPro'
-                            onSubmit={handleSubmit}
-                        >
-                            <div className='justify-between'>
-                                    <div className='flex flex-col'>
-                                        <label
-                                            className='text-lg text-blue-dark pt-8 font-semibold mb-2'
-                                        >
-                                            {t("home.contactUs.fullNameFormTitle")}
-                                        </label>
-                                        <input
-                                            required
-                                            id='Fullname'
-                                            name='Fullname'
-                                            type='text'
-                                            onChange={handleChange}
-                                            value={formData.Fullname}
-                                            className="focus:border focus:border-blue-dark rounded border-none bg-gray mb-6"
-                                            placeholder={t("home.contactUs.fullNameFormPlaceholder")}
-                                        />
+                            <div className='my-8 rounded-tr lg:w-5/12'>
+                                <form
+                                    id='contact'
+                                    className='bg-gray-800 rounded-tr font-SourceSansPro'
+                                    onSubmit={handleSubmit}
+                                >
+                                    <div className='justify-between'>
+                                        <div className='flex flex-col'>
+                                            <label className='mb-2 pt-8 text-lg font-semibold text-blue-dark'>
+                                                {t(
+                                                    "home.contactUs.fullNameFormTitle"
+                                                )}
+                                            </label>
+                                            <input
+                                                required
+                                                id='fullName'
+                                                name='fullName'
+                                                type='text'
+                                                onChange={handleChange}
+                                                className='mb-6 rounded border-none bg-gray focus:border focus:border-blue-dark'
+                                                placeholder={t(
+                                                    "home.contactUs.fullNameFormPlaceholder"
+                                                )}
+                                            />
+                                        </div>
                                     </div>
-                                </div>
                                     <div className='flex flex-col'>
-                                        <label
-                                            className='text-lg text-blue-dark font-semibold mb-2'
-                                        >
+                                        <label className='mb-2 text-lg font-semibold text-blue-dark'>
                                             {t("home.contactUs.emailFormTitle")}
                                         </label>
                                         <input
@@ -122,48 +115,59 @@ function ContactUs() {
                                             name='email'
                                             type='email'
                                             onChange={handleChange}
-                                            value={formData.email}
-                                            className="focus:border focus:border-blue-dark rounded border-none bg-gray mb-6"
+                                            className='mb-6 rounded border-none bg-gray focus:border focus:border-blue-dark'
                                             placeholder='example@email.com'
                                         />
                                     </div>
-                            <div className='mt-6 w-full'>
-                                <div className='flex flex-col'>
-                                    <label
-                                        className='text-lg text-blue-dark font-semibold mb-2'
-                                    >
-                                        {t("home.contactUs.messageFormTitle")}
-                                    </label>
-                                    <textarea
-                                        placeholder={t("home.contactUs.messageFormPlaceholder")}
-                                        name='Message'
-                                        className="border-none bg-gray mb-6 rounded"
-                                        onChange={handleChange}
-                                        value={formData.Message}
-                                        rows='9'
-                                        id='Message'
-                                    />
-                                </div>
-                                <button
-                                    type='submit'
-                                    className="rounded-md border-2 border-blue-dark text-white p-2 font-SourceSansPro w-56 font-semibold bg-blue-dark  duration-300 ease-linear hover:border-blue-dark hover:bg-white hover:text-blue-dark hover:shadow"
-                                    onClick={() => {
-                                        SendtoContactUs.mutate({
-                                            Fullname: formData.Fullname,
-                                            email: formData.email,
-                                            Message: formData.Message,
-                                        });
-                                    }}
-                                >
-                                    {t("home.contactUs.btn")}
-                                </button>
+                                    <div className='mt-6 w-full'>
+                                        <div className='flex flex-col'>
+                                            <label className='mb-2 text-lg font-semibold text-blue-dark'>
+                                                {t(
+                                                    "home.contactUs.messageFormTitle"
+                                                )}
+                                            </label>
+                                            <textarea
+                                                placeholder={t(
+                                                    "home.contactUs.messageFormPlaceholder"
+                                                )}
+                                                name='message'
+                                                className='mb-6 rounded border-none bg-gray'
+                                                onChange={handleChange}
+                                                rows='9'
+                                                id='message'
+                                            />
+                                        </div>
+                                        <button
+                                            type='submit'
+                                            className='w-56 rounded-md border-2 border-blue-dark bg-blue-dark p-2 font-SourceSansPro font-semibold text-white  duration-300 ease-linear hover:border-blue-dark hover:bg-white hover:text-blue-dark hover:shadow'
+                                            onClick={() => {
+                                                SendtoContactUs.mutate({
+                                                    fullName: formData.fullName,
+                                                    email: formData.email,
+                                                    message: formData.message,
+                                                });
+                                            }}
+                                        >
+                                            {t("home.contactUs.btn")}
+                                        </button>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
-            </div>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
         </div>
     );
 }
- 
+
 export default ContactUs;

@@ -1,8 +1,27 @@
 {
+    "navbar": {
+        "pages": ["Events", "Contact Us", "About Us", "Our Team"],
+        "buttons": ["Sign In", "Sign Up"]
+    },
+    "footer": {
+        "pages": ["Events", "Contact Us", "About Us", "Our Team"],
+        "newsletter": {
+            "title": "Subscribe to our newsletter",
+            "email": "Email",
+            "btn": "Submit"
+        },
+        "lowerFooter": [
+            "All rights reserved",
+            "Terms and Conditions",
+            "Privacy and Cookies",
+            "Accessibility"
+        ]
+    },
     "home": {
         "hero": {
             "title": "Reach",
             "description": "Reach out for a better future!",
+            "description2": "With your help we hope and believe we can pave a better future for all children around the world .",
             "btn1": "Volunteer with Us",
             "btn2": "Upcoming Events"
         },
@@ -11,15 +30,25 @@
             "texts": [
                 {
                     "id": 1,
-                    "description": "Reach is a platform that connects between volunteer teachers and NGOs concerned with refugee kids around the world."
+                    "title": "Reach",
+                    "description": "Reach is a platform that connects between volunteer teachers and NGOs concerned with refugee kids around the world, we hope and believe we can pave a better future for all children around the world .",
+                    "image": "aboutUsOne",
+                    "alt": "Social Sustainability Graphic"
                 },
                 {
                     "id": 2,
-                    "description": "Unfortunately, under harsh conditions many children get deprived from their basic rights including education. From this point of view, it would be quite helpful to connect these affected children with volunteer teachers that can teach them important skills such as learning local languages or basic coding."
+                    "title": "Future",
+
+                    "description": "Unfortunately, under harsh conditions many children get deprived from their basic rights including education. From this point of view, it would be quite helpful to connect these affected children with volunteer teachers that can teach them important skills such as learning local languages or basic coding.",
+                    "image": "aboutUsTwo",
+                    "alt": "Education Graphic"
                 },
                 {
                     "id": 3,
-                    "description": "Having this kind of skills could open for them many opportunities in the future that can positively turn their lives around. Thus, the aim of this platform is to provide these kids the opportunity to develop essential skills to thrive and have a better future."
+                    "title": "Opportunities",
+                    "description": "Having this kind of skills could open for them many opportunities in the future that can positively turn their lives around. Thus, the aim of this platform is to provide these kids the opportunity to develop essential skills to thrive and have a better future.",
+                    "image": "aboutUsThree",
+                    "alt": "Empathy Graphic"
                 }
             ]
         },
@@ -63,5 +92,38 @@
             "messageFormPlaceholder": "Type Here",
             "btn": "Send"
         }
+    },
+    "signIn": {
+        "title": "Sign In",
+        "description1": "If you don't have an account, you can",
+        "description2": "register here!",
+        "emailFormTitle": "Email",
+        "passwordFormTitle": "Password",
+        "passwordFormPlaceholder": "Enter your password",
+        "remember": "Remember Me",
+        "forget": "Forgot password?",
+        "loginBut": "Login",
+        "continue": "or continue with"
+    },
+    "signUp": {
+        "title": "Sign Up",
+        "description1": "If you already have an account, you can",
+        "description2": "login here!",
+        "emailFormTitle": "Email",
+        "usernameFormTitle": "Username",
+        "usernameFormPlaceholder": "Enter your username",
+        "passwordFormTitle": "Password",
+        "passwordFormPlaceholder": "Enter your password",
+        "ConfirmPasswordFormTitle": "Confirm Password",
+        "ConfirmPasswordFormPlaceholder": "Re-enter your password",
+        "signUpBut": "Login",
+        "continue": "or continue with"
+    },
+    "register": {
+        "title": "Would you like to sign up as a:",
+        "or": "or",
+        "description1": "Already have an account?",
+        "description2": "login here!",
+        "registerBut": "Continue signing up"
     }
 }

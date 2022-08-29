@@ -7,8 +7,9 @@ import { getEvents } from "../services/events.js";
 import { useQuery } from "@tanstack/react-query";
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
+import NewEvent from "../components/NewEvent/NewEvent";
 
-function AdminDashboard() {
+function AdminDashboard({ userId }) {
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
 
     if (isLoading) return "Loading...";
@@ -17,8 +18,9 @@ function AdminDashboard() {
     return (
         <>
             <Navbar />
-            <AdminDashboardHeroSection />
-            <Carousel carouselHeader='Previous Events' events={data} />
+            <AdminDashboardHeroSection userId={userId} />
+            <NewEvent />
+            <Carousel carouselHeader='Previous Events' events={data.data} />
             <Footer />
         </>
     );

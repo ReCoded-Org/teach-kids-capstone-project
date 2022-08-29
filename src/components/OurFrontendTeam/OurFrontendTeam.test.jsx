@@ -1,13 +1,13 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import SingleEventPageHeroSection from "./SingleEventPageHeroSection";
+import OurFrontendTeam from "./OurFrontendTeam";
 import { MemoryRouter } from "react-router-dom";
 
 it("renders correctly", () => {
     const test = renderer
         .create(
             <MemoryRouter>
-                <SingleEventPageHeroSection />
+                <OurFrontendTeam />
             </MemoryRouter>
         )
         .toJSON();

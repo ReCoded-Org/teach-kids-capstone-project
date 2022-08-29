@@ -1,29 +1,30 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import img from "../../../assets/AboutUs-1.jpg";
 
-const EventCard = ({ eventPost, org }) => {
+const EventCard = ({ eventPost }) => {
     return (
         <div className='relative mx-auto mb-6 mt-16 flex w-full  min-w-0 max-w-md flex-col justify-center break-words rounded-xl px-5 xl:max-w-2xl'>
             <div className='card-header mx-4 -mt-6 	'>
-                <Link to={`/event/${eventPost.id}`}>
+                <Link to={`/event/${eventPost._id}`}>
                     <img
                         className='	 mx-auto w-full rounded-lg sm:h-56 	md:h-56 xl:h-72 '
-                        src={eventPost.image}
-                        alt={org.name}
+                        src={img}
+                        alt={eventPost.ngo.name}
                     />
                 </Link>
             </div>
             <div className='flex  flex-col font-SourceSansPro'>
                 <a href='#'>
-                    <h2 className=' mt-2 h-8 truncate text-center text-lg font-bold text-white'>
-                        {org}
+                    <h2 className=' mt-2 h-8 truncate text-center text-lg font-bold uppercase text-white'>
+                        {eventPost.ngo.name}
                     </h2>
                 </a>
-                <p className='mb-4 text-center text-white opacity-60'>
+                <p className='mb-4 text-center uppercase text-white opacity-60'>
                     {eventPost.location}
                 </p>
                 <a href='#'>
-                    <h4 className='mb-3 h-8 truncate text-center font-semibold text-white'>
+                    <h4 className='mb-3 h-8 truncate text-center font-semibold uppercase text-white'>
                         {eventPost.title}
                     </h4>
                 </a>
