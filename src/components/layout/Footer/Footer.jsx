@@ -14,10 +14,10 @@ export default function Footer() {
     const [validationMsg, setValidationMsg] = useState("");
     const [t] = useTranslation();
     return (
-        <div>
+        <div className='bg-primary'>
             <div
                 data-testid='footer'
-                className='jus flex flex-wrap items-center bg-primary px-12 py-10 font-SourceSansPro text-xl text-white md:justify-around lg:justify-between lg:px-36'
+                className='jus mx-auto flex w-9/12 flex-wrap  items-center justify-center bg-primary  py-10 font-SourceSansPro text-xl text-white  lg:justify-between '
             >
                 <div className='my-2'>
                     <img className='pb-2' src={logo} alt='Logo' />

@@ -45,9 +45,9 @@ export default function Events({ carouselHeader, events }) {
     const [t] = useTranslation();
 
     return (
-        <div className='diagonal-box flex flex-col  bg-blue-light'>
+        <div className='diagonal-box flex flex-col items-center bg-blue-light'>
             <div className='content mx-auto  md:w-9/12  '>
-                <h1 className='mt-14 text-center font-quicksand text-4xl font-bold text-white'>
+                <h1 className='mt-14 text-center font-quicksand text-3xl font-bold text-white md:text-5xl'>
                     {t("home.ourEvents.title")}
                 </h1>
                 <Slider {...settings}>
