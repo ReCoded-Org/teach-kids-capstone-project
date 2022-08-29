@@ -40,7 +40,7 @@ function App() {
                 <Route path='/sign-up' element={<SignUp />} />
                 {/* <Route path='/event/:id' element={<SingleEventPage />} /> */}
                 <Route path='/sign-in' element={<SignIn />} />
-                <Route
+                {/* <Route
                     path='/volunteer-profile'
                     element={
                         <Protected isLoggedIn={isLoggedAsVolunteer}>
@@ -49,7 +49,7 @@ function App() {
                             />
                         </Protected>
                     }
-                />
+                /> */}
                 <Route
                     path='/ngo-admin'
                     element={
