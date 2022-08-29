@@ -105,7 +105,7 @@ function Navbar() {
         </div>
     );
     const SignUpAndIn = () => (
-        <div className=''>
+        <div className='mx-auto'>
             <Link to='/sign-in'>
                 <button className='mr-2 w-full transform  rounded border-2 py-1.5 px-6 text-xl font-semibold duration-200 ease-in hover:border-white  hover:bg-white hover:text-red  sm:ml-0 sm:w-44  sm:px-3  sm:text-sm md:w-auto md:text-sm lg:px-6'>
                     {t(`navbar.buttons.${[0]}`)}
@@ -123,8 +123,8 @@ function Navbar() {
     const animateSpan =
         "transform transition duration-500 ease-in-out block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out ";
     return (
-        <>
-            <nav className=' z-20 items-center  text-sm text-white md:flex md:h-16 md:justify-around md:bg-blue-dark '>
+        <div className='md:bg-blue-dark'>
+            <nav className=' z-20 mx-auto  items-center text-sm text-white md:flex md:h-16 md:w-9/12 md:justify-around md:bg-blue-dark '>
                 <div className='flex items-center justify-between '>
                     <Link to='/'>
                         <img
@@ -174,16 +174,16 @@ function Navbar() {
                 <ul
                     className={
                         isHidden
-                            ? " ml-12 hidden gap-4  font-light md:flex xl:gap-16"
+                            ? " ml-12 hidden gap-4  font-light md:ml-2 md:flex md:gap-4 lg:gap-4  xl:gap-8"
                             : "jus flex flex-col gap-6  bg-blue-dark  px-6   pt-8 pb-1 text-xl font-semibold sm:items-center  md:flex-row   md:bg-inherit md:p-0    md:text-sm md:font-light  xl:gap-16  "
                     }
                 >
-                    <li className='border-gray-700 hover:border-gray-200 w-full transform  border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+                    <li className='border-gray-700 hover:border-gray-200 lg:text-md w-full transform  border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
                         <NavLink to='/events'>
                             {t(`navbar.pages.${[0]}`)}
                         </NavLink>
                     </li>
-                    <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+                    <li className=' border-gray-700 hover:border-gray-200 lg:text-md w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto md:border-none md:pb-0 lg:block'>
                         <HashLink
                             smooth
                             to='/#contact-us' // in the contact us componant its id="contact-us" should be added
@@ -191,7 +191,7 @@ function Navbar() {
                             {t(`navbar.pages.${[1]}`)}
                         </HashLink>
                     </li>
-                    <li className='border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg  md:w-auto md:border-none md:pb-0'>
+                    <li className='border-gray-700 hover:border-gray-200 lg:text-md w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:hidden md:w-auto  md:border-none md:pb-0 lg:block'>
                         <HashLink
                             smooth
                             to='/#about' // in the contact us componant its id="contact-us" should be added
@@ -200,14 +200,14 @@ function Navbar() {
                         </HashLink>
                     </li>
 
-                    <li className='border-gray-700 hover:border-gray-200 w-full transform  border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+                    <li className='border-gray-700 hover:border-gray-200 lg:text-md w-full transform  border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
                         <NavLink to='/our-team'>
                             {t(`navbar.pages.${[3]}`)}
                         </NavLink>
                     </li>
                     {!isHidden ? (
                         <>
-                            <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
+                            <li className=' border-gray-700 hover:border-gray-200 lg:text-md w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
                                 <a href={setProfileType()}>Profile</a>
                             </li>
                             <li className=' border-gray-700 hover:border-gray-200 w-full border-b-2 pb-2 font-SourceSansPro text-3xl duration-200 ease-linear hover:text-red sm:text-center sm:text-lg md:w-auto md:border-none md:pb-0'>
@@ -256,13 +256,13 @@ function Navbar() {
                 <div
                     className={
                         isHidden
-                            ? "hidden gap-12 md:flex "
-                            : " sm: flex  flex-col  justify-end  gap-3 bg-blue-dark p-6 pt-4 pb-10   sm:flex sm:flex-row sm:pt-4 md:flex   md:flex-row md:justify-around md:gap-12 md:bg-inherit md:p-0 md:font-light "
+                            ? "hidden gap-2  md:flex "
+                            : " sm: flex  flex-col  justify-end  gap-3 bg-blue-dark p-6 pt-4 pb-10   sm:flex sm:flex-row sm:pt-4 md:flex   md:flex-row md:justify-end  md:bg-inherit md:p-0 md:font-light "
                     }
                 >
                     {!showModal ? <SignUpAndIn /> : null}
                     <div
-                        className='relative top-2 z-20 hidden items-center  justify-self-end rounded hover:bg-red hover:text-white focus:border-0 sm:text-lg  md:left-10  md:mx-6  md:inline-block  '
+                        className='relative top-2 z-20 hidden items-center  justify-self-end rounded hover:bg-red hover:text-white focus:border-0 sm:text-lg    md:mx-6  md:inline-block  '
                         onClick={() => setlang(!lang)}
                     >
                         <img
@@ -306,7 +306,7 @@ function Navbar() {
                 </div>
                 {/* ============= End (sign-in sign-up Buttons section) ============= */}
             </nav>
-        </>
+        </div>
     );
 }
 export default Navbar;

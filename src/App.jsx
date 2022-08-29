@@ -31,6 +31,7 @@ function App() {
         isLoggedAsVolunteer = true;
         isLoggedAsNgo = true;
     }
+    console.log(localStorage.getItem("userType"));
 
     return (
         <div className=''>
