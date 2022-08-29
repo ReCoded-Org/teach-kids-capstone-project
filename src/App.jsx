@@ -31,13 +31,14 @@ function App() {
         isLoggedAsVolunteer = true;
         isLoggedAsNgo = true;
     }
+    console.log(localStorage.getItem("userType"));
 
     return (
         <div className=''>
             <Routes>
-                <Route path='/events' element={<AllEvents />} />
+                {/* <Route path='/events' element={<AllEvents />} /> */}
                 <Route path='/sign-up' element={<SignUp />} />
-                <Route path='/event/:id' element={<SingleEventPage />} />
+                {/* <Route path='/event/:id' element={<SingleEventPage />} /> */}
                 <Route path='/sign-in' element={<SignIn />} />
                 <Route
                     path='/volunteer-profile'
@@ -61,8 +62,8 @@ function App() {
                 />
                 <Route path='/ngo-profile/:id' element={<NgoProfilePage />} />
                 <Route path='/register' element={<Register />} />
-                <Route path='/' element={<Home />} />
                 <Route path='/our-team' element={<OurTeam />} />
+                <Route path='/' element={<Home />} />
             </Routes>
         </div>
     );

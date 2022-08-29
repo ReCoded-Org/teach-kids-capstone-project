@@ -45,7 +45,7 @@ function AboutUs() {
             <div className='diagonal-box-about     bg-blue-light  '>
                 <div className='content-about  mx-auto w-11/12 pb-24 md:w-9/12'>
                     <h2
-                        className={`mb-12 text-center font-quicksand text-4xl font-bold text-white  md:text-center md:text-5xl lg:mb-0 lg:pl-16 ${reverse1}`}
+                        className={`mb-12 text-center font-quicksand text-4xl font-bold text-white  md:text-center md:text-5xl lg:mb-0 lg:pl-10 ${reverse1}`}
                     >
                         {t("home.aboutUs.title")}
                     </h2>
