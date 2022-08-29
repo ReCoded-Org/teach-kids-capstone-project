@@ -12,14 +12,11 @@ import Protected from "./services/Protected";
 import OurTeam from "./containers/OurTeam";
 import VolunteerPage from "../src/containers/VolunteerPage";
 import React, { useState, useEffect } from "react";
-import ProtectedRoute from "react-protected-route-component";
 import { Navigate } from "react-router-dom";
 
 function App() {
     let isLoggedAsVolunteer = false;
     let isLoggedAsNgo = false;
-    
-
     if (
         localStorage.getItem("userId") !== undefined &&
         localStorage.getItem("userType") === "Volunteer"

@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import img from "../../../assets/AboutUs-1.jpg";
 
 const EventCard = ({ eventPost }) => {
     return (
@@ -8,7 +9,7 @@ const EventCard = ({ eventPost }) => {
                 <Link to={`/event/${eventPost._id}`}>
                     <img
                         className='	 mx-auto w-full rounded-lg sm:h-56 	md:h-56 xl:h-72 '
-                        src={eventPost.avatar}
+                        src={img}
                         alt={eventPost.ngo.name}
                     />
                 </Link>
