@@ -13,10 +13,10 @@ export default function FilterEvents({
 }) {
     return (
         <>
-            <div className='absolute w-full bg-gray pb-12'>
+            <div className='absolute w-full   bg-gray pb-12'>
                 <p className='text-lg text-gray'>1</p>
             </div>
-            <section className=' diagonal-box relative z-50 my-10 flex items-center bg-gray p-4 py-8 sm:grid-cols-2 md:px-36'>
+            <section className=' diagonal-box relative z-50 my-10 flex items-center justify-center bg-gray p-4 py-8 sm:grid-cols-2 md:px-36'>
                 <div className='content flex flex-col'>
                     <h1 className=' my-4 mb-6 text-center font-quicksand text-5xl font-semibold text-blue-dark'>
                         All Events
