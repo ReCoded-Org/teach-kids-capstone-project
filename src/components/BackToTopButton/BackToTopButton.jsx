@@ -24,7 +24,7 @@ export default function BackToTopButton() {
     <div>
       {button && (
         <button
-        className='p-2 z-50 border-2 border-[#F05454] rounded-full bg-[#F05454]'
+        className='p-2 z-100 border-2 border-[#F05454] rounded-full bg-[#F05454]'
         style={{
           position: "fixed",
           bottom: "40px",

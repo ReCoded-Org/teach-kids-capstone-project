@@ -28,7 +28,7 @@ function Navbar() {
         "transform transition duration-500 ease-in-out block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out ";
     return (
         <>
-            <nav className='sticky top-0 z-50 items-center  text-sm text-white md:flex md:h-16 md:justify-around md:bg-blue-dark '>
+            <nav className='sticky top-0 z-100 items-center  text-sm text-white md:flex md:h-16 md:justify-around bg-blue-dark '>
                 <div className='flex items-center justify-between '>
                     <Link to='/'>
                         <img
@@ -45,7 +45,7 @@ function Navbar() {
                         className={
                             !isHidden
                                 ? animateMenu
-                                : " mx-4 my-5  flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full bg-blue-btn   text-white focus:outline-none md:hidden"
+                                : " mx-4 my-5  flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full bg-blue-dark   text-white focus:outline-none md:hidden"
                         }
                     >
                         <span

@@ -6,6 +6,8 @@ import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import BackToTopButton from "../components/BackToTopButton/BackToTopButton";
+
 
 function AllEvents() {
     const [events, setEvents] = useState([]);
@@ -84,7 +86,7 @@ function AllEvents() {
     return (
         <>
             <Navbar />
-
+            <BackToTopButton />
             <FilterEvents
                 menuTagItems={menuTagItems}
                 setTag={setTag}

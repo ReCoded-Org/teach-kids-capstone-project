@@ -6,6 +6,7 @@ import { getEvents } from "../services/events.js";
 import { useQuery } from "@tanstack/react-query";
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
+import BackToTopButton from "../components/BackToTopButton/BackToTopButton";
 
 function NgoProfilePage() {
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
@@ -16,6 +17,7 @@ function NgoProfilePage() {
     return (
         <>
             <Navbar />
+            <BackToTopButton />
             <NgoProfilePageHeroSection />
             <GlobalCarousel
                 carouselHeader='Previous Events'
