@@ -62,8 +62,8 @@ function App() {
                 />
                 <Route path='/ngo-profile/:id' element={<NgoProfilePage />} />
                 <Route path='/register' element={<Register />} />
-                <Route path='/' element={<Home />} />
                 <Route path='/our-team' element={<OurTeam />} />
+                <Route path='/' element={<Home />} />
             </Routes>
         </div>
     );
