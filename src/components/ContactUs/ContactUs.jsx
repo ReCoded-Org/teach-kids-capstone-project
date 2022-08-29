@@ -35,7 +35,7 @@ function ContactUs() {
             <ul className='circles  mb-48 flex'>
                 <div
                     id='contact-us'
-                    className='Contact Us before mx-auto flex  w-10/12 items-center justify-between md:w-9/12 md:px-8'
+                    className='Contact Us before mx-auto flex  w-10/12 items-center justify-between md:w-9/12'
                 >
                     <div className='container  mx-auto '>
                         <div className='grid gap-6 lg:flex lg:justify-between'>

@@ -12,7 +12,7 @@ function HeroSection() {
         <>
             <div className='area  mt-0 h-[62rem] sm:h-[54rem] md:h-[44rem]'>
                 <ul className='circles   mb-48 flex md:pt-24  lg:pt-16'>
-                    <section className='my-3   mx-auto grid w-11/12 grid-cols-1 py-8 md:my-4 md:w-9/12 md:grid-cols-2 md:px-12  md:pt-0 lg:pt-16 lg:pb-28'>
+                    <section className='my-3   mx-auto grid w-11/12 grid-cols-1 py-8 md:my-4 md:w-9/12 md:grid-cols-2   md:pt-0 lg:pt-16 lg:pb-28'>
                         <main className='row  md:mt-20 lg:mt-20'>
                             <h1 className='my-4 mb-6 text-center  font-quicksand text-5xl font-semibold text-blue-dark md:text-start'>
                                 {t("home.hero.title")}
