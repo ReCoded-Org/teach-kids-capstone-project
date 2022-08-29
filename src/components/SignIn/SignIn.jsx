@@ -10,13 +10,16 @@ import Logo from "../../assets/Logo.png";
 import close from "../../assets/close-menu.svg";
 import { useMutation } from "@tanstack/react-query";
 import axios from "axios";
-import Home from "../../containers/Home";
+import Navbar from "../layout/Navbar/Navbar";
+import { useEffect } from "react";
 function SignIn() {
     const navigate = useNavigate();
+    const [name, setnamengo] = useState("");
+    const [volunteer, setnamevolunteer] = useState("");
     const navigateHome = () => {
-        // 👇️ navigate to /
         navigate("/");
     };
+
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -37,16 +40,42 @@ function SignIn() {
     function handleSubmit(event) {
         event.preventDefault();
     }
+    const GetNameEmail = useMutation(() => {
+        if (localStorage.getItem("userType") === "Ngo") {
+            axios
+                .get(
+                    `https://reach-capstone.herokuapp.com/api/ngos/${localStorage.getItem(
+                        "userId"
+                    )}`
+                )
+                .then(function (data) {
+                    localStorage.setItem("userName", data.data.data.name);
+                    localStorage.setItem("userEmail", data.data.data.email);
+                });
+        } else if (localStorage.getItem("userType") === "Volunteer") {
+            axios
+                .get(
+                    `https://reach-capstone.herokuapp.com/api/volunteers/${localStorage.getItem(
+                        "userId"
+                    )}`
+                )
+                .then(function (data) {
+                    localStorage.setItem("userName", data.data.data.name);
+                    localStorage.setItem("userEmail", data.data.data.email);
+                });
+        }
+    });
     const SendtoSignIn = useMutation((SignInData) => {
         axios
             .post(
-                `https://reach-capstone.herokuapp.com/api/auth/login`,
+                `https://3000-rcdd202203t-backendcaps-0hxdede36ue.ws-eu63.gitpod.io/api/auth/login`,
                 SignInData
             )
             .then(function (res) {
                 if (res.data.success) {
                     localStorage.setItem("userId", res.data.data._id);
                     localStorage.setItem("userType", res.data.data.type);
+                    localStorage.setItem("NavType", true);
                 }
                 navigateHome();
             })
@@ -61,17 +90,7 @@ function SignIn() {
     });
     return (
         <div className=' bg-blue-dark'>
-            <div className='flex justify-between pl-2 pr-2 md:pl-40 md:pr-40 md:pt-2'>
-                <Link to='/'>
-                    <img src={Logo} alt='Reach' />
-                </Link>
-                <img
-                    src={close}
-                    alt='close'
-                    className='hover:scale-125 hover:cursor-pointer'
-                    onClick={() => navigate(-1)}
-                />
-            </div>
+            <Navbar />
             <div className='flex w-full content-center justify-evenly bg-blue-dark p-24'>
                 <img
                     src={SigninPic}

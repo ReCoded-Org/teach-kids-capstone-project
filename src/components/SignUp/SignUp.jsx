@@ -1,28 +1,28 @@
-import { Link,useNavigate} from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { useMutation} from "@tanstack/react-query";
+import { useMutation } from "@tanstack/react-query";
 import google from "src/assets/google.svg";
 import facebook from "src/assets/facebook.svg";
 import apple from "src/assets/apple.svg";
 import message from "src/assets/message.svg";
 import padlock from "src/assets/padlock.svg";
 import signup from "src/assets/signup.png";
-import { useLocation } from 'react-router-dom'
+import { useLocation } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../../components/layout/Navbar/Navbar";
 function SignUp() {
     const navigate = useNavigate();
     const navigateHome = () => {
-        navigate('/');
-      };
+        navigate("/");
+    };
     const [formData, setFormData] = useState({
-        "email": "",
-        "password": "",
-        "confirmPassword": "",
-        "username": ""
+        email: "",
+        password: "",
+        confirmPassword: "",
+        username: "",
     });
-    const location = useLocation()
-    const Option = location.state
+    const location = useLocation();
+    const Option = location.state;
     function handleChange(event) {
         const name = event.target.name;
         let value = event.target.value;
@@ -33,20 +33,23 @@ function SignUp() {
     }
 
     const SignUpFormData = useMutation((SignUpData) => {
-        axios.post(`https://reach-capstone.herokuapp.com/api/auth/signup/${Option}`, SignUpData).then(
-            function () {
+        axios
+            .post(
+                `https://3000-rcdd202203t-backendcaps-0hxdede36ue.ws-eu63.gitpod.io/api/auth/signup/ngo`,
+                SignUpData
+            )
+            .then(function () {
                 alert("You have Successfuly Signed Up");
                 navigateHome();
-              }
-        ).catch(function (error) {
-            let isArray = Array.isArray(error.response.data.errors);
-            if (isArray) {
-              alert(error.response.data.errors[0].msg)
-            }
-            else{
-              alert(error.response.data.error);
-            };
-        });
+            })
+            .catch(function (error) {
+                let isArray = Array.isArray(error.response.data.errors);
+                if (isArray) {
+                    alert(error.response.data.errors[0].msg);
+                } else {
+                    alert(error.response.data.error);
+                }
+            });
     });
     return (
         <div className=' bg-blue-dark'>
@@ -55,7 +58,7 @@ function SignUp() {
                 <img
                     src={signup}
                     alt={"a drawing of a young woman working on her desk"}
-                    className='lg:6/12 w-0 md:w-6/12 object-contain'
+                    className='lg:6/12 w-0 object-contain md:w-6/12'
                 />
 
                 <div className='w-full md:w-4/12'>
@@ -154,10 +157,10 @@ function SignUp() {
                             className='mt-4 h-12 w-full rounded bg-red font-quicksand text-2xl font-bold text-gray hover:scale-105'
                             onClick={() => {
                                 SignUpFormData.mutate({
-                                    "email": formData.email,
-                                    "password": formData.password,
-                                    "confirmPassword": formData.confirmPassword,
-                                    "username":formData.username
+                                    email: formData.email,
+                                    password: formData.password,
+                                    confirmPassword: formData.confirmPassword,
+                                    username: formData.username,
                                 });
                             }}
                         >

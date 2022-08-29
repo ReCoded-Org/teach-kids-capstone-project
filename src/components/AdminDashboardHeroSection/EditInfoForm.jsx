@@ -51,8 +51,11 @@ function EditInfoForm({ userId }) {
                 setFormValidation(true);
                 return axios
                     .patch(
-                        `https://reach-capstone.herokuapp.com/api/profile`,
-                        newComment
+                        `https://3000-rcdd202203t-backendcaps-0hxdede36ue.ws-eu63.gitpod.io/api/profile`,
+                        newComment,
+                        {
+                            withCredentials: true,
+                        }
                     )
                     .then(function (res) {
                         console.log(res);

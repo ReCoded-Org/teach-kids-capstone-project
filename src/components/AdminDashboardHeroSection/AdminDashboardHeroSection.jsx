@@ -9,9 +9,9 @@ import { useQuery } from "@tanstack/react-query";
 function AdminDashboardHeroSection({ userId }) {
     const [info, setInfo] = useState([]); //changed {} to []
     const { isLoading, error, data } = useQuery(["repoData"], () =>
-        fetch(`https://reach-capstone.herokuapp.com/api/ngos/${userId}`).then(
-            (res) => res.json().then((data) => setInfo(data.data))
-        )
+        fetch(
+            `https://3000-rcdd202203t-backendcaps-0hxdede36ue.ws-eu63.gitpod.io/api/ngos/${userId}`
+        ).then((res) => res.json().then((data) => setInfo(data.data)))
     );
     if (isLoading) return "Loading...";
 
