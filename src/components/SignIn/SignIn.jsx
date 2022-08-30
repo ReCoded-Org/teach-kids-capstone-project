@@ -49,7 +49,7 @@ function SignIn() {
         }
         else if(localStorage.getItem("userType") === "Volunteer"){
             axios.get(`https://reach-capstone.herokuapp.com/api/volunteers/${localStorage.getItem("userId")}`).then(function (data) {
-                localStorage.setItem("userName", data.data.data.name)
+                localStorage.setItem("userName", data.data.data.username)
                 localStorage.setItem("userEmail", data.data.data.email)
                })
         }
@@ -58,7 +58,7 @@ function SignIn() {
     const SendtoSignIn = useMutation((SignInData) => {
         axios.post(
                 `https://reach-capstone.herokuapp.com/api/auth/login`,
-                SignInData
+                SignInData,{ withCredentials: true }
             )
             .then(function (res) {
                 if (res.data.success) {

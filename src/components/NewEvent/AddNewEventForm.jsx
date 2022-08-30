@@ -4,13 +4,14 @@ import {useMutation} from "@tanstack/react-query";
 import axios from "axios";
 function AddNewEventForm({ setIsHidden, isHidden }) {
     const [formData, setFormData] = useState({
-        avatar: "",
-        title: "",
-        launchDate:"",
-        location:"",
-        description:"",
-        tags:[],
+        "avatar": "",
+        "title": "",
+        "launchDate":"",
+        "location":"",
+        "description":"",
+        "tags":[],
     });
+    axios.defaults.withCredentials = true
     // state showing if dropdown is open or closed
     const [dropdown, setDropdown] = useState(false);
     // managing dropdown items (list of dropdown items)
@@ -45,8 +46,8 @@ function AddNewEventForm({ setIsHidden, isHidden }) {
     const NewEventFormData = useMutation((NewEventData) => {
         axios.post("https://reach-capstone.herokuapp.com/api/events", NewEventData).then(
             function () {
-                alert("You have Successfuly Signed Up");
-              }
+                setIsHidden(!isHidden)
+              },
         ).catch(function (error) {
             console.log(error)
             let isArray = Array.isArray(error.response.data.errors);
@@ -151,6 +152,10 @@ function AddNewEventForm({ setIsHidden, isHidden }) {
                                         placeholder='Zoom'
                                     />
                                 </div>
+                                <div className='mb-4'>
+                                <label className='text-gray-700 mb-2 block text-sm font-bold'>
+                                        Type
+                                    </label>
                                 <div className="autcomplete-wrapper">
         <div className="autcomplete">
         <div className="w-full flex flex-col items-center mx-auto">
@@ -210,7 +215,7 @@ function AddNewEventForm({ setIsHidden, isHidden }) {
     </div>: null }
     </div>
 </div>
-
+</div>
     </div>
         </div>
                                 <div className=''>
@@ -254,7 +259,7 @@ function AddNewEventForm({ setIsHidden, isHidden }) {
                                         description:formData.description,
                                         tags:selectedItems
                                     });
-                                    console.log(selectedItems)
+                                    console.log(NewEventFormData)
                                 }}
                             >
                                 Add Event
