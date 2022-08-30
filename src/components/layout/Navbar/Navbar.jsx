@@ -145,12 +145,12 @@ function Navbar() {
                 pendingApp={pendingApp}
                 setPendingApp={setPendingApp}
             />
-            <nav className=' z-20 mx-auto  items-center text-sm text-white md:flex md:h-16 md:w-9/12 md:justify-around md:bg-blue-dark '>
-                <div className='flex items-center justify-between '>
+            <nav className=' z-20 mx-auto items-center text-sm text-white md:flex md:h-16 md:w-9/12 md:justify-between md:bg-blue-dark '>
+                <div className='flex items-center justify-between  '>
                     <Link to='/'>
                         <img
                             src={logo}
-                            className='  mx-3 my-3 mb-0 h-20 pt-1 md:py-2 '
+                            className='  mx-3 my-3 mb-0 h-20 pt-1 md:py-2 md:pl-7'
                             alt='Reach Logo'
                         />
                     </Link>
