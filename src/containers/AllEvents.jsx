@@ -39,21 +39,16 @@ function AllEvents() {
     });
     useEffect(() => {
         let tagItems = events
-            .map((val) => {
-                return val.topic;
-            })
-            .reduce((acc, val) => [...acc, val], []);
+            .map((val) => val.tags)
+            .reduce((acc, val) => [...acc, ...val], []);
         setMenuTagItems([...new Set(tagItems.map((item) => item))]);
-
         setnum(1);
         setFilteredEvents(events);
         setShowMoreBtn(true);
     }, [events]);
 
     useEffect(() => {
-        const result = events.filter((event) => {
-            return event.topic.includes(tag);
-        });
+        const result = events.filter((event) => event.tags.includes(tag));
         setFilteredEvents(result);
         setShowMoreBtn(true);
         setnum(1);
@@ -77,9 +72,11 @@ function AllEvents() {
         setFilteredEvents(result);
         setShowMoreBtn(true);
     }, [location]);
+
     if (isLoading) return "Loading...";
 
     if (error) return "An error has occurred: " + error.message;
+    // console.log(menuTagItems);
 
     return (
         <>
