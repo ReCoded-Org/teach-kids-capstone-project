@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import VolunteerForm from "./VolunteerForm";
 import Axios from "axios";
 import SubmitConfirm from "./SubmitConfirm";
-import Events from "../../components/GlobalCarousel/Events/Events";
 
 import { getEvents } from "../../services/events.js";
 import { useQuery } from "@tanstack/react-query";
@@ -165,7 +164,7 @@ function VolunteerProfile({userId}) {
             </div>
             {/* down to here */}
 
-            <Events carouselHeader='Applied Events' events={events} />
+            
         </div>
     );
 }
