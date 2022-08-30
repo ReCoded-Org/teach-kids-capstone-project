@@ -53,7 +53,7 @@ function VolunteerProfile({userId}) {
         // }
         // end
 
-        Axios.post('//localhost:5000/upload', data)
+        Axios.patch('https://reach-capstone.herokuapp.com/api/profile', data)
             .then((response)=> {
                 alert('Success') // he adds the toast here and below 
 
@@ -164,7 +164,6 @@ function VolunteerProfile({userId}) {
             </div>
             {/* down to here */}
 
-            
         </div>
     );
 }
