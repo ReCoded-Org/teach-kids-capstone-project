@@ -11,16 +11,17 @@ function HeroSection() {
     return (
         <>
             <div className='area  mt-0 h-[62rem] sm:h-[54rem] md:h-[44rem]'>
-                <ul className='circles   mb-48 flex md:pt-24  lg:pt-16'>
-                    <section className='my-3   mx-auto grid w-11/12 grid-cols-1 py-8 md:my-4 md:w-9/12 md:grid-cols-2 md:px-12  md:pt-0 lg:pt-16 lg:pb-28'>
-                        <main className='row  md:mt-20 lg:mt-20'>
-                            <h1 className='my-4 mb-6 text-center  font-quicksand text-5xl font-semibold text-blue-dark md:text-start'>
+                <ul className='circles mb-48 flex md:pt-24  lg:pt-16'>
+                    <section className='mx-auto grid w-11/12 grid-cols-1 py-8 md:my-4 md:w-9/12 md:grid-cols-2 md:px-12  md:pt-0 lg:pt-4 lg:pb-20'>
+                        <main className='row md:mt-20 lg:mt-20'>
+                            <h1 className=' mb-6 text-center  font-quicksand text-8xl font-semibold text-blue-dark md:text-start'>
                                 {t("home.hero.title")}
                             </h1>
-                            <p className='my-6 mb-4 text-center font-SourceSansPro text-2xl leading-5 text-blue-dark md:text-start'>
-                                <span>{t("home.hero.description")}</span>
-                                <br />
+                            <h1 className='my-12 mb-4 text-center font-SourceSansPro text-2xl leading-5 font-bold tracking-wider text-blue-dark md:text-start md:text-4xl'>
+                                {t("home.hero.description")}
+                                </h1>
 
+                                <p className='my-6 mb-4 text-center font-SourceSansPro text-2xl leading-5 text-blue-dark md:text-start '>
                                 <span className='pt-6 text-lg'>
                                     {t("home.hero.description2")}
                                 </span>
@@ -44,11 +45,11 @@ function HeroSection() {
                                 </Link>
                             </div>
                         </main>
-                        <div className='flex h-96 justify-center p-2  md:my-auto md:mt-5 md:h-[35rem]  lg:place-items-end  lg:justify-end'>
+                        <div className='flex h-96 justify-center md:my-auto md:h-[35rem]  lg:place-items-end  lg:justify-end'>
                             <img
                                 src={logo}
-                                className='py-2 md:mb-16 lg:h-full'
-                                alt=''
+                                className='md:mb-4 lg:h-full'
+                                alt='Landing page graphic'
                             />
                         </div>
                     </section>

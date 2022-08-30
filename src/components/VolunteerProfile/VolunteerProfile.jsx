@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import VolunteerForm from "./VolunteerForm";
 import Axios from "axios";
 import SubmitConfirm from "./SubmitConfirm";
+import Events from "../../components/GlobalCarousel/Events/Events";
 
 import { getEvents } from "../../services/events.js";
 import { useQuery } from "@tanstack/react-query";
@@ -53,7 +54,7 @@ function VolunteerProfile({userId}) {
         // }
         // end
 
-        Axios.patch('https://reach-capstone.herokuapp.com/api/profile', data)
+        Axios.post('//localhost:5000/upload', data)
             .then((response)=> {
                 alert('Success') // he adds the toast here and below 
 
@@ -164,6 +165,7 @@ function VolunteerProfile({userId}) {
             </div>
             {/* down to here */}
 
+            <Events carouselHeader='Applied Events' events={events} />
         </div>
     );
 }
