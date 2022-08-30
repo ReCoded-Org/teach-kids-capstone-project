@@ -124,12 +124,12 @@ function Navbar() {
         "transform transition duration-500 ease-in-out block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out ";
     return (
         <div className='md:bg-blue-dark'>
-            <nav className='sticky top-0 z-100 items-center  text-sm text-white md:flex md:h-16 md:justify-around bg-blue-dark '>
-                <div className='flex items-center justify-between '>
+            <nav className=' z-20 mx-auto items-center text-sm text-white md:flex md:h-16 md:w-9/12 md:justify-between md:bg-blue-dark '>
+                <div className='flex items-center justify-between  '>
                     <Link to='/'>
                         <img
                             src={logo}
-                            className='  mx-3 my-3 mb-0 h-20 pt-1 md:py-2 '
+                            className='  mx-3 my-3 mb-0 h-20 pt-1 md:py-2 md:pl-7'
                             alt='Reach Logo'
                         />
                     </Link>

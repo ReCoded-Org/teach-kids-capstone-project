@@ -7,6 +7,7 @@ import { getEvents } from "../services/events.js";
 import { useQuery } from "@tanstack/react-query";
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
+import NewEvent from "../components/NewEvent/NewEvent";
 import BackToTopButton from "../components/BackToTopButton/BackToTopButton";
 
 
@@ -21,6 +22,7 @@ function AdminDashboard({ userId }) {
             <Navbar />
             <BackToTopButton />
             <AdminDashboardHeroSection userId={userId} />
+            <NewEvent />
             <Carousel carouselHeader='Previous Events' events={data.data} />
             <Footer />
         </>
