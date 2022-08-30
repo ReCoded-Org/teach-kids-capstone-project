@@ -15,6 +15,36 @@ function EditInfoForm() {
     const [info, setInfo] = useState([]);
     const [formValidation, setFormValidation] = useState(false);
     const [notfication, setNotification] = useState(false);
+    const [file, setFile] = useState(null) // for uploadig the photo
+
+    // Upload Functions START:
+
+  function onInputChange(e) {
+    // console.log(e.target.value);
+    // console.log(e.target.files);
+    setFile(e.target.files[0])
+}
+
+function handleSubmit(e) {
+    e.preventDefault();
+
+    const data = new FormData()
+
+    data.append('file', file)
+
+    axios.post('//localhost:5000/upload', data)
+        .then((response)=> {
+            alert('Success') // he adds the toast here and below 
+
+        })
+        .catch((e) => {
+            alert('Error', e)
+        })
+
+}
+
+// END
+
 
     function handleChange(e) {
         setInfo({ ...info, [e.target.name]: e.target.value });
@@ -127,6 +157,8 @@ function EditInfoForm() {
                                                 Select the Event Photo
                                             </label>
                                             <input
+                                                onChange={(e)=> onInputChange(e)}
+                                                accept="image/jpeg"
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
                                                 type='file'
                                                 placeholder=''
@@ -278,6 +310,7 @@ function EditInfoForm() {
                                             setShowModal(false);
                                             addComment.mutate(info);
                                             setNotification(true);
+                                            handleSubmit(e)
                                         }}
                                     >
                                         Save Changes
