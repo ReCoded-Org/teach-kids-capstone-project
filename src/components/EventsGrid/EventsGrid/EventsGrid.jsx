@@ -10,6 +10,7 @@ export default function EventsGrid({
     setShowMoreBtn,
     showMoreBtn,
 }) {
+    // const [number, setNumber] = useState(1);
     useEffect(() => {
         if (events.length <= (window.innerWidth > 770 ? 12 : 6)) {
             setShowMoreBtn(false);
@@ -32,6 +33,7 @@ export default function EventsGrid({
 
         setnum(++num);
     }
+    let number = 1;
 
     return (
         <div className='flex flex-col justify-end bg-white  '>
@@ -43,10 +45,13 @@ export default function EventsGrid({
                     {events
                         .slice(0, (window.innerWidth > 770 ? 12 : 6) * num)
                         ?.map((eventPost) => {
+                            number++;
+                            // setNumber(number + 1);
                             return (
                                 <EventCardGrid
                                     eventPost={eventPost}
                                     key={eventPost._id}
+                                    number={number}
                                 />
                             );
                         })}
