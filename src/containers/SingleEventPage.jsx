@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
+import BackToTopButton from "../components/BackToTopButton/BackToTopButton";
 
 function SingleEventPage() {
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
@@ -17,6 +18,7 @@ function SingleEventPage() {
     return (
         <>
             <Navbar />
+            <BackToTopButton />
             <SingleEventPageHeroSection />
             <Carousel carouselHeader='Related Events' events={data.data} />
             <Footer />

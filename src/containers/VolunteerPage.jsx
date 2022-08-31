@@ -1,6 +1,5 @@
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
-// import Carousel from "../components/GlobalCarousel/Events/Events";
 import VolunteerProfile from "../components/VolunteerProfile/VolunteerProfile";
 import React from "react";
 

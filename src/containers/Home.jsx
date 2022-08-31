@@ -13,6 +13,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
+import BackToTopButton from "../components/BackToTopButton/BackToTopButton";
 
 function Home() {
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
@@ -22,6 +23,7 @@ function Home() {
     return (
         <>
             <Navbar />
+            <BackToTopButton />
             <HeroSection />
             <AboutUs />
             <OurValues />

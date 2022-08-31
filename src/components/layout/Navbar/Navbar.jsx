@@ -141,7 +141,7 @@ function Navbar() {
                         className={
                             !isHidden
                                 ? animateMenu
-                                : " mx-4 my-5  flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full bg-blue-btn   text-white focus:outline-none md:hidden"
+                                : " mx-4 my-5  flex h-12 w-12 flex-col items-center justify-center gap-1.5 rounded-full bg-blue-dark   text-white focus:outline-none md:hidden"
                         }
                     >
                         <span

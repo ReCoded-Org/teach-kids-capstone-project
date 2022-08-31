@@ -8,6 +8,8 @@ import { useQuery } from "@tanstack/react-query";
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
 import NewEvent from "../components/NewEvent/NewEvent";
+import BackToTopButton from "../components/BackToTopButton/BackToTopButton";
+
 
 function AdminDashboard({ userId }) {
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
@@ -18,6 +20,7 @@ function AdminDashboard({ userId }) {
     return (
         <>
             <Navbar />
+            <BackToTopButton />
             <AdminDashboardHeroSection userId={userId} />
             <NewEvent />
             <Carousel carouselHeader='Previous Events' events={data.data} />
