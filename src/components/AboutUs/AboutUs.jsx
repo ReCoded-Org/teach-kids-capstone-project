@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "./AboutUs.css";
 import aboutUsOne from "src/assets/AboutUs-1.jpg";
-import aboutUsTwo from "src/assets/AboutUs-2.jpg";
+import aboutUsTwo from "src/assets/studying.jpg";
 import aboutUsThree from "src/assets/AboutUs-3.jpg";
 import SliderArrow from "./SliderArrow/SliderArrow";
 import { useTranslation } from "react-i18next";
@@ -26,7 +26,7 @@ function AboutUs() {
     const ImgMap = {
         aboutUsOne: aboutUsOne,
         aboutUsTwo: aboutUsTwo,
-        aboutUsThree: aboutUsTwo,
+        aboutUsThree: aboutUsThree,
     };
     let reverse = "flex-row";
     let reverse1 = "lg:text-left";
@@ -71,11 +71,11 @@ function AboutUs() {
                                             {/* Text Wrapper */}
                                             <div className=' mt-8 md:break-normal  lg:w-3/4  '>
                                                 <h1
-                                                    className={`pb-4 ${reverse1} px-4  font-SourceSansPro text-xl	 font-bold tracking-wider text-white  md:text-4xl`}
+                                                    className={`pb-4 ${reverse1} px-4 font-quicksand text-xl	 font-bold tracking-wider text-white  md:text-4xl`}
                                                 >
                                                     {item.title}
                                                 </h1>
-                                                <p className='px-4 pb-12 font-SourceSansPro text-lg text-white md:text-xl'>
+                                                <p className='px-4 pb-12 font-SourceSansPro font-medium text-lg text-white md:text-xl'>
                                                     {item.description}
                                                 </p>
                                             </div>
