@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
-const EventCard = ({ eventPost, org }) => {
+// import img from "./images/";
+const EventCard = ({ eventPost, org ,number}) => {
     return (
         <div className='relative mb-6 mt-16  w-full min-w-0 max-w-md break-words rounded-xl px-5 xl:max-w-2xl'>
             <div className='card-header mx-4 -mt-6'>
                 <Link to={`/event/${eventPost._id}`}>
-                    <img
-                        className='mx-auto w-auto   rounded-lg 	sm:h-56 md:h-56  xl:h-72'
-                        src={eventPost.image}
-                        alt={org}
+                <img
+                        className='	 mx-auto w-full rounded-lg sm:h-56 	md:h-56 xl:h-72 '
+                        src={require(`./images/1 (${number}).jpg`)}
+                        alt={eventPost.ngo.name}
                     />
                 </Link>
             </div>
