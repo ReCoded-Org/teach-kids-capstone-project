@@ -106,7 +106,7 @@ function SignIn() {
                 />
 
                 <div className='w-full pt-16 md:w-5/6 lg:w-1/3'>
-                    <h1 className=' font-heading pb-6 text-5xl font-bold text-gray'>
+                    <h1 className=' font-quicksand pb-6 text-5xl font-bold text-gray'>
                         Sign In
                     </h1>
                     <form

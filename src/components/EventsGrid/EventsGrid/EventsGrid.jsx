@@ -44,6 +44,7 @@ export default function EventsGrid({
                         ?.map((eventPost) => {
                             number++;
                             // setNumber(number + 1);
+                            if (number > 13) number = 1
                             return (
                                 <EventCardGrid
                                     eventPost={eventPost}

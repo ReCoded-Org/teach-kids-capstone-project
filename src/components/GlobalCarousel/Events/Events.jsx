@@ -42,7 +42,7 @@ export default function Events({ carouselHeader, events}) {
     };
     let number = 1;
     return (
-        <div className='diagonal-box flex flex-col items-center bg-white pb-20 text-blue-light'>
+        <div className='diagonal-box flex flex-col items-center bg-white mb-8 mt-7 pb-20 text-blue-light'>
             <div className='content mx-auto  md:w-9/12  '>
                 <h1 className='text-blue-light-400 mt-14 py-6 text-center font-quicksand text-5xl font-bold '>
                     {carouselHeader}
