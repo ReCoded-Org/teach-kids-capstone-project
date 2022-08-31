@@ -6,10 +6,14 @@ import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+
+import NewEvent from "../components/NewEvent/NewEvent";
+
 import BackToTopButton from "../components/BackToTopButton/BackToTopButton";
 
 
 function AllEvents() {
+    console.log(localStorage.getItem("userType"))
     const [events, setEvents] = useState([]);
     const [filteredEvents, setFilteredEvents] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -19,13 +23,18 @@ function AllEvents() {
 
     const [menuTagItems, setMenuTagItems] = useState([]);
     const [tag, setTag] = useState(null);
-
-    //
+   
 
     const [menuLocationItems, setMenuLocationItems] = useState([]);
     const [location, setLocation] = useState(null);
 
     //
+    let isLoggedAsNgoEvent=false;
+    //
+    if(localStorage.getItem("userType") === "Ngo"){
+        console.log(localStorage.getItem("userType"))
+        isLoggedAsNgoEvent=true
+    }
 
     const fetchData = async () => {
         const { data } = await axios.get(
@@ -97,6 +106,7 @@ function AllEvents() {
                 setShowMoreBtn={setShowMoreBtn}
                 showMoreBtn={showMoreBtn}
             />
+            {isLoggedAsNgoEvent ?(<NewEvent isLoggedAsNgoEvent={isLoggedAsNgoEvent} />):(<></>)}
             <Footer />
         </>
     );
