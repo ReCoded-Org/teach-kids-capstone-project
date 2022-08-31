@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "./Values.css";
 import volunteerPic from "src/assets/volunteer.jpg";
-import teachPic from "src/assets/Teach.jpg";
+import teachPic from "src/assets/ourValues.jpg";
 import trustPic from "src/assets/Trust.jpg";
 import SliderArrow from "./SliderArrow/SliderArrow";
 
@@ -25,8 +25,8 @@ function OurValues() {
     const [t] = useTranslation();
     const ImgMap = {
         volunteerPic: volunteerPic,
-        teachPic: teachPic,
         trustPic: trustPic,
+        teachPic: teachPic,
     };
     let reverse = "flex-row";
     let reverse1 = "lg:text-left";
@@ -69,7 +69,7 @@ function OurValues() {
                                                 >
                                                     {item.title}
                                                 </h1>
-                                                <p className='pb-12 font-SourceSansPro text-lg text-blue-dark md:text-xl'>
+                                                <p className='pb-12 font-SourceSansPro font-bold text-lg text-blue-dark md:text-xl'>
                                                     {item.description}
                                                 </p>
                                             </div>

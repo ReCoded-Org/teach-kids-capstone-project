@@ -1,6 +1,7 @@
 import React from "react";
 import "../../App.css";
-import logo from "../../assets/landing_page 1.png";
+//import logo from "../../assets/landing_page 1.png";
+import logo from "../../assets/herosction.png"
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import "./style.css";
@@ -17,7 +18,7 @@ function HeroSection() {
                             <h1 className=' mb-6 text-center  font-quicksand text-8xl font-semibold text-blue-dark md:text-start'>
                                 {t("home.hero.title")}
                             </h1>
-                            <h1 className='my-12 mb-4 text-center font-SourceSansPro text-2xl font-bold leading-5 tracking-wider text-blue-dark md:text-start md:text-4xl'>
+                            <h1 className='my-12 mb-4 text-center font-quicksand text-2xl font-bold leading-5 tracking-wider text-blue-dark md:text-start md:text-4xl'>
                                 {t("home.hero.description")}
                             </h1>
 
