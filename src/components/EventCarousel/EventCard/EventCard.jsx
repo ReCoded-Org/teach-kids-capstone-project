@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 // import img from "./images/";
 const EventCard = ({ eventPost, number }) => {
-    console.log(eventPost);
     return (
         <div className='relative mx-auto mb-6 mt-16 flex w-full  min-w-0 max-w-md flex-col justify-center break-words rounded-xl px-5 xl:max-w-2xl'>
             <div className='card-header mx-4 -mt-6 	'>

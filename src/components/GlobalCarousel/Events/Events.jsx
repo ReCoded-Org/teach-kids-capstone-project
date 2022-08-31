@@ -40,20 +40,24 @@ export default function Events({ carouselHeader, events }) {
             },
         ],
     };
+    let number = 1;
 
     return (
-        <div className='diagonal-box -mt-6 flex flex-col bg-white pb-20 text-blue-light'>
-            <div className='content'>
+        <div className='  diagonal-box flex flex-col items-center bg-white pb-20 text-blue-light'>
+            <div className='content mx-auto  md:w-9/12'>
                 <h1 className='text-blue-light-400 mt-14 py-6 text-center font-quicksand text-5xl font-bold '>
                     {carouselHeader}
                 </h1>
                 <Slider {...settings}>
                     {events.map((eventPost) => {
+                        number++;
+                        number > 4 ? (number = 1) : (number = number);
                         return (
                             <EventCard
                                 eventPost={eventPost}
                                 key={eventPost.id}
                                 org={eventPost.ngo.name}
+                                number={number}
                             />
                         );
                     })}
