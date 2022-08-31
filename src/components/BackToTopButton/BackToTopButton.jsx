@@ -27,8 +27,8 @@ export default function BackToTopButton() {
         className='p-2 z-100 border-2 border-[#F05454] rounded-full bg-[#F05454]'
         style={{
           position: "fixed",
-          bottom: "40px",
-          right: "30px",
+          bottom: "120px",
+          right: "27px",
           height: "40px",
           width: "40px"
         }}
