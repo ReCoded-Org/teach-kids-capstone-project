@@ -98,17 +98,17 @@ function SingleEventPageHeroSection() {
                             </li>
                             <li>Date: {info.launchDate.slice(0, 10)}</li>
                             <li>Topic: {info.topic}</li>
-                            <li>Website: www.helloworld.com</li>
-                            <li>Phone: +90 535 898 54 45</li>
+                            {/* <li>Website: www.helloworld.com</li>
+                            <li>Phone: +90 535 898 54 45</li> */}
                         </ul>
                     </div>
                     <div className='row2 my-4 grid text-justify'>
-                        <p className='text-md my-2 font-semibold  text-blue-dark'>
+                        <p className='text-md my-2 font-SourceSansPro font-semibold  text-blue-dark'>
                             {info.description}
                         </p>
                         <a
                             href='#'
-                            className='font-blue-light mx-4 mt-2 mb-4 justify-self-end font-semibold'
+                            className=' text-blue-dark mx-4 mt-2 mb-4 justify-self-end font-SourceSansPro'
                         >
                             Read more ...
                         </a>
@@ -117,7 +117,7 @@ function SingleEventPageHeroSection() {
                         <button
                             // onClick={() => addComment.mutate(info)}
                             href=''
-                            className='mw-40 w-36 border border-blue-btn bg-blue-btn  p-1.5 font-semibold text-white  duration-300 ease-linear hover:rounded  hover:border-blue-btn hover:bg-transparent hover:bg-red hover:text-white  hover:shadow md:w-44'
+                            className='mw-40 w-36 border border-blue-btn bg-blue-btn  p-1.5 font-SourceSansPro text-white  duration-300 ease-linear hover:rounded  hover:border-blue-btn hover:bg-transparent hover:bg-red hover:text-white  hover:shadow md:w-44'
                         >
                             Apply
                         </button>
