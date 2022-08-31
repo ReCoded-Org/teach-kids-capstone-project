@@ -11,6 +11,7 @@ import BackToTopButton from "../components/BackToTopButton/BackToTopButton";
 
 
 function NgoProfilePage() {
+    let isLoggedAsNgoEvent=false
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
 
     if (isLoading) return "Loading...";
@@ -21,7 +22,7 @@ function NgoProfilePage() {
             <Navbar />
             <BackToTopButton />
             <NgoProfilePageHeroSection />
-            <NewEvent />
+            <NewEvent isLoggedAsNgoEvent={isLoggedAsNgoEvent} />
             <GlobalCarousel carouselHeader='Previous Events' events={data} />
             <GlobalCarousel
                 carouselHeader='Previous Events'
