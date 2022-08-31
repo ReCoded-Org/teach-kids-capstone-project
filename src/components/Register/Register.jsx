@@ -30,7 +30,7 @@ function Register() {
                 className='flex flex-col items-center p-24'
                 onSubmit={handleSubmit}
             >
-                <h1 className='pb-6 font-quicksand text-base font-bold text-gray md:text-xl'>
+                <h1 className='pb-12 font-quicksand text-xl font-bold text-white md:text-3xl'>
                     Would you like to sign up as a:
                 </h1>
                 <div className='flex items-center justify-evenly '>
@@ -47,7 +47,7 @@ function Register() {
                             />
                         </button>
                     </div>
-                    <h4 className='pl-6 pr-6 font-quicksand text-xl font-bold text-gray'>
+                    <h4 className='pl-6 pr-6 font-quicksand text-xl font-bold text-white'>
                         or
                     </h4>
                     <div className="hover:scale-110">
@@ -64,7 +64,7 @@ function Register() {
                         </button>
                     </div>
                 </div>
-                <p className='flex flex-row pt-6 font-quicksand text-base font-bold text-gray md:text-xl'>
+                <p className='flex flex-row pt-12 font-quicksand text-base font-bold text-white md:text-xl'>
                     Already have an account?
                     <Link to='/sign-in'>
                         <p className='pl-2 text-red md:hover:scale-110'>
@@ -73,7 +73,7 @@ function Register() {
                     </Link>
                 </p>
                 <button
-                    className='mt-4 h-12 w-72 rounded bg-red font-quicksand text-base font-bold text-gray md:text-xl md:hover:scale-105'
+                    className='mt-4 h-12 w-5/6 md:w-72 rounded bg-red font-quicksand text-base font-bold text-white md:text-xl md:hover:scale-105'
                     ><Link to="/sign-up" state={formData.Option}>
                     Next Step
                   </Link>

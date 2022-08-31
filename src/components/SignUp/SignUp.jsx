@@ -49,16 +49,16 @@ function SignUp() {
         });
     });
     return (
-        <div className=' bg-blue-dark'>
+        <div className=' bg-blue-dark h-screen w-full'>
             <Navbar />
             <div className='flex w-full justify-evenly p-20'>
                 <img
                     src={signup}
                     alt={"a drawing of a young woman working on her desk"}
-                    className='lg:6/12 w-0 md:w-6/12 object-contain'
+                    className='w-0 object-contain md:w-0 lg:w-1/3'
                 />
 
-                <div className='w-full md:w-4/12'>
+                <div className='w-full md:w-5/6 lg:w-1/3'>
                     <h1 className=' pb-5 font-quicksand text-4xl font-bold text-gray'>
                         Sign Up
                     </h1>

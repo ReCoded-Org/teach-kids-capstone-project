@@ -94,7 +94,7 @@ function SignIn() {
             });
     });
     return (
-        <div className=' bg-blue-dark'>
+        <div className=' bg-blue-dark h-screen w-full'>
             <Navbar />
             <div className='flex w-full content-center justify-evenly bg-blue-dark p-24'>
                 <img
@@ -102,10 +102,10 @@ function SignIn() {
                     alt={
                         "a drawing of a little boy in a classroom raising his hand"
                     }
-                    className='lg:6/12 w-0 object-contain md:w-6/12'
+                    className='w-0 object-contain md:w-0 lg:w-1/3 '
                 />
 
-                <div className='w-full pt-16 md:w-4/12'>
+                <div className='w-full pt-16 md:w-5/6 lg:w-1/3'>
                     <h1 className=' font-heading pb-6 text-5xl font-bold text-gray'>
                         Sign In
                     </h1>
