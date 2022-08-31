@@ -8,8 +8,8 @@ const EventCardGrid = ({ eventPost, org, number }) => {
         name = "Null";
     }
     return (
-        <div className='   relative mb-6 mt-16 w-full min-w-0 max-w-md break-words rounded-lg px-5 pb-6 shadow-lg xl:max-w-md'>
-            <div className='card-header  mx-4 -mt-6'>
+        <div className='group relative mb-6 w-full min-w-0 max-w-md break-words rounded-lg px-5 pb-6 pt-12 xl:max-w-md hover:bg-blue-light' >
+            <div className='card-header  mx-4 -mt-6 '>
                 <Link to={`/event/${eventPost._id}`}>
                     <img
                         className='h-48 w-full rounded-lg md:h-60'
@@ -20,15 +20,15 @@ const EventCardGrid = ({ eventPost, org, number }) => {
             </div>
             <div className='flex flex-col'>
                 <a href='#'>
-                    <h2 className='mt-2 text-center text-lg font-bold uppercase text-black'>
+                    <h2 className='mt-2 text-center text-lg font-bold font-quicksand uppercase text-black group-hover:text-white dark:text-white'>
                         {eventPost.title}
                     </h2>
                 </a>
-                <p className='mb-4 text-center text-black opacity-60'>
+                <p className='mb-4 text-center text-black opacity-60 font-SourceSansPro group-hover:text-white dark:text-white'>
                     {eventPost.location}
                 </p>
                 <a href='#'>
-                    <h4 className='mb-3 truncate text-center font-semibold uppercase text-black'>
+                    <h4 className='mb-3 truncate text-center font-SourceSansPro  uppercase text-black group-hover:text-white dark:text-white'>
                         {eventPost.tags[0]} | {eventPost.tags[1]}
                     </h4>
                 </a>
@@ -37,7 +37,7 @@ const EventCardGrid = ({ eventPost, org, number }) => {
                         {eventPost.createdAt.slice(0, 10)}
                     </p>
                     <button
-                        className='button w-30 flex grow-0 flex-row justify-center justify-self-end rounded-md bg-blue-light p-2'
+                        className='button w-30 flex grow-0 flex-row justify-center justify-self-end rounded-md bg-blue-light p-2 group-hover:bg-red dark:bg-red'
                         data-ripple-light='true'
                     >
                         <p className='ml-3 text-white'>Read More</p>

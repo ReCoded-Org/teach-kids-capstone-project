@@ -38,9 +38,6 @@ export default function EventsGrid({
     return (
         <div className='flex flex-col justify-end bg-white  '>
             <div className='m-auto flex w-11/12 flex-col items-center justify-center'>
-                <h1 className='mt-14 text-center font-quicksand text-4xl font-bold text-black'>
-                    Our Events
-                </h1>
                 <div className='  grid gap-4 md:grid-cols-2 lg:grid-cols-3  '>
                     {events
                         .slice(0, (window.innerWidth > 770 ? 12 : 6) * num)
