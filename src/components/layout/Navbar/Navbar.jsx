@@ -8,6 +8,7 @@ import { NavLink, Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { HashLink } from "react-router-hash-link";
 import { func } from "prop-types";
+import PendingForm from "./PendingForm";
 
 const LANG_SPECS = [
     {
@@ -21,11 +22,13 @@ const LANG_SPECS = [
 ];
 function Navbar() {
     let NavType = localStorage.getItem("NavType");
+    let userId = localStorage.getItem("userId");
     const [t, i18n] = useTranslation();
     const [isHidden, setIsHidden] = useState(true);
     const [lang, setlang] = useState(true);
     const [Profile, setProfile] = useState(true);
     const [showModal, setShowModal] = useState(NavType);
+    const [pendingApp, setPendingApp] = useState(false);
     function setProfileType() {
         if (localStorage.getItem("userType") === "Ngo") {
             return "/ngo-admin";
@@ -91,6 +94,19 @@ function Navbar() {
                             Profile
                         </a>
                     </li>
+                    {localStorage.getItem("userType") === "Ngo" ? (
+                        <li>
+                            <span
+                                onClick={() => setPendingApp(true)}
+                                className='block py-0.5 px-2 hover:bg-blue-dark'
+                            >
+                                Pending Application
+                                <span className='ml-3 inline-block h-2 w-2 rounded-full bg-blue-dark'></span>
+                            </span>
+                        </li>
+                    ) : (
+                        ""
+                    )}
                     <li>
                         <a
                             onClick={() => setSignOut()}
@@ -124,6 +140,11 @@ function Navbar() {
         "transform transition duration-500 ease-in-out block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out ";
     return (
         <div className='md:bg-blue-dark'>
+            <PendingForm
+                userId={userId}
+                pendingApp={pendingApp}
+                setPendingApp={setPendingApp}
+            />
             <nav className=' z-20 mx-auto items-center text-sm text-white md:flex md:h-16 md:w-9/12 md:justify-between md:bg-blue-dark '>
                 <div className='flex items-center justify-between  '>
                     <Link to='/'>

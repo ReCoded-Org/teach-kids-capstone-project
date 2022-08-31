@@ -19,7 +19,7 @@ function Home() {
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
     if (isLoading) return "Loading...";
     if (error) return "An error has occurred: " + error.message;
-
+    console.log(localStorage.getItem("userId"));
     return (
         <>
             <Navbar />
