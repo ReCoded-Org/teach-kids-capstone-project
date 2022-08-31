@@ -13,15 +13,17 @@ import { useQuery } from "@tanstack/react-query";
 
 import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
+import BackToTopButton from "../components/BackToTopButton/BackToTopButton";
 
 function Home() {
     const { isLoading, error, data } = useQuery(["events"], () => getEvents());
     if (isLoading) return "Loading...";
     if (error) return "An error has occurred: " + error.message;
-
+    console.log(localStorage.getItem("userId"));
     return (
         <>
             <Navbar />
+            <BackToTopButton />
             <HeroSection />
             <AboutUs />
             <OurValues />

@@ -6,7 +6,11 @@ import Navbar from "../components/layout/Navbar/Navbar";
 import Footer from "../components/layout/Footer/Footer";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+
 import NewEvent from "../components/NewEvent/NewEvent";
+
+import BackToTopButton from "../components/BackToTopButton/BackToTopButton";
+
 
 function AllEvents() {
     console.log(localStorage.getItem("userType"))
@@ -46,21 +50,16 @@ function AllEvents() {
     });
     useEffect(() => {
         let tagItems = events
-            .map((val) => {
-                return val.topic;
-            })
-            .reduce((acc, val) => [...acc, val], []);
+            .map((val) => val.tags)
+            .reduce((acc, val) => [...acc, ...val], []);
         setMenuTagItems([...new Set(tagItems.map((item) => item))]);
-
         setnum(1);
         setFilteredEvents(events);
         setShowMoreBtn(true);
     }, [events]);
 
     useEffect(() => {
-        const result = events.filter((event) => {
-            return event.topic.includes(tag);
-        });
+        const result = events.filter((event) => event.tags.includes(tag));
         setFilteredEvents(result);
         setShowMoreBtn(true);
         setnum(1);
@@ -84,14 +83,16 @@ function AllEvents() {
         setFilteredEvents(result);
         setShowMoreBtn(true);
     }, [location]);
+
     if (isLoading) return "Loading...";
 
     if (error) return "An error has occurred: " + error.message;
+    // console.log(menuTagItems);
 
     return (
         <>
             <Navbar />
-
+            <BackToTopButton />
             <FilterEvents
                 menuTagItems={menuTagItems}
                 setTag={setTag}
@@ -105,7 +106,7 @@ function AllEvents() {
                 setShowMoreBtn={setShowMoreBtn}
                 showMoreBtn={showMoreBtn}
             />
-            {isLoggedAsNgoEvent ?(<NewEvent />):(<></>)}
+            {isLoggedAsNgoEvent ?(<NewEvent isLoggedAsNgoEvent={isLoggedAsNgoEvent} />):(<></>)}
             <Footer />
         </>
     );

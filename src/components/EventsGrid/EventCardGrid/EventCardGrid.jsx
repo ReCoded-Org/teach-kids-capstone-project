@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-
-const EventCardGrid = ({ eventPost, org }) => {
+const EventCardGrid = ({ eventPost, org, number }) => {
     let name = "";
     try {
         name = eventPost.ngo.name;
@@ -9,12 +8,12 @@ const EventCardGrid = ({ eventPost, org }) => {
         name = "Null";
     }
     return (
-        <div className='relative mb-6 mt-16 w-full min-w-0 max-w-md break-words rounded-xl px-5 xl:max-w-md'>
-            <div className='card-header mx-4 -mt-6'>
+        <div className='   relative mb-6 mt-16 w-full min-w-0 max-w-md break-words rounded-lg px-5 pb-6 shadow-lg xl:max-w-md'>
+            <div className='card-header  mx-4 -mt-6'>
                 <Link to={`/event/${eventPost._id}`}>
                     <img
-                        className='w-auto rounded-lg'
-                        src={eventPost.avatar}
+                        className='h-48 w-full rounded-lg md:h-60'
+                        src={require(`./images/1 (${number}).jpg`)}
                         alt={org}
                     />
                 </Link>
@@ -22,20 +21,20 @@ const EventCardGrid = ({ eventPost, org }) => {
             <div className='flex flex-col'>
                 <a href='#'>
                     <h2 className='mt-2 text-center text-lg font-bold uppercase text-black'>
-                        {name}
+                        {eventPost.title}
                     </h2>
                 </a>
                 <p className='mb-4 text-center text-black opacity-60'>
                     {eventPost.location}
                 </p>
                 <a href='#'>
-                    <h4 className='mb-3 text-center font-semibold text-black'>
-                        {eventPost.topic}
+                    <h4 className='mb-3 truncate text-center font-semibold uppercase text-black'>
+                        {eventPost.tags[0]} | {eventPost.tags[1]}
                     </h4>
                 </a>
                 <div className='flex rounded-md bg-gray'>
                     <p className='ml-2 grow pt-1.5 opacity-60'>
-                        {eventPost.date}
+                        {eventPost.createdAt.slice(0, 10)}
                     </p>
                     <button
                         className='button w-30 flex grow-0 flex-row justify-center justify-self-end rounded-md bg-blue-light p-2'

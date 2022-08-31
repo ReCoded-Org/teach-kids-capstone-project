@@ -12,11 +12,12 @@ function Register() {
         Option: "",
     });
 
-    function handleChange(event) {
+    const handleChange = event => {
+        event.currentTarget.classList.toggle('scale-110');
         const name = event.currentTarget.name;
         let id = event.currentTarget.id;
         setFormData({ [name]: id });
-    }
+    };
     console.log(formData.Option)
     function handleSubmit(event) {
         event.preventDefault(); 
@@ -32,8 +33,8 @@ function Register() {
                 <h1 className='pb-6 font-quicksand text-base font-bold text-gray md:text-xl'>
                     Would you like to sign up as a:
                 </h1>
-                <div className='flex items-center justify-evenly'>
-                    <div>
+                <div className='flex items-center justify-evenly '>
+                    <div className="hover:scale-110">
                         <button
                             id='volunteer'
                             name='Option'
@@ -49,7 +50,7 @@ function Register() {
                     <h4 className='pl-6 pr-6 font-quicksand text-xl font-bold text-gray'>
                         or
                     </h4>
-                    <div>
+                    <div className="hover:scale-110">
                         <button
                             id='ngo'
                             name='Option'
