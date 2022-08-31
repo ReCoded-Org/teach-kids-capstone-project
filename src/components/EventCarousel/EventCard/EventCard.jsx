@@ -1,15 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import img from "../../../assets/AboutUs-1.jpg";
-
-const EventCard = ({ eventPost }) => {
+// import img from "./images/";
+const EventCard = ({ eventPost, number }) => {
+    console.log(eventPost);
     return (
         <div className='relative mx-auto mb-6 mt-16 flex w-full  min-w-0 max-w-md flex-col justify-center break-words rounded-xl px-5 xl:max-w-2xl'>
             <div className='card-header mx-4 -mt-6 	'>
                 <Link to={`/event/${eventPost._id}`}>
                     <img
                         className='	 mx-auto w-full rounded-lg sm:h-56 	md:h-56 xl:h-72 '
-                        src={img}
+                        src={require(`./images/1 (${number}).jpg`)}
                         alt={eventPost.ngo.name}
                     />
                 </Link>
@@ -17,20 +17,20 @@ const EventCard = ({ eventPost }) => {
             <div className='flex  flex-col font-SourceSansPro'>
                 <a href='#'>
                     <h2 className=' mt-2 h-8 truncate text-center text-lg font-bold uppercase text-white'>
-                        {eventPost.ngo.name}
+                        {eventPost.title}
                     </h2>
                 </a>
-                <p className='mb-4 text-center uppercase text-white opacity-60'>
+                <p className='mb-2 text-center uppercase text-white opacity-60'>
                     {eventPost.location}
                 </p>
                 <a href='#'>
-                    <h4 className='mb-3 h-8 truncate text-center font-semibold uppercase text-white'>
-                        {eventPost.title}
+                    <h4 className='mb-3 h-8 truncate text-center  uppercase text-white'>
+                        {eventPost.tags[0]} | {eventPost.tags[1]}
                     </h4>
                 </a>
                 <div className='flex rounded-md bg-white'>
                     <p className='ml-2 h-fit grow truncate pt-1.5 opacity-60'>
-                        {eventPost.date}
+                        {eventPost.launchDate.slice(0, 10)}
                     </p>
                     <button
                         className='button w-30 flex h-fit grow-0 transform flex-row justify-center justify-self-end truncate rounded-md border-2 border-blue-dark bg-blue-dark p-2 text-white duration-300 ease-linear hover:bg-blue-light hover:font-bold hover:text-blue-dark hover:shadow'

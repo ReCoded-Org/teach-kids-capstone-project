@@ -14,44 +14,42 @@ function EditInfoForm({ userId }) {
     const [info, setInfo] = useState([]);
     const [formValidation, setFormValidation] = useState(false);
     const [notfication, setNotification] = useState(false);
-    const [eventImage, setEventImage] = useState(null) // for uploadig the photo
-    const [profileImage, setProfileImage] = useState(null) // for uploadig the photo
+    const [eventImage, setEventImage] = useState(null); // for uploadig the photo
+    const [profileImage, setProfileImage] = useState(null); // for uploadig the photo
 
     // Upload Functions START:
 
-  function onInputChange1(e) {
-    // console.log(e.target.value);
-    // console.log(e.target.files);
-    setEventImage(e.target.files[0])
-}
+    function onInputChange1(e) {
+        // console.log(e.target.value);
+        // console.log(e.target.files);
+        setEventImage(e.target.files[0]);
+    }
     function onInputChange2(e) {
         // console.log(e.target.value);
         // console.log(e.target.files);
-        setProfileImage(e.target.files[0])
-}
+        setProfileImage(e.target.files[0]);
+    }
 
-function handleSubmit(e) {
-    e.preventDefault();
+    function handleSubmit(e) {
+        e.preventDefault();
 
-    const data = new FormData()
+        const data = new FormData();
 
+        data.append("file", eventImage);
+        data.append("file", profileImage);
+        alert("data", data);
 
-    data.append('file', eventImage)
-    data.append('file', profileImage)
-    alert('data', data)
+        axios
+            .post("//localhost:5000/upload", data)
+            .then((response) => {
+                alert("Success"); // he adds the toast here and below
+            })
+            .catch((e) => {
+                alert("Error", e);
+            });
+    }
 
-    axios.post('//localhost:5000/upload', data)
-        .then((response)=> {
-            alert('Success') // he adds the toast here and below 
-
-        })
-        .catch((e) => {
-            alert('Error', e)
-        })
-
-}
-
-// END
+    // END
 
     function handleChange(e) {
         setInfo({ ...info, [e.target.name]: e.target.value });
@@ -73,7 +71,10 @@ function handleSubmit(e) {
                     return axios
                         .patch(
                             `https://reach-capstone.herokuapp.com/api/profile`,
-                            newComment
+                            newComment,
+                            {
+                                withCredentials: true,
+                            }
                         )
                         .then(function (res) {
                             console.log(res);
@@ -182,8 +183,10 @@ function handleSubmit(e) {
                                                 Select the Event Photo
                                             </label>
                                             <input
-                                                accept="image/jpeg"
-                                                onChange={(e)=> onInputChange1(e)}
+                                                accept='image/jpeg'
+                                                onChange={(e) =>
+                                                    onInputChange1(e)
+                                                }
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
                                                 type='file'
                                                 placeholder=''
@@ -194,8 +197,10 @@ function handleSubmit(e) {
                                                 Select Profile Photo
                                             </label>
                                             <input
-                                                accept="image/jpeg"
-                                                onChange={(e)=> onInputChange2(e)}
+                                                accept='image/jpeg'
+                                                onChange={(e) =>
+                                                    onInputChange2(e)
+                                                }
                                                 className='text-gray-700 focus:shadow-outline w-full appearance-none rounded border py-2 px-3 leading-tight shadow focus:outline-none'
                                                 type='file'
                                                 placeholder=''
@@ -316,9 +321,8 @@ function handleSubmit(e) {
                                                     minLength='50'
                                                     name='message'
                                                     onChange={(e) => {
-                                                        handleChange(e)
-                                                    }
-                                                    }
+                                                        handleChange(e);
+                                                    }}
                                                     className='
                             form-control text-gray-700 border-gray-300 focus:text-gray-700 m-0 block w-full rounded border border-solid bg-white bg-clip-padding px-3 py-1.5 text-base font-normal transition
                             ease-in-out focus:border-blue-600 focus:bg-white focus:outline-none
@@ -348,7 +352,7 @@ function handleSubmit(e) {
                                             setShowModal(false);
                                             addComment.mutate(info);
                                             setNotification(true);
-                                            handleSubmit(e)
+                                            handleSubmit(e);
                                         }}
                                     >
                                         Save Changes

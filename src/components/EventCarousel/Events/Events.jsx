@@ -43,7 +43,7 @@ export default function Events({ carouselHeader, events }) {
     };
 
     const [t] = useTranslation();
-
+    let number = 1;
     return (
         <div className='diagonal-box flex flex-col items-center bg-blue-light'>
             <div className='content mx-auto  md:w-9/12  '>
@@ -52,10 +52,13 @@ export default function Events({ carouselHeader, events }) {
                 </h1>
                 <Slider {...settings}>
                     {events.map((eventPost) => {
+                        number++;
+                        number > 4 ? (number = 1) : (number = number);
                         return (
                             <EventCard
                                 eventPost={eventPost}
                                 key={eventPost.id}
+                                number={number}
                             />
                         );
                     })}

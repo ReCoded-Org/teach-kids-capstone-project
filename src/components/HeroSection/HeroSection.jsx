@@ -17,11 +17,11 @@ function HeroSection() {
                             <h1 className=' mb-6 text-center  font-quicksand text-8xl font-semibold text-blue-dark md:text-start'>
                                 {t("home.hero.title")}
                             </h1>
-                            <h1 className='my-12 mb-4 text-center font-SourceSansPro text-2xl leading-5 font-bold tracking-wider text-blue-dark md:text-start md:text-4xl'>
+                            <h1 className='my-12 mb-4 text-center font-SourceSansPro text-2xl font-bold leading-5 tracking-wider text-blue-dark md:text-start md:text-4xl'>
                                 {t("home.hero.description")}
-                                </h1>
+                            </h1>
 
-                                <p className='my-6 mb-4 text-center font-SourceSansPro text-2xl leading-5 text-blue-dark md:text-start '>
+                            <p className='my-6 mb-4 text-center font-SourceSansPro text-2xl leading-5 text-blue-dark md:text-start '>
                                 <span className='pt-6 text-lg'>
                                     {t("home.hero.description2")}
                                 </span>
