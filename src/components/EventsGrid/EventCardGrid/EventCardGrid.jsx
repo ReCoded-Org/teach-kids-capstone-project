@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import "./style.css";
 const EventCardGrid = ({ eventPost, org, number }) => {
     let name = "";
     try {
@@ -8,9 +7,8 @@ const EventCardGrid = ({ eventPost, org, number }) => {
     } catch {
         name = "Null";
     }
-    console.log(eventPost);
     return (
-        <div className='cardEffect relative mb-6 mt-16 w-full min-w-0 max-w-md break-words rounded-xl px-5 pb-6 shadow-lg xl:max-w-md'>
+        <div className='   relative mb-6 mt-16 w-full min-w-0 max-w-md break-words rounded-lg px-5 pb-6 shadow-lg xl:max-w-md'>
             <div className='card-header  mx-4 -mt-6'>
                 <Link to={`/event/${eventPost._id}`}>
                     <img

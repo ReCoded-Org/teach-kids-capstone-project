@@ -43,7 +43,7 @@ function Navbar() {
         return "/";
     }
     const ProfileModel = () => (
-        <div className='relative right-6 top-2.5 z-20 hidden  items-center rounded  focus:border-0  sm:text-lg md:block'>
+        <div className='navPos relative right-6 top-2.5 z-20 hidden  items-center rounded  focus:border-0  sm:text-lg md:block'>
             <button
                 onClick={() => setProfile(!Profile)}
                 type='button'
@@ -139,13 +139,13 @@ function Navbar() {
     const animateSpan =
         "transform transition duration-500 ease-in-out block h-0.5 w-5 transform bg-current transition duration-500 ease-in-out ";
     return (
-        <div className='md:bg-blue-dark'>
+        <div className='sticky top-0 z-100 md:bg-blue-dark'>
             <PendingForm
                 userId={userId}
                 pendingApp={pendingApp}
                 setPendingApp={setPendingApp}
             />
-            <nav className=' z-20 mx-auto items-center text-sm text-white md:flex md:h-16 md:w-9/12 md:justify-between md:bg-blue-dark '>
+            <nav className='   z-20 mx-auto items-center text-sm text-white md:flex md:h-16 md:w-9/12 md:justify-between md:bg-blue-dark '>
                 <div className='flex items-center justify-between  '>
                     <Link to='/'>
                         <img
