@@ -15,27 +15,27 @@ const EventCard = ({ eventPost, org ,number}) => {
             </div>
             <div className='flex flex-col'>
                 <a href='#'>
-                    <h2 className='text-SourceSansPro mt-2 h-8 truncate text-center text-lg font-semibold text-black'>
-                        {org}
+                    <h2 className='mt-2 text-center text-lg font-bold font-quicksand uppercase text-black group-hover:text-white dark:text-white'>
+                        {eventPost.title}
                     </h2>
                 </a>
-                <p className='mb-4 text-center  text-black '>
+                <p className='mb-4 text-center text-black opacity-60 font-SourceSansPro group-hover:text-white dark:text-white'>
                     {eventPost.location}
                 </p>
                 <a href='#'>
-                    <h4 className='text-blue-light-400 mb-3 h-8 truncate text-center font-semibold '>
-                        {eventPost.title}
+                    <h4 className='mb-3 truncate text-center font-SourceSansPro  uppercase text-black group-hover:text-white dark:text-white'>
+                        {eventPost.tags[0]} | {eventPost.tags[1]}
                     </h4>
                 </a>
-                <div className='flex rounded-md bg-white'>
-                    <p className='ml-2 h-fit grow truncate bg-blue-light bg-opacity-10 px-3 pt-1.5 text-black text-opacity-70'>
-                        {eventPost.date}
+                <div className='flex rounded-md bg-gray'>
+                    <p className='ml-2 grow pt-1.5 opacity-60'>
+                        {eventPost.createdAt.slice(0, 10)}
                     </p>
                     <button
-                        className='button w-30 flex h-fit grow-0 flex-row justify-center justify-self-end truncate rounded-md bg-blue-light p-2'
+                        className='button w-30 flex grow-0 flex-row justify-center justify-self-end rounded-md bg-blue-light p-2 group-hover:bg-red dark:bg-red'
                         data-ripple-light='true'
                     >
-                        <p className='ml-3  text-white'>Read More</p>
+                        <p className='ml-3 text-white'>Read More</p>
                         <svg
                             xmlns='http://www.w3.org/2000/svg'
                             className='ml-2 mt-1 h-5 w-5 -translate-x-2 stroke-white transition duration-300 group-hover:translate-x-0'

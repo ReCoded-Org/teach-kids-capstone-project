@@ -10,7 +10,7 @@ function NewEvent({isLoggedAsNgoEvent}) {
       {isHidden ? (<AddNewEventForm setIsHidden={setIsHidden} isHidden={isHidden} />) : ("")}
       {isLoggedAsNgoEvent ?
       <div className='bg-gray'>
-      <div className='box flex flex-col bg-blue-light h-96 items-center'>
+      <div className='box flex flex-col bg-blue-light h-96 items-center font-quicksand'>
       
       <div className='text-center text-lg text-white md:max-w-md md:text-left'>
           <h1 className='mt-24 text-center text-5xl font-bold text-white'>
@@ -30,7 +30,7 @@ function NewEvent({isLoggedAsNgoEvent}) {
   </div>
        :
        <div className='bg-gray'>
-       <div className='diagonal-box flex flex-col bg-blue-light h-96 items-center'>
+       <div className='diagonal-box flex flex-col bg-blue-light h-96 items-center font-quicksand'>
        <div className='content'>
        <div className='text-center text-lg text-white md:max-w-md md:text-left'>
            <h1 className='mt-24 text-center text-5xl font-bold text-white'>
