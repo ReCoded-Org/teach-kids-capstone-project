@@ -19,7 +19,7 @@ function VolunteerProfile({userId}) {
     }
 
     function dataSender(e) {
-        Axios.put(`https://reach-capstone.herokuapp.com/api/volunteers/${userId}`, info).then(
+        Axios.patch(`https://reach-capstone.herokuapp.com/api/volunteers/${userId}`, info).then(
             (response) => {
                 // console.log(response.data)
                 setInfo(() => response.data);
@@ -70,7 +70,8 @@ function VolunteerProfile({userId}) {
     React.useEffect(() => {
         Axios.get(`https://reach-capstone.herokuapp.com/api/volunteers/${userId}`)
             .then((res) => {
-                setInfo(res.data);
+                console.log(res.data.data)
+                setInfo(res.data.data);
                 // console.log('info after useEffect', info)
             })
             .catch((err) => {
@@ -114,10 +115,11 @@ function VolunteerProfile({userId}) {
                 />
                 <div className='flex flex-col justify-start sm:basis-7/12 mt-5'>
                     <h2 className='ml-5 font-quicksand text-4xl font-semibold'>
-                        {info.name}
+                        {info.firstName} {info.lastName}
                     </h2>
                     <p className='mx-5 mt-5 pt-5 font-SourceSansPro text-sm'>
-                        {info.description}
+                        {/* {info.description} */} 
+                        I am an actor who performed tens of plays in theaters and directed some short movies, I would like to give back to the poor communities by teaching them about the art of performing. 
                     </p>
                 </div>
             </div>
