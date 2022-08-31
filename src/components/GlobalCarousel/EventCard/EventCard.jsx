@@ -16,20 +16,20 @@ const EventCard = ({ eventPost, org ,number}) => {
             <div className='flex flex-col'>
                 <a href='#'>
                     <h2 className='text-SourceSansPro mt-2 h-8 truncate text-center text-lg font-semibold text-black'>
-                        {org}
+                        {eventPost.title}
                     </h2>
                 </a>
                 <p className='mb-4 text-center  text-black '>
                     {eventPost.location}
                 </p>
                 <a href='#'>
-                    <h4 className='text-blue-light-400 mb-3 h-8 truncate text-center font-semibold '>
-                        {eventPost.title}
+                    <h4 className='mb-3 truncate text-center font-semibold uppercase text-black'>
+                        {eventPost.tags[0]} | {eventPost.tags[1]}
                     </h4>
                 </a>
                 <div className='flex rounded-md bg-white'>
                     <p className='ml-2 h-fit grow truncate bg-blue-light bg-opacity-10 px-3 pt-1.5 text-black text-opacity-70'>
-                        {eventPost.date}
+                        {eventPost.launchDate}
                     </p>
                     <button
                         className='button w-30 flex h-fit grow-0 flex-row justify-center justify-self-end truncate rounded-md bg-blue-light p-2'
